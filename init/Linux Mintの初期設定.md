@@ -14,7 +14,7 @@ $ mkdir ~/opt/
 
 ## 設定ファイルの準備
 
-設定ファイルとして、`.profile`と`.bashrc`の準備をしておく。それぞれの初期状態を`.profile-org, .bashrc-org`としてバックアップしておく。今後、設定ファイルを更新する場合は、`.profile, .bashrc`の`Add below.`以下に追記していく。
+設定ファイルとして、`.profile`と`.bashrc`の準備をしておく。それぞれの初期状態を`.profile-org`, `.bashrc-org`としてバックアップしておく。今後、設定ファイルを更新する場合は、`.profile`, `.bashrc`の`Add below.`以下に追記していく。
 
 - `.profile`: ログイン時に1度だけ読み込まれる。
 - `.bashrc`: bash起動の度に読み込まれる。
