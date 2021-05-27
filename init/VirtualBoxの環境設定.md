@@ -15,7 +15,7 @@
       4. 開かれたフォルダ内の`autorun.sh`を実行する。
          1. **実行**ボタンをクリックする。
             - （1分程度）
-         2. **「Press Return to close this window…」**と表示されたら**[ENTER]**キーを押す。
+         2. **「Press Return to close this window」**と表示されたら**[ENTER]**キーを押す。
       5. `VBox_GAs_6.＊.＊＊`を右クリックし、**取り出す**を選択する。
       6. Linuxを再起動する。
          - ウィンドウサイズを変更したときに、Linuxの画面が自動的にリサイズされることを確認する。
