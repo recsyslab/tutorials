@@ -45,5 +45,5 @@ $ less ~/.bashrc-org
 $ diff ~/.bashrc-org ~/.bashrc
 ```
 
-### 参考
+#### 参考
 - OXY NOTES, [ユーザーの環境変数を設定するbashの設定ファイルと、カスタムプロンプトについて](https://oxynotes.com/?p=5418)
