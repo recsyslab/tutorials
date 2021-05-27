@@ -22,7 +22,7 @@ HP ProBook 430 G3, G5の場合
    4. **Main > Save Changes and Exit**を選択する。
       - **Save Changes**: `Yes`
 
-## VirtualBox上でのLinux Mint 19.1 MATE 64-bitの仮想マシンの構築
+## VirtualBox上でのLinux Mint 20.1 MATE 64-bitの仮想マシンの構築
 1. 下記からLinux Mint 20.1のISOファイルをダウンロードする。
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 20.1 "Ulyssa" - MATE (64-bit)**: `linuxmint-20.1-mate-64bit.iso`
