@@ -18,6 +18,6 @@ HP ProBook 430 G3, G5の場合
    1. [Network (PXE) Boot Menu]で[Esc]を選択する。
    2. [Startup Menu] – [BIOS Setup (F10)]を選択する。
    3. [Advanced] – [System Options]を開き、下記を設定する。
-      - [Virtualization Technology (VTx)]: チェック
+      - Virtualization Technology (VTx): チェック
    4. [Main] – [Save Changes and Exit]を選択する。
-      - [Save Changes]: Yes
+      - Save Changes: Yes
