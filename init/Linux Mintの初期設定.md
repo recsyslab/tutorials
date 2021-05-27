@@ -63,3 +63,14 @@ $ diff /etc/apt/sources.list /etc/apt/sources.list-org
 
 #### 参考
 - Linuxゲリラ戦記, [/etc/apt/sources.list（パッケージのダウンロード元設定ファイル・Debian）](https://www.garunimo.com/program/linux/_etc_apt_sources_list.php)
+
+## 正確な時刻を設定する
+
+```bash
+$ date
+$ sudo date --set @"$(wget -q https://ntp-a1.nict.go.jp/cgi-bin/jst -O - | sed -n 4p | cut -d. -f1)"
+$ date
+```
+
+#### 参考
+- Qiita, [ntpを使わずに時刻を合わせるワンライナー](https://qiita.com/pankona/items/258fed78c168918a8ad2)
