@@ -6,14 +6,14 @@
    2. 下の**Edit the selected connection**ボタンをクリックする。
       1. **IPv4 Settings**タブを開く。
          1. 下記を設定する。
-           - 固定IPアドレスの場合:
-             - **Method**: `Manual`
-             - **Address**: 【指定のIPアドレス】
-             - **Netmask**: 【指定のサブネットマスク】
-             - **Gateway**: 【指定のゲートウェイ】
-             - **DNS Servers**: 【指定のDNSサーバ】
-           - DHCPの場合:
-             - **Method**: `Automatic (DHCP)`
+            - 固定IPアドレスの場合:
+              - **Method**: `Manual`
+              - **Address**: 【指定のIPアドレス】
+              - **Netmask**: 【指定のサブネットマスク】
+              - **Gateway**: 【指定のゲートウェイ】
+              - **DNS Servers**: 【指定のDNSサーバ】
+            - DHCPの場合:
+              - **Method**: `Automatic (DHCP)`
       2. **Save**ボタンをクリックする。
    3. 右上の**Close Window**ボタンをクリックする。
 2. Linux MintデスクトップからInstall Linux Mintを実行する。
