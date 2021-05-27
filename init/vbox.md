@@ -16,7 +16,7 @@
 HP ProBook 430 G3, G5の場合
 1. PC起動時に**F12**キーを押し続け、BIOS画面に入る。
    1. **Network (PXE) Boot Menu**で**Esc**を選択する。
-   2. **Startup Menu > BIOS Setup (F10)**を選択する。
+   2. **Startup Menu > BIOS Setup（F10）**を選択する。
    3. **Advanced > System Options**を開き、下記を設定する。
       - **Virtualization Technology (VTx)**: チェック
    4. **Main > Save Changes and Exit**を選択する。
@@ -27,7 +27,7 @@ HP ProBook 430 G3, G5の場合
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 20.1 "Ulyssa" - MATE (64-bit)**: `linuxmint-20.1-mate-64bit.iso`
 2. **Oracle VM VirtualBox マネージャー**を起動する。
-   1. **仮想マシン > 新規…**を開く。
+   1. **仮想マシン > 新規**を開く。
    2. **仮想マシンの作成**ダイアログで下記を設定する。
       - **名前**: `Linux Mint 20.1 MATE 64-bit`
       - **マシンフォルダー**: `C:\Users\【ユーザアカウント名】\VirtualBox VMs`
