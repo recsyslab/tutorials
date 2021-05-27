@@ -70,4 +70,5 @@ HP ProBook 430 G3, G5の場合
                   - ダウンロードした`linuxmint-20.1-mate-64bit.iso`を選択する。
        2. **OK**ボタンをクリックする。
      7. 設定した仮想マシン``Linux Mint 20.1 MATE 64-bit``を選択し、**起動**ボタンをクリックする。
-     8. Linux Mintのインストールの手順にしたがって、Linux Mintをインストールする。
+     8. [Linux Mintのインストール](https://github.com/recsyslab/tutorials/blob/main/init/Linux%20Mint%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.md)の手順にしたがって、Linux Mintをインストールする。
+
