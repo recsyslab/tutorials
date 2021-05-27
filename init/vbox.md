@@ -27,7 +27,7 @@ HP ProBook 430 G3, G5の場合
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 20.1 "Ulyssa" - MATE (64-bit)**: `linuxmint-20.1-mate-64bit.iso`
 2. **Oracle VM VirtualBox マネージャー**を起動する。
-   1. **仮想マシン > 新規**ボタンをクリックする。
+   1. **仮想マシン > 新規**を開く。
    2. **仮想マシンの作成**ダイアログで下記を設定する。
       - **名前**: `Linux Mint 20.1 MATE 64-bit`
       - **マシンフォルダー**: `C:\Users\【ユーザアカウント名】\VirtualBox VMs`
