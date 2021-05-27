@@ -72,3 +72,6 @@ HP ProBook 430 G3, G5の場合
      7. 設定した仮想マシン``Linux Mint 20.1 MATE 64-bit``を選択し、**起動**ボタンをクリックする。
      8. [Linux Mintのインストール](https://github.com/recsyslab/tutorials/blob/main/init/Linux%20Mint%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.md)の手順にしたがって、Linux Mintをインストールする。
 
+## 参考
+- PC設定のカルマ, [VirtualBoxでOS間のクリップボードを共有する方法](https://pc-karuma.net/virtualbox-clipboard-share/)
+- 情報科学屋さんを目指す人のメモ, [VirtualBox：仮想マシンの作成で64bit OSを選択可能にする方法](https://did2memo.net/2015/07/10/virtualbox-64-bit-os/)
