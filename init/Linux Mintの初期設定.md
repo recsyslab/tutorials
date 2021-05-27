@@ -68,9 +68,9 @@ $ diff /etc/apt/sources.list /etc/apt/sources.list-org
 
 ```bash
 $ date
-$ sudo date --set @"$(wget -q https://ntp-a1.nict.go.jp/cgi-bin/jst -O - | sed -n 4p | cut -d. -f1)"
+$ ntpdate ntp.nict.jp
 $ date
 ```
 
 #### 参考
-- Qiita, [ntpを使わずに時刻を合わせるワンライナー](https://qiita.com/pankona/items/258fed78c168918a8ad2)
+- ＠IT, [【 ntpdate 】コマンド――時刻をNTPサーバと同期する](https://www.atmarkit.co.jp/ait/articles/1906/21/news013.html)
