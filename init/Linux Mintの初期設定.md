@@ -47,3 +47,19 @@ $ diff ~/.bashrc-org ~/.bashrc
 
 #### 参考
 - OXY NOTES, [ユーザーの環境変数を設定するbashの設定ファイルと、カスタムプロンプトについて](https://oxynotes.com/?p=5418)
+
+### `/etc/apt/sources.list`のバックアップ
+
+```bash
+$ ls /etc/apt/
+$ less /etc/apt/sources.list
+$ sudo cp /etc/apt/sources.list /etc/apt/sources.list-org
+$ ls /etc/apt/
+$ sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
+$ less /etc/apt/sources.list
+$ less /etc/apt/sources.list-org
+$ diff /etc/apt/sources.list /etc/apt/sources.list-org
+```
+
+#### 参考
+- Linuxゲリラ戦記, [/etc/apt/sources.list（パッケージのダウンロード元設定ファイル・Debian）](https://www.garunimo.com/program/linux/_etc_apt_sources_list.php)
