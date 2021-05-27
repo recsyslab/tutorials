@@ -16,7 +16,7 @@
               - **Method**: `Automatic (DHCP)`
       2. **Save**ボタンをクリックする。
    3. 右上の**Close Window**ボタンをクリックする。
-2. Linux MintデスクトップからInstall Linux Mintを実行する。
+2. Linux Mintデスクトップから`Install Linux Mint`を実行する。
    1. **インストール**ダイアログにしたがって下記を設定する。
       - `日本語`
       - **キーボードレイアウトの選択**: `日本語 – 日本語 - 日本語(OADG 109A)`
