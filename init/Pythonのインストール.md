@@ -13,17 +13,17 @@ sudo apt install python3-gdal	# GDALのインストールに必要
 ```bash
 mkdir -p ~/opt/python/
 cd ~/src/
-wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
-xz -dc Python-3.8.2.tar.xz| tar xfv -
-cd Python-3.8.2/
-./configure --prefix=【HOME】/opt/python --with-ensurepip=install
+wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tar.xz
+xz -dc Python-3.9.5.tar.xz| tar xfv -
+cd Python-3.9.5/
+./configure --prefix=/home/rsl/opt/python --with-ensurepip=install
 # ...（3分程度）...
 make 2>&1 | tee make.log
 # ...（3分程度）... 
 make altinstall
 # ...（2分程度）... 
 cd ../
-rm -f Python-3.8.2.tar.xz
+rm -f Python-3.9.5.tar.xz
 ```
 
 ## インストール結果の確認
