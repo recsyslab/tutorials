@@ -49,10 +49,7 @@ echo $PATH
 
 ## バージョンの確認
 ```bash
-python --version
-python2 --version
-python2.7 --version
 python3 --version
-python3.6 --version
 python3.8 --version
+python3.9 --version
 ```
