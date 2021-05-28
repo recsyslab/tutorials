@@ -2,8 +2,8 @@
 
 ## PostgreSQL 12とPostGISのインストール
 ```bash
-$ sudo apt install postgresql
-$ sudo apt install postgis
+sudo apt install postgresql
+sudo apt install postgis
   # ...（3分程度）...
 ```
 
