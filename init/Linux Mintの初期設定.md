@@ -5,9 +5,9 @@
 - `~/src/`: ソースからインスト―する際に必要なファイルを置いておく。
 - `~/opt/`: 追加したアプリケーションを置いておく。
 ```bash
-$ mkdir ~/bin/
-$ mkdir ~/src/
-$ mkdir ~/opt/
+mkdir ~/bin/
+mkdir ~/src/
+mkdir ~/opt/
 ```
 
 ## 設定ファイルの準備
@@ -17,26 +17,26 @@ $ mkdir ~/opt/
 
 ### `.profile`の準備
 ```bash
-$ ls -a
-$ less ~/.profile
-$ cp ~/.profile ~/.profile-org
-$ ls -a
-$ echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
-$ less ~/.profile
-$ less ~/.profile-org
-$ diff ~/.profile-org ~/.profile
+ls -a
+less ~/.profile
+cp ~/.profile ~/.profile-org
+ls -a
+echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
+less ~/.profile
+less ~/.profile-org
+diff ~/.profile-org ~/.profile
 ```
 
 ### `.bashrc`の準備
 ```bash
-$ ls -a
-$ less ~/.bashrc
-$ cp ~/.bashrc ~/.bashrc-org
-$ ls -a
-$ echo -e '\n\n#### #### Add below. #### ####' >> ~/.bashrc
-$ less ~/.bashrc
-$ less ~/.bashrc-org
-$ diff ~/.bashrc-org ~/.bashrc
+ls -a
+less ~/.bashrc
+cp ~/.bashrc ~/.bashrc-org
+ls -a
+echo -e '\n\n#### #### Add below. #### ####' >> ~/.bashrc
+less ~/.bashrc
+less ~/.bashrc-org
+diff ~/.bashrc-org ~/.bashrc
 ```
 
 #### 参考
@@ -44,14 +44,14 @@ $ diff ~/.bashrc-org ~/.bashrc
 
 ### `/etc/apt/sources.list`のバックアップ
 ```bash
-$ ls /etc/apt/
-$ less /etc/apt/sources.list
-$ sudo cp /etc/apt/sources.list /etc/apt/sources.list-org
-$ ls /etc/apt/
-$ sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
-$ less /etc/apt/sources.list
-$ less /etc/apt/sources.list-org
-$ diff /etc/apt/sources.list /etc/apt/sources.list-org
+ls /etc/apt/
+less /etc/apt/sources.list
+sudo cp /etc/apt/sources.list /etc/apt/sources.list-org
+ls /etc/apt/
+sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
+less /etc/apt/sources.list
+less /etc/apt/sources.list-org
+diff /etc/apt/sources.list /etc/apt/sources.list-org
 ```
 
 #### 参考
@@ -59,9 +59,9 @@ $ diff /etc/apt/sources.list /etc/apt/sources.list-org
 
 ## 正確な時刻を設定する
 ```bash
-$ date
-$ ntpdate ntp.nict.jp
-$ date
+date
+ntpdate ntp.nict.jp
+date
 ```
 
 #### 参考
@@ -72,9 +72,9 @@ $ date
 
 ### `apt upgrade`によるアップグレード
 ```bash
-$ sudo apt update
-$ sudo apt upgrade
-  # ...（20分程度）...
+sudo apt update
+sudo apt upgrade
+# ...（20分程度）...
 ```
 
 ### アップデートマネージャによるアップグレード
@@ -88,11 +88,11 @@ $ sudo apt upgrade
 
 ## ディレクトリ名を英語表記に変更
 ```bash
-$ ls
-$ LANG=C xdg-user-dirs-gtk-update
-  # ダイアログが表示されるので、**Update Names**ボタンをクリックする。
-$ ls
-  # ディレクトリ名が英語になっていることを確認する．
+ls
+LANG=C xdg-user-dirs-gtk-update
+# ダイアログが表示されるので、**Update Names**ボタンをクリックする。
+ls
+# ディレクトリ名が英語になっていることを確認する．
 ```
 
 #### 参考
@@ -100,17 +100,17 @@ $ ls
 
 ## `sysv-rc-conf`のインストール
 ```bash
-$ cd ~/src/
-$ wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
-$ tar zxvf sysv-rc-conf_0.99.orig.tar.gz
-$ cd sysv-rc-conf-0.99
-$ sudo make
-$ sudo make install
-$ sudo apt install libcurses-ui-perl libterm-readkey-perl libcurses-perl
-$ sudo sysv-rc-conf
-  # [h]キーでバージョンを確認できる．
-$ cd ../
-$ rm -f sysv-rc-conf_0.99.orig.tar.gz
+cd ~/src/
+wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
+tar zxvf sysv-rc-conf_0.99.orig.tar.gz
+cd sysv-rc-conf-0.99
+sudo make
+sudo make install
+sudo apt install libcurses-ui-perl libterm-readkey-perl libcurses-perl
+sudo sysv-rc-conf
+# [h]キーでバージョンを確認できる．
+cd ../
+rm -f sysv-rc-conf_0.99.orig.tar.gz
 ```
 
 #### 参考
@@ -118,37 +118,37 @@ $ rm -f sysv-rc-conf_0.99.orig.tar.gz
 
 ## ファイアウォールの設定
 ```bash
-$ sudo apt install gufw
-$ sudo ufw status
-$ sudo ufw enable
-$ sudo ufw default deny
-$ sudo ufw status
+sudo apt install gufw
+sudo ufw status
+sudo ufw enable
+sudo ufw default deny
+sudo ufw status
 ```
 
 ## スタートアップシェルスクリプトの作成
 サーバの起動やドライブのマウントなど、Linux起動時に行いたいことはスタートアップシェルスクリプトに記述しておくと良い。下記では、スタートアップシェルスクリプトとして`startup.sh`を作成しておく。今後は、必要に応じて、このファイルに追記していく。
 ```bash
-$ echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
-$ ls -l ~/bin/
-$ chmod +x ~/bin/startup.sh
-$ ls -l ~/bin/
-$ less ~/bin/startup.sh
+echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
+ls -l ~/bin/
+chmod +x ~/bin/startup.sh
+ls -l ~/bin/
+less ~/bin/startup.sh
 ```
 Linux起動時に、下記コマンドを実行すると良い。
 ```bash
-$ ~/bin/startup.sh
+~/bin/startup.sh
 ```
 
 ## Windows共有フォルダのマウント # VirtualBox経由の場合
 ```bash
-$ ls /mnt/
-$ less ~/bin/startup.sh
-$ sudo mkdir -p /mnt/c/
-$ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
-$ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
-$ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
-$ echo -e 'df -h\n' >> ~/bin/startup.sh
-$ less ~/bin/startup.sh
-$ ~/bin/startup.sh
-$ ls /mnt/c/
+ls /mnt/
+less ~/bin/startup.sh
+sudo mkdir -p /mnt/c/
+echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
+echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
+echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
+echo -e 'df -h\n' >> ~/bin/startup.sh
+less ~/bin/startup.sh
+~/bin/startup.sh
+ls /mnt/c/
 ```
