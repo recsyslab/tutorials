@@ -6,7 +6,7 @@ sudo apt install libbz2-dev # pandasをインポートする際に必要
 sudo apt install python3-tk # matplotlib.show()で画像を表示する際に必要
 sudo apt install libgdal-dev	# GDALのインストールに必要
 sudo apt install python3-gdal	# GDALのインストールに必要
-# ...（15:24分程度）...
+# ...（5分程度）...
 ```
 
 ## インストール
