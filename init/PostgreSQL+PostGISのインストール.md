@@ -102,7 +102,7 @@ postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
 postgres=# \l
 postgres=# \c gistest
 gistest=# \d
-gistest=# CREATE EXTENSION postgis;
+CREATE EXTENSION postgis;
 gistest=# SELECT postgis_full_version();
 gistest=# CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
 gistest=# CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
