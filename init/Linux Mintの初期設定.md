@@ -90,9 +90,7 @@ $ sudo apt upgrade
 ```bash
 $ ls
 $ LANG=C xdg-user-dirs-gtk-update
-```
-1. ダイアログが表示されるので、**Update Names**ボタンをクリックする。
-```
+  # ダイアログが表示されるので、**Update Names**ボタンをクリックする。
 $ ls
   # ディレクトリ名が英語になっていることを確認する．
 ```
@@ -116,8 +114,9 @@ $ rm -f sysv-rc-conf_0.99.orig.tar.gz
 ```
 
 #### 参考
-- Qiita, Ubuntu 16.10でsysv-rc-confが入らないので手動で入れた話
-ファイアウォールの設定
+- Qiita, [Ubuntu18.04 LTSにsysv-rc-confを入れる方法](https://gcga.jp/blog/2018/08/10/205/)
+
+
 1
 2
 3
