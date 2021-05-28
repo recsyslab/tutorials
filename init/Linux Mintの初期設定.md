@@ -134,7 +134,7 @@ $ chmod +x ~/bin/startup.sh
 $ ls -l ~/bin/
 $ less ~/bin/startup.sh
 ```
-Linux起動時に，下記コマンドを実行すると良い．
+Linux起動時に、下記コマンドを実行すると良い。
 ```bash
 $ ~/bin/startup.sh
 ```
