@@ -89,8 +89,8 @@ $ sudo -u postgres psql
 
 ```pgsql
 postgres=# \q
-# 設定したパスワードを入力してログインできることを確認する．
+# 設定したパスワードを入力してログインできることを確認する。
 ```
 
-参考
-Qiita, peer認証の関係でpsqlログインできない時の対処法
+#### 参考
+- Qiita, [peer認証の関係でpsqlログインできない時の対処法](https://qiita.com/tomlla/items/9fa2feab1b9bd8749584)
