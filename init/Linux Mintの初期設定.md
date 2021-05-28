@@ -116,45 +116,31 @@ $ rm -f sysv-rc-conf_0.99.orig.tar.gz
 #### 参考
 - Qiita, [Ubuntu18.04 LTSにsysv-rc-confを入れる方法](https://gcga.jp/blog/2018/08/10/205/)
 
-
-1
-2
-3
-4
-5
+## ファイアウォールの設定
+```bash
 $ sudo apt install gufw
 $ sudo ufw status
 $ sudo ufw enable
 $ sudo ufw default deny
 $ sudo ufw status
-スタートアップシェルスクリプトの作成
-サーバの起動やドライブのマウントなど，Linux起動時に行いたいことはスタートアップシェルスクリプトに記述しておくと良い．下記では，スタートアップシェルスクリプトとしてstartup.shを作成しておく．今後は，必要に応じて，このファイルに追記していく．
+```
 
-1
-2
-3
-4
-5
+## スタートアップシェルスクリプトの作成
+サーバの起動やドライブのマウントなど，Linux起動時に行いたいことはスタートアップシェルスクリプトに記述しておくと良い．下記では，スタートアップシェルスクリプトとしてstartup.shを作成しておく．今後は，必要に応じて，このファイルに追記していく．
+```bash
 $ echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
 $ ls -l ~/bin/
 $ chmod +x ~/bin/startup.sh
 $ ls -l ~/bin/
 $ less ~/bin/startup.sh
+```
 Linux起動時に，下記コマンドを実行すると良い．
-
-1
+```bash
 $ ~/bin/startup.sh
-Windows共有フォルダのマウント # VirtualBox経由の場合
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+```
+
+## Windows共有フォルダのマウント # VirtualBox経由の場合
+```bash
 $ ls /mnt/
 $ less ~/bin/startup.sh
 $ sudo mkdir -p /mnt/c/
@@ -165,4 +151,4 @@ $ echo -e 'df -h\n' >> ~/bin/startup.sh
 $ less ~/bin/startup.sh
 $ ~/bin/startup.sh
 $ ls /mnt/c/
-
+```
