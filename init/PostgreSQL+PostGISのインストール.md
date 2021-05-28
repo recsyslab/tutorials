@@ -94,3 +94,24 @@ postgres=# \q
 
 #### 参考
 - Qiita, [peer認証の関係でpsqlログインできない時の対処法](https://qiita.com/tomlla/items/9fa2feab1b9bd8749584)
+
+## PostGISの動作テスト
+```pgsql
+postgres=# \l
+postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
+postgres=# \l
+postgres=# \c gistest
+gistest=# \d
+gistest=# CREATE EXTENSION postgis;
+gistest=# SELECT postgis_full_version();
+gistest=# CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
+gistest=# CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
+gistest=# INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
+gistest=# SELECT ST_AsText(polygon) AS polygon FROM gissample;
+gistest=# \d
+gistest=# \q
+```
+
+#### 参考
+- 黒い猫の開発日記, [PostGISを利用してみる。](https://cats-mew.hatenadiary.org/entry/20090811/1249976482)
+  - ただし、`GeomFromText`は`ST_GeomFromText`に、`AsText`は`ST_AsText`に読み替える必要がある。
