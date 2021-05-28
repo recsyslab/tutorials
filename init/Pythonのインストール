@@ -1,0 +1,58 @@
+# Pythonのインストール
+
+## 事前準備
+```bash
+sudo apt install libbz2-dev # pandasをインポートする際に必要
+sudo apt install python3-tk # matplotlib.show()で画像を表示する際に必要
+sudo apt install libgdal-dev	# GDALのインストールに必要
+sudo apt install python3-gdal	# GDALのインストールに必要
+# ...（15:24分程度）...
+```
+
+## インストール
+```bash
+mkdir -p ~/opt/python/
+cd ~/src/
+wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+xz -dc Python-3.8.2.tar.xz| tar xfv -
+cd Python-3.8.2/
+./configure --prefix=【HOME】/opt/python --with-ensurepip=install
+# ...（3分程度）...
+make 2>&1 | tee make.log
+# ...（3分程度）... 
+make altinstall
+# ...（2分程度）... 
+cd ../
+rm -f Python-3.8.2.tar.xz
+```
+
+## インストール結果の確認
+```bash
+cd ~/opt/python/
+ls
+cd bin/
+ls -alh
+```
+
+## パスの設定
+```bash
+echo $PATH
+less ~/.profile
+echo -e '\n# Pythonインストール時に追加' >> ~/.profile
+echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
+less ~/.profile
+diff ~/.profile-org ~/.profile
+echo $PATH
+source ~/.profile
+echo $PATH
+```
+
+## バージョンの確認
+```bash
+python --version
+python2 --version
+python2.7 --version
+python3 --version
+python3.6 --version
+python3.8 --version
+```
