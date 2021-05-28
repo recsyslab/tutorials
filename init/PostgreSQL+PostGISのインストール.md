@@ -97,6 +97,7 @@ postgres=# \q
 
 ## PostGISの動作テスト
 ```pgsql
+SELECT * FROM gistest;
 postgres=# \l
 postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
 postgres=# \l
