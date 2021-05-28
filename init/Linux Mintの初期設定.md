@@ -100,3 +100,70 @@ $ ls
 #### 参考
 - Qiita, [「デスクトップ」等のディレクトリ名を英語にする](https://qiita.com/take5249/items/13ada73bbd01ee12a2c3)
 
+## `sysv-rc-conf`のインストール
+```bash
+$ cd ~/src/
+$ wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
+$ tar zxvf sysv-rc-conf_0.99.orig.tar.gz
+$ cd sysv-rc-conf-0.99
+$ sudo make
+$ sudo make install
+$ sudo apt install libcurses-ui-perl libterm-readkey-perl libcurses-perl
+$ sudo sysv-rc-conf
+  # [h]キーでバージョンを確認できる．
+$ cd ../
+$ rm -f sysv-rc-conf_0.99.orig.tar.gz
+```
+
+#### 参考
+- Qiita, Ubuntu 16.10でsysv-rc-confが入らないので手動で入れた話
+ファイアウォールの設定
+1
+2
+3
+4
+5
+$ sudo apt install gufw
+$ sudo ufw status
+$ sudo ufw enable
+$ sudo ufw default deny
+$ sudo ufw status
+スタートアップシェルスクリプトの作成
+サーバの起動やドライブのマウントなど，Linux起動時に行いたいことはスタートアップシェルスクリプトに記述しておくと良い．下記では，スタートアップシェルスクリプトとしてstartup.shを作成しておく．今後は，必要に応じて，このファイルに追記していく．
+
+1
+2
+3
+4
+5
+$ echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
+$ ls -l ~/bin/
+$ chmod +x ~/bin/startup.sh
+$ ls -l ~/bin/
+$ less ~/bin/startup.sh
+Linux起動時に，下記コマンドを実行すると良い．
+
+1
+$ ~/bin/startup.sh
+Windows共有フォルダのマウント # VirtualBox経由の場合
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+$ ls /mnt/
+$ less ~/bin/startup.sh
+$ sudo mkdir -p /mnt/c/
+$ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
+$ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
+$ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
+$ echo -e 'df -h\n' >> ~/bin/startup.sh
+$ less ~/bin/startup.sh
+$ ~/bin/startup.sh
+$ ls /mnt/c/
+
