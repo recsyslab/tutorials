@@ -2,8 +2,8 @@
 
 ## PostgreSQL 12とPostGISのインストール
 ```bash
-sudo apt install postgresql
-sudo apt install postgis
+$ sudo apt install postgresql
+$ sudo apt install postgis
   # ...（3分程度）...
 ```
 
@@ -97,20 +97,19 @@ postgres=# \q
 
 ## PostGISの動作テスト
 ```pgsql
-SELECT * FROM gistest;
-postgres=# \l
-postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
-postgres=# \l
-postgres=# \c gistest
-gistest=# \d
+\l
+CREATE DATABASE gistest ENCODING 'UTF8';
+\l
+\c gistest
+\d
 CREATE EXTENSION postgis;
-gistest=# SELECT postgis_full_version();
-gistest=# CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
-gistest=# CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
-gistest=# INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
-gistest=# SELECT ST_AsText(polygon) AS polygon FROM gissample;
-gistest=# \d
-gistest=# \q
+SELECT postgis_full_version();
+CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
+CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
+INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
+SELECT ST_AsText(polygon) AS polygon FROM gissample;
+\d
+\q
 ```
 
 #### 参考
