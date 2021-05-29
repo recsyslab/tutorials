@@ -10,7 +10,7 @@ sudo rm -rf /var/symantec/
 ```
 
 ## PostGIS 2.5のインストール（aptから）ができない
-この方法ではうまくインストールできなかったので、[PostGIS 2.5のインストール（ソースから）]のインストールを実行する。
+この方法ではうまくインストールできなかったので、[PostGIS 2.5のインストール（ソースから）](旧版.md#postgis-25%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89)のインストールを実行する。
 ```bash
 sudo apt install postgresql-11-postgis-2.5
 ```
