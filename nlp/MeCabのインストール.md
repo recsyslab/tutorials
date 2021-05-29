@@ -38,9 +38,9 @@ ls /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
 sudo vi /etc/mecabrc
 ```
 
-1. mecabrcの下記の箇所を書き換える。
+`mecabrc`の下記の箇所を書き換える。
 
-`pg_hba.conf`
+`mecabrc`
 ```bash
 ...（略）...
 dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
@@ -52,6 +52,12 @@ less /etc/mecabrc
 diff /etc/mecabrc-org /etc/mecabrc
 mecab
 # mecabを実行し、辞書が反映されていることを確認する。
+```
+
+## 設定ファイルのコピー
+PythonからMeCabを利用する際には、`usr/local/etc`を読みに行くため、`mecabrc`を`/usr/local/etc/`にコピーしておく。
+```bash
+sudo cp /etc/mecabrc /usr/local/etc/
 ```
 
 #### 参考
