@@ -59,6 +59,8 @@ pip install pandas
 pip install scikit-learn
 pip install psycopg2-binary
 pip install tqdm
+pip install mecab-python3
+python
 ```
 
 ### インストール済みパッケージ一覧の確認
