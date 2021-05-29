@@ -152,3 +152,8 @@ less ~/bin/startup.sh
 ~/bin/startup.sh
 ls /mnt/c/
 ```
+
+## gitのインストール
+```bash
+sudo apt install git
+```
