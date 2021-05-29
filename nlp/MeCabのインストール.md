@@ -48,9 +48,11 @@ dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
 ```
 
 ```bash
-diff /etc/mecabrc /etc/mecabrc-org
+less /etc/mecabrc
+diff /etc/mecabrc-org /etc/mecabrc
+mecab
+# mecabを実行し、辞書が反映されていることを確認する。
 ```
-mecabを実行し，辞書が反映されていることを確認する．
 
-参考
-Qiita, ubuntu 18.10 に mecab をインストール
+#### 参考
+- Qiita, [ubuntu 18.10 に mecab をインストール](https://qiita.com/ekzemplaro/items/c98c7f6698f130b55d53)
