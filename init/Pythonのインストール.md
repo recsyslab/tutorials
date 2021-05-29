@@ -2,10 +2,11 @@
 
 ## 事前準備
 ```bash
-sudo apt install libbz2-dev # pandasをインポートする際に必要
+sudo apt install libbz2-dev # pandasのインポートに必要
 sudo apt install python3-tk # matplotlib.show()で画像を表示する際に必要
 sudo apt install libgdal-dev	# GDALのインストールに必要
 sudo apt install python3-gdal	# GDALのインストールに必要
+sudo apt install libffi-dev # scikit-learnのインポートに必要
 # ...（5分程度）...
 ```
 
