@@ -26,6 +26,9 @@ cd ../
 rm -f Python-3.9.5.tar.xz
 ```
 
+#### 参考
+- 組み込みの人。, [makeコマンドのちょっとしたtips](https://embedded.hatenadiary.org/entry/20090416/p1)
+
 ## インストール結果の確認
 ```bash
 cd ~/opt/python/
