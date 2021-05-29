@@ -35,8 +35,8 @@ ls /etc/postgresql/
 ライブラリ等を新たにインストールした場合は、下記手順によりPythonを再インストールする。
 ```bash
 rm -rf ~/opt/python/
-cd ~/src/Python-3.9/
-./configure --prefix=【HOME】/opt/python --with-ensurepip=install
+cd ~/src/Python-3.9.5/
+./configure --prefix=/home/rsl/opt/python --with-ensurepip=install
 # ...（3分程度）...
 make 2>&1 | tee make.log
 make altinstall
