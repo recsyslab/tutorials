@@ -1,0 +1,54 @@
+# MeCabのインストール
+
+## mecabのインストール
+```bash
+sudo apt install mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8
+```
+
+## 設定ファイルの準備
+```bash
+ls /etc/
+less /etc/mecabrc
+sudo cp /etc/mecabrc /etc/mecabrc-org
+ls /etc/
+```
+
+## mecabの実行
+```bash
+mecab
+```
+
+## mecab-ipadic-NEologdのインストール
+```bash
+cd ~/src/
+git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
+cd mecab-ipadic-neologd/
+sudo ./bin/install-mecab-ipadic-neologd -n -a
+[install-mecab-ipadic-NEologd] : Do you want to install mecab-ipadic-NEologd? Type yes or no.
+yes
+```
+
+設定ファイルの編集
+1
+2
+3
+4
+5
+$ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
+# ここでインストール先ディレクトリを確認する．
+# 例；/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
+$ ls /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
+$ sudo vi /etc/mecabrc
+mecabrcの下記の箇所を書き換える．
+
+pg_hba.conf
+1
+2
+3
+...（略）...
+dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
+...（略）...
+mecabを実行し，辞書が反映されていることを確認する．
+
+参考
+Qiita, ubuntu 18.10 に mecab をインストール
