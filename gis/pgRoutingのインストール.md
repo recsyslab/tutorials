@@ -12,7 +12,7 @@ sudo -u postgres psql
 
 ```pgsql
 \l
-gistest
+\c gistest
 \d
 CREATE EXTENSION pgrouting;
 SELECT * FROM pgr_version();
