@@ -26,28 +26,30 @@ cd mecab-ipadic-neologd/
 sudo ./bin/install-mecab-ipadic-neologd -n -a
 [install-mecab-ipadic-NEologd] : Do you want to install mecab-ipadic-NEologd? Type yes or no.
 yes
+# ...（1分程度）...
 ```
 
-設定ファイルの編集
-1
-2
-3
-4
-5
-$ echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
+## 設定ファイルの編集
+```bash
+echo `mecab-config --dicdir`"/mecab-ipadic-neologd"
 # ここでインストール先ディレクトリを確認する．
 # 例；/usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
-$ ls /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
-$ sudo vi /etc/mecabrc
-mecabrcの下記の箇所を書き換える．
+ls /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
+sudo vi /etc/mecabrc
+```
 
-pg_hba.conf
-1
-2
-3
+1. mecabrcの下記の箇所を書き換える。
+
+`pg_hba.conf`
+```bash
 ...（略）...
 dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd
 ...（略）...
+```
+
+```bash
+diff /etc/mecabrc /etc/mecabrc-org
+```
 mecabを実行し，辞書が反映されていることを確認する．
 
 参考
