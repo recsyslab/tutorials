@@ -26,9 +26,6 @@ cd ../
 rm -f Python-3.9.5.tar.xz
 ```
 
-#### 参考
-- 組み込みの人。, [makeコマンドのちょっとしたtips](https://embedded.hatenadiary.org/entry/20090416/p1)
-
 ## インストール結果の確認
 ```bash
 cd ~/opt/python/
@@ -56,3 +53,7 @@ python3 --version
 python3.8 --version
 python3.9 --version
 ```
+
+#### 参考
+- Doitu.info, [既存のPython環境を壊すことなく、自分でビルドしてインストールする（altinstall）](https://doitu.info/blog/5c45e5ec8dbc7a001af33ce8)
+- 組み込みの人。, [makeコマンドのちょっとしたtips](https://embedded.hatenadiary.org/entry/20090416/p1)
