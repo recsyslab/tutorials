@@ -51,7 +51,7 @@ ls /etc/apt/
 sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
 less /etc/apt/sources.list
 less /etc/apt/sources.list-org
-diff /etc/apt/sources.list /etc/apt/sources.list-org
+diff /etc/apt/sources.list-org /etc/apt/sources.list
 ```
 
 #### 参考
