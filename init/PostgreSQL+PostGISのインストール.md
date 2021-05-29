@@ -1,4 +1,4 @@
-# PostgreSQL+PostGISのインストール.md
+# PostgreSQL+PostGISのインストール
 
 ## PostgreSQL 12とPostGISのインストール
 ```bash
