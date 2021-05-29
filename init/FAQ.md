@@ -42,15 +42,16 @@ make 2>&1 | tee make.log
 make altinstall
 ```
 
-ウィンドウのタイトルバー（最小化，最大化，閉じるボタンがあるバー）が消えてしまった
-[Menu] – [コントロールセンター]を開く．
-[自動起動するアプリ]を開く．
-[自動起動するプログラム]で[追加]ボタンをクリックし，下記を設定する．
-[名前]]: Compiz
-[コマンド]: compiz --replace
-[追加]ボタンをクリックする．
-[閉じる]ボタンをクリックする．
-Linux Mintを再起動する．
-参考
-221B Baker Street, Linux Mint 18 MATE: MATE で「Compiz」を使う
-Linuxとは日記, Ubuntuのウィンドウのボタンが消えた時の解決法
+## ウィンドウのタイトルバー（最小化，最大化，閉じるボタンがあるバー）が消えてしまった
+1. **Menu > コントロールセンター>を開く。
+   1. **自動起動するアプリ**を開く。
+      1. **自動起動するプログラム > 追加**ボタンをクリックし、下記を設定する。
+      - **名前**: `Compiz`
+      - **コマンド**: `compiz --replace`
+      2. **追加**ボタンをクリックする。
+   2. **閉じる**ボタンをクリックする。
+2. Linux Mintを再起動する。
+
+#### 参考
+- 221B Baker Street, [Linux Mint 18 MATE: MATE で「Compiz」を使う](http://baker-street.jugem.jp/?eid=61)
+- Linuxとは日記, [Ubuntuのウィンドウのボタンが消えた時の解決法](https://kouritool.com/what-linux/ubuntu%E3%81%AE%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E3%83%9C%E3%82%BF%E3%83%B3%E3%81%8C%E6%B6%88%E3%81%88%E3%81%9F%E6%99%82%E3%81%AE%E8%A7%A3%E6%B1%BA%E6%B3%95/)
