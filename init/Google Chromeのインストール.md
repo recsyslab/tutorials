@@ -1,4 +1,4 @@
-# Google Chromeのインストール.md
+# Google Chromeのインストール
 
 ## ダウンロード
 1. 下記からdebパッケージをダウンロードする。
