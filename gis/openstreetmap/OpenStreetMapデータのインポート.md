@@ -46,7 +46,7 @@ sudo service postgresql restart
 osm2pgsql -c -d osm_kansai -U postgres --slim -C 4200 --cache-strategy sparse --host localhost kansai-latest.osm.pbf
 # ...（kansaiの場合，15分程度）...
 # ...（japanの場合，1時間20分程度）...
-sudo vi /etc/postgresql/11/main/pg_hba.conf
+sudo vi /etc/postgresql/12/main/pg_hba.conf
 ```
 
 一時的に書き換えていた`pg_hba.conf`の下記4箇所について`trust`を`md5`に戻す。
