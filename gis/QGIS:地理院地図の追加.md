@@ -1,0 +1,17 @@
+# QGIS:地理院地図の追加
+
+## 地理院地図の追加
+1. QGISのブラウザから**XYZ Tiles**を右クリックし、**新しい接続**を選択する。
+   1. 下記を設定する。
+      - **名前**: `地理院タイル`
+      - **URL**: `https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png`
+   2. **OK**ボタンをクリックする。
+
+下記のサイトから、使用したい地理院地図に対応したURLを選ぶことができる。
+- 国土交通省 国土地理院, [地理院タイル一覧](https://maps.gsi.go.jp/development/ichiran.html)
+
+## 地理院地図の表示
+1. QGISのブラウザから**XYZ Tiles > 地理院地図**を右クリックし、**レイヤをプロジェクトに追加する**を選択する。
+
+#### 参考
+- chiakikunのブログ, [QGIS3で地理院地図を追加する方法](https://chiakikun.hatenadiary.com/entry/2018/05/12/182139)
