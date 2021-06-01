@@ -20,7 +20,7 @@ sudo apt install osm2pgsql
 ## pbfファイルの読込み
 ```bash
 cd ~/Downloads
-sudo vi /etc/postgresql/11/main/pg_hba.conf
+sudo vi /etc/postgresql/12/main/pg_hba.conf
 ```
 
 一時的に`pg_hba.conf`の下記4箇所について`md5`を`trust`に書き換える。
