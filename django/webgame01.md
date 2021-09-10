@@ -1,0 +1,38 @@
+# プロジェクトの作成
+
+まずは，プロジェクトを作成しましょう．プロジェクトを作成したいディレクトリに移動します．ここでは，ホームディレクトリに`django/`ディレクトリを作成し，ここにプロジェクトを作成することにします．
+
+```bash
+$ cd
+$ mkdir django/
+$ cd django/
+```
+
+今回は，`webgame`という名前のプロジェクトを作成することにします．以下のコマンドを実行してください．
+
+```bash
+$ django-admin startproject webgame
+```
+
+すると，現在のディレクトリに`webgame/`ディレクトリが作成されます．プロジェクト構成を確認してみましょう．以下のコマンドを実行してください．
+`tree`がインストールされていない場合は，`sudo apt install tree`でインストールしてください．
+
+```bash
+$ tree webgame/
+webgame/
+├── manage.py
+└── webgame
+    ├── __init__.py
+    ├── asgi.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+
+1 directory, 6 files
+```
+
+これが，Djangoのプロジェクト構成になります．各ファイルの詳細は，文献[1][2]を参照してください．
+
+##### 参考
+- [はじめての Django アプリ作成、その 1 | Django ドキュメント | Django # プロジェクトを作成する](https://docs.djangoproject.com/ja/2.1/intro/tutorial01/#creating-a-project)
+- [現場で使える Django の教科書《基礎編》](https://www.amazon.co.jp/gp/product/4802094744/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4802094744&linkCode=as2&tag=kntoku-22&linkId=fc90e21deb229a857829bf598409e259) # 第3章 プロジェクト構成
