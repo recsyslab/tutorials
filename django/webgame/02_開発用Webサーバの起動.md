@@ -34,4 +34,4 @@ Quit the server with CONTROL-C.
 サーバを終了させるときは，`[Ctrl+C]`を押します．
 
 #### 参考
-- 現場で使える Django の教科書《基礎編》 # 第12章 開発用Webサーバ (runserver) を起動する
+1. 現場で使える Django の教科書《基礎編》 # 第12章 開発用Webサーバ (runserver) を起動する
