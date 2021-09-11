@@ -2,8 +2,8 @@
 
 URLディスパッチャは，`URLconf`に記述された`urlpatterns`に基づき，要求されたURLに対応したビュー関数を呼び出す役割を担います．それでは，`http://localhost:8000/touch/`にアクセスされたとき，どのような流れでインデックスページが表示されたのか，リストを追いながら見ていきましょう．
 
-`webgame/settings.py`
-```python
+リスト1: `webgame/settings.py`
+```py
 ...（略）...
 ROOT_URLCONF = 'webgame.urls'
 ...（略）...
@@ -11,8 +11,8 @@ ROOT_URLCONF = 'webgame.urls'
 
 まず，`webgame/settings.py`には，`ROOT_URLCONF = 'webgame.urls'`という記述があります．そのため，`http://localhost:8000/touch/`にアクセスされると，最初に`webgame/urls.py`の`urlpatterns`を見にいきます．
 
-`webgame/urls.py`
-```python
+リスト2: `webgame/urls.py`
+```py
 ...（略）...
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,8 +24,8 @@ urlpatterns = [
 
 一致するURLパターンを見つけると，次は`path()`関数の第2引数に指定されたビュー関数を呼び出します．ただし，ここでは`include('touch.urls')`となっています．`include()`関数は，他の`URLconf`を参照することを表します．`'touch.urls'`と記述されていますので，今度は`touch/urls.py`の`urlpatterns`を見にいくことになります．この際，要求されたURLの中で既に一致した部分は取り除かれたうえで，次の`URLconf`に渡されます．つまり，`'touch/'`の部分は既に一致していますので，これを除いた部分`''`（空文字列）が`touch/urls.py`の`URLconf`に渡されます．
 
-`touch/urls.py`
-```python
+リスト3: `touch/urls.py`
+```py
 ...（略）...
 app_name = 'touch'
 urlpatterns = [
@@ -36,8 +36,8 @@ urlpatterns = [
 
 要求されたURLを`''`として，同様にURLパターンをマッチングしていきます．ここでは，`''`のURLパターンに一致しますので，第2引数の`views.index`が呼ばれることになります．ここで，`views.index`は`IndexView`クラスに記述した`index = IndexView.as_view()`を指します．今回の例では，インデックスビューを`IndexView`というクラスで定義しています．`as_view()`は，そのクラスベースのビューをビュー関数化するためのメソッドです．そして，この`IndexView`クラスの`get()`メソッドが呼び出されます．
 
-`touch/views.py`
-```python
+リスト4: `touch/views.py`
+```py
 ...（略）...
 class IndexView(View):
     """
