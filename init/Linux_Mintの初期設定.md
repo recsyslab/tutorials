@@ -60,7 +60,7 @@ diff /etc/apt/sources.list-org /etc/apt/sources.list
 ## 正確な時刻を設定する
 ```bash
 date
-ntpdate ntp.nict.jp
+sudo ntpdate ntp.nict.jp
 date
 ```
 
