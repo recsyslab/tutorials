@@ -1,5 +1,7 @@
 # セキュリティソフトのインストール
 
+LinuxMint20.1では「Linux Distribution not supported」とエラーが表示される。
+
 ## Symantec Endpoint Protection (SEP) のインストール
 
 ## ダウンロード
