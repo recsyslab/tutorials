@@ -13,7 +13,7 @@ git --version
 ## ユーザ名とメールアドレスの登録
 ```bash
 git config --global user.name "【ユーザ名】"
-git config --global user.email "【大学のメールアドレス】"
+git config --global user.email "【メールアドレス】"
 ```
 
 ## color.uiの設定
