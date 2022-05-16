@@ -44,7 +44,7 @@ source rsl-django/bin/activate
 (rsl-django) $ pip freeze
 ```
 
-# Djangoプロジェクトの作成
+## Djangoプロジェクトの作成
 ```bash
 (rsl-django) $ cd ~/recsyslab/
 (rsl-django) $ mkdir django/
@@ -52,8 +52,60 @@ source rsl-django/bin/activate
 (rsl-django) $ django-admin startproject myproject
 ```
 
-# Djangoアプリケーションの作成
+## Djangoアプリケーションの作成
 ```bash
 (rsl-django) $ cd myproject/
 (rsl-django) $ python manage.py startapp myrecsys
 ```
+
+## PyCharmでプロジェクトのオープン
+```bash
+pycharm
+```
+
+1. **Open**ボタンをクリックする。
+   - Djangoプロジェクトディレクトリ（下記の場所）を選択し、**OK**ボタンをクリックする。
+   - `/home/rsl/recsyslab/django/myproject`
+
+## Python Interpreterの設定
+1. **File - Settings**を開く。
+   1. **Project: pyproject - Python Interpreter**を開く。
+      1. **Python Interpreter**の右側の歯車アイコンをクリックし、**Add**を選択する。
+         1. **Virtualenv Environment**を開き、下記を設定する。
+            - **Existing environment**: 選択
+            - **Interpreter**: `/home/rsl/venv/rsl-django/bin/python3.9`
+         2. **OK**ボタンをクリックする。
+      2. **OK**ボタンをクリックする。
+
+## runserverの登録
+1. 右上の**Add Configuration**ボタンをクリックする。
+   1. 左上の**+**ボタンをクリックし、**Python**を選択する。
+      1. 下記を設定する。
+         - **Name**: `runserver`
+         - **Script path**: `/home/rsl/recsyslab/django/myproject/manage.py`
+         - **Parameters**: `runserver`
+         - **Environment Variables**: 
+           - **DB_USER**: （DBユーザ名）
+           - **DB_PASSWORD**: （パスワード）
+      2. **OK**ボタンをクリックする。
+
+## runserverの起動
+1. 右上のプルダウンリストが`runserver`になっていることを確認し，**▶**ボタンをクリックする。
+2. 下記にアクセスし、「The install worked successfully! Congratulations!」と表示されればOK。
+   - http://127.0.0.1:8000/
+
+## makemigrationsの登録
+1. 右上のプルダウンリストから**Edit Configurations**を開く。
+   1. 登録してある`runserver`を選択し、**Copy Configuration**ボタンをクリックする。
+   2. 下記を設定する。
+      - **Name**: `makemigrations`
+      - **Parameters**: `makemigrations`
+   3. **OK**ボタンをクリックする。
+
+## makemigrationsの実行
+1. 右上のプルダウンリストから`makemigrations`を選択し、**▶**ボタンをクリックする。
+
+
+
+
+
