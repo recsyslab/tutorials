@@ -105,7 +105,16 @@ pycharm
 ## makemigrationsの実行
 1. 右上のプルダウンリストから`makemigrations`を選択し、**▶**ボタンをクリックする。
 
+## migrateの登録
+1. 右上のプルダウンリストから**Edit Configurations**を開く。
+   1. 登録してある`runserver`を選択し、**Copy Configuration**ボタンをクリックする。
+   2. 下記を設定する。
+      - **Name**: `migrate`
+      - **Parameters**: `migrate`
+   3. **OK**ボタンをクリックする。
 
+## migrateの実行
+1. 右上のプルダウンリストから`migrate`を選択し、**▶**ボタンをクリックする。
 
 
 
