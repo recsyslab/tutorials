@@ -44,5 +44,3 @@ pip install django-allauth
 pip freeze
 ```
 
-#### 参考
-- 366 SERVICE, [python GDALパッケージにpip経由でインストールするときにヘッダファイルがありません](https://www.366service.com/jp/qa/5aef93dcd3019fa2fb6f69e87f70ef5f)
