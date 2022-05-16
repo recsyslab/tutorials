@@ -7,9 +7,9 @@
 
 ## インストール
 ```bash
-$ cd ~/Downloads/
-$ sudo dpkg -i google-chrome-stable_current_amd64.deb
-  # 依存関係エラーが発生したら、関係するライブラリをインストールする。
+cd ~/Downloads/
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+# 依存関係エラーが発生したら、関係するライブラリをインストールする。
 ```
 
 ## バージョンの確認
