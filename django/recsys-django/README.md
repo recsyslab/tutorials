@@ -31,9 +31,9 @@ DATABASES = {
 
 # マイグレーションの実行
 ```bash
-$ export DB_USER=【ユーザ名】
-$ export DB_PASSWORD=【パスワード】
-$ python manage.py migrate
+export DB_USER=【ユーザ名】
+export DB_PASSWORD=【パスワード】
+python manage.py migrate
 ```
 
 ```bash
@@ -79,6 +79,23 @@ sushi_recommender=# \dt
  public | django_session             | table | rsl
 (10 rows)
 ```
+
+# 管理サイト
+```bash
+export DB_USER=【ユーザ名】
+export DB_PASSWORD=【パスワード】
+python manage.py createsuperuser
+----
+ユーザー名: admin
+メールアドレス: admin@recsys-django.org
+Password: 
+Password (again): 
+----
+```
+
+管理サイトにアクセス
+http://localhost:8000/admin/
+
 
 # モデルの定義
 
