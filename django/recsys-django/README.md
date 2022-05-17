@@ -13,7 +13,7 @@ sushi_recommender=# \dt
 
 # データベースの設定
 
-リスト1: `recsys_django/recsys_django/settings.py`
+リスト: `recsys_django/recsys_django/settings.py`
 ```py
 ...（略）...
 DATABASES = {
@@ -31,12 +31,9 @@ DATABASES = {
 
 # マイグレーションの実行
 ```bash
-export DB_USER=【ユーザ名】
-export DB_PASSWORD=【パスワード】
-python manage.py migrate
-```
-
-```bash
+$ export DB_USER=【ユーザ名】
+$ export DB_PASSWORD=【パスワード】
+$ python manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, sessions
 Running migrations:
@@ -58,8 +55,6 @@ Running migrations:
   Applying auth.0011_update_proxy_permissions... OK
   Applying auth.0012_alter_user_first_name_max_length... OK
   Applying sessions.0001_initial... OK
-
-Process finished with exit code 0
 ```
 
 ```pgsql
@@ -82,9 +77,9 @@ sushi_recommender=# \dt
 
 # 管理サイト
 ```bash
-export DB_USER=【ユーザ名】
-export DB_PASSWORD=【パスワード】
-python manage.py createsuperuser
+$ export DB_USER=【ユーザ名】
+$ export DB_PASSWORD=【パスワード】
+$ python manage.py createsuperuser
 ----
 ユーザー名: admin
 メールアドレス: admin@recsys-django.org
@@ -105,22 +100,78 @@ Alice, Bruno, Chiara, Dhruv, Emiを追加
 
 | カラム名 | 説明 | データ型 | 制約 |
 | --- | --- | --- | --- |
-| sushi_id | 寿司ID | INT	| PRIMARY KEY |
-| sushi_name | 寿司名 | VARCHAR(20)	| NOT NULL |
-| category_id | カテゴリID | INT | NOT NULL |
-
-| カラム名 | 説明 | データ型 | 制約 |
-| --- | --- | --- | --- |
 | category_id | カテゴリID | INT	| PRIMARY KEY |
 | category_name | カテゴリ名 | VARCHAR(20)	| NOT NULL |
 
 | カラム名 | 説明 | データ型 | 制約 |
 | --- | --- | --- | --- |
+| sushi_id | 寿司ID | INT	| PRIMARY KEY |
+| sushi_name | 寿司名 | VARCHAR(20)	| NOT NULL |
+| category_id | カテゴリID | INT | FOREIGN KEY(category.category_id) |
+
+| カラム名 | 説明 | データ型 | 制約 |
+| --- | --- | --- | --- |
 | id | ID | INT	| PRIMARY KEY |
-| user_id | ユーザID | INT	| FOREIGN KEY(users.id) |
+| user_id | ユーザID | INT	| FOREIGN KEY(auth_user.id) |
 | sushi_id | 寿司ID | INT | FOREIGN KEY(sushi.sushi_id) |
 | rating | 評価値 | INT | NOT NULL |
 | updated_at | 更新日時 | TIMESTAMP | NOT NULL |
 
 
+リスト: `recsys_django/sushi_recommender/models.py`
+```py
+from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
+
+class Category(models.Model):
+    """カテゴリモデル"""
+
+    class Meta:
+        db_table = 'categories'
+
+    category_id = models.IntegerField(verbose_name='カテゴリID', primary_key=True)
+    category_name = models.CharField(verbose_name='カテゴリ名', max_length=20)
+
+    def __str__(self):
+        return str(self.category_name)
+
+
+class Sushi(models.Model):
+    """寿司モデル"""
+
+    class Meta:
+        db_table = 'sushi'
+
+    sushi_id = models.IntegerField(verbose_name='寿司ID', primary_key=True)
+    sushi_name = models.CharField(verbose_name='寿司名', max_length=20)
+    category = models.ForeignKey(Category, verbose_name='カテゴリID', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return str(self.sushi_name) + ', ' + str(self.category.category_name)
+
+
+class UserSushiRating(models.Model):
+    """ユーザ-寿司-評価値モデル"""
+
+    class Meta:
+        db_table = 'users_sushi_ratings'
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    sushi = models.ForeignKey(Sushi, on_delete=models.CASCADE)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.user.username) + ', ' + str(self.sushi.sushi_name) + ', ' + str(self.rating)
+```
+
+```bash
+$ python manage.py makemigrations sushi_recommender
+Migrations for 'sushi_recommender':
+  sushi_recommender/migrations/0001_initial.py
+    - Create model Category
+    - Create model Sushi
+    - Create model UserSushiRating
+```
