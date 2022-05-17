@@ -175,3 +175,33 @@ Migrations for 'sushi_recommender':
     - Create model Sushi
     - Create model UserSushiRating
 ```
+
+```bash
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, sushi_recommender
+Running migrations:
+  Applying sushi_recommender.0001_initial... OK
+```
+
+```pgsql
+sushi_recommender=# \dt
+                  List of relations
+ Schema |            Name            | Type  | Owner 
+--------+----------------------------+-------+-------
+ public | auth_group                 | table | rsl
+ public | auth_group_permissions     | table | rsl
+ public | auth_permission            | table | rsl
+ public | auth_user                  | table | rsl
+ public | auth_user_groups           | table | rsl
+ public | auth_user_user_permissions | table | rsl
+ public | categories                 | table | rsl
+ public | django_admin_log           | table | rsl
+ public | django_content_type        | table | rsl
+ public | django_migrations          | table | rsl
+ public | django_session             | table | rsl
+ public | sushi                      | table | rsl
+ public | users_sushi_ratings        | table | rsl
+(13 rows)
+```
+
