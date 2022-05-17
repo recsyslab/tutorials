@@ -208,8 +208,8 @@ sushi_recommender=# \dt
 # データの登録
 
 ```pgsql
-sushi_recommender=# COPY "categories" FROM '/home/rsl/recsyslab/django/data/categories.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
-sushi_recommender=# COPY "sushi" FROM '/home/rsl/recsyslab/django/data/sushi.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
-sushi_recommender=# COPY "users_sushi_ratings"(user_id, sushi_id, rating) FROM '/home/rsl/recsyslab/django/data/users_sushi_ratings.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
-SELECT setval('"users_sushi_ratings_id_seq"', (SELECT max(id) FROM users_sushi_ratings));
+sushi_recommender=# COPY categories FROM '/home/rsl/recsyslab/django/data/categories.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
+sushi_recommender=# COPY sushi FROM '/home/rsl/recsyslab/django/data/sushi.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
+sushi_recommender=# COPY users_sushi_ratings(user_id, sushi_id, rating) FROM '/home/rsl/recsyslab/django/data/users_sushi_ratings.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
+sushi_recommender=# SELECT setval('users_sushi_ratings_id_seq', (SELECT max(id) FROM users_sushi_ratings));
 ```
