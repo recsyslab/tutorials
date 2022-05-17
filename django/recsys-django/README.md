@@ -213,3 +213,46 @@ sushi_recommender=# COPY sushi FROM '/home/rsl/recsyslab/django/data/sushi.csv' 
 sushi_recommender=# COPY users_sushi_ratings(user_id, sushi_id, rating) FROM '/home/rsl/recsyslab/django/data/users_sushi_ratings.csv'  (DELIMITER E'\t', FORMAT csv, HEADER TRUE);
 sushi_recommender=# SELECT setval('users_sushi_ratings_id_seq', (SELECT max(id) FROM users_sushi_ratings));
 ```
+
+```pgsql
+sushi_recommender=# SELECT * FROM categories;
+sushi_recommender=# SELECT * FROM sushi;
+sushi_recommender=# SELECT * FROM users_sushi_ratings;
+```
+
+# クエリセットAPI
+
+```bash
+$ python manage.py shell
+```
+
+```py
+> from sushi_recommender.models import Category, Sushi, UserSushiRating
+ 
+> Sushi.objects.get(pk=1)
+ 
+> Sushi.objects.all()
+ 
+> Sushi.objects.filter(sushi_name='マグロ')
+> Sushi.objects.filter(sushi_name__contains='トロ')
+
+> Sushi.objects.filter(category__category_name='赤身')
+
+> UserSushiRating.objects.filter(user__id=2)
+> UserSushiRating.objects.filter(rating__gte=4)
+> UserSushiRating.objects.filter(user__id=2, rating__gte=4)
+
+> from django.db.models import Q
+> UserSushiRating.objects.filter(Q(rating=5) | Q(rating=1))
+> UserSushiRating.objects.filter(rating__in=[5, 1])
+ 
+> Sushi.objects.filter(sushi_name='マグロ').exists()
+> Sushi.objects.filter(sushi_name='サーモン').exists()
+
+> UserSushiRating.objects.filter(rating=5).count()
+
+> UserSushiRating.objects.all().order_by('rating')
+> UserSushiRating.objects.all().order_by('-rating')
+ 
+> print(Sushi.objects.filter(sushi_name='マグロ').query)
+```
