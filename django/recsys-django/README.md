@@ -94,7 +94,11 @@ Password (again):
 ```
 
 管理サイトにアクセス
+
 http://localhost:8000/admin/
+
+# ユーザの追加
+Alice, Bruno, Chiara, Dhruv, Emiを追加
 
 
 # モデルの定義
@@ -109,6 +113,14 @@ http://localhost:8000/admin/
 | --- | --- | --- | --- |
 | category_id | カテゴリID | INT	| PRIMARY KEY |
 | category_name | カテゴリ名 | VARCHAR(20)	| NOT NULL |
+
+| カラム名 | 説明 | データ型 | 制約 |
+| --- | --- | --- | --- |
+| id | ID | INT	| PRIMARY KEY |
+| user_id | ユーザID | INT	| FOREIGN KEY(users.id) |
+| sushi_id | 寿司ID | INT | FOREIGN KEY(sushi.sushi_id) |
+| rating | 評価値 | INT | NOT NULL |
+| updated_at | 更新日時 | TIMESTAMP | NOT NULL |
 
 
 
