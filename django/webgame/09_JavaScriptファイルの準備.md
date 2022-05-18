@@ -22,9 +22,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]       # 追加
 ...（略）...
 ```
 
-ベースディレクトリ直下に，`static`ディレクトリを作成してください．その中に`js`ディレクトリを作成してください．つまり，下記のディレクトリを用意します．
+`webgame/touch/`ディレクトリ直下に，`static/`ディレクトリを作成してください．その中に`js/`ディレクトリを作成してください．つまり，下記のディレクトリを用意します．
 
-`webgame/touch/static/js/`
+`webgame/touch/static/touch/js/`
 
 独自に作成したJavaScriptのソースファイルはこのディレクトリの中に置くことにします．ここに，メインのJavaScriptファイルである`main.js`を作成します．そして，`main.js`を参照するために，`webgame/touch/templates/touch/index.html`の`{# --- js --- #}`の部分に，先ほどjQueryを参照するために追加したコードの下に下記のコードを追加してください．
 
@@ -38,7 +38,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]       # 追加
 ...（略）...
 ```
 
-5行目で`main.js`のJavaScriptファイルを参照しています．このように，`static`ディレクトリに配置されたファイルを参照するには，`{% static '【static以下のパス】' %}`という形式で`static`タグを利用します．`static`タグを利用するには1行目の`{% load static %}`という記述が必要ですので忘れないようにしてください．
+5行目で`main.js`のJavaScriptファイルを参照しています．このように，`static/`ディレクトリに配置されたファイルを参照するには，`{% static '【static以下のパス】' %}`という形式で`static`タグを利用します．`static`タグを利用するには1行目の`{% load static %}`という記述が必要ですので忘れないようにしてください．
 
 テンプレートタグについては文献[2]を参照してください．
 
