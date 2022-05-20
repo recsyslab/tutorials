@@ -64,8 +64,9 @@ pycharm
 ```
 
 1. **Open**ボタンをクリックする。
-   - Djangoプロジェクトディレクトリ（下記の場所）を選択し、**OK**ボタンをクリックする。
-   - `/home/rsl/recsyslab/django/myproject`
+   1. Djangoプロジェクトディレクトリ（下記の場所）を選択する。
+      - `/home/rsl/recsyslab/django/myproject`
+   2. **OK**ボタンをクリックする。
 
 ## Python Interpreterの設定
 1. **File - Settings**を開く。
