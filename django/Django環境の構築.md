@@ -41,6 +41,7 @@ source rsl-django/bin/activate
 (rsl-django) $ pip install markdown # RESTful APIに必要
 (rsl-django) $ pip install django-bootstrap4
 (rsl-django) $ pip install django-allauth
+(rsl-django) $ pip install django-cleanup
 (rsl-django) $ pip freeze
 ```
 
