@@ -62,6 +62,7 @@ pip install tqdm
 pip install mecab-python3
 pip install requests
 pip install ipywidgets
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
 ```
 
 ### インストール済みパッケージ一覧の確認
