@@ -118,5 +118,14 @@ pycharm
 ## migrateの実行
 1. 右上のプルダウンリストから`migrate`を選択し、**▶**ボタンをクリックする。
 
+## inspectdbの登録
+1. 右上のプルダウンリストから**Edit Configurations**を開く。
+   1. 登録してある`runserver`を選択し、**Copy Configuration**ボタンをクリックする。
+   2. 下記を設定する。
+      - **Name**: `inspectdb`
+      - **Parameters**: `inspectdb`
+   3. **OK**ボタンをクリックする。
 
+## inspectdbの実行
+1. 右上のプルダウンリストから`migrate`を選択し、**▶**ボタンをクリックする。
 
