@@ -23,7 +23,7 @@ HP ProBook 430 G3, G5の場合
       - **Save Changes**: `Yes`
 
 ## VirtualBox上でのLinux Mint 20.3 MATE 64-bitの仮想マシンの構築
-1. 下記からLinux Mint 20.*のISOファイルをダウンロードする。
+1. 下記からLinux Mint 20.3のISOファイルをダウンロードする。
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 20.3 "Una" - MATE (64-bit)**: `linuxmint-20.3-mate-64bit.iso`
 2. **Oracle VM VirtualBox マネージャー**を起動する。
@@ -41,7 +41,7 @@ HP ProBook 430 G3, G5の場合
     4. **仮想ハードディスクの作成**ダイアログで下記を設定する。
        - **ハードディスクのファイルタイプ**: `VDI (VirtualBox Disk Image)`
        - **物理ハードディスクにあるストレージ**: `可変サイズ`
-       - **ファイルの場所**: `C:\Users\【ユーザアカウント名】\VirtualBox VMs\Linux Mint 20.1 MATE 64-bit`
+       - **ファイルの場所**: `C:\Users\【ユーザアカウント名】\VirtualBox VMs\Linux Mint 20.3 MATE 64-bit`
        - **仮想ハードディスクのサイズ**: （可能な限り大きく設定する（目安：ディスク容量の50%程度））
     5. **作成**ボタンをクリックする。
     6. 作成した仮想マシン**Linux Mint 20.3 MATE 64-bit**を選択し、**設定**ボタンをクリックする。
