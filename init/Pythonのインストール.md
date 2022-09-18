@@ -55,6 +55,74 @@ python3.8 --version
 python3.9 --version
 ```
 
+## ベースとなる仮想環境
+
+### 仮想環境の構築とアクティベート
+```bash
+cd ~/venv/
+python3.9 -m venv rsl-base
+source rsl-base/bin/activate
+```
+
+### pipのアップグレード
+```bash
+pip --version
+pip install --upgrade pip
+pip --version
+```
+
+### 各種パッケージのインストール
+```bash
+pip install ipython
+pip install numpy
+pip install scipy
+pip install matplotlib
+pip install pandas
+pip install scikit-learn
+pip install psycopg2-binary
+pip install tqdm
+pip install mecab-python3
+pip install requests
+```
+
+### インストール済みパッケージ一覧の確認
+```bash
+pip freeze
+```
+
+### 実行テスト
+(TBD)
+
+### 各種パッケージのバージョンの確認
+```bash
+ipython --version
+python
+# プロンプトが>>>となればOK
+```
+
+```python
+import numpy
+numpy.__version__
+import scipy
+scipy.__version__
+import matplotlib
+matplotlib.__version__
+import pandas
+pandas.__version__
+import sklearn
+sklearn.__version__
+import psycopg2
+psycopg2.__version__
+import tqdm
+tqdm.__version__
+[Ctrl+D]
+```
+
+### 仮想環境のディアクティベート
+```bash
+deactivate
+```
+
 #### 参考
 - Doitu.info, [既存のPython環境を壊すことなく、自分でビルドしてインストールする（altinstall）](https://doitu.info/blog/5c45e5ec8dbc7a001af33ce8)
 - 組み込みの人。, [makeコマンドのちょっとしたtips](https://embedded.hatenadiary.org/entry/20090416/p1)
