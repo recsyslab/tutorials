@@ -1,6 +1,6 @@
 # Linux Mintのインストール
 
-## Linux Mint 20.1のインストール
+## Linux Mint 20.3のインストール
 1. タスクトレイの**ネットワークアイコン**を右クリックし、**Edit Connections**を開く。
    1. 使用する`Wired connection ＊`を選択する。
    2. 下の**Edit the selected connection**ボタンをクリックする。
