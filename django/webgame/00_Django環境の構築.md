@@ -197,13 +197,9 @@ python3.9 --version
 
 ## 仮想環境の構築
 
-### ライブラリのインストール
-```bash
-sudo apt install libgdal-dev
-```
-
 ### 仮想環境の構築とアクティベート
 ```bash
+mkdir ~/venv/
 cd ~/venv/
 python3.9 -m venv rsl-django
 source rsl-django/bin/activate
