@@ -170,8 +170,11 @@ ls -alh
 
 ## パスの設定
 ```bash
-echo $PATH
+ls -a ~/
 less ~/.profile
+cp ~/.profile ~/.profile-org
+ls -a ~/
+echo $PATH
 echo -e '\n# Pythonインストール時に追加' >> ~/.profile
 echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
 less ~/.profile
