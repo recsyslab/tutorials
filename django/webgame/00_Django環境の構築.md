@@ -215,16 +215,16 @@ source rsl-django/bin/activate
 
 ### 各種パッケージのインストール
 ```bash
-pip install ipython
-pip install numpy
-pip install scipy
-pip install matplotlib
-pip install pandas
-pip install scikit-learn
-pip install psycopg2-binary
-pip install tqdm
-pip install mecab-python3
-pip install requests
+(rsl-django) $ pip install ipython
+(rsl-django) $ pip install numpy
+(rsl-django) $ pip install scipy
+(rsl-django) $ pip install matplotlib
+(rsl-django) $ pip install pandas
+(rsl-django) $ pip install scikit-learn
+(rsl-django) $ pip install psycopg2-binary
+(rsl-django) $ pip install tqdm
+(rsl-django) $ pip install mecab-python3
+(rsl-django) $ pip install requests
 ```
 
 ### django関連パッケージのインスト―ル
