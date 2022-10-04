@@ -17,7 +17,7 @@
 リスト2: `webgame/webgame/settings.py`
 ```py
 ...（略）...
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]       # 追加
 ...（略）...
 ```
