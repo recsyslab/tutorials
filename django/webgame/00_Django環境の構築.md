@@ -287,7 +287,7 @@ pycharm-community
 
 ## Python Interpreterの設定
 1. **File - Settings**を開く。
-   1. **Project: myproject - Python Interpreter**を開く。
+   1. **Project: webgame - Python Interpreter**を開く。
       1. **Python Interpreter**の右側の歯車アイコンをクリックし、**Add**を選択する。
          1. **Virtualenv Environment**を開き、下記を設定する。
             - **Existing environment**: 選択
