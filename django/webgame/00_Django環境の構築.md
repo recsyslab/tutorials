@@ -150,7 +150,7 @@ cd ~/src/
 wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tar.xz
 xz -dc Python-3.9.5.tar.xz| tar xfv -
 cd Python-3.9.5/
-./configure --prefix=/【ホームディレクトリ】/opt/python --with-ensurepip=install
+./configure --prefix=/$HOME/opt/python --with-ensurepip=install
 # ...（3分程度）...
 make 2>&1 | tee make.log
 # ...（3分程度）... 
