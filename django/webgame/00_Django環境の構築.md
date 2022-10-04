@@ -263,9 +263,20 @@ source rsl-django/bin/activate
 (rsl-django) $ python manage.py startapp touch
 ```
 
+## 仮想環境のディアクティベート
+```bash
+(rsl-django) $ deactivate
+```
+
+## PyCharmのインストール
+```bash
+sudo apt install snapd
+sudo snap install pycharm-community --classic
+```
+
 ## PyCharmでプロジェクトのオープン
 ```bash
-pycharm
+pycharm-community
 ```
 
 1. **Open**ボタンをクリックする。
