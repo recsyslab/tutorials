@@ -60,6 +60,7 @@ python3.9 --version
 
 ### 仮想環境の構築とアクティベート
 ```bash
+mkdir ~/venv/
 cd ~/venv/
 python3.9 -m venv rsl-base
 source rsl-base/bin/activate
