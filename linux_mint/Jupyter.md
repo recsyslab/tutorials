@@ -33,6 +33,13 @@ jupyter-notebook
 3. `skl01_plt01.py`を実行する。
    - 図が表示されればOK。
 
+## Jupyter Notebookでのtqdmの利用
+プログレスバーの表示がおかしい場合は、下記の拡張機能を有効化してみる。
+```bash
+sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
+```
+
 #### 参考
 - Qiita, [Ubuntu 18.04 LTS で Jupyter Notebook 環境構築](https://qiita.com/zono_0/items/49eb8605ef4d841b2c26)
 - Qiita, [jupyter notebookでvenvを使う](https://qiita.com/Gattaca/items/80a5d36673ba2b6ef7f0)
+- Qiita, [Jupyter Notebook でプログレスバーを出す](https://qiita.com/halhorn/items/e8aaf5b63f493f038a53)
