@@ -1,3 +1,5 @@
+{% raw %}
+
 # JavaScriptファイルの準備
 
 ユーザ入力の受付やイベント処理，画面への出力などユーザインタフェースに関わる部分は主にJavaScriptを用います．ここでは，<a href="https://jquery.com/">jQuery</a>とよばれるJavaScriptライブラリを参照します．jQueryを用いることで，JavaScriptコードをより簡単に記述できるようになります．本チュートリアルでは，`jquery-3.5.1.min.js`を用います．`jquery-3.5.1.min.js`を参照するために`webgame/touch/templates/touch/index.html`の`{# --- js --- #}`の部分に下記コードを追加してください．
@@ -45,3 +47,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]       # 追加
 #### 参考
 1. 現場で使える Django の教科書《基礎編》 # 10.4 静的ファイル関連の設定
 1. 現場で使える Django の教科書《基礎編》 # 7.4 テンプレートタグ
+
+{% endraw %}
