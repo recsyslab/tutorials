@@ -59,5 +59,5 @@ FLUSH PRIVILEGES;
 ```
 
 #### 参考
-- 最新IT技術情報_arkgame.com, [Ubuntu 22.04 LTSにMySQLをインストールする方法]([https://cats-mew.hatenadiary.org/entry/20090811/1249976482](https://arkgame.com/2022/05/04/post-307738/))
+- 最新IT技術情報_arkgame.com, [Ubuntu 22.04 LTSにMySQLをインストールする方法](https://arkgame.com/2022/05/04/post-307738/))
 
