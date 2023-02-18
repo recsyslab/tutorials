@@ -47,7 +47,7 @@ exit
 ```
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 # 設定したパスワードでログインできることを確認する。
 ```
 
