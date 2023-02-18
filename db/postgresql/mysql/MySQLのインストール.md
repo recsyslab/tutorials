@@ -22,7 +22,7 @@ SELECT version();
 exit
 ```
 
-## PostgreSQLサーバの起動設定
+## MySQLサーバの起動設定
 ```bash
 sudo sysv-rc-conf
 sudo sysv-rc-conf mysql off
