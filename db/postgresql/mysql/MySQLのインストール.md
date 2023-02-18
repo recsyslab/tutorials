@@ -11,15 +11,9 @@ sudo apt upgrade
 sudo apt install mysql-server
 ```
 
-## MySQLの動作確認とバージョンの確認
+## MySQLのバージョンの確認
 ```bash
-sudo mysql
-```
-
-```mysql
-SELECT version();
-# インストールしたバージョンが表示されればOK。
-exit
+mysql --version
 ```
 
 ## MySQLサーバの起動設定
@@ -36,14 +30,9 @@ service mysql status
 ```
 
 ## MySQLのパスワードの設定
-```bash
-sudo mysql
-```
 
-```mysql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '【パスワード】';
-FLUSH PRIVILEGES;
-exit
+```bash
+sudo mysqladmin -u root password
 ```
 
 ```bash
