@@ -91,6 +91,31 @@ sudo -u postgres psql
 #### 参考
 - Qiita, [peer認証の関係でpsqlログインできない時の対処法](https://qiita.com/tomlla/items/9fa2feab1b9bd8749584)
 
+## autovacuumの設定
+
+```bash
+sudo less /etc/postgresql/12/main/pg_hba.conf
+sudo vi /etc/postgresql/12/main/pg_hba.conf
+```
+
+`pg_hba.conf`
+```
+...（略）...
+track_counts = on
+...（略）...
+autovacuum = on
+...（略）...
+```
+
+```bash
+sudo less /etc/postgresql/12/main/pg_hba.conf
+sudo diff /etc/postgresql/12/main/pg_hba.conf-org /etc/postgresql/12/main/pg_hba.conf
+sudo service postgresql restart
+```
+
+#### 参考
+- RAKUS Developers Blog, [VACUUMでPostgreSQLのゴミデータをお掃除！](https://tech-blog.rakus.co.jp/entry/20221227/vacuum)
+
 ## PostGISの動作テスト
 ```pgsql
 \l
