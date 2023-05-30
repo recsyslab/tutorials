@@ -117,7 +117,7 @@ autovacuum = on
 
 ```bash
 sudo less /etc/postgresql/12/main/postgresql.conf
-sudo diff /etc/postgresql/12/main/postgresql.conf-org /etc/postgresql/12/main/postgresql.conf.conf
+sudo diff /etc/postgresql/12/main/postgresql.conf-org /etc/postgresql/12/main/postgresql.conf
 sudo service postgresql restart
 ```
 
