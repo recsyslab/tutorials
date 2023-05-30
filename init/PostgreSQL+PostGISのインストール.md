@@ -24,6 +24,14 @@ sudo cp /etc/postgresql/12/main/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf-
 ls /etc/postgresql/12/main/
 ```
 
+`postgresql.conf`
+```bash
+ls /etc/postgresql/12/main/
+sudo less /etc/postgresql/12/main/postgresql.conf
+sudo cp /etc/postgresql/12/main/postgresql.conf /etc/postgresql/12/main/postgresql.conf-org
+ls /etc/postgresql/12/main/
+```
+
 ## PostgreSQLの動作確認とバージョンの確認
 ```bash
 sudo -u postgres psql
@@ -94,11 +102,11 @@ sudo -u postgres psql
 ## autovacuumの設定
 
 ```bash
-sudo less /etc/postgresql/12/main/pg_hba.conf
-sudo vi /etc/postgresql/12/main/pg_hba.conf
+sudo less /etc/postgresql/12/main/postgresql.conf
+sudo vi /etc/postgresql/12/main/postgresql.conf
 ```
 
-`pg_hba.conf`
+`postgresql.conf`
 ```
 ...（略）...
 track_counts = on
@@ -108,8 +116,8 @@ autovacuum = on
 ```
 
 ```bash
-sudo less /etc/postgresql/12/main/pg_hba.conf
-sudo diff /etc/postgresql/12/main/pg_hba.conf-org /etc/postgresql/12/main/pg_hba.conf
+sudo less /etc/postgresql/12/main/postgresql.conf
+sudo diff /etc/postgresql/12/main/postgresql.conf-org /etc/postgresql/12/main/postgresql.conf.conf
 sudo service postgresql restart
 ```
 
