@@ -85,6 +85,7 @@ pip install psycopg2-binary
 pip install tqdm
 pip install mecab-python3
 pip install requests
+pip install importnb
 ```
 
 ### インストール済みパッケージ一覧の確認
@@ -117,6 +118,8 @@ import psycopg2
 psycopg2.__version__
 import tqdm
 tqdm.__version__
+import importnb
+importnb.__version__
 [Ctrl+D]
 ```
 
