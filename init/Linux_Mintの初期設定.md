@@ -140,6 +140,7 @@ Linux起動時に、下記コマンドを実行すると良い。
 ```
 
 ## Windows共有フォルダのマウント # VirtualBox経由の場合
+### Cドライブ
 ```bash
 ls /mnt/
 less ~/bin/startup.sh
@@ -151,6 +152,20 @@ echo -e 'df -h\n' >> ~/bin/startup.sh
 less ~/bin/startup.sh
 ~/bin/startup.sh
 ls /mnt/c/
+```
+
+### Dドライブ（外付けSSD）
+```bash
+ls /mnt/
+less ~/bin/startup.sh
+sudo mkdir -p /mnt/d/
+echo -e '\n# Dドライブのマウント' >> ~/bin/startup.sh
+echo -e 'sudo umount D_DRIVE' >> ~/bin/startup.sh
+echo -e 'sudo mount -t vboxsf D_DRIVE /mnt/d/' >> ~/bin/startup.sh
+echo -e 'df -h\n' >> ~/bin/startup.sh
+less ~/bin/startup.sh
+~/bin/startup.sh
+ls /mnt/d/
 ```
 
 ## gitのインストール
