@@ -9,28 +9,33 @@
    - ダイアログにしたがって任意に設定し、**Install**ボタンをクリックする。
    - インストールが完了したら、**Finish**ボタンをクリックする。
 
-## BIOS設定
-
-仮想マシンの作成において、バージョンの選択に`Ubuntu (64-bit)`が表示されない場合は、事前にこのBIOS設定が必要になる。
-
-HP ProBook 430 G3, G5の場合
-1. PC起動時に**F12**キーを押し続け、BIOS画面に入る。
-   1. **Network (PXE) Boot Menu**で**Esc**を選択する。
-   2. **Startup Menu > BIOS Setup**を選択する。
-   3. **Advanced > System Options**を開き、下記を設定する。
-      - **Virtualization Technology (VTx)**: `チェック`
-   4. **Main > Save Changes and Exit**を選択する。
-      - **Save Changes**: `Yes`
-
 ## VirtualBox上でのLinux Mint 21.2 MATE 64-bitの仮想マシンの構築
+1. 外付けSSDを接続する。以降、外付けSSDのドライブを `D` とする。
 1. 下記からLinux Mint 21.2のISOファイルをダウンロードする。
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 21.2 "Victoria" - MATE (64-bit)**: `linuxmint-21.2-mate-64bit.iso`
 2. **Oracle VM VirtualBox マネージャー**を起動する。
    1. **仮想マシン > 新規**を開く。
-   2. **仮想マシンの作成**ダイアログで下記を設定する。
+   2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **名前**: `Linux Mint 21.2 MATE 64-bit`
-      - **マシンフォルダー**: `C:\Users\【ユーザアカウント名】\VirtualBox VMs`
+      - **Folder**: `D:\VirtualBox VMs` # 外付けSSDのドライブ
+      - **ISO Image**: `【ディレクトリ】/linuxmint-21.2-mate-64bit.iso` # ダウンロードしたISOファイル
+   3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+      - **Username**: `rsl`
+      - **Password**: （任意のパスワード）
+      - **Repeat Password**: （パスワードの確認）
+      - **Hostname**: `recsyslab-mint`
+      - **Domain Name**: `localhost`
+      - **Guest Addtions**: `チェック`
+      - **Guest Addtions ISO**: `C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso`
+   4. **Hardware**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+      - **メインメモリー**: （緑色の範囲内での最大値）
+      - **Processors**: （緑色の範囲内での最大値）
+   5. **Virtual Hard dis**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+      - **Create a Virtual Hard Disk Now**: `320 GB`
+      - **Pre-allocate Full Size**: `非チェック`
+   6. **完了**ボタンをクリックする。
+      - 
       - **タイプ**: `Linux`
       - **バージョン**: `Ubuntu (64-bit)`
         - リスト中に`64-bit`が表示されない場合は、上記のBIOS設定を確認する。
