@@ -35,7 +35,8 @@
       - **Create a Virtual Hard Disk Now**: `320 GB`
       - **Pre-allocate Full Size**: `非チェック`
    6. **完了**ボタンをクリックする。
-  
+3. **GNU GRUB**が起動するので、`Start Linux Mint 21.2 MATE 64-bit`を選択し、**Enter**キーを押す。
+4. [Linux Mintのインストール](Linux_Mintのインストール.md)の手順にしたがって、Linux Mintをインストールする。
       
       - 
     3. **作成**ボタンをクリックする。
