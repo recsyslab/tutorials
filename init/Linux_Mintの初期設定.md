@@ -8,11 +8,15 @@
 ## 端末の実行
 1. Linuxデスクトップ左下の**端末**アイコンをクリックする。
 
-以降は、この端末上でコマンドを入力しながら進めていく。チュートリアル中の
+端末を開くと、
+```bash
+rsl@recsyslab-mint:~$ 
+```
+と表示される。`$`までの部分はプロンプトといい、コマンド入力待ちを表す。本チュートリアルでは、
 ```bash
 $ 【コマンド】
 ```
-の行は、端末上で入力すべきコマンドを表す。
+のように、`$`より前の部分は省略している。`【コマンド】`部分の内容を端末に入力し実行する。一つ一つのコマンドの意味を理解しながら打ち込んでいくと良い。
 
 ## ディレクトリの準備
 - `~/bin/`: 独自のシェルスクリプトを置いておく。
@@ -74,10 +78,11 @@ $ diff /etc/apt/sources.list-org /etc/apt/sources.list
 - Linuxゲリラ戦記, [/etc/apt/sources.list（パッケージのダウンロード元設定ファイル・Debian）](https://www.garunimo.com/program/linux/_etc_apt_sources_list.php)
 
 ## 正確な時刻を設定する
+時刻が正確でないと、何らかのプログラムを実行する際に不具合が生じることがある。
 ```bash
-date
-sudo ntpdate ntp.nict.jp
-date
+$ date
+$ sudo ntpdate ntp.nict.jp
+$ date
 ```
 
 #### 参考
