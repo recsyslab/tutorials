@@ -19,9 +19,11 @@ $ 【コマンド】
 - `~/src/`: ソースからインストールする際に必要なファイルを置いておく。
 - `~/opt/`: 追加したアプリケーションを置いておく。
 ```bash
-mkdir ~/bin/
-mkdir ~/src/
-mkdir ~/opt/
+$ ls
+$ mkdir ~/bin/
+$ mkdir ~/src/
+$ mkdir ~/opt/
+$ ls
 ```
 
 ## 設定ファイルの準備
@@ -31,26 +33,26 @@ mkdir ~/opt/
 
 ### `.profile`の準備
 ```bash
-ls -a
-less ~/.profile
-cp ~/.profile ~/.profile-org
-ls -a
-echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
-less ~/.profile
-less ~/.profile-org
-diff ~/.profile-org ~/.profile
+$ ls -a
+$ less ~/.profile
+$ cp ~/.profile ~/.profile-org
+$ ls -a
+$ echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
+$ less ~/.profile
+$ less ~/.profile-org
+$ diff ~/.profile-org ~/.profile
 ```
 
 ### `.bashrc`の準備
 ```bash
-ls -a
-less ~/.bashrc
-cp ~/.bashrc ~/.bashrc-org
-ls -a
-echo -e '\n\n#### #### Add below. #### ####' >> ~/.bashrc
-less ~/.bashrc
-less ~/.bashrc-org
-diff ~/.bashrc-org ~/.bashrc
+$ ls -a
+$ less ~/.bashrc
+$ cp ~/.bashrc ~/.bashrc-org
+$ ls -a
+$ echo -e '\n\n#### #### Add below. #### ####' >> ~/.bashrc
+$ less ~/.bashrc
+$ less ~/.bashrc-org
+$ diff ~/.bashrc-org ~/.bashrc
 ```
 
 #### 参考
@@ -58,14 +60,14 @@ diff ~/.bashrc-org ~/.bashrc
 
 ### `/etc/apt/sources.list`のバックアップ
 ```bash
-ls /etc/apt/
-less /etc/apt/sources.list
-sudo cp /etc/apt/sources.list /etc/apt/sources.list-org
-ls /etc/apt/
-sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
-less /etc/apt/sources.list
-less /etc/apt/sources.list-org
-diff /etc/apt/sources.list-org /etc/apt/sources.list
+$ ls /etc/apt/
+$ less /etc/apt/sources.list
+$ sudo cp /etc/apt/sources.list /etc/apt/sources.list-org
+$ ls /etc/apt/
+$ sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
+$ less /etc/apt/sources.list
+$ less /etc/apt/sources.list-org
+$ diff /etc/apt/sources.list-org /etc/apt/sources.list
 ```
 
 #### 参考
