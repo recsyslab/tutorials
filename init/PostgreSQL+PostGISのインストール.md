@@ -24,6 +24,12 @@ postgres=# \q
 # '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
 ```
 
+PostgreSQLにログインすると、プロンプトが、
+```pgsql
+postgres=# 
+```
+に変わる。`postgres`の部分は接続先データベース名を表す。
+
 ## 設定ファイルの準備
 `createcluster.conf`
 ```bash
