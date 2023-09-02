@@ -161,36 +161,33 @@ Linux起動時に下記コマンドを実行することで、必要な初期設
 $ ~/bin/startup.sh
 ```
 
-## Windows共有フォルダのマウント # VirtualBox経由の場合
+## Windows共有フォルダのマウント
+[VirtualBoxの環境設定](VirtualBoxの環境設定.md)であらかじめ共有フォルダーを追加しておくこと。
+
 ### Cドライブ
 ```bash
-ls /mnt/
-less ~/bin/startup.sh
-sudo mkdir -p /mnt/c/
-echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
-echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
-echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
-echo -e 'df -h\n' >> ~/bin/startup.sh
-less ~/bin/startup.sh
-~/bin/startup.sh
-ls /mnt/c/
+$ ls /mnt/
+$ less ~/bin/startup.sh
+$ sudo mkdir -p /mnt/c/
+$ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
+$ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
+$ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
+$ echo -e 'df -h\n' >> ~/bin/startup.sh
+$ less ~/bin/startup.sh
+$ ~/bin/startup.sh
+$ ls /mnt/c/
 ```
 
 ### Dドライブ（外付けSSD）
 ```bash
-ls /mnt/
-less ~/bin/startup.sh
-sudo mkdir -p /mnt/d/
-echo -e '\n# Dドライブのマウント' >> ~/bin/startup.sh
-echo -e 'sudo umount D_DRIVE' >> ~/bin/startup.sh
-echo -e 'sudo mount -t vboxsf D_DRIVE /mnt/d/' >> ~/bin/startup.sh
-echo -e 'df -h\n' >> ~/bin/startup.sh
-less ~/bin/startup.sh
-~/bin/startup.sh
-ls /mnt/d/
-```
-
-## gitのインストール
-```bash
-sudo apt install git
+$ ls /mnt/
+$ less ~/bin/startup.sh
+$ sudo mkdir -p /mnt/d/
+$ echo -e '\n# Dドライブのマウント' >> ~/bin/startup.sh
+$ echo -e 'sudo umount D_DRIVE' >> ~/bin/startup.sh
+$ echo -e 'sudo mount -t vboxsf D_DRIVE /mnt/d/' >> ~/bin/startup.sh
+$ echo -e 'df -h\n' >> ~/bin/startup.sh
+$ less ~/bin/startup.sh
+$ ~/bin/startup.sh
+$ ls /mnt/d/
 ```
