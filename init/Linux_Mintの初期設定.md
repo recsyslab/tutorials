@@ -109,10 +109,10 @@ $ sudo apt upgrade
 
 ## ディレクトリ名を英語表記に変更
 ```bash
-ls
-LANG=C xdg-user-dirs-gtk-update
+$ ls
+$ LANG=C xdg-user-dirs-gtk-update
 # ダイアログが表示されるので、**Update Names**ボタンをクリックする。
-ls
+$ ls
 # ディレクトリ名が英語になっていることを確認する．
 ```
 
@@ -121,17 +121,18 @@ ls
 
 ## `sysv-rc-conf`のインストール
 ```bash
-cd ~/src/
-wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
-tar zxvf sysv-rc-conf_0.99.orig.tar.gz
-cd sysv-rc-conf-0.99
-sudo make
-sudo make install
-sudo apt install libcurses-ui-perl libterm-readkey-perl libcurses-perl
-sudo sysv-rc-conf
-# [h]キーでバージョンを確認できる．
-cd ../
-rm -f sysv-rc-conf_0.99.orig.tar.gz
+$ cd ~/src/
+$ wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
+$ tar zxvf sysv-rc-conf_0.99.orig.tar.gz
+$ cd sysv-rc-conf-0.99
+$ sudo make
+$ sudo make install
+$ sudo apt install libcurses-ui-perl libterm-readkey-perl libcurses-perl
+$ sudo sysv-rc-conf
+# [h]キーでバージョンを確認できる。
+# [q]キーで終了する。
+$ cd ../
+$ rm -f sysv-rc-conf_0.99.orig.tar.gz
 ```
 
 #### 参考
