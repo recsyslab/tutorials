@@ -37,8 +37,6 @@
            - **マウントポイント**: `/mnt/d/`
            - **自動マウント**: `チェック`
    2. **OK**ボタンをクリックする。
-     7. 設定した仮想マシン``Linux Mint 20.3 MATE 64-bit``を選択し、**起動**ボタンをクリックする。
-     8. [Linux Mintのインストール](Linux_Mintのインストール.md)の手順にしたがって、Linux Mintをインストールする。
 
 #### 参考
 - PC設定のカルマ, [VirtualBoxでOS間のクリップボードを共有する方法](https://pc-karuma.net/virtualbox-clipboard-share/)
