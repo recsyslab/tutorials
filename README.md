@@ -6,7 +6,6 @@
 4. [Linux Mintの初期設定](init/Linux_Mintの初期設定.md)
 5. [Google Chromeのインストール](init/Google_Chromeのインストール.md)
 6. [セキュリティソフトのインストール](init/セキュリティソフトのインストール.md)
-7. [仮想マシンのクローン](init/仮想マシンのクローン.md)
-8. [PostgreSQL+PostGISのインストール](init/PostgreSQL+PostGISのインストール.md)
-9. [Pythonのインストール](init/Pythonのインストール.md)
+7. [PostgreSQL+PostGISのインストール](init/PostgreSQL+PostGISのインストール.md)
+8. [Pythonのインストール](init/Pythonのインストール.md)
 
