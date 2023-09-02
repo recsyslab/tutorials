@@ -1,24 +1,41 @@
 # PostgreSQL+PostGISのインストール
 
-## PostgreSQL 12とPostGISのインストール
+## PostgreSQLとPostGISのインストール
 ```bash
-sudo apt install postgresql
-sudo apt install postgis
+$ sudo apt install postgresql
+$ sudo apt install postgis
 # ...（3分程度）...
+```
+
+## PostgreSQLの動作確認とバージョンの確認
+```bash
+$ sudo -u postgres psql
+```
+
+```pgsql
+postgres=# SELECT version();
+                                                               version                                                                
+--------------------------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 14.9 (Ubuntu 14.9-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+(1 row)
+# インストールされたバージョンを確認する。
+# 2023/09/02時点の最新版: 14.9
+postgres=# \q
+# '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
 ```
 
 ## 設定ファイルの準備
 `createcluster.conf`
 ```bash
-ls /etc/postgresql-common/
-less /etc/postgresql-common/createcluster.conf
-sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/createcluster.conf-org
-ls /etc/postgresql-common/
+$ ls /etc/postgresql-common/
+$ less /etc/postgresql-common/createcluster.conf
+$ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/createcluster.conf-org
+$ ls /etc/postgresql-common/
 ```
 
 `pg_hba.conf`
 ```bash
-ls /etc/postgresql/12/main/
+$ ls /etc/postgresql/12/main/
 sudo less /etc/postgresql/12/main/pg_hba.conf
 sudo cp /etc/postgresql/12/main/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf-org
 ls /etc/postgresql/12/main/
@@ -32,17 +49,7 @@ sudo cp /etc/postgresql/12/main/postgresql.conf /etc/postgresql/12/main/postgres
 ls /etc/postgresql/12/main/
 ```
 
-## PostgreSQLの動作確認とバージョンの確認
-```bash
-sudo -u postgres psql
-```
 
-```pgsql
-SELECT version();
-# インストールしたバージョンが表示されればOK。
-\q
-# '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
-```
 
 ## PostgreSQLサーバの起動設定
 ```bash
