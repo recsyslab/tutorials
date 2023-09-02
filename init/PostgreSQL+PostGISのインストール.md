@@ -39,52 +39,53 @@ $ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/creat
 $ ls /etc/postgresql-common/
 ```
 
+下記の`14`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン12.xをインストールした場合は、`14`の箇所を`12`に置換する。以下、同様。
 `pg_hba.conf`
 ```bash
-$ ls /etc/postgresql/12/main/
-sudo less /etc/postgresql/12/main/pg_hba.conf
-sudo cp /etc/postgresql/12/main/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf-org
-ls /etc/postgresql/12/main/
+$ ls /etc/postgresql/14/main/
+$ sudo less /etc/postgresql/14/main/pg_hba.conf
+$ sudo cp /etc/postgresql/14/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf-org
+$ ls /etc/postgresql/14/main/
 ```
 
 `postgresql.conf`
 ```bash
-ls /etc/postgresql/12/main/
-sudo less /etc/postgresql/12/main/postgresql.conf
-sudo cp /etc/postgresql/12/main/postgresql.conf /etc/postgresql/12/main/postgresql.conf-org
-ls /etc/postgresql/12/main/
+$ ls /etc/postgresql/14/main/
+$ sudo less /etc/postgresql/14/main/postgresql.conf
+$ sudo cp /etc/postgresql/14/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf-org
+$ ls /etc/postgresql/14/main/
 ```
-
-
 
 ## PostgreSQLサーバの起動設定
 ```bash
-sudo sysv-rc-conf
-sudo sysv-rc-conf postgresql off
-sudo sysv-rc-conf
-less ~/bin/startup.sh
-echo -e '\n# PostgreSQLサーバの起動' >> ~/bin/startup.sh
-echo -e 'sudo service postgresql start\n' >> ~/bin/startup.sh
-less ~/bin/startup.sh
-~/bin/startup.sh
-service postgresql status
+$ sudo sysv-rc-conf
+$ sudo sysv-rc-conf postgresql off
+$ sudo sysv-rc-conf
+$ less ~/bin/startup.sh
+$ echo -e '\n# PostgreSQLサーバの起動' >> ~/bin/startup.sh
+$ echo -e 'sudo service postgresql start\n' >> ~/bin/startup.sh
+$ less ~/bin/startup.sh
+$ ~/bin/startup.sh
+$ service postgresql status
 ```
 
 ## PostgreSQLのパスワードの設定
 ```bash
-sudo -u postgres psql
+$ sudo -u postgres psql
 ```
 
 ```pgsql
-\password
-\q
+postgres=# \password
+Enter new password for user "postgres":
+Enter it again: 
+postgres=# \q
 ```
 
 ```bash
-sudo less /etc/postgresql/12/main/pg_hba.conf
-sudo vi /etc/postgresql/12/main/pg_hba.conf
+$ sudo less /etc/postgresql/14/main/pg_hba.conf
+$ sudo vi /etc/postgresql/14/main/pg_hba.conf
 ```
-`pg_hba.conf`の下記3箇所について`peer`を`md5`に書き換える。
+`pg_hba.conf`の下記3箇所について`peer`を`md5`に書き換える。`vi`の代わりに`nano`で編集しても良い。
 
 `pg_hba.conf`
 ```
@@ -102,10 +103,10 @@ local replication all md5
 ```
 
 ```bash
-sudo less /etc/postgresql/12/main/pg_hba.conf
-sudo diff /etc/postgresql/12/main/pg_hba.conf-org /etc/postgresql/12/main/pg_hba.conf
-sudo service postgresql restart
-sudo -u postgres psql
+$ sudo less /etc/postgresql/14/main/pg_hba.conf
+$ sudo diff /etc/postgresql/14/main/pg_hba.conf-org /etc/postgresql/14/main/pg_hba.conf
+$ service postgresql restart
+$ sudo -u postgres psql
 # 設定したパスワードを入力してログインできることを確認する。
 ```
 
@@ -115,8 +116,8 @@ sudo -u postgres psql
 ## autovacuumの設定
 
 ```bash
-sudo less /etc/postgresql/12/main/postgresql.conf
-sudo vi /etc/postgresql/12/main/postgresql.conf
+$ sudo less /etc/postgresql/14/main/postgresql.conf
+$ sudo vi /etc/postgresql/14/main/postgresql.conf
 ```
 
 `postgresql.conf`
@@ -129,29 +130,33 @@ autovacuum = on
 ```
 
 ```bash
-sudo less /etc/postgresql/12/main/postgresql.conf
-sudo diff /etc/postgresql/12/main/postgresql.conf-org /etc/postgresql/12/main/postgresql.conf
-sudo service postgresql restart
+$ sudo less /etc/postgresql/14/main/postgresql.conf
+$ sudo diff /etc/postgresql/14/main/postgresql.conf-org /etc/postgresql/14/main/postgresql.conf
+$ service postgresql restart
 ```
 
 #### 参考
 - RAKUS Developers Blog, [VACUUMでPostgreSQLのゴミデータをお掃除！](https://tech-blog.rakus.co.jp/entry/20221227/vacuum)
 
 ## PostGISの動作テスト
+```bash
+$ sudo -u postgres psql
+```
+
 ```pgsql
-\l
-CREATE DATABASE gistest ENCODING 'UTF8';
-\l
-\c gistest
-\d
-CREATE EXTENSION postgis;
-SELECT postgis_full_version();
-CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
-CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
-INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
-SELECT ST_AsText(polygon) AS polygon FROM gissample;
-\d
-\q
+postgres=# \l
+postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
+postgres=# \l
+postgres=# \c gistest
+gistest=# \d
+gistest=# CREATE EXTENSION postgis;
+gistest=# SELECT postgis_full_version();
+gistest=# CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
+gistest=# CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
+gistest=# INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
+gistest=# SELECT ST_AsText(polygon) AS polygon FROM gissample;
+gistest=# \d
+gistest=# \q
 ```
 
 #### 参考
