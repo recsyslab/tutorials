@@ -140,25 +140,25 @@ $ rm -f sysv-rc-conf_0.99.orig.tar.gz
 
 ## ファイアウォールの設定
 ```bash
-sudo apt install gufw
-sudo ufw status
-sudo ufw enable
-sudo ufw default deny
-sudo ufw status
+$ sudo apt install gufw
+$ sudo ufw status
+$ sudo ufw enable
+$ sudo ufw default deny
+$ sudo ufw status
 ```
 
 ## スタートアップシェルスクリプトの作成
 サーバの起動やドライブのマウントなど、Linux起動時に行いたいことはスタートアップシェルスクリプトに記述しておくと良い。下記では、スタートアップシェルスクリプトとして`startup.sh`を作成しておく。今後は、必要に応じて、このファイルに追記していく。
 ```bash
-echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
-ls -l ~/bin/
-chmod +x ~/bin/startup.sh
-ls -l ~/bin/
-less ~/bin/startup.sh
+$ echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
+$ ls -l ~/bin/
+$ chmod +x ~/bin/startup.sh
+$ ls -l ~/bin/
+$ less ~/bin/startup.sh
 ```
-Linux起動時に、下記コマンドを実行すると良い。
+Linux起動時に下記コマンドを実行することで、必要な初期設定を一括で実行することができる。
 ```bash
-~/bin/startup.sh
+$ ~/bin/startup.sh
 ```
 
 ## Windows共有フォルダのマウント # VirtualBox経由の場合
