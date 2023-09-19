@@ -18,7 +18,7 @@
    1. **仮想マシン > 新規**を開く。
    2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **名前**: `Linux Mint 21.2 MATE 64-bit`
-      - **Folder**: `D:\VirtualBox VMs` # 外付けSSDのドライブ
+      - **Folder**: `C:\VirtualBox VMs`
       - **ISO Image**: `【ディレクトリ】/linuxmint-21.2-mate-64bit.iso` # ダウンロードしたISOファイル
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Username**: `rsl`
@@ -32,7 +32,7 @@
       - **メインメモリー**: （緑色の範囲内での最大値）
       - **Processors**: （緑色の範囲内での最大値）
    5. **Virtual Hard dis**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
-      - **Create a Virtual Hard Disk Now**: `320 GB`
+      - **Create a Virtual Hard Disk Now**: `320 GB` # 自分の空き容量に合わせる
       - **Pre-allocate Full Size**: `非チェック`
    6. **完了**ボタンをクリックする。
 3. **GNU GRUB**が起動するので、`Start Linux Mint 21.2 MATE 64-bit`を選択し、**Enter**キーを押す。
