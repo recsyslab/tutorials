@@ -51,8 +51,8 @@ echo $PATH
 ## バージョンの確認
 ```bash
 python3 --version
-python3.8 --version
-python3.9 --version
+python3.10 --version
+python3.11 --version
 ```
 
 ## ベースとなる仮想環境
@@ -61,7 +61,7 @@ python3.9 --version
 ```bash
 mkdir ~/venv/
 cd ~/venv/
-python3.9 -m venv rsl-base
+python3.11 -m venv rsl-base
 source rsl-base/bin/activate
 ```
 
