@@ -10,7 +10,6 @@
    - インストールが完了したら、**Finish**ボタンをクリックする。
 
 ## VirtualBox上でのLinux Mint 21.2 MATE 64-bitの仮想マシンの構築
-1. 外付けSSDを接続する。以降、外付けSSDのドライブを `D` とする。
 1. 下記からLinux Mint 21.2のISOファイルをダウンロードする。
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 21.2 "Victoria" - MATE (64-bit)**: `linuxmint-21.2-mate-64bit.iso`
@@ -18,7 +17,9 @@
    1. **仮想マシン > 新規**を開く。
    2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **名前**: `Linux Mint 21.2 MATE 64-bit`
-      - **Folder**: `C:\VirtualBox VMs`
+      - **Folder**:
+        - `C:\VirtualBox VMs` # `C`ドライブに構築する場合
+        - `D:\VirtualBox VMs` # 外付けSSDのドライブを`D`とし、そこに構築する場合
       - **ISO Image**: `【ディレクトリ】/linuxmint-21.2-mate-64bit.iso` # ダウンロードしたISOファイル
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Username**: `rsl`
