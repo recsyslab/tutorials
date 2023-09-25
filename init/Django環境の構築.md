@@ -42,3 +42,30 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 ```bash
 (rsl-django) $ pip freeze
 ```
+
+## Django環境の動作テスト
+
+### Djangoプロジェクトの作成
+```bash
+(rsl-django) $ cd
+(rsl-django) $ mkdir django-test/
+(rsl-django) $ cd django-test/
+(rsl-django) $ django-admin startproject test_project
+(rsl-django) $ ls
+# `test_project/`が正しく生成されればOK
+```
+
+### Djangoアプリケーションの作成
+```bash
+(rsl-django) $ cd test_project/
+(rsl-django) $ python manage.py startapp test_app
+(rsl-django) $ ls
+# `test_app/`が正しく生成されればOK
+```
+
+### Djangoプロジェクトの削除
+```bash
+(rsl-django) $ cd
+(rsl-django) $ rm -rf django-test/
+(rsl-django) $ deactivate
+```
