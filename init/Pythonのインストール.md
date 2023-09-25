@@ -128,3 +128,17 @@ $ source rsl-base/bin/activate
 #### 参考
 - Doitu.info, [既存のPython環境を壊すことなく、自分でビルドしてインストールする（altinstall）](https://doitu.info/blog/5c45e5ec8dbc7a001af33ce8)
 - 組み込みの人。, [makeコマンドのちょっとしたtips](https://embedded.hatenadiary.org/entry/20090416/p1)
+
+## Visual Studio Codeのインストール
+```bash
+$ cd ~/src/
+$ sudo apt install libsecret-1-0
+$ wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O code_latest_amd64.deb
+$ sudo dpkg -i code_latest_amd64.deb
+$ rm -f code_latest_amd64.deb
+```
+
+## Visual Studio Codeの実行
+```bash
+$ code
+```
