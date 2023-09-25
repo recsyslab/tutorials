@@ -8,7 +8,6 @@ sudo apt install build-essential # GDALのインストールに必要
 sudo apt install libgdal-dev	# GDALのインストールに必要
 sudo apt install python3-gdal	# GDALのインストールに必要
 sudo apt install libffi-dev # scikit-learnのインポートに必要
-# ...（5分程度）...
 ```
 
 ## インストール
