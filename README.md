@@ -8,4 +8,4 @@
 6. [セキュリティソフトのインストール](init/セキュリティソフトのインストール.md)
 7. [PostgreSQL+PostGISのインストール](init/PostgreSQL+PostGISのインストール.md)
 8. [Pythonのインストール](init/Pythonのインストール.md)
-
+9. [Visual Studio Codeのインストール.md](Visual_Studio_Codeのインストール.md)
