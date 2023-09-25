@@ -90,42 +90,39 @@ $ source rsl-base/bin/activate
 
 ### インストール済みパッケージ一覧の確認
 ```bash
-pip freeze
+(rsl-base) $ pip freeze
 ```
-
-### 実行テスト
-(TBD)
 
 ### 各種パッケージのバージョンの確認
 ```bash
-ipython --version
-python
+(rsl-base) $ ipython --version
+(rsl-base) $ python
 # プロンプトが>>>となればOK
 ```
 
 ```python
-import numpy
-numpy.__version__
-import scipy
-scipy.__version__
-import matplotlib
-matplotlib.__version__
-import pandas
-pandas.__version__
-import sklearn
-sklearn.__version__
-import psycopg2
-psycopg2.__version__
-import tqdm
-tqdm.__version__
-import importnb
-importnb.__version__
-[Ctrl+D]
+>>> import numpy
+>>> numpy.__version__
+>>> import scipy
+>>> scipy.__version__
+>>> import matplotlib
+>>> matplotlib.__version__
+>>> import pandas
+>>> pandas.__version__
+>>> import sklearn
+>>> sklearn.__version__
+>>> import psycopg2
+>>> psycopg2.__version__
+>>> import tqdm
+>>> tqdm.__version__
+>>> import importnb
+>>> importnb.__version__
+>>> [Ctrl+D]
 ```
 
 ### 仮想環境のディアクティベート
 ```bash
-deactivate
+(rsl-base) $ deactivate
 ```
 
 #### 参考
