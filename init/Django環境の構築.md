@@ -37,3 +37,8 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 (rsl-django) $ pip install django-allauth
 (rsl-django) $ pip install django-cleanup
 ```
+
+## インストール済みパッケージ一覧の確認
+```bash
+(rsl-django) $ pip freeze
+```
