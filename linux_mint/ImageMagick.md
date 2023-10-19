@@ -1,4 +1,4 @@
-# ImageMagick.md
+# ImageMagick
 
 ## インストール
 ```bash
