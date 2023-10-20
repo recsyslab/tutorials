@@ -82,7 +82,8 @@ $ ls
 
 ## リポジトリのpull
 ```bahs
-$ pull
+$ cd 【リポジトリ名】/
+$ git pull
 ```
 
 ## Djangoプロジェクトのコピー
