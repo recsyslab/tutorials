@@ -110,6 +110,7 @@ https://recsyslab.github.io/recsys-django/
 【サーバのIPアドレス】$ sudo ln -s /etc/nginx/sites-available/【Djangoプロジェクト名】 /etc/nginx/sites-enabled/
 【サーバのIPアドレス】$ sudo unlink /etc/nginx/sites-enabled/default
 【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
+【サーバのIPアドレス】$ sudo systemctl reload nginx
 ```
 
 ```
@@ -145,7 +146,7 @@ server {
     location = /40x.html {
     }
     
-    error_page 500 502 503 504 /50x.html
+    error_page 500 502 503 504 /50x.html;
     location = /50x.html {
     }
     
