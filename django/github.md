@@ -72,7 +72,6 @@ Hi 【ユーザ名】! You've successfully authenticated, but GitHub does not pr
 ## リポジトリのclone
 1. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスを確認する。
    - `git clone git@github.com:recsyslab/【リポジトリ名】.git`
-3. 端末で下記を実行する。
 ```bash
 $ cd
 $ mkdir -p 【リポジトリ名】/
