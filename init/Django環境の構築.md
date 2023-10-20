@@ -43,7 +43,7 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 ```bash
 (rsl-django) $ pip freeze
 (rsl-django) $ pip freeze > rsl-django_requirements.txt
-(rsl-django $ deactivate
+(rsl-django) $ deactivate
 ```
 
 ## Django環境の動作テスト
