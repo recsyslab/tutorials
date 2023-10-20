@@ -88,7 +88,7 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 【サーバのIPアドレス】$ sudo chown rsl /usr/share/nginx/html/static/
 【サーバのIPアドレス】$ sudo chown rsl /usr/share/nginx/html/media/
 【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd 【リポジトリ名】/【Djangoプロジェクト名】/
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd ~/【リポジトリ名】/【Djangoプロジェクト名】/
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py collectstatic
 ```
 
@@ -158,4 +158,17 @@ server {
 【サーバのIPアドレス】$ sudo unlink /etc/nginx/sites-enabled/default
 【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
 【サーバのIPアドレス】$ sudo systemctl reload nginx
+```
+
+## NginxとGunicornの起動
+```bash
+【サーバのIPアドレス】$ sudo systemctl start nginx.service
+【サーバのIPアドレス】$ systemctl status nginx.service
+```
+
+```bash
+【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd ~/【リポジトリ名】/【Djangoプロジェクト名】/
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ gunicorn --bind 127.0.0.1:8000 【Djangoプロジェクト名】.wsgi -D
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ ps ax | grep gunicorn
 ```
