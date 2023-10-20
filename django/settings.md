@@ -1,5 +1,7 @@
 # Djangoプロジェクトの設定
 
+## 設定ファイルの修正
+
 リスト1: `recsys_django/recsys_django/settings.py`
 ```py
 ...（略）...
