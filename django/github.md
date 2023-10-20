@@ -86,5 +86,23 @@ $ ls
 $ pull
 ```
 
+## Djangoプロジェクトのコピー
+```bash
+$ cd
+$ cp -r 【Djangoプロジェクト名】/ 【リポジトリ名】/
+$ ls 【リポジトリ名】/
+```
+
+## push
+```bash
+$ cd ~/【リポジトリ名】/
+$ git add 【Djangoプロジェクト名】/
+$ git status
+$ git commit -m "add 【Djangoプロジェクト名】/"
+$ git push
+```
+
+リポジトリにアクセスし、Djangoプロジェクトが配置されていればOK。
+
 
 
