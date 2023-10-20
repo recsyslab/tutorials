@@ -103,3 +103,53 @@ https://recsyslab.github.io/recsys-django/
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py migrate
 ```
 
+## Nginxの設定
+```bash
+【サーバのIPアドレス】$ sudo vi /etc/nginx/sites-available/【Djangoプロジェクト名】
+【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
+【サーバのIPアドレス】$ sudo ln -s /etc/nginx/sites-available/【Djangoプロジェクト名】 /etc/nginx/sites-enabled/
+【サーバのIPアドレス】$ sudo unlink /etc/nginx/sites-enabled/default
+【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
+```
+
+```
+server {
+    server_name recsyslab-ex.org www.recsyslab-ex.org; # managed by Certbot
+    
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/recsyslab-ex.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/recsyslab-ex.org/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    
+    root /usr/share/nginx/html;
+    
+    location /static {
+        alias /usr/share/nginx/html/static;
+    }
+    
+    location /media {
+        alias /usr/share/nginx/html/media;
+    }
+    
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X_Forwarded-Proto $scheme;
+        
+        proxy_pass http://127.0.0.1:8000;
+    }
+    
+    error_page 404 /404.html;
+    location = /40x.html {
+    }
+    
+    error_page 500 502 503 504 /50x.html
+    location = /50x.html {
+    }
+    
+    # index.html等はファイル名の指定なしで実行
+    index index.html index.htm index.nginx-debian.html;
+}
+```
