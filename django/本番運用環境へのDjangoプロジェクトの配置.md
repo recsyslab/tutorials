@@ -71,7 +71,7 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 ```bash
 【サーバのIPアドレス】$ less ~/.profile
 【サーバのIPアドレス】$ echo -e '\n# Django用環境変数' >> ~/.profile
-【サーバのIPアドレス】$ echo 'export DB_USER=【DBユーザ名】' >> ~/.profile
+【サーバのIPアドレス】$ echo 'export DB_USER=rsl' >> ~/.profile
 【サーバのIPアドレス】$ echo 'export DB_PASSWORD=【DBパスワード】' >> ~/.profile
 【サーバのIPアドレス】$ echo 'export DJANGO_SETTINGS_MODULE=【Djangoプロジェクト名】.settings' >> ~/.profile
 【サーバのIPアドレス】$ echo -e "export ALLOWED_HOSTS=\"['【サーバのIPアドレス】', '【サーバのIPアドレス】', 'localhost', '127.0.0.1']\"" >> ~/.profile
@@ -79,4 +79,15 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 【サーバのIPアドレス】$ diff ~/.profile-org ~/.profile
 【サーバのIPアドレス】$ source ~/.profile
 【サーバのIPアドレス】$ env
+```
+
+## 静的ファイルを配信ディレクトリに配置
+```bash
+【サーバのIPアドレス】$ sudo mkdir -p /usr/share/nginx/html/static/
+【サーバのIPアドレス】$ sudo mkdir -p /usr/share/nginx/html/media/
+【サーバのIPアドレス】$ sudo chown rsl /usr/share/nginx/html/static/
+【サーバのIPアドレス】$ sudo chown rsl /usr/share/nginx/html/media/
+【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd 【リポジトリ名】/【Djangoプロジェクト名】/
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py collectstatic
 ```
