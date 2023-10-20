@@ -58,6 +58,12 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 (【Djangoプロジェクト名】) 【サーバのホスト】$ pip install --upgrade pip
 (【Djangoプロジェクト名】) 【サーバのホスト】$ pip install -r ~/venv/rsl-django_requirements.txt
 (【Djangoプロジェクト名】) 【サーバのホスト】$ pip freeze
+(【Djangoプロジェクト名】) 【サーバのホスト】$ pip install gunicorn
 (【Djangoプロジェクト名】) 【サーバのホスト】$ deactivate
+```
+
+## ログは一ディレクトリの作成
+```bash
+【サーバのホスト】$ mkdir ~/【リポジトリ名】/【Djangoプロジェクト名】/logs/
 ```
 
