@@ -39,9 +39,11 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 (rsl-django) $ pip install django-cleanup
 ```
 
-## インストール済みパッケージ一覧の確認
+## インストール済みパッケージ一覧の確認と出力
 ```bash
 (rsl-django) $ pip freeze
+(rsl-django) $ pip freeze > rsl-django_requirements.txt
+(rsl-django $ deactivate
 ```
 
 ## Django環境の動作テスト
