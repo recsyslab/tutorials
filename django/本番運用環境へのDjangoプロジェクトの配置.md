@@ -12,19 +12,36 @@ $ git push
 ## サーバへの接続
 ```bash
 $ ssh 【サーバにアクセスするユーザ名】@【サーバのIPアドレス】
-【サーバのIPアドレス】$
+【サーバのホスト】$
 ```
+
+## SSH Keyの設定
+```bash
+【サーバのホスト】$ ssh-keygen -t rsa -C "【メールアドレス】"
+【サーバのホスト】$ ls ~/.ssh/
+【サーバのホスト】$ cat ~/.ssh/id_rsa.pub
+```
+
+## 公開鍵の登録
+1. GitHubの右上のアカウント設定ボタンから**Settings**を開く。
+   1. **SSH and GPG Keys**を開く。
+      1. **New SSH Key**ボタンをクリックし、下記を設定する。
+         - **Title**: 【任意の鍵の名前】
+         - **Key**: `id_rsa.pub`の内容を貼り付ける。
+      2. **Add SSH Key**ボタンをクリックする。
+         - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
 
 ## リポジトリのclone
 ```bash
-$ cd
-$ mkdir -p 【リポジトリ名】/
-$ git clone git@github.com:recsyslab/【リポジトリ名】.git
-$ cd 【リポジトリ名】/
-$ ls
+【サーバのホスト】$ cd
+【サーバのホスト】$ mkdir -p 【リポジトリ名】/
+【サーバのホスト】$ git clone git@github.com:recsyslab/【リポジトリ名】.git
+【サーバのホスト】$ cd 【リポジトリ名】/
+【サーバのホスト】$ ls
 ```
 
 ## リポジトリのpull
 ```bahs
-$ pull
+【サーバのホスト】$ cd 【リポジトリ名】/
+【サーバのホスト】$ git pull
 ```
