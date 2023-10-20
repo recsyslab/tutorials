@@ -67,3 +67,16 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 【サーバのホスト】$ mkdir ~/【リポジトリ名】/【Djangoプロジェクト名】/logs/
 ```
 
+## 環境変数の設定
+```bash
+【サーバのホスト】$ less ~/.profile
+【サーバのホスト】$ echo -e '\n# Django用環境変数' >> ~/.profile
+【サーバのホスト】$ echo 'export DB_USER=【DBユーザ名】' >> ~/.profile
+【サーバのホスト】$ echo 'export DB_PASSWORD=【DBパスワード】' >> ~/.profile
+【サーバのホスト】$ echo 'export DJANGO_SETTINGS_MODULE=【Djangoプロジェクト名】.settings' >> ~/.profile
+【サーバのホスト】$ echo -e "export ALLOWED_HOSTS=\"['【サーバのホスト】', '【サーバのIPアドレス】', 'localhost', '127.0.0.1']\"" >> ~/.profile
+$ less ~/.profile
+$ diff ~/.profile-org ~/.profile
+$ echo $PATH
+$ source ~/.profile
+$ echo $PATH
