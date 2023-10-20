@@ -1,4 +1,11 @@
-# GitHubリポジトリの作成
+# GitHub
+
+## GitHubに招待（教員の作業）
+1. `recsyslab`プロジェクトトップページのメニューから**People**を開く。
+   1. **Invite member**ボタンをクリックする。
+   2. **Invite a member to recsyslab**に招待したいメールアドレスを入力する。
+   3. **Invite**ボタンをクリックする。
+   4. **Role in the organization**で`Member`を選択し、**Send invitation**ボタンをクリックする。
 
 ## 学生用リポジトリの作成（教員の作業）
 1. organizationsのトップページから、**Repositories**を開く。
@@ -12,17 +19,6 @@
          - **Choose a license**: （任意）
       2. **Create repository**ボタンをクリックする。
 
-## リポジトリにアクセス
-下記URLでリポジトリにアクセスできる。
-- `https://github.com/recsyslab/rslXXX/`
-
-## GitHubに招待
-1. `recsyslab`プロジェクトトップページのメニューから**People**を開く。
-   1. **Invite member**ボタンをクリックする。
-   2. **Invite a member to recsyslab**に招待したいメールアドレスを入力する。
-   3. **Invite**ボタンをクリックする。
-   4. **Role in the organization**で`Member`を選択し、**Send invitation**ボタンをクリックする。
-
 ## 招待メールからrecsyslabプロジェクトに参加
 1. GitHubからの招待メールの案内にしたがって、メール本文内の**Join@recsyslab**ボタンをクリックする。
    1. 下記を入力して**Create account and join**ボタンをクリックする。
@@ -31,6 +27,10 @@
    4. Password: （自分のわかるパスワード）
    5. アカウントを検証し、**Join a free plan**ボタンをクリックする。
    6. プロジェクト画面が表示される。
+
+## リポジトリにアクセス
+下記URLでリポジトリにアクセスできる。
+- `https://github.com/recsyslab/（RSL番号，例；rsl000）`
 
 ## リポジトリのclone
 1. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスを確認する。
