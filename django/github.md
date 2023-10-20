@@ -21,6 +21,12 @@
          - **Choose a license**: （任意）
       2. **Create repository**ボタンをクリックする。
 
+## GitとSSHのインストール
+```bash
+$ sudo apt install git
+$ sudo apt install ssh
+```
+
 ## 招待メールからrecsyslabプロジェクトに参加
 1. GitHubからの招待メールの案内にしたがって、メール本文内の**Join@recsyslab**ボタンをクリックする。
    1. 下記を入力して**Create account and join**ボタンをクリックする。
