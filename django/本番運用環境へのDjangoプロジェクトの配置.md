@@ -91,3 +91,14 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd 【リポジトリ名】/【Djangoプロジェクト名】/
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py collectstatic
 ```
+
+## データベース環境の構築（前もってやっておく）
+https://recsyslab.github.io/recsys-django/
+06 データベース環境の構築
+11 ユーザ、アイテム、評価値テーブルの設計とデータの登録
+12 推薦リストテーブルの設計とデータの登録
+
+## マイグレーション
+```bash
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py migrate
+```
