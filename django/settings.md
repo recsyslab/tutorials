@@ -5,6 +5,7 @@
 リスト1: `recsys_django/recsys_django/settings.py`
 ```py
 ...（略）...
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False                                      # 修正
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]  # 修正
