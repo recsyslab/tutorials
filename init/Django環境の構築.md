@@ -37,6 +37,7 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 (rsl-django) $ pip install django-bootstrap5
 (rsl-django) $ pip install django-allauth
 (rsl-django) $ pip install django-cleanup
+(rsl-django) $ pip install gunicorn # デプロイに必要
 ```
 
 ## インストール済みパッケージ一覧の確認
