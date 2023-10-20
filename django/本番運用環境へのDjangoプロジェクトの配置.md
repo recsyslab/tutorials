@@ -102,3 +102,4 @@ https://recsyslab.github.io/recsys-django/
 ```bash
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py migrate
 ```
+
