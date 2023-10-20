@@ -75,8 +75,8 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 【サーバのIPアドレス】$ echo 'export DB_PASSWORD=【DBパスワード】' >> ~/.profile
 【サーバのIPアドレス】$ echo 'export DJANGO_SETTINGS_MODULE=【Djangoプロジェクト名】.settings' >> ~/.profile
 【サーバのIPアドレス】$ echo -e "export ALLOWED_HOSTS=\"['【サーバのIPアドレス】', '【サーバのIPアドレス】', 'localhost', '127.0.0.1']\"" >> ~/.profile
-$ less ~/.profile
-$ diff ~/.profile-org ~/.profile
-$ echo $PATH
-$ source ~/.profile
-$ echo $PATH
+【サーバのIPアドレス】$ less ~/.profile
+【サーバのIPアドレス】$ diff ~/.profile-org ~/.profile
+【サーバのIPアドレス】$ source ~/.profile
+【サーバのIPアドレス】$ env
+```
