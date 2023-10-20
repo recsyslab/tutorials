@@ -104,15 +104,12 @@ https://recsyslab.github.io/recsys-django/
 ```
 
 ## Nginxの設定
+Nginxのインストール、自動起動などの初期設定は先に行っておく。
 ```bash
 【サーバのIPアドレス】$ sudo vi /etc/nginx/sites-available/【Djangoプロジェクト名】
-【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
-【サーバのIPアドレス】$ sudo ln -s /etc/nginx/sites-available/【Djangoプロジェクト名】 /etc/nginx/sites-enabled/
-【サーバのIPアドレス】$ sudo unlink /etc/nginx/sites-enabled/default
-【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
-【サーバのIPアドレス】$ sudo systemctl reload nginx
 ```
 
+`/etc/nginx/sites-available/【Djangoプロジェクト名】`
 ```
 server {
     server_name recsyslab-ex.org www.recsyslab-ex.org; # managed by Certbot
@@ -153,4 +150,12 @@ server {
     # index.html等はファイル名の指定なしで実行
     index index.html index.htm index.nginx-debian.html;
 }
+```
+
+```bash
+【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
+【サーバのIPアドレス】$ sudo ln -s /etc/nginx/sites-available/【Djangoプロジェクト名】 /etc/nginx/sites-enabled/
+【サーバのIPアドレス】$ sudo unlink /etc/nginx/sites-enabled/default
+【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
+【サーバのIPアドレス】$ sudo systemctl reload nginx
 ```
