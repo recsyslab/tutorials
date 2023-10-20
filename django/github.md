@@ -12,7 +12,7 @@
    1. **New repository**ボタンをクリックする。
       1. 下記を設定する。
          - **Owner**: `recsyslab`
-         - **Repository name**: （RSL番号，例；rsl000）
+         - **Repository name**: 【リポジトリ名】（RSL番号、例；rsl000）
          - **Public/Private**: `Private`
          - **Add a README file**: `チェック`
          - **Add .gitignore**: （任意）
@@ -22,7 +22,7 @@
 ## 招待メールからrecsyslabプロジェクトに参加
 1. GitHubからの招待メールの案内にしたがって、メール本文内の**Join@recsyslab**ボタンをクリックする。
    1. 下記を入力して**Create account and join**ボタンをクリックする。
-   2. Pick a username: （RSL番号，例；rsl000）
+   2. Pick a username: （RSL番号、例；rsl000）
    3. Your email address: （招待された大学のメールアドレス）
    4. Password: （自分のわかるパスワード）
    5. アカウントを検証し、**Join a free plan**ボタンをクリックする。
@@ -30,14 +30,16 @@
 
 ## リポジトリにアクセス
 下記URLでリポジトリにアクセスできる。
-- `https://github.com/recsyslab/（RSL番号，例；rsl000）`
+- `https://github.com/recsyslab/【リポジトリ名】`（【リポジトリ名】はRSL番号、例；rsl000）
 
 ## リポジトリのclone
 1. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスを確認する。
-
+   - `git clone git@github.com:recsyslab/【リポジトリ名】.git`
+3. 端末で下記を実行する。
 ```bash
-mkdir -p 【リポジトリ名】/
-git clone git@github.com:recsyslab/【リポジトリ名】.git
-cd 【リポジトリ名】/
-ls
+$ cd
+$ mkdir -p 【リポジトリ名】/
+$ git clone git@github.com:recsyslab/【リポジトリ名】.git
+$ cd 【リポジトリ名】/
+$ ls
 ```
