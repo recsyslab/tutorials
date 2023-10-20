@@ -4,7 +4,6 @@
 
 ### rsl-base環境からのインストール済みパッケージ情報の出力
 ```bash
-$ cd ~/venv/
 $ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip freeze > ~/venv/rsl-base_requirements.txt
 (rsl-base) $ deactivate
