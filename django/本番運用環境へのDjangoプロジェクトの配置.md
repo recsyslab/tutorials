@@ -45,3 +45,19 @@ $ ssh 【サーバにアクセスするユーザ名】@【サーバのIPアド�
 【サーバのホスト】$ cd 【リポジトリ名】/
 【サーバのホスト】$ git pull
 ```
+
+## プロジェクト用の仮想環境の構築
+```bash
+$ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユーザ名】@【サーバのIPアドレス】:/home/rsl/venv/
+```
+
+```bash
+【サーバのホスト】$ cd ~/venv/
+【サーバのホスト】$ python3.11 -m venv 【Djangoプロジェクト名】
+【サーバのホスト】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
+(【Djangoプロジェクト名】) 【サーバのホスト】$ pip install --upgrade pip
+(【Djangoプロジェクト名】) 【サーバのホスト】$ pip install -r ~/venv/rsl-django_requirements.txt
+(【Djangoプロジェクト名】) 【サーバのホスト】$ pip freeze
+(【Djangoプロジェクト名】) 【サーバのホスト】$ deactivate
+```
+
