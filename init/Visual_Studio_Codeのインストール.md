@@ -13,3 +13,8 @@ $ rm -f code_latest_amd64.deb
 ```bash
 $ code
 ```
+
+## バージョンの確認
+```bash
+$ code -v
+```
