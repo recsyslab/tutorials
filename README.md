@@ -9,5 +9,5 @@
 7. [PostgreSQL+PostGISのインストール](init/PostgreSQL+PostGISのインストール.md)
 8. [Pythonのインストール](init/Pythonのインストール.md)
 9. [Visual Studio Codeのインストール](init/Visual_Studio_Codeのインストール.md)
-10. [Linux環境チェック](init/Linux環境チェックチェック.md)
+10. [Linux環境チェック](init/Linux環境チェック.md)
 11. [Django環境の構築](init/Django環境の構築.md)
