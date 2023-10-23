@@ -120,6 +120,7 @@ $ ls
 - Qiita, [「デスクトップ」等のディレクトリ名を英語にする](https://qiita.com/take5249/items/13ada73bbd01ee12a2c3)
 
 ## `sysv-rc-conf`のインストール
+※将来的には`systemd`に統一する。
 ```bash
 $ cd ~/src/
 $ wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
