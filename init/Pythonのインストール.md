@@ -62,7 +62,7 @@ $ python3.11 --version
 $ mkdir ~/venv/
 $ cd ~/venv/
 $ python3.11 -m venv rsl-base
-$ source rsl-base/bin/activate
+$ source ~/venv/rsl-base/bin/activate
 ```
 
 ### pipのアップグレード
