@@ -90,6 +90,7 @@ $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユー
 【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd ~/【リポジトリ名】/【Djangoプロジェクト名】/
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py collectstatic
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cp -r ~/rsl000_test/recsys_django/media/* /usr/share/nginx/html/media/
 ```
 
 ## データベース環境の構築（前もってやっておく）
