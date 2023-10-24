@@ -164,7 +164,7 @@ MemTotal:       11098216 kB
 
 #### 参考
 - クロの思考ノート, [Linuxのシステムやハードウェア情報を取得するコマンドを集めてみた](http://note.kurodigi.com/linux-systeminfo/)
-
+- Qiita, [ifconfigの出力結果に書いてあること #Linux - Qiita](https://qiita.com/pe-ta/items/aff8db72530c6baa11b2)
 
 ## Google Crhome
 
