@@ -253,7 +253,7 @@ Python 3.11.5
 ### 仮想環境の確認
 ```bash
 $ cd
-$ source rsl-base/bin/activate
+$ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip --version
 pip 23.3.1 from /home/rsl/venv/rsl-base/lib/python3.11/site-packages/pip (python 3.11)
 (rsl-base) $ pip freeze
