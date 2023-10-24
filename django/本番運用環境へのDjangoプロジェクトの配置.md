@@ -265,3 +265,10 @@ if DEPLOY:
 ```bash
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py check --deploy
 ```
+
+## ログの確認
+```bash
+$ less logs/django.log
+```
+
+
