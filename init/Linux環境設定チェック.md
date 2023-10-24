@@ -111,6 +111,56 @@ $ sudo ufw status
 状態: アクティブ
 ```
 
+## システム情報等の確認
+
+### ディストリビューションバージョンの確認
+```bash
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Linuxmint
+Description:	Linux Mint 21.2
+Release:	21.2
+Codename:	victoria
+```
+
+### アーキテクチャの確認
+```bash
+$ arch
+x86_64
+```
+
+### ホスト名の確認
+```bash
+$ hostname
+recsyslab-mint
+```
+
+### IPアドレスの確認
+```bash
+$ ifconfig
+```
+
+### スペック（ディスクサイズ，CPU，メモリ）の確認
+```bash
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.1G  1.3M  1.1G   1% /run
+/dev/sda3       314G   19G  280G   7% /
+tmpfs           5.3G   28K  5.3G   1% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+/dev/sda2       512M  6.1M  506M   2% /boot/efi
+tmpfs           1.1G  132K  1.1G   1% /run/user/1000
+C_DRIVE         477G  403G   74G  85% /mnt/c
+D_DRIVE         477G   92G  386G  20% /mnt/d
+$ cat /proc/cpuinfo | grep 'model name'
+$ cat /proc/cpuinfo | grep processor
+$ cat /proc/meminfo | grep MemTotal
+```
+
+#### 参考
+- クロの思考ノート, [Linuxのシステムやハードウェア情報を取得するコマンドを集めてみた](http://note.kurodigi.com/linux-systeminfo/)
+
+
 ## Google Crhome
 
 ### バージョンの確認
