@@ -184,3 +184,22 @@ server {
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ gunicorn --bind 127.0.0.1:8000 【Djangoプロジェクト名】.wsgi -D
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ ps ax | grep gunicorn
 ```
+
+## CSRF対策
+開発環境ではPOSTできるのにデプロイ環境ではCSRF検証に失敗する。
+以下のように設定を追記する。
+
+`/etc/nginx/sites-available/【Djangoプロジェクト名】`
+```bash
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X_Forwarded-Proto $scheme;
+        
+        proxy_set_header X-Forwarded-Port $server_port;    # 追記
+        proxy_set_header X-Forwarded-Host $host;           # 追記
+        
+        proxy_pass http://127.0.0.1:8000;
+    }
+```
+
