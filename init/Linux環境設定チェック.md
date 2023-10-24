@@ -153,8 +153,29 @@ tmpfs           1.1G  132K  1.1G   1% /run/user/1000
 C_DRIVE         477G  403G   74G  85% /mnt/c
 D_DRIVE         477G   92G  386G  20% /mnt/d
 $ cat /proc/cpuinfo | grep 'model name'
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+model name	: 12th Gen Intel(R) Core(TM) i7-12650H
 $ cat /proc/cpuinfo | grep processor
+processor	: 0
+processor	: 1
+processor	: 2
+processor	: 3
+processor	: 4
+processor	: 5
+processor	: 6
+processor	: 7
+processor	: 8
+processor	: 9
 $ cat /proc/meminfo | grep MemTotal
+MemTotal:       11098216 kB
 ```
 
 #### 参考
