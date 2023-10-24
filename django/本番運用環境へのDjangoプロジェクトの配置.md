@@ -191,6 +191,7 @@ server {
 
 `/etc/nginx/sites-available/【Djangoプロジェクト名】`
 ```bash
+...（略）...
     location / {
         proxy_set_header Host $http_host;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -201,5 +202,21 @@ server {
         
         proxy_pass http://127.0.0.1:8000;
     }
+...（略）...
 ```
 
+以下を追記する。
+`recsys_django/recsys_django/settings.py`
+```py
+...（略）...
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+```
+
+```bash
+【サーバのIPアドレス】$ sudo nginx -t
+【サーバのIPアドレス】$ sudo systemctl reload nginx
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ pkill gunicorn
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ gunicorn --bind 127.0.0.1:8000 【Djangoプロジェクト名】.wsgi -D
+```
