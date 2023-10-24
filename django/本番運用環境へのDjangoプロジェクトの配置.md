@@ -103,6 +103,16 @@ https://recsyslab.github.io/recsys-django/
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py migrate
 ```
 
+## データの登録
+```bash
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy users from '/home/rsl/data/users.csv' with DELIMITER E'\t' CSV HEADER;"
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy items from '/home/rsl/data/items.csv' with DELIMITER E'\t' CSV HEADER;"
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy ratings from '/home/rsl/data/ratings.csv' with DELIMITER E'\t' CSV HEADER;"
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_itemcf from '/home/rsl/data/reclist_itemcf.csv' with DELIMITER E'\t' CSV HEADER;"
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_popularity from '/home/rsl/data/reclist_popularity.csv' with DELIMITER E'\t' CSV HEADER;"
+(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_similarity from '/home/rsl/data/reclist_similarity.csv' with DELIMITER E'\t' CSV HEADER;"
+```
+
 ## Nginxの設定
 Nginxのインストール、自動起動などの初期設定は先に行っておく。
 ```bash
