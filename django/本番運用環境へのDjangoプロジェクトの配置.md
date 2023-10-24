@@ -114,6 +114,14 @@ https://recsyslab.github.io/recsys-django/
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_similarity from '/home/rsl/data/reclist_similarity.csv' with DELIMITER E'\t' CSV HEADER;"
 ```
 
+```pgsql
+recsys_django=# SELECT setval('ratings_id_seq', (SELECT max(id) FROM ratings));
+recsys_django=# SELECT setval('reclist_popularity_id_seq', (SELECT max(id) FROM reclist_popularity));
+recsys_django=# SELECT setval('reclist_similarity_id_seq', (SELECT max(id) FROM reclist_similarity));
+recsys_django=# SELECT setval('reclist_itemcf_id_seq', (SELECT max(id) FROM reclist_itemcf));
+```
+
+
 ## Nginxの設定
 Nginxのインストール、自動起動などの初期設定は先に行っておく。
 ```bash
