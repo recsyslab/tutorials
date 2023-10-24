@@ -138,41 +138,25 @@ recsyslab-mint
 ### IPアドレスの確認
 ```bash
 $ ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+...（略）...
 ```
 
 ### スペック（ディスクサイズ，CPU，メモリ）の確認
 ```bash
 $ df -h
 Filesystem      Size  Used Avail Use% Mounted on
-tmpfs           1.1G  1.3M  1.1G   1% /run
+...（略）...
 /dev/sda3       314G   19G  280G   7% /
-tmpfs           5.3G   28K  5.3G   1% /dev/shm
-tmpfs           5.0M  4.0K  5.0M   1% /run/lock
-/dev/sda2       512M  6.1M  506M   2% /boot/efi
-tmpfs           1.1G  132K  1.1G   1% /run/user/1000
+...（略）...
 C_DRIVE         477G  403G   74G  85% /mnt/c
 D_DRIVE         477G   92G  386G  20% /mnt/d
 $ cat /proc/cpuinfo | grep 'model name'
 model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
-model name	: 12th Gen Intel(R) Core(TM) i7-12650H
+...（略）...
 $ cat /proc/cpuinfo | grep processor
-processor	: 0
-processor	: 1
-processor	: 2
-processor	: 3
-processor	: 4
-processor	: 5
-processor	: 6
-processor	: 7
-processor	: 8
+...（略）...
 processor	: 9
 $ cat /proc/meminfo | grep MemTotal
 MemTotal:       11098216 kB
