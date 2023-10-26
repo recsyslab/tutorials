@@ -101,7 +101,6 @@ rsl@＊:~$ less /etc/ssh/sshd_config
 rsl@＊:~$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config-org
 rsl@＊:~$ ls /etc/ssh/
 rsl@＊:~$ mkdir ~/.ssh/
-rsl@＊:~$ chmod 700 ~/.ssh/
 ```
 
 ### 公開鍵の設置
@@ -121,8 +120,10 @@ rsl@＊:~$ cat << EOF > temp.txt
 
 ```bash
 rsl@＊:~$ tr -d '\n' < temp.txt >> ~/.ssh/authorized_keys
+rsl@＊:~$ chmod 700 ~/.ssh/
 rsl@＊:~$ chmod 600 ~/.ssh/authorized_keys
-rsl@＊:~$ ls ~/.ssh/
+rsl@＊:~$ ls -l
+rsl@＊:~$ ls -l ~/.ssh/
 rsl@＊:~$ less ~/.ssh/authorized_keys
 rsl@＊:~$ rm -f temp.txt
 ```
@@ -153,7 +154,7 @@ rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 
 #### 参考
 1. [一般ユーザーで公開鍵認証を使用してSSHログインする｜ConoHa VPSサポート](https://support.conoha.jp/v/addusersshkey/)
-1. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
+2. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
 
 ### ファイアウォールの設定
 ```bash
@@ -167,7 +168,13 @@ rsl@＊:~$ sudo ufw reload
 ### SSHの設定（クライアント側）
 ```bash
 $ mkdir ~/.ssh/
+```
+
+**SSH Keyの作成**でダウンロードしたプライベートキー`key-conoha-rsl＊＊＊.pem`を`~/.ssh/に置く。
+
+```bash
 $ vi ~/.ssh/config
+```
 
 `~/.ssh/config`
 ```bash
@@ -177,3 +184,14 @@ Host conoha_rsl＊＊＊（RSL番号）
   User rsl
   IdentityFile ~/.ssh/key-conoha-rsl＊＊＊.pem（**SSH Keyの作成**で作成したキー）
 ```
+
+```bash
+$ chmod 700 ~/.ssh/
+$ chmod 600 ~/.ssh/config
+$ chmod 400 ~/.ssh/key-conoha-rsl＊＊＊.pem
+$ ls -l
+$ ls -l ~/.ssh/
+```
+
+#### 参考
+1. [ConoHa VPS 公開鍵認証でSSH接続 #Conoha - Qiita](https://qiita.com/kaoru0404/items/9c5ff6d45462e9d06133)
