@@ -97,12 +97,47 @@ rsl@＊:~$ sudo apt upgrade
 rsl@＊:~$ sudo apt install ssh
 ```
 
+### 設定ファイルの準備
+```bahs
+rsl@＊:~$ ls /etc/ssh/
+rsl@＊:~$ less /etc/ssh/sshd_config
+rsl@＊:~$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config-org
+rsl@＊:~$ ls /etc/ssh/
+```
+
+### SSHの設定
+```bash
+rsl@＊:~$ less /etc/ssh/sshd_config
+rsl@＊:~$ sudo vi /etc/ssh/sshd_config
+```
+
+`sshd_config`の下記の箇所を書き換える。
+`sshd_config`
+```bash
+...（略）...
+PermitRootLogin no
+...（略）...
+```
+
+```bash
+rsl@＊:~$ less /etc/ssh/sshd_config
+rsl@＊:~$ diff /etc/ssh/sshd_config-org /etc/ssh/sshd_config
+rsl@＊:~$ sudo systemctl daemon-reload
+rsl@＊:~$ sudo systemctl restart ssh
+rsl@＊:~$ systemctl status ssh
+rsl@＊:~$ sudo systemctl enable ssh
+rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
+```
+
+
 ### ファイアウォールの設定
 ```bash
 rsl@＊:~$ sudo apt install gufw
 rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw enable
 rsl@＊:~$ sudo ufw default deny
+rsl@＊:~$ sudo ufw allow OpenSSH
 rsl@＊:~$ sudo ufw status
+rsl@＊:~$ sudo ufw reload
 ```
 
