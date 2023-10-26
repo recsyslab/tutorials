@@ -127,7 +127,7 @@ rsl@＊:~$ less ~/.ssh/authorized_keys
 rsl@＊:~$ rm -f temp.txt
 ```
 
-### SSHの設定
+### SSHの設定（サーバー側）
 ```bash
 rsl@＊:~$ less /etc/ssh/sshd_config
 rsl@＊:~$ sudo vi /etc/ssh/sshd_config
@@ -164,3 +164,16 @@ rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw reload
 ```
 
+### SSHの設定（クライアント側）
+```bash
+$ mkdir ~/.ssh/
+$ vi ~/.ssh/config
+
+`~/.ssh/config`
+```bash
+Host conoha_rsl＊＊＊（RSL番号）
+  HostName 【サーバーのIPアドレス】
+  port 22
+  User rsl
+  IdentityFile ~/.ssh/key-conoha-rsl＊＊＊.pem（**SSH Keyの作成**で作成したキー）
+```
