@@ -1,4 +1,4 @@
-# サーバーの構築
+# サーバーの構築とSSH接続
 
 ## ConoHaコントロールパネルへのアクセス
 1. 下記からConoHaコントロールパネルを開く。
@@ -92,9 +92,9 @@ Password: 【パスワード】
 rsl@＊:~$
 ```
 
-## SSHの設定
+## SSH接続の設定
 
-### 設定ファイルの準備
+### 設定ファイルの準備（サーバー側）
 ```bahs
 rsl@＊:~$ ls /etc/ssh/
 rsl@＊:~$ less /etc/ssh/sshd_config
@@ -103,7 +103,7 @@ rsl@＊:~$ ls /etc/ssh/
 rsl@＊:~$ mkdir ~/.ssh/
 ```
 
-### 公開鍵の設置
+### 公開鍵の設置（サーバー側）
 1. **セキュリティ > SSH Key**をクリックする。
 2. **SSH Key**リストから`key-conoha-rsl＊＊＊`をクリックする。
 3. **パブリックキー**の内容をメモする。
@@ -156,7 +156,7 @@ rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 1. [一般ユーザーで公開鍵認証を使用してSSHログインする｜ConoHa VPSサポート](https://support.conoha.jp/v/addusersshkey/)
 2. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
 
-### ファイアウォールの設定
+### ファイアウォールの設定（サーバー側）
 ```bash
 rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw default deny
