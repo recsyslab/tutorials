@@ -196,8 +196,10 @@ $ ls -l ~/.ssh/
 下記でサーバーにSSH接続できればOK。
 ```bash
 $ ssh conoha_rsl＊＊＊
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
+...（略）...
+rsl@＊:~$ 
 ```
 
 #### 参考
 1. [ConoHa VPS 公開鍵認証でSSH接続 #Conoha - Qiita](https://qiita.com/kaoru0404/items/9c5ff6d45462e9d06133)
-
