@@ -83,7 +83,7 @@ root@＊:~# groups rsl
 root@＊:~# exit
 ```
 
-コンソールから作成したユーザでログインしなおす。
+**コンソール**から作成したユーザでログインしなおす。
 ```bash
 Ubuntu 22.04.1 LTS ＊＊＊-＊＊＊-＊＊＊-＊＊＊ tty1
 
@@ -92,18 +92,7 @@ Password: 【パスワード】
 rsl@＊:~$
 ```
 
-## パッケージのアップグレード
-```bash
-rsl@＊:~$ sudo apt update
-rsl@＊:~$ sudo apt upgrade
-```
-
-## SSH接続
-
-### SSHのインストール
-```bash
-rsl@＊:~$ sudo apt install ssh
-```
+## SSHの設定
 
 ### 設定ファイルの準備
 ```bahs
@@ -120,7 +109,7 @@ rsl@＊:~$ sudo vi /etc/ssh/sshd_config
 ```
 
 `sshd_config`の下記の箇所を書き換える。
-`sshd_config`
+`/etc/ssh/sshd_config`
 ```bash
 ...（略）...
 PermitRootLogin no
@@ -136,6 +125,33 @@ rsl@＊:~$ systemctl status ssh
 rsl@＊:~$ sudo systemctl enable ssh
 rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 ```
+
+### 公開鍵の設置
+1. **セキュリティ > SSH Key**をクリックする。
+2. **SSH Key**リストから`key-conoha-rsl＊＊＊`をクリックする。
+3. **パブリックキー**の内容をメモする。
+4. **コンソール**から下記を実行する。
+
+```bash
+rsl@＊:~$ cat << EOF > temp.txt
+```
+
+5. **コンソール**の**テキスト送信**をクリックし、メモした**パブリックキー**の内容を貼り付けて送信する。
+   - 一度にすべて送信しようとすると、送信漏れが発生する。そのため（80文字程度など）何回かに分割して送信する。
+   - 1字でも誤りがあると、SSH接続できないので注意。
+6. すべて送信したら、改行して`EOF`と書いてファイルに出力する。
+
+```bash
+rsl@＊:~$ mkdir ~/.ssh/
+rsl@＊:~$ tr -d '\n' < temp.txt >> ~/.ssh/authorized_keys
+rsl@＊:~$ ls ~/.ssh/
+rsl@＊:~$ less ~/.ssh/authorized_keys
+```
+
+#### 参考
+1. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
+
+
 
 
 ### ファイアウォールの設定
