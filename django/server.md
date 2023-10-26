@@ -75,3 +75,12 @@ root@＊:~# groups rsl
 root@＊:~# exit
 ```
 
+コンソールから作成したユーザでログインしなおす。
+```bash
+Ubuntu 22.04.1 LTS ＊＊＊-＊＊＊-＊＊＊-＊＊＊ tty1
+
+＊＊＊-＊＊＊-＊＊＊-＊＊＊ login: rsl
+Password: 【パスワード】
+rsl@＊:~$
+```
+
