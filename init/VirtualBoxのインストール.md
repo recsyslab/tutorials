@@ -23,8 +23,8 @@
       - **ISO Image**: `【ディレクトリ】/linuxmint-21.2-mate-64bit.iso` # ダウンロードしたISOファイル
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Username**: `rsl`
-      - **Password**: （任意のパスワード）
-      - **Repeat Password**: （パスワードの確認）
+      - **Password**: 【任意のパスワード】
+      - **Repeat Password**: 【パスワードの確認】
       - **Hostname**: `recsyslab-mint`
       - **Domain Name**: `localhost`
       - **Guest Addtions**: `チェック`
