@@ -155,14 +155,9 @@ rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 1. [一般ユーザーで公開鍵認証を使用してSSHログインする｜ConoHa VPSサポート](https://support.conoha.jp/v/addusersshkey/)
 1. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
 
-
-
-
 ### ファイアウォールの設定
 ```bash
-rsl@＊:~$ sudo apt install gufw
 rsl@＊:~$ sudo ufw status
-rsl@＊:~$ sudo ufw enable
 rsl@＊:~$ sudo ufw default deny
 rsl@＊:~$ sudo ufw allow OpenSSH
 rsl@＊:~$ sudo ufw status
