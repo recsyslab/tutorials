@@ -100,30 +100,8 @@ rsl@＊:~$ ls /etc/ssh/
 rsl@＊:~$ less /etc/ssh/sshd_config
 rsl@＊:~$ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config-org
 rsl@＊:~$ ls /etc/ssh/
-```
-
-### SSHの設定
-```bash
-rsl@＊:~$ less /etc/ssh/sshd_config
-rsl@＊:~$ sudo vi /etc/ssh/sshd_config
-```
-
-`sshd_config`の下記の箇所を書き換える。
-`/etc/ssh/sshd_config`
-```bash
-...（略）...
-PermitRootLogin no
-...（略）...
-```
-
-```bash
-rsl@＊:~$ less /etc/ssh/sshd_config
-rsl@＊:~$ diff /etc/ssh/sshd_config-org /etc/ssh/sshd_config
-rsl@＊:~$ sudo systemctl daemon-reload
-rsl@＊:~$ sudo systemctl restart ssh
-rsl@＊:~$ systemctl status ssh
-rsl@＊:~$ sudo systemctl enable ssh
-rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
+rsl@＊:~$ mkdir ~/.ssh/
+rsl@＊:~$ chmod 700 ~/.ssh/
 ```
 
 ### 公開鍵の設置
@@ -142,13 +120,39 @@ rsl@＊:~$ cat << EOF > temp.txt
 6. すべて送信したら、改行して`EOF`と書いてファイルに出力する。
 
 ```bash
-rsl@＊:~$ mkdir ~/.ssh/
 rsl@＊:~$ tr -d '\n' < temp.txt >> ~/.ssh/authorized_keys
+rsl@＊:~$ chmod 600 ~/.ssh/authorized_keys
 rsl@＊:~$ ls ~/.ssh/
 rsl@＊:~$ less ~/.ssh/authorized_keys
+rsl@＊:~$ rm -f temp.txt
+```
+
+### SSHの設定
+```bash
+rsl@＊:~$ less /etc/ssh/sshd_config
+rsl@＊:~$ sudo vi /etc/ssh/sshd_config
+```
+
+`sshd_config`の下記の箇所を書き換える。
+`/etc/ssh/sshd_config`
+```bash
+...（略）...
+PermitRootLogin no
+...（略）...
+PasswordAuthentication no
+...（略）...
+```
+
+```bash
+rsl@＊:~$ less /etc/ssh/sshd_config
+rsl@＊:~$ diff /etc/ssh/sshd_config-org /etc/ssh/sshd_config
+rsl@＊:~$ sudo systemctl reload ssh
+rsl@＊:~$ systemctl status ssh
+rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 ```
 
 #### 参考
+1. [一般ユーザーで公開鍵認証を使用してSSHログインする｜ConoHa VPSサポート](https://support.conoha.jp/v/addusersshkey/)
 1. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
 
 
