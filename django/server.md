@@ -62,5 +62,16 @@ Ubuntu 22.04.1 LTS ＊＊＊-＊＊＊-＊＊＊-＊＊＊ tty1
 
 ＊＊＊-＊＊＊-＊＊＊-＊＊＊ login: root
 Password: 【パスワード】
-root@＊＊＊-＊＊＊-＊＊＊-＊＊＊:~#
+root@＊:~#
 ```
+
+## rslユーザの追加
+```bash
+root@＊:~# sudo adduser rsl
+root@＊:~# sudo gpasswd -a rsl sudo
+root@＊:~# cat /etc/passwd
+root@＊:~# cat /etc/group
+root@＊:~# groups rsl
+root@＊:~# exit
+```
+
