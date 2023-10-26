@@ -1,5 +1,9 @@
 # サーバーの構築
 
+## ConoHaコントロールパネルへのアクセス
+1. 下記からConoHaコントロールパネルを開く。
+   - [ConoHaコントロールパネル](https://manage.conoha.jp/Dashboard/)
+
 ## サーバーの追加
 
 ### 購入済みサーバーの場合
