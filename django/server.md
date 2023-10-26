@@ -84,3 +84,25 @@ Password: 【パスワード】
 rsl@＊:~$
 ```
 
+## パッケージのアップグレード
+```bash
+rsl@＊:~$ sudo apt update
+rsl@＊:~$ sudo apt upgrade
+```
+
+## SSH接続
+
+### SSHのインストール
+```bash
+rsl@＊:~$ sudo apt install ssh
+```
+
+### ファイアウォールの設定
+```bash
+rsl@＊:~$ sudo apt install gufw
+rsl@＊:~$ sudo ufw status
+rsl@＊:~$ sudo ufw enable
+rsl@＊:~$ sudo ufw default deny
+rsl@＊:~$ sudo ufw status
+```
+
