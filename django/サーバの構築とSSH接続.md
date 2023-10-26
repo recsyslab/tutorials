@@ -1,4 +1,4 @@
-# サーバーの構築とSSH接続
+# サーバの構築とSSH接続
 
 ## ConoHaコントロールパネルへのアクセス
 1. 下記からConoHaコントロールパネルを開く。
@@ -19,9 +19,9 @@
 #### 参考
 1. [SSH Keyを登録する｜ConoHa VPSサポート](https://support.conoha.jp/v/registsshkey/)
 
-## サーバーの追加
+## サーバの追加
 
-### 購入済みサーバーの場合
+### 購入済みサーバの場合
 1. ConoHaコントロールパネルを開く。
    1. **サーバー追加**をクリックする。
    2. **VPS**タブを開く。
@@ -62,7 +62,7 @@
         - **スタートアップスクリプト**: `使用しない`
    4. **追加**ボタンをクリックする。
 
-## サーバーの起動
+## サーバの起動
 1. ConoHaコントロールパネルを開く。
    1. **サーバー**をクリックする。
    2. **サーバーリスト**から起動したいサーバのネームタグをクリックする。
@@ -98,7 +98,7 @@ rsl@＊:~$
 
 ## SSH接続の設定
 
-### 設定ファイルの準備（サーバー側）
+### 設定ファイルの準備（サーバ側）
 ```bahs
 rsl@＊:~$ ls /etc/ssh/
 rsl@＊:~$ less /etc/ssh/sshd_config
@@ -107,7 +107,7 @@ rsl@＊:~$ ls /etc/ssh/
 rsl@＊:~$ mkdir ~/.ssh/
 ```
 
-### 公開鍵の設置（サーバー側）
+### 公開鍵の設置（サーバ側）
 1. ConoHaコントロールパネルを開く。
    1. **セキュリティ > SSH Key**をクリックする。
    2. **SSH Key**リストから`key-conoha-rsl＊＊＊`をクリックする。
@@ -134,7 +134,7 @@ rsl@＊:~$ less ~/.ssh/authorized_keys
 rsl@＊:~$ rm -f temp.txt
 ```
 
-### SSHの設定（サーバー側）
+### SSHの設定（サーバ側）
 ```bash
 rsl@＊:~$ less /etc/ssh/sshd_config
 rsl@＊:~$ sudo vi /etc/ssh/sshd_config
@@ -162,7 +162,7 @@ rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 1. [一般ユーザーで公開鍵認証を使用してSSHログインする｜ConoHa VPSサポート](https://support.conoha.jp/v/addusersshkey/)
 2. [ConoHa VPSの秘密鍵(pem)を無くしてハマった](https://zenn.dev/hasegit/articles/a4db90b3b95cb7)
 
-### ファイアウォールの設定（サーバー側）
+### ファイアウォールの設定（サーバ側）
 ```bash
 rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw default deny
@@ -185,7 +185,7 @@ $ vi ~/.ssh/config
 `~/.ssh/config`
 ```bash
 Host conoha_rsl＊＊＊（RSL番号）
-  HostName ＊＊＊.＊＊＊.＊＊＊.＊＊＊（サーバーのIPアドレス）
+  HostName ＊＊＊.＊＊＊.＊＊＊.＊＊＊（サーバのIPアドレス）
   port 22
   User rsl
   IdentityFile ~/.ssh/key-conoha-rsl＊＊＊.pem（**SSH Keyの作成**で作成したキー）
@@ -199,7 +199,7 @@ $ ls -l
 $ ls -l ~/.ssh/
 ```
 
-下記コマンドでサーバーにSSH接続できればOK。
+下記コマンドでサーバにSSH接続できればOK。
 ※ConoHaコントロールパネルから接続許可ポートが`SSH (22)`にチェックが入っていることを確認する。
 ```bash
 $ ssh conoha_rsl＊＊＊
