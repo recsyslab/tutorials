@@ -1,16 +1,25 @@
 # PostgreSQLとPythonのインストール
 
-## パッケージのアップグレード
+## 準備
+
+### パッケージのアップグレード
 ```bash
 rsl@＊:~$ sudo apt update
 rsl@＊:~$ sudo apt upgrade
 ```
 
-## ディレクトリの準備
+### ディレクトリの準備
 ```bash
 rsl@＊:~$ mkdir ~/src/
 rsl@＊:~$ mkdir ~/opt/
 rsl@＊:~$ ls
+```
+
+### 設定ファイルの準備
+```bash
+$ cp ~/.profile ~/.profile-org
+$ echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
+$ diff ~/.profile-org ~/.profile
 ```
 
 ## PostgreSQL+PostGISのインストール
@@ -113,7 +122,7 @@ rsl@＊:~$ sudo apt install python3-gdal	# GDALのインストールに必要
 rsl@＊:~$ sudo apt install libffi-dev # scikit-learnのインポートに必要
 ```
 
-## インストール
+### インストール
 ```bash
 rsl@＊:~$ mkdir -p ~/opt/python/
 rsl@＊:~$ cd ~/src/
@@ -130,105 +139,27 @@ rsl@＊:~$ cd ../
 rsl@＊:~$ rm -f Python-3.11.5.tar.xz
 ```
 
-## インストール結果の確認
+### インストール結果の確認
 ```bash
-$ cd ~/opt/python/
-$ ls
-$ cd bin/
-$ ls -alh
+rsl@＊:~$ cd ~/opt/python/
+rsl@＊:~$ ls
+rsl@＊:~$ cd bin/
+rsl@＊:~$ ls -alh
 ```
 
-## パスの設定
+### パスの設定
 ```bash
-$ echo $PATH
-$ less ~/.profile
-$ echo -e '\n# Pythonインストール時に追加' >> ~/.profile
-$ echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
-$ less ~/.profile
-$ diff ~/.profile-org ~/.profile
-$ echo $PATH
-$ source ~/.profile
-$ echo $PATH
+rsl@＊:~$ echo $PATH
+rsl@＊:~$ echo -e '\n# Pythonインストール時に追加' >> ~/.profile
+rsl@＊:~$ echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
+rsl@＊:~$ diff ~/.profile-org ~/.profile
+rsl@＊:~$ source ~/.profile
+rsl@＊:~$ echo $PATH
 ```
 
-## バージョンの確認
+### バージョンの確認
 ```bash
-$ python3 --version
-$ python3.10 --version
-$ python3.11 --version
+rsl@＊:~$ python3 --version
+rsl@＊:~$ python3.10 --version
+rsl@＊:~$ python3.11 --version
 ```
-
-## ベースとなる仮想環境
-
-### 仮想環境の構築とアクティベート
-```bash
-$ mkdir ~/venv/
-$ cd ~/venv/
-$ python3.11 -m venv rsl-base
-$ source ~/venv/rsl-base/bin/activate
-```
-
-### pipのアップグレード
-```bash
-(rsl-base) $ pip --version
-(rsl-base) $ pip install --upgrade pip
-(rsl-base) $ pip --version
-```
-
-### 各種パッケージのインストール
-```bash
-(rsl-base) $ pip install ipython
-(rsl-base) $ pip install numpy
-(rsl-base) $ pip install scipy
-(rsl-base) $ pip install matplotlib
-(rsl-base) $ pip install pandas
-(rsl-base) $ pip install scikit-learn
-(rsl-base) $ pip install psycopg2-binary
-(rsl-base) $ pip install tqdm
-(rsl-base) $ pip install mecab-python3
-(rsl-base) $ pip install requests
-(rsl-base) $ pip install importnb
-(rsl-base) $ pip install importlib
-```
-
-### インストール済みパッケージ一覧の確認
-```bash
-(rsl-base) $ pip freeze
-```
-
-### 各種パッケージのバージョンの確認
-```bash
-(rsl-base) $ ipython --version
-(rsl-base) $ python
-# プロンプトが>>>となればOK
-```
-
-```python
->>> import numpy
->>> numpy.__version__
->>> import scipy
->>> scipy.__version__
->>> import matplotlib
->>> matplotlib.__version__
->>> import pandas
->>> pandas.__version__
->>> import sklearn
->>> sklearn.__version__
->>> import psycopg2
->>> psycopg2.__version__
->>> import tqdm
->>> tqdm.__version__
->>> import importnb
->>> importnb.__version__
->>> [Ctrl+D]
-```
-
-### 仮想環境のディアクティベート
-```bash
-(rsl-base) $ deactivate
-```
-
-#### 参考
-- Doitu.info, [既存のPython環境を壊すことなく、自分でビルドしてインストールする（altinstall）](https://doitu.info/blog/5c45e5ec8dbc7a001af33ce8)
-- 組み込みの人。, [makeコマンドのちょっとしたtips](https://embedded.hatenadiary.org/entry/20090416/p1)
-
