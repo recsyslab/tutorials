@@ -141,6 +141,7 @@ rsl@＊:~$ sudo vi /etc/ssh/sshd_config
 ```
 
 `sshd_config`の下記の箇所を書き換える。
+
 `/etc/ssh/sshd_config`
 ```bash
 ...（略）...
