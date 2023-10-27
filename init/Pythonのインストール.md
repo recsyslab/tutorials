@@ -60,8 +60,7 @@ $ python3.11 --version
 ### 仮想環境の構築とアクティベート
 ```bash
 $ mkdir ~/venv/
-$ cd ~/venv/
-$ python3.11 -m venv rsl-base
+$ python3.11 -m venv ~/venv/rsl-base
 $ source ~/venv/rsl-base/bin/activate
 ```
 
