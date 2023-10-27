@@ -202,7 +202,7 @@ $ ls -l ~/.ssh/
 ```
 
 下記コマンドでサーバにSSH接続できればOK。
-※ConoHaコントロールパネルから接続許可ポートが`SSH (22)`にチェックが入っていることを確認する。
+- ※ConoHaコントロールパネルから接続許可ポートが`SSH (22)`にチェックが入っていることを確認する。
 ```bash
 $ ssh conoha_rsl＊＊＊
 Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
