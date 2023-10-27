@@ -15,6 +15,8 @@ rsl@＊:~$ sudo apt install postgis
 ```
 
 ### 設定ファイルの準備
+※下記の`14`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン12.xをインストールした場合は、`14`の箇所を`12`に置換する。以下、同様。
+
 ```bash
 $ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/createcluster.conf-org
 $ sudo cp /etc/postgresql/14/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf-org
@@ -29,21 +31,9 @@ rsl@＊:~$ systemctl status postgresql
 # 「Active: active (exited)」と表示されれば、postgresqlは稼働している。
 ```
 
+### PostgreSQLのパスワードの設定
 ```bash
-$ sudo sysv-rc-conf
-$ sudo sysv-rc-conf postgresql off
-$ sudo sysv-rc-conf
-$ less ~/bin/startup.sh
-$ echo -e '\n# PostgreSQLサーバの起動' >> ~/bin/startup.sh
-$ echo -e 'sudo service postgresql start\n' >> ~/bin/startup.sh
-$ less ~/bin/startup.sh
-$ ~/bin/startup.sh
-$ service postgresql status
-```
-
-## PostgreSQLのパスワードの設定
-```bash
-$ sudo -u postgres psql
+rsl@＊:~$ sudo -u postgres psql
 ```
 
 ```pgsql
@@ -54,12 +44,12 @@ postgres=# \q
 ```
 
 ```bash
-$ sudo less /etc/postgresql/14/main/pg_hba.conf
 $ sudo vi /etc/postgresql/14/main/pg_hba.conf
 ```
+
 `pg_hba.conf`の下記3箇所について`peer`を`md5`に書き換える。`vi`の代わりに`nano`で編集しても良い。
 
-`pg_hba.conf`
+`/etc/postgresql/14/main/pg_hba.conf`
 ```
 ...（略）...
 # Database administrative login by Unix domain socket
