@@ -19,6 +19,7 @@ rsl@＊:~$ ls
 ```bash
 rsl@＊:~$ sudo apt install postgresql
 rsl@＊:~$ sudo apt install postgis
+# ...（3分程度）...
 ```
 
 ### 設定ファイルの準備
@@ -126,7 +127,7 @@ rsl@＊:~$ make 2>&1 | tee make.log
 rsl@＊:~$ make altinstall
 # ...（2分程度）... 
 rsl@＊:~$ cd ../
-$ rm -f Python-3.11.5.tar.xz
+rsl@＊:~$ rm -f Python-3.11.5.tar.xz
 ```
 
 ## インストール結果の確認
