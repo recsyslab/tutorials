@@ -24,15 +24,14 @@ rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw reload
 ```
 
-ConoHaコントロールパネルから接続許可ポートがWeb (20/21/80/443) にチェックが入っていることを確認する。
+## Webサーバの動作確認
 
 下記にアクセスし、「Welcome to nginx!」と表示されればOK
-http://160.251.22.20/
+- `http://＊＊＊.＊＊＊.＊＊＊.＊＊＊/`
+- ConoHaコントロールパネルから接続許可ポートが`Web (20/21/80/443)`にチェックが入っていることを確認する。
 
-
-参考
-nginxでWebサーバーを構築する（Ubuntu編）- マルチドメイン・HTTPS化の設定も解説 - アナグマのモノローグ
-https://monologu.com/nginx-ubuntu/
+#### 参考
+1. [nginxでWebサーバーを構築する（Ubuntu編）- マルチドメイン・HTTPS化の設定も解説 - アナグマのモノローグ](https://monologu.com/nginx-ubuntu/)
 
 
 
