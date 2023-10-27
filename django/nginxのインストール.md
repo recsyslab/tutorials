@@ -11,7 +11,7 @@ rsl@＊:~$ sudo apt install nginx
 rsl@＊:~$ systemctl is-enabled nginx
 # 「enabled」と表示されれば、nginxの自動起動が有効になっている。
 rsl@＊:~$ systemctl status nginx
-# 「Active: active (running)」と表示されれば、nginxは起動している。
+# 「Active: active (running)」と表示されれば、nginxは稼働している。
 ```
 
 ## ファイアウォールの設定
