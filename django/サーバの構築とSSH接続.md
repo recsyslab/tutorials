@@ -166,6 +166,8 @@ rsl@＊:~$ systemctl list-unit-files --type=service | grep ssh
 ```bash
 rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw default deny
+rsl@＊:~$ sudo ufw app list
+rsl@＊:~$ sudo ufw app info OpenSSH
 rsl@＊:~$ sudo ufw allow OpenSSH
 rsl@＊:~$ sudo ufw status
 rsl@＊:~$ sudo ufw reload
