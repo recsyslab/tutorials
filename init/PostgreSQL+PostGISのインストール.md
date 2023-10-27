@@ -31,7 +31,7 @@ postgres=#
 に変わる。`postgres`の部分は接続先データベース名を表す。
 
 ## 設定ファイルの準備
-`createcluster.conf`
+`/etc/postgresql-common/createcluster.conf`
 ```bash
 $ ls /etc/postgresql-common/
 $ less /etc/postgresql-common/createcluster.conf
@@ -39,8 +39,9 @@ $ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/creat
 $ ls /etc/postgresql-common/
 ```
 
-下記の`14`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン12.xをインストールした場合は、`14`の箇所を`12`に置換する。以下、同様。
-`pg_hba.conf`
+※下記の`14`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン12.xをインストールした場合は、`14`の箇所を`12`に置換する。以下、同様。
+
+`/etc/postgresql/14/main/pg_hba.conf`
 ```bash
 $ ls /etc/postgresql/14/main/
 $ sudo less /etc/postgresql/14/main/pg_hba.conf
@@ -48,7 +49,7 @@ $ sudo cp /etc/postgresql/14/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.con
 $ ls /etc/postgresql/14/main/
 ```
 
-`postgresql.conf`
+`/etc/postgresql/14/main/postgresql.conf`
 ```bash
 $ ls /etc/postgresql/14/main/
 $ sudo less /etc/postgresql/14/main/postgresql.conf
@@ -87,7 +88,7 @@ $ sudo vi /etc/postgresql/14/main/pg_hba.conf
 ```
 `pg_hba.conf`の下記3箇所について`peer`を`md5`に書き換える。`vi`の代わりに`nano`で編集しても良い。
 
-`pg_hba.conf`
+`/etc/postgresql/14/main/pg_hba.conf`
 ```
 ...（略）...
 # Database administrative login by Unix domain socket
@@ -120,7 +121,7 @@ $ sudo less /etc/postgresql/14/main/postgresql.conf
 $ sudo vi /etc/postgresql/14/main/postgresql.conf
 ```
 
-`postgresql.conf`
+`/etc/postgresql/14/main/postgresql.conf`
 ```
 ...（略）...
 track_counts = on
