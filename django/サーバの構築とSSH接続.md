@@ -13,7 +13,7 @@
       - **ネームタグ**: `key-conoha-rsl＊＊＊`（RSL番号）
    3. **保存**ボタンをクリックする。
    4. **ダウンロード**ボタンをクリックし、プライベートキーをダウンロードする。
-   5. ダウンロードしたプライベートキーのファイル名を`key-conoha-rsl＊＊＊.pem`に変更する。
+   5. ダウンロードしたプライベートキーのファイル名を`conoha-rsl＊＊＊.pem.key`に変更する。
 
 #### 参考
 1. [SSH Keyを登録する｜ConoHa VPSサポート](https://support.conoha.jp/v/registsshkey/)
@@ -171,7 +171,7 @@ rsl@＊:~$ sudo ufw reload
 $ mkdir ~/.ssh/
 ```
 
-**SSH Keyの作成**でダウンロードしたプライベートキー`key-conoha-rsl＊＊＊.pem`を`~/.ssh/に置く。
+**SSH Keyの作成**でダウンロードしたプライベートキー`conoha-rsl＊＊＊.pem.key`を`~/.ssh/に置く。
 
 ```bash
 $ vi ~/.ssh/config
@@ -183,13 +183,13 @@ Host conoha_rsl＊＊＊（RSL番号）
   HostName ＊＊＊.＊＊＊.＊＊＊.＊＊＊（サーバのIPアドレス）
   port 22
   User rsl
-  IdentityFile ~/.ssh/key-conoha-rsl＊＊＊.pem（**SSH Keyの作成**で作成したキー）
+  IdentityFile ~/.ssh/conoha-rsl＊＊＊.pem.key（**SSH Keyの作成**で作成したキー）
 ```
 
 ```bash
 $ chmod 700 ~/.ssh/
 $ chmod 600 ~/.ssh/config
-$ chmod 400 ~/.ssh/key-conoha-rsl＊＊＊.pem
+$ chmod 400 ~/.ssh/conoha-rsl＊＊＊.pem.key
 $ ls -l
 $ ls -l ~/.ssh/
 ```
