@@ -186,7 +186,7 @@ Host conoha_rsl＊＊＊（＊＊＊はRSL番号）
   HostName ＊＊＊.＊＊＊.＊＊＊.＊＊＊（＊＊＊.＊＊＊.＊＊＊.＊＊＊はサーバのIPアドレス）
   port 22
   User rsl
-  IdentityFile ~/.ssh/conoha-rsl＊＊＊.pem.key（**SSH Keyの作成**で作成したキー）
+  IdentityFile ~/.ssh/conoha-rsl＊＊＊.pem.key（SSH Keyの作成で作成したキー）
 ```
 
 ```bash
