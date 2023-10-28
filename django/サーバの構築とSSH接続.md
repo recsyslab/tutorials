@@ -182,8 +182,8 @@ $ vi ~/.ssh/config
 
 `~/.ssh/config`
 ```bash
-Host conoha_rsl＊＊＊（RSL番号）
-  HostName ＊＊＊.＊＊＊.＊＊＊.＊＊＊（サーバのIPアドレス）
+Host conoha_rsl＊＊＊（＊＊＊はRSL番号）
+  HostName ＊＊＊.＊＊＊.＊＊＊.＊＊＊（＊＊＊.＊＊＊.＊＊＊.＊＊＊はサーバのIPアドレス）
   port 22
   User rsl
   IdentityFile ~/.ssh/conoha-rsl＊＊＊.pem.key（**SSH Keyの作成**で作成したキー）
