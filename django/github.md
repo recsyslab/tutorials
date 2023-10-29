@@ -21,14 +21,7 @@
          - **Choose a license**: （任意）
       2. **Create repository**ボタンをクリックする。
 
-## Gitのインストール
-```bash
-$ sudo apt install git
-```
-
-## recsyslabプロジェクトへの参加
-
-### 招待メールからの参加
+## 招待メールからのrecsyslabプロジェクトへの参加
 1. GitHubからの招待メールの案内にしたがって、メール本文内の**Join@recsyslab**ボタンをクリックする。
    1. 下記を設定する。
       - **Pick a username**: `rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
@@ -37,10 +30,6 @@ $ sudo apt install git
    2. **Create account and join**ボタンをクリックする。
    3. アカウントを検証し、**Join a free plan**ボタンをクリックする。
    4. プロジェクト画面が表示される。
-
-### リポジトリへのアクセス
-下記URLでリポジトリにアクセスできる。
-- `https://github.com/recsyslab/rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
 
 ## SSH接続の設定
 
@@ -61,7 +50,7 @@ $ cat ~/.ssh/id_rsa_pub
 ```
 
 ### 公開鍵の登録
-1. GitHubの右上のアカウント設定ボタンから**Settings**を開く。
+1. [GitHub Dashboard](https://github.com/dashboard)の右上のアカウント設定ボタンから**Settings**を開く。
    1. **SSH and GPG Keys**を開く。
       1. **New SSH Key**ボタンをクリックし、下記を設定する。
          - **Title**: 【任意の鍵の名前】
@@ -77,32 +66,43 @@ Enter passphrase for key '/home/rsl/.ssh/id_rsa':
 Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
+## Gitのインストール
+```bash
+$ sudo apt install git
+```
 
 ## リポジトリのclone
-1. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスを確認する。
+1. 下記URLでリポジトリにアクセスする。
+   - `https://github.com/recsyslab/rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
+2. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスをコピーする。
    - `git clone git@github.com:recsyslab/rsl＊＊＊.git`
+3. 下記コマンドでリポジトリをcloneする。
 ```bash
-$ cd
-$ mkdir -p rsl＊＊＊/
-$ git clone git@github.com:recsyslab/rsl＊＊＊.git
-$ cd 【リポジトリ名】/
+$ mkdir ~/GitHub/
+$ cd ~/GitHub/
+$ git clone git@github.com:recsyslab/rsl＊＊＊.git（上記でコピーしたパス）
+$ cd rsl＊＊＊/
 $ ls
 ```
 
-## リポジトリのpull
+## リポジトリへのDjangoプロジェクトのpush
+
+### リポジトリのpull
 ```bahs
-$ cd 【リポジトリ名】/
+$ cd ~/GitHub/rsl＊＊＊/
 $ git pull
 ```
 
-## Djangoプロジェクトのコピー
+### Djangoプロジェクトのコピー
+
+※ここでは、`~/venv_recsys_django/`に`recsys_django`プロジェクトが作成されているとする。
+
 ```bash
-$ cd
-$ cp -r 【Djangoプロジェクト名】/ 【リポジトリ名】/
-$ ls 【リポジトリ名】/
+$ cp -r ~/venv_recsys_django/ ~/GitHub/rsl＊＊＊/
+$ ls ~/GitHub/rsl＊＊＊/
 ```
 
-## push
+### push
 ```bash
 $ cd ~/【リポジトリ名】/
 $ git add 【Djangoプロジェクト名】/
