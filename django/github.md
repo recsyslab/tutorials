@@ -14,7 +14,7 @@
    1. **New repository**ボタンをクリックする。
       1. 下記を設定する。
          - **Owner**: `recsyslab`
-         - **Repository name**: 【リポジトリ名】（RSL番号、例；rsl000）
+         - **Repository name**: `rsl＊＊＊`（`＊＊＊`はRSL番号）
          - **Public/Private**: `Private`
          - **Add a README file**: `チェック`
          - **Add .gitignore**: （任意）
@@ -24,17 +24,17 @@
 ## GitとSSHのインストール
 ```bash
 $ sudo apt install git
-$ sudo apt install ssh
 ```
 
 ## 招待メールからrecsyslabプロジェクトに参加
 1. GitHubからの招待メールの案内にしたがって、メール本文内の**Join@recsyslab**ボタンをクリックする。
-   1. 下記を入力して**Create account and join**ボタンをクリックする。
-   2. Pick a username: （RSL番号、例；rsl000）
-   3. Your email address: （招待された大学のメールアドレス）
-   4. Password: （自分のわかるパスワード）
-   5. アカウントを検証し、**Join a free plan**ボタンをクリックする。
-   6. プロジェクト画面が表示される。
+   1. 下記を設定する。
+      - **Pick a username**: `rsl＊＊＊`（`＊＊＊`はRSL番号）
+      - **Your email address**: `y＊＊＊＊＊＊@mail.ryukoku.ac.jp`（招待された大学のメールアドレス）
+      - **Password**: 【自分のわかるパスワード】
+   2. **Create account and join**ボタンをクリックする。
+   3. アカウントを検証し、**Join a free plan**ボタンをクリックする。
+   4. プロジェクト画面が表示される。
 
 ## SSH Keyの設定
 ```bash
