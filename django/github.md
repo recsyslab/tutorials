@@ -42,8 +42,8 @@ $ ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"（招待され�
 ssh-keygen -t rsa -C "okukenta@rins.ryukoku.ac.jp"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/rsl/.ssh/id_rsa): /home/rsl/.ssh/github-rsl＊＊＊.key（＊＊＊はRSL番号）
-Enter passphrase (empty for no passphrase): 【パスワード】
-Enter same passphrase again: 【パスワード】
+Enter passphrase (empty for no passphrase): 【パスフレーズ】
+Enter same passphrase again: 【パスフレーズ】
 Your identification has been saved in /home/rsl/.ssh/github-rsl＊＊＊.key
 Your public key has been saved in /home/rsl/.ssh/github-rsl＊＊＊.key.pub
 The key fingerprint is:
@@ -57,20 +57,37 @@ $ cat ~/.ssh/github-rsl＊＊＊.key.pub
    1. **SSH and GPG Keys**を開く。
       1. **New SSH Key**ボタンをクリックし、下記を設定する。
          - **Title**: 【任意の鍵の名前】
-         - **Key**: `id_rsa.pub`の内容を貼り付ける。
+         - **Key**: `github-rsl＊＊＊.key.pub`の内容を貼り付ける。※`github-rsl＊＊＊.key`ではないので注意
       2. **Add SSH Key**ボタンをクリックする。
          - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
 
-## 動作確認
+## SSHの設定
 ```bash
-$ ssh -T git@github.com
+$ vi ~/.ssh/config
 ```
 
-次のように表示されれば成功
+`~/.ssh/config`
 ```bash
-Hi 【ユーザ名】! You've successfully authenticated, but GitHub does not provide shell access.
+...（略）...
+Host github
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github-rsl＊＊＊.key  
 ```
 
+```bash
+$ less ~/.ssh/config 
+$ chmod 400 ~/.ssh/github-rsl＊＊＊.key
+$ ls -l ~/.ssh/
+```
+
+## SSH接続の確認
+下記コマンドで次のようなメッセージが表示されれれば接続成功。
+```bash
+$ ssh -T github
+Enter passphrase for key '/home/rsl/.ssh/github-rsl＊＊＊.key': 【パスフレーズ】
+Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
 
 
