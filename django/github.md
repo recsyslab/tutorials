@@ -104,14 +104,11 @@ $ ls ~/GitHub/rsl＊＊＊/
 
 ### push
 ```bash
-$ cd ~/【リポジトリ名】/
-$ git add 【Djangoプロジェクト名】/
+$ cd ~/GitHub/rsl＊＊＊/
+$ git add venv_recsys_django/
 $ git status
-$ git commit -m "add 【Djangoプロジェクト名】/"
+$ git commit -m "add venv_recsys_django/"
 $ git push
 ```
 
 リポジトリにアクセスし、Djangoプロジェクトが配置されていればOK。
-
-
-
