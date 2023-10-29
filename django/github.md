@@ -38,9 +38,18 @@ $ sudo apt install git
 
 ## SSH Keyの設定
 ```bash
-$ ssh-keygen -t rsa -C "【メールアドレス】"
+$ ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"（招待された大学のメールアドレス）
+ssh-keygen -t rsa -C "okukenta@rins.ryukoku.ac.jp"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/rsl/.ssh/id_rsa): /home/rsl/.ssh/github-rsl＊＊＊.key（＊＊＊はRSL番号）
+Enter passphrase (empty for no passphrase): 【パスワード】
+Enter same passphrase again: 【パスワード】
+Your identification has been saved in /home/rsl/.ssh/github-rsl＊＊＊.key
+Your public key has been saved in /home/rsl/.ssh/github-rsl＊＊＊.key.pub
+The key fingerprint is:
+...（略）...
 $ ls ~/.ssh/
-$ cat ~/.ssh/id_rsa.pub
+$ cat ~/.ssh/github-rsl＊＊＊.key.pub
 ```
 
 ## 公開鍵の登録
