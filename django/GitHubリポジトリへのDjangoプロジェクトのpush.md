@@ -78,10 +78,9 @@ $ sudo apt install git
    - `git clone git@github.com:recsyslab/rsl＊＊＊.git`
 3. 下記コマンドでリポジトリをcloneする。
 ```bash
-$ mkdir ~/GitHub/
-$ cd ~/GitHub/
+$ cd
 $ git clone git@github.com:recsyslab/rsl＊＊＊.git（上記でコピーしたパス）
-$ cd rsl＊＊＊/
+$ cd ~/rsl＊＊＊/
 $ ls
 ```
 
@@ -89,26 +88,26 @@ $ ls
 
 ### リポジトリのpull
 ```bahs
-$ cd ~/GitHub/rsl＊＊＊/
+$ cd ~/rsl＊＊＊/
 $ git pull
 ```
 
 ### Djangoプロジェクトのコピー
 
-※ここでは、`~/venv_recsys_django/`に`recsys_django`プロジェクトが作成されているとする。
+※ここでは、ホームディレクトリに`recsys_django`プロジェクトが作成されているとする。
 
 ```bash
-$ cp -r ~/venv_recsys_django/ ~/GitHub/rsl＊＊＊/
-$ ls ~/GitHub/rsl＊＊＊/
+$ cp -r ~/recsys_django/ ~/rsl＊＊＊/
+$ ls ~/rsl＊＊＊/
 ```
 
 ### push
 ```bash
-$ cd ~/GitHub/rsl＊＊＊/
-$ git add venv_recsys_django/
+$ cd ~/rsl＊＊＊/
+$ git add recsys_django/
 $ git status
-$ git commit -m "add venv_recsys_django/"
+$ git commit -m "add recsys_django/"
 $ git push
 ```
 
-リポジトリにアクセスし、Djangoプロジェクトが配置されていればOK。
+GitHubの`rsl＊＊＊`リポジトリにアクセスし、`recsys_django`プロジェクトが配置されていればOK。
