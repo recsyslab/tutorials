@@ -171,6 +171,7 @@ rsl@＊:~$ sudo ufw reload
 
 ### SSHの設定（クライアント側）
 ```bash
+$ sudo apt install ssh
 $ mkdir ~/.ssh/
 ```
 
