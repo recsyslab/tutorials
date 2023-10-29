@@ -26,7 +26,9 @@
 $ sudo apt install git
 ```
 
-## 招待メールからrecsyslabプロジェクトに参加
+## recsyslabプロジェクトへの参加
+
+### 招待メールからの参加
 1. GitHubからの招待メールの案内にしたがって、メール本文内の**Join@recsyslab**ボタンをクリックする。
    1. 下記を設定する。
       - **Pick a username**: `rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
@@ -36,8 +38,13 @@ $ sudo apt install git
    3. アカウントを検証し、**Join a free plan**ボタンをクリックする。
    4. プロジェクト画面が表示される。
 
+### リポジトリへのアクセス
+下記URLでリポジトリにアクセスできる。
+- `https://github.com/recsyslab/rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
 
-## SSH Keyの設定
+## SSH接続の設定
+
+### SSH Keyの設定
 ```bash
 $ ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"（招待された大学のメールアドレス）
 ssh-keygen -t rsa -C "okukenta@rins.ryukoku.ac.jp"
@@ -53,7 +60,7 @@ $ ls ~/.ssh/
 $ cat ~/.ssh/id_rsa_pub
 ```
 
-## 公開鍵の登録
+### 公開鍵の登録
 1. GitHubの右上のアカウント設定ボタンから**Settings**を開く。
    1. **SSH and GPG Keys**を開く。
       1. **New SSH Key**ボタンをクリックし、下記を設定する。
@@ -62,7 +69,7 @@ $ cat ~/.ssh/id_rsa_pub
       2. **Add SSH Key**ボタンをクリックする。
          - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
 
-## SSH接続の確認
+### SSH接続の確認
 下記コマンドで次のようなメッセージが表示されれれば接続成功。
 ```bash
 $ ssh -T git@github.com
@@ -70,9 +77,6 @@ Enter passphrase for key '/home/rsl/.ssh/id_rsa':
 Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-## リポジトリにアクセス
-下記URLでリポジトリにアクセスできる。
-- `https://github.com/recsyslab/rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
 
 ## リポジトリのclone
 1. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスを確認する。
