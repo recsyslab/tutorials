@@ -4,3 +4,4 @@
 2. [nginxのインストール](nginxのインストール.md)
 3. [ドメインの設定とHTTPS化](ドメインの設定とHTTPS化.md)
 4. [PostgreSQLとPythonのインストール](PostgreSQLとPythonのインストール.md)
+5. [GitHubリポジトリへのDjangoプロジェクトのpush](GitHubリポジトリへのDjangoプロジェクトのpush.md)
