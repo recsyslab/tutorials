@@ -42,7 +42,13 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 ## インストール済みパッケージ一覧の確認
 ```bash
 (venv_recsys_django) $ pip freeze
+```
+
+## venv_recsys_django仮想環境のディアクティベート
+```bash
 (venv_recsys_django) $ deactivate
+$
+# プロンプトが元に戻ればOK
 ```
 
 ## Django環境の動作テスト
