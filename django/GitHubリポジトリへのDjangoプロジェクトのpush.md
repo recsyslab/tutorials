@@ -46,7 +46,7 @@ Your public key has been saved in /home/rsl/.ssh/id_rsa.pub
 The key fingerprint is:
 ...（略）...
 $ ls ~/.ssh/
-$ cat ~/.ssh/id_rsa_pub
+$ cat ~/.ssh/id_rsa.pub
 ```
 
 ### 公開鍵の登録
