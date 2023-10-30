@@ -8,7 +8,7 @@ Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
 rsl@＊:~$ 
 ```
 
-## SSH接続の設定（サーバ側）
+## GitHubへのSSH接続の設定（サーバ側）
 
 ### SSH Keyの設定
 ```bash
@@ -43,20 +43,20 @@ Enter passphrase for key '/home/rsl/.ssh/id_rsa': 【パスフレーズ】
 Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-## リポジトリのclone（サーバ側）
+## GitHubリポジトリのclone（サーバ側）
 ```bash
 rsl@＊:~$ cd
 rsl@＊:~$ git clone git@github.com:recsyslab/rsl＊＊＊.git
 rsl@＊:~$ ls ~/rsl＊＊＊/
 ```
 
-## リポジトリのpull（サーバ側）
+## GitHubリポジトリのpull（サーバ側）
 ```bahs
 rsl@＊:~$ cd ~/rsl＊＊＊/
 rsl@＊:~$ git pull
 ```
 
-## プロジェクト用の仮想環境の構築
+## venv_recsys_django仮想環境の構築
 
 ### インストール済みパッケージリストの出力（クライアント側）
 ```bash
@@ -77,7 +77,7 @@ rsl@＊:~$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) rsl@＊$ deactivate
 ```
 
-## ログは一ディレクトリの作成
+## ロガーディレクトリの作成
 ```bash
 【サーバのIPアドレス】$ mkdir ~/【リポジトリ名】/【Djangoプロジェクト名】/logs/
 ```
