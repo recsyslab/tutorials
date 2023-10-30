@@ -11,9 +11,8 @@ $ source ~/venv/rsl-base/bin/activate
 
 ### venv_recsys_django環境でのパッケージ情報の読込み
 ```bash
-$ cd ~/venv/
-$ python3.11 -m venv venv_recsys_django
-$ source ~/venv/venv_recsys_django/bin/activate
+$ python3.11 -m venv ~/venv_recsys_django
+$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) $ pip install --upgrade pip
 (venv_recsys_django) $ pip install -r ~/venv/rsl-base_requirements.txt
 (venv_recsys_django) $ pip freeze
