@@ -36,7 +36,7 @@
 ### SSH Keyの設定
 ```bash
 $ ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"（招待された大学のメールアドレス）
-ssh-keygen -t rsa -C "okukenta@rins.ryukoku.ac.jp"
+ssh-keygen -t rsa -C "y＊＊＊＊＊＊@rins.ryukoku.ac.jp"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/rsl/.ssh/id_rsa): （デフォルトのままEnterキーを押す）
 Enter passphrase (empty for no passphrase): 【パスフレーズ】
@@ -53,7 +53,7 @@ $ cat ~/.ssh/id_rsa.pub
 1. [GitHub Dashboard](https://github.com/dashboard)の右上のアカウント設定ボタンから**Settings**を開く。
    1. **SSH and GPG Keys**を開く。
       1. **New SSH Key**ボタンをクリックし、下記を設定する。
-         - **Title**: 【任意の鍵の名前】
+         - **Title**: `y＊＊＊＊＊＊@rsl-local`
          - **Key**: `id_rsa.pub`の内容を貼り付ける。※`id_rsa`ではないので注意
       2. **Add SSH Key**ボタンをクリックする。
          - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
