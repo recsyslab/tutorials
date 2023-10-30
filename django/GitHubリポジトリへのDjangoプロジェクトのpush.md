@@ -36,7 +36,7 @@
 ### SSH Keyの設定
 ```bash
 $ ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"（招待された大学のメールアドレス）
-ssh-keygen -t rsa -C "y＊＊＊＊＊＊@rins.ryukoku.ac.jp"
+ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/rsl/.ssh/id_rsa): （デフォルトのままEnterキーを押す）
 Enter passphrase (empty for no passphrase): 【パスフレーズ】
