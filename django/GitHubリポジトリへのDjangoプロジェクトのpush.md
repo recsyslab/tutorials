@@ -1,4 +1,4 @@
-# GitHubｒ
+# GitHubリポジトリへのDjangoプロジェクトのpush
 
 ## 準備（教員の作業）
 
