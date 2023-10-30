@@ -21,14 +21,16 @@ $ source ~/venv_recsys_django/bin/activate
 
 ## django関連パッケージのインスト―ル
 ```bash
-$ source ~/venv/venv_recsys_django/bin/activate
+$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) $ pip install django
 (venv_recsys_django) $ pip install django-leaflet
 (venv_recsys_django) $ export CPLUS_INCLUDE_PATH=/usr/include/gdal
 (venv_recsys_django) $ export C_INCLUDE_PATH=/usr/include/gdal
 (venv_recsys_django) $ apt list --installed | grep libgdal-dev
 libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
+# libgdal-devのバージョンを確認する。
 (venv_recsys_django) $ pip install gdal==3.4.1 # libgdal-devのバージョンに合わせる # GeoDjangoに必要
+# ...（1分程度）...
 (venv_recsys_django) $ pip install djangorestframework-gis # RESTful APIに必要
 (venv_recsys_django) $ pip install django-filter # RESTful APIに必要
 (venv_recsys_django) $ pip install markdown # RESTful APIに必要
@@ -37,10 +39,9 @@ libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
 (venv_recsys_django) $ pip install django-cleanup
 ```
 
-## インストール済みパッケージ一覧の確認と出力
+## インストール済みパッケージ一覧の確認
 ```bash
 (venv_recsys_django) $ pip freeze
-(venv_recsys_django) $ pip freeze > ~/venv/venv_recsys_django_requirements.txt
 (venv_recsys_django) $ deactivate
 ```
 
