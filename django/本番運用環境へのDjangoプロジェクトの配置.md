@@ -1,6 +1,15 @@
 # 本番運用環境へのDjangoプロジェクトの配置.md
 
-## SSH接続の設定
+## サーバへの接続（クライアント側）
+```bash
+$ ssh conoha_rsl＊＊＊
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
+...（略）...
+rsl@＊:~$ 
+```
+
+
+## SSH接続の設定（サーバ側）
 
 ### SSH Keyの設定
 ```bash
@@ -35,48 +44,12 @@ Enter passphrase for key '/home/rsl/.ssh/id_rsa': 【パスフレーズ】
 Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
+## リポジトリのclone（サーバ側）
 ```bash
 rsl@＊:~$ cd
-
-
-## GitHubリポジトリへのpush
-```bash
-$ cd ~/【リポジトリ名】/
-$ git add *
-$ git status
-$ git commit -m "（任意のメッセージ）"
-$ git push
-```
-
-## サーバへの接続
-```bash
-$ ssh 【サーバにアクセスするユーザ名】@【サーバのIPアドレス】
-【サーバのIPアドレス】$
-```
-
-## SSH Keyの設定
-```bash
-【サーバのIPアドレス】$ ssh-keygen -t rsa -C "【メールアドレス】"
-【サーバのIPアドレス】$ ls ~/.ssh/
-【サーバのIPアドレス】$ cat ~/.ssh/id_rsa.pub
-```
-
-## 公開鍵の登録
-1. GitHubの右上のアカウント設定ボタンから**Settings**を開く。
-   1. **SSH and GPG Keys**を開く。
-      1. **New SSH Key**ボタンをクリックし、下記を設定する。
-         - **Title**: 【任意の鍵の名前】
-         - **Key**: `id_rsa.pub`の内容を貼り付ける。
-      2. **Add SSH Key**ボタンをクリックする。
-         - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
-
-## リポジトリのclone
-```bash
-【サーバのIPアドレス】$ cd
-【サーバのIPアドレス】$ mkdir -p 【リポジトリ名】/
-【サーバのIPアドレス】$ git clone git@github.com:recsyslab/【リポジトリ名】.git
-【サーバのIPアドレス】$ cd 【リポジトリ名】/
-【サーバのIPアドレス】$ ls
+rsl@＊:~$ git clone git@github.com:recsyslab/rsl＊＊＊.git
+rsl@＊:~$ cd rsl＊＊＊/
+rsl@＊:~$ ls
 ```
 
 ## リポジトリのpull
