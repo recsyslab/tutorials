@@ -8,7 +8,6 @@ Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
 rsl@＊:~$ 
 ```
 
-
 ## SSH接続の設定（サーバ側）
 
 ### SSH Keyの設定
@@ -48,32 +47,34 @@ Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not p
 ```bash
 rsl@＊:~$ cd
 rsl@＊:~$ git clone git@github.com:recsyslab/rsl＊＊＊.git
-rsl@＊:~$ cd rsl＊＊＊/
-rsl@＊:~$ ls
+rsl@＊:~$ ls ~/rsl＊＊＊/
 ```
 
-## リポジトリのpull
+## リポジトリのpull（サーバ側）
 ```bahs
-【サーバのIPアドレス】$ cd 【リポジトリ名】/
-【サーバのIPアドレス】$ git pull
+rsl@＊:~$ cd ~/rsl＊＊＊/
+rsl@＊:~$ git pull
 ```
 
 ## プロジェクト用の仮想環境の構築
+
+### インストール済みパッケージリストの出力（クライアント側）
 ```bash
 $ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) $ pip freeze > venv_recsys_django_requirements.txt
-$ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユーザ名】@【サーバのIPアドレス】:/home/rsl/venv/
+$ scp ~/venv_recsys_django_requirements.txt conoha@rsl＊＊＊:/home/rsl/
 ```
 
+### パッケージリストの読み込み（サーバ側）
 ```bash
-【サーバのIPアドレス】$ cd ~/venv/
-【サーバのIPアドレス】$ python3.11 -m venv 【Djangoプロジェクト名】
-【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ pip install --upgrade pip
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ pip install -r ~/venv/rsl-django_requirements.txt
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ pip freeze
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ pip install gunicorn
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ deactivate
+rsl@＊:~$ cd
+rsl@＊:~$ python3.11 -m venv ~/venv_recsys_django
+rsl@＊:~$ source ~/venv_recsys_django/bin/activate
+(venv_recsys_django) rsl@＊$ pip install --upgrade pip
+(venv_recsys_django) rsl@＊$ pip install -r ~/venv_recsys_django_requirements.txt
+(venv_recsys_django) rsl@＊$ pip freeze
+(venv_recsys_django) rsl@＊$ pip install gunicorn
+(venv_recsys_django) rsl@＊$ deactivate
 ```
 
 ## ログは一ディレクトリの作成
