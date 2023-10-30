@@ -62,7 +62,7 @@ $ cat ~/.ssh/id_rsa.pub
 下記コマンドで次のようなメッセージが表示されれれば接続成功。
 ```bash
 $ ssh -T git@github.com
-Enter passphrase for key '/home/rsl/.ssh/id_rsa': 
+Enter passphrase for key '/home/rsl/.ssh/id_rsa': 【パスフレーズ】
 Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
