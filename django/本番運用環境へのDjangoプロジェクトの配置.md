@@ -1,5 +1,44 @@
 # 本番運用環境へのDjangoプロジェクトの配置.md
 
+## SSH接続の設定
+
+### SSH Keyの設定
+```bash
+rsl@＊:~$ ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"
+ssh-keygen -t rsa -C "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/rsl/.ssh/id_rsa): （デフォルトのままEnterキーを押す）
+Enter passphrase (empty for no passphrase): 【パスフレーズ】
+Enter same passphrase again: 【パスフレーズ】
+Your identification has been saved in /home/rsl/.ssh/id_rsa
+Your public key has been saved in /home/rsl/.ssh/id_rsa.pub
+The key fingerprint is:
+...（略）...
+rsl@＊:~$ ls ~/.ssh/
+rsl@＊:~$ cat ~/.ssh/id_rsa.pub
+```
+
+### 公開鍵の登録
+1. [GitHub Dashboard](https://github.com/dashboard)の右上のアカウント設定ボタンから**Settings**を開く。
+   1. **SSH and GPG Keys**を開く。
+      1. **New SSH Key**ボタンをクリックし、下記を設定する。
+         - **Title**: `y＊＊＊＊＊＊@＊＊＊.＊＊＊.＊＊＊.＊＊＊`（`＊＊＊.＊＊＊.＊＊＊.＊＊＊`は接続元ののIPアドレス）
+         - **Key**: `id_rsa.pub`の内容を貼り付ける。※`id_rsa`ではないので注意
+      2. **Add SSH Key**ボタンをクリックする。
+         - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
+
+### SSH接続の確認
+下記コマンドで次のようなメッセージが表示されれれば接続成功。
+```bash
+rsl@＊:~$ ssh -T git@github.com
+Enter passphrase for key '/home/rsl/.ssh/id_rsa': 【パスフレーズ】
+Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+```bash
+rsl@＊:~$ cd
+
+
 ## GitHubリポジトリへのpush
 ```bash
 $ cd ~/【リポジトリ名】/
@@ -48,6 +87,8 @@ $ ssh 【サーバにアクセスするユーザ名】@【サーバのIPアド�
 
 ## プロジェクト用の仮想環境の構築
 ```bash
+$ source ~/venv_recsys_django/bin/activate
+(venv_recsys_django) $ pip freeze > venv_recsys_django_requirements.txt
 $ scp ~/venv/rsl-django_requirements.txt 【サーバにアクセスするユーザ名】@【サーバのIPアドレス】:/home/rsl/venv/
 ```
 
