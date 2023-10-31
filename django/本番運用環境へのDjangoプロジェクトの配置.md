@@ -519,5 +519,8 @@ if DEPLOY:
 (venv_recsys_django) rsl@＊$ python manage.py check --deploy
 ```
 
+#### 参考
+1. 動かして学ぶ！Python Django開発入門 第2版 # Chapter 13 独自ドメイン化とセキュリティ対策
 
-
+#### 参考
+1. 動かして学ぶ！Python Django開発入門 第2版 # Chapter 12 Djangoとクラウドを連携して本番運用を行う
