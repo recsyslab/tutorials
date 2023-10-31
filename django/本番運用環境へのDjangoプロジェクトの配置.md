@@ -77,6 +77,72 @@ rsl@＊:~$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) rsl@＊$ deactivate
 ```
 
+## 本番運用環境用Djangoプロジェクト設定ファイルの編集
+```bash
+rsl@＊:~$ ~/rsl＊＊＊/recsys_django/recsys_django/settings.py
+```
+
+リスト1: `recsys_django/recsys_django/settings.py`
+```py
+...（略）...
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False                                      # 修正
+
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]  # 修正
+...（略）...
+STATIC_URL = 'static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = '/usr/share/nginx/html/static/'    # 追記
+
+MEDIA_URL = 'media/'                             # 追記
+MEDIA_ROOT = '/usr/share/nginx/html/media/'      # 追記
+...（略）...
+# ロギング
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    # ロガーの設定
+    'loggers': {
+        # Djangoが利用するロガー
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+        # onlineアプリケーションが利用するロガー
+        'online': {
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+    },
+
+    # ハンドラの設定
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
+            'formatter': 'prod',
+            'when': 'D',        # ログローテーション（新しいファイルへの切り替え）間隔の単位（D=日）
+            'interval': 1,      # ログローテーション間隔（1日単位）
+            'backupCount': 7,   # 保存しておくログファイル数
+        },
+    },
+
+    # フォーマッタの設定
+    'formatters': {
+        'prod': {
+            'format': '\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s',
+            ])
+        },
+    },
+}
+```
+
 ## ログ配置ディレクトリの作成
 ```bash
 rsl@＊:~$ mkdir ~/rsl＊＊＊/recsys_django/logs/
@@ -263,15 +329,17 @@ recsys_django=# SELECT setval('reclist_itemcf_id_seq', (SELECT max(id) FROM recl
 ```
 
 ## Nginxの設定
-Nginxのインストール、自動起動などの初期設定は先に行っておく。
 ```bash
-【サーバのIPアドレス】$ sudo vi /etc/nginx/sites-available/【Djangoプロジェクト名】
+rsl@＊$ ls /etc/nginx/sites-available/
+rsl@＊$ sudo vi /etc/nginx/sites-available/recsys_django
+rsl@＊$ ls /etc/nginx/sites-available/
+rsl@＊$ less /etc/nginx/sites-available/recsys_django
 ```
 
-`/etc/nginx/sites-available/【Djangoプロジェクト名】`
+リスト2: `/etc/nginx/sites-available/recsys_django`
 ```
 server {
-    server_name recsyslab-ex.org www.recsyslab-ex.org; # managed by Certbot
+    server_name rsl＊＊＊.recsyslab-ex.org; # managed by Certbot
     
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
@@ -312,12 +380,12 @@ server {
 ```
 
 ```bash
-【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
-【サーバのIPアドレス】$ sudo ln -s /etc/nginx/sites-available/【Djangoプロジェクト名】 /etc/nginx/sites-enabled/
-【サーバのIPアドレス】$ sudo unlink /etc/nginx/sites-enabled/default
-【サーバのIPアドレス】$ ls -al /etc/nginx/sites-enabled/
-【サーバのIPアドレス】$ sudo nginx -t
-【サーバのIPアドレス】$ sudo systemctl reload nginx
+rsl@＊$ ls -al /etc/nginx/sites-enabled/
+rsl@＊$ sudo ln -s /etc/nginx/sites-available/recsys_django /etc/nginx/sites-enabled/
+rsl@＊$ sudo unlink /etc/nginx/sites-enabled/default
+rsl@＊$ ls -al /etc/nginx/sites-enabled/
+rsl@＊$ sudo nginx -t
+rsl@＊$ sudo systemctl reload nginx
 ```
 
 ## NginxとGunicornの起動
