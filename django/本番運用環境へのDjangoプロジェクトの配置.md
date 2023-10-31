@@ -524,3 +524,4 @@ if DEPLOY:
 
 #### 参考
 1. 動かして学ぶ！Python Django開発入門 第2版 # Chapter 12 Djangoとクラウドを連携して本番運用を行う
+1. 現場で使える Django の教科書《実践編》 # 第7章 デプロイ
