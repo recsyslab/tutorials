@@ -331,20 +331,24 @@ recsys_django=# SELECT setval('reclist_itemcf_id_seq', (SELECT max(id) FROM recl
 ## Nginxの設定
 ```bash
 rsl@＊$ ls /etc/nginx/sites-available/
+rsl@＊$ less /etc/nginx/sites-available/default
 rsl@＊$ sudo vi /etc/nginx/sites-available/recsys_django
 rsl@＊$ ls /etc/nginx/sites-available/
 rsl@＊$ less /etc/nginx/sites-available/recsys_django
 ```
 
+
 リスト2: `/etc/nginx/sites-available/recsys_django`
+- `/etc/nginx/sites-available/default`を参考に下記のように作成する。
+- ※`rsl＊＊＊`はRSL番号
 ```
 server {
     server_name rsl＊＊＊.recsyslab-ex.org; # managed by Certbot
     
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/recsyslab-ex.org/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/recsyslab-ex.org/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/rsl＊＊＊.recsyslab-ex.org/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/rsl＊＊＊.recsyslab-ex.org/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
     
@@ -385,6 +389,8 @@ rsl@＊$ sudo ln -s /etc/nginx/sites-available/recsys_django /etc/nginx/sites-en
 rsl@＊$ sudo unlink /etc/nginx/sites-enabled/default
 rsl@＊$ ls -al /etc/nginx/sites-enabled/
 rsl@＊$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
 rsl@＊$ sudo systemctl reload nginx
 ```
 
