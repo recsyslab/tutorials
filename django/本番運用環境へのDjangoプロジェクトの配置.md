@@ -80,7 +80,7 @@ rsl@＊:~$ source ~/venv_recsys_django/bin/activate
 
 ## 本番運用環境用Djangoプロジェクト設定ファイルの編集
 ```bash
-rsl@＊:~$ ~/rsl＊＊＊/recsys_django/recsys_django/settings.py
+rsl@＊:~$ vi ~/rsl＊＊＊/recsys_django/recsys_django/settings.py
 ```
 
 リスト1: `recsys_django/recsys_django/settings.py`
@@ -334,15 +334,12 @@ recsys_django=# SELECT setval('reclist_itemcf_id_seq', (SELECT max(id) FROM recl
 rsl@＊$ ls /etc/nginx/sites-available/
 rsl@＊$ less /etc/nginx/sites-available/default
 rsl@＊$ sudo vi /etc/nginx/sites-available/recsys_django
-rsl@＊$ ls /etc/nginx/sites-available/
-rsl@＊$ less /etc/nginx/sites-available/recsys_django
 ```
-
 
 リスト2: `/etc/nginx/sites-available/recsys_django`
 - `/etc/nginx/sites-available/default`を参考に下記のように作成する。
 - ※`rsl＊＊＊`はRSL番号
-```
+```bash
 server {
     server_name rsl＊＊＊.recsyslab-ex.org; # managed by Certbot
     
@@ -385,6 +382,8 @@ server {
 ```
 
 ```bash
+rsl@＊$ ls /etc/nginx/sites-available/
+rsl@＊$ less /etc/nginx/sites-available/recsys_django
 rsl@＊$ ls -al /etc/nginx/sites-enabled/
 rsl@＊$ sudo ln -s /etc/nginx/sites-available/recsys_django /etc/nginx/sites-enabled/
 rsl@＊$ sudo unlink /etc/nginx/sites-enabled/default
@@ -420,7 +419,7 @@ rsl@＊$ source ~/venv_recsys_django/bin/activate
 - ※ConoHaコントロールパネルから接続許可ポートが`Web (20/21/80/443)`にチェックが入っていることを確認する。
 
 ### Gunicornの停止
-Gunicornを停止する場合は下記コマンドを実行する。
+Gunicornを停止する場合は下記コマンドを実行する。Nginxの設定などを編集した場合は、Gunicornを一旦停止した後で、Gunicornを起動する。
 ```bash
 (venv_recsys_django) rsl@＊$ pkill gunicorn
 (venv_recsys_django) rsl@＊$ ps ax | grep gunicorn
@@ -434,10 +433,13 @@ rsl@＊$ less ~/rsl＊＊＊/recsys_django/logs/django.log
 ```
 
 ## CSRF対策
-開発環境ではPOSTできるのにデプロイ環境ではCSRF検証に失敗する。
-以下のように設定を追記する。
+開発環境ではPOSTできるのにデプロイ環境ではCSRF検証に失敗する場合、以下のようにNginxの設定を追記する。
 
-`/etc/nginx/sites-available/【Djangoプロジェクト名】`
+```bash
+rsl@＊$ sudo vi /etc/nginx/sites-available/recsys_django
+```
+
+リスト3: `/etc/nginx/sites-available/recsys_django`
 ```bash
 ...（略）...
     location / {
@@ -453,8 +455,15 @@ rsl@＊$ less ~/rsl＊＊＊/recsys_django/logs/django.log
 ...（略）...
 ```
 
-以下を追記する。
-`recsys_django/recsys_django/settings.py`
+```bash
+rsl@＊$ less /etc/nginx/sites-available/recsys_django
+```
+
+```bash
+rsl@＊:~$ vi ~/rsl＊＊＊/recsys_django/recsys_django/settings.py
+```
+
+リスト4: `recsys_django/recsys_django/settings.py`
 ```py
 ...（略）...
 DEPLOY = True
@@ -465,11 +474,15 @@ if DEPLOY:
 ```
 
 ```bash
-【サーバのIPアドレス】$ sudo nginx -t
-【サーバのIPアドレス】$ sudo systemctl reload nginx
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ pkill gunicorn
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ gunicorn --bind 127.0.0.1:8000 【Djangoプロジェクト名】.wsgi -D
+rsl@＊$ sudo nginx -t
+rsl@＊$ sudo systemctl reload nginx
+rsl@＊$ source ~/venv_recsys_django/bin/activate
+(venv_recsys_django) rsl@＊$ pkill gunicorn
+(venv_recsys_django) rsl@＊$ gunicorn --bind 127.0.0.1:8000 recsys_django.wsgi -D
 ```
+
+正常にPOSTできるか確認する。
+
 #### 参考
 - [runserverではPOSTできるのに、本番環境でCSRF validation エラーになる（解決） #Django - Qiita](https://qiita.com/gmasa/items/f136ddfd4fd36d7348d1)
 
