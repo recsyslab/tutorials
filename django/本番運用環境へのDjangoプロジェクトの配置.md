@@ -112,6 +112,93 @@ rsl@＊$ source ~/venv_recsys_django/bin/activate
 ```
 
 ## データベース環境の構築（前もってやっておく）
+
+### データベース環境の構築
+```pgsql
+postgres=# CREATE DATABASE recsys_django ENCODING 'UTF8';
+postgres=# CREATE ROLE rsl WITH LOGIN PASSWORD '【パスワード】';
+```
+
+### ユーザ、アイテム、評価値テーブルの設計
+```pgsql
+postgres=# \c recsys_django
+```pgsql
+recsys_django=#
+CREATE TABLE users(
+    user_id INT,
+    name TEXT NOT NULL,
+    age INT,
+    sex CHAR(1),
+    PRIMARY KEY(user_id)
+);
+
+recsys_django=#
+CREATE TABLE items(
+    item_id INT,
+    name TEXT NOT NULL,
+    red INT,
+    white INT,
+    shining INT,
+    PRIMARY KEY(item_id)
+);
+
+recsys_django=#
+CREATE TABLE ratings(
+    id SERIAL,
+    user_id INT NOT NULL,
+    item_id INT NOT NULL,
+    rating INT NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(item_id) REFERENCES items(item_id)
+);
+
+recsys_django=# ALTER TABLE users OWNER TO rsl;
+recsys_django=# ALTER TABLE items OWNER TO rsl;
+recsys_django=# ALTER TABLE ratings OWNER TO rsl;
+```
+
+### 推薦リストテーブルの設計
+```pgsql
+recsys_django=#
+CREATE TABLE reclist_popularity(
+    id SERIAL,
+    rank REAL NOT NULL,
+    item_id INT NOT NULL,
+    score REAL NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(item_id) REFERENCES items(item_id)
+);
+
+recsys_django=#
+CREATE TABLE reclist_similarity(
+    id SERIAL,
+    base_item_id INT NOT NULL,
+    rank REAL NOT NULL,
+    item_id INT NOT NULL,
+    score REAL NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(base_item_id) REFERENCES items(item_id),
+    FOREIGN KEY(item_id) REFERENCES items(item_id)
+);
+
+recsys_django=#
+CREATE TABLE reclist_itemcf(
+    id SERIAL,
+    user_id INT NOT NULL,
+    rank REAL NOT NULL,
+    item_id INT NOT NULL,
+    score REAL NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(item_id) REFERENCES items(item_id)
+);
+
+recsys_django=# ALTER TABLE reclist_popularity OWNER TO rsl;
+recsys_django=# ALTER TABLE reclist_similarity OWNER TO rsl;
+recsys_django=# ALTER TABLE reclist_itemcf OWNER TO rsl;
+```
+
 https://recsyslab.github.io/recsys-django/
 06 データベース環境の構築
 11 ユーザ、アイテム、評価値テーブルの設計とデータの登録
