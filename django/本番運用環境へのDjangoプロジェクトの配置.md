@@ -51,6 +51,7 @@ rsl@＊:~$ ls ~/rsl＊＊＊/
 ```
 
 ## GitHubリポジトリのpull（サーバ側）
+2回目以降、差分を反映させる場合は、下記コマンドを実行する。
 ```bahs
 rsl@＊:~$ cd ~/rsl＊＊＊/
 rsl@＊:~$ git pull
@@ -413,6 +414,25 @@ rsl@＊$ source ~/venv_recsys_django/bin/activate
  148976 pts/0    S+     0:00 grep --color=auto gunicorn
 ```
 
+### Webサーバの動作確認
+下記にアクセスし、recsys-djangoのトップページが表示されれば、正常に稼働している。
+- ※`https://rsl＊＊＊.recsyslab-ex.org/`（`rsl＊＊＊`はRSL番号）
+- ※ConoHaコントロールパネルから接続許可ポートが`Web (20/21/80/443)`にチェックが入っていることを確認する。
+
+### Gunicornの停止
+Gunicornを停止する場合は下記コマンドを実行する。
+```bash
+(venv_recsys_django) rsl@＊$ pkill gunicorn
+(venv_recsys_django) rsl@＊$ ps ax | grep gunicorn
+ 149114 pts/0    S+     0:00 grep --color=auto gunicorn
+```
+
+### ログの確認
+サーバにエラーが発生した場合などは、下記コマンドでログを確認する。
+```bash
+rsl@＊$ less ~/rsl＊＊＊/recsys_django/logs/django.log
+```
+
 ## CSRF対策
 開発環境ではPOSTできるのにデプロイ環境ではCSRF検証に失敗する。
 以下のように設定を追記する。
@@ -486,9 +506,5 @@ if DEPLOY:
 (【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py check --deploy
 ```
 
-## ログの確認
-```bash
-$ less logs/django.log
-```
 
 
