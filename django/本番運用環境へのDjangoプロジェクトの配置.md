@@ -489,12 +489,12 @@ rsl@＊$ source ~/venv_recsys_django/bin/activate
 ## セキュリティ
 
 ```bash
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py check --deploy
-$ vi ~/recsys_django/recsys_django/settings.py`
+(venv_recsys_django) rsl@＊$ python manage.py check --deploy
+(venv_recsys_django) rsl@＊$ vi ~/rsl＊＊＊/recsys_django/recsys_django/settings.py
 ```
 
 以下を追記する。
-`recsys_django/recsys_django/settings.py`
+リスト5: `recsys_django/recsys_django/settings.py`
 ```py
 ...（略）...
 DEPLOY = True
@@ -516,7 +516,7 @@ if DEPLOY:
 ```
 
 ```bash
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py check --deploy
+(venv_recsys_django) rsl@＊$ python manage.py check --deploy
 ```
 
 
