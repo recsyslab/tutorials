@@ -98,14 +98,17 @@ rsl@＊$ env
 
 ## 静的ファイルを配信ディレクトリに配置
 ```bash
-【サーバのIPアドレス】$ sudo mkdir -p /usr/share/nginx/html/static/
-【サーバのIPアドレス】$ sudo mkdir -p /usr/share/nginx/html/media/
-【サーバのIPアドレス】$ sudo chown rsl /usr/share/nginx/html/static/
-【サーバのIPアドレス】$ sudo chown rsl /usr/share/nginx/html/media/
-【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd ~/【リポジトリ名】/【Djangoプロジェクト名】/
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py collectstatic
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cp -r ~/rsl000_test/recsys_django/media/* /usr/share/nginx/html/media/
+rsl@＊$ sudo mkdir -p /usr/share/nginx/html/static/
+rsl@＊$ sudo mkdir -p /usr/share/nginx/html/media/
+rsl@＊$ sudo chown rsl /usr/share/nginx/html/static/
+rsl@＊$ sudo chown rsl /usr/share/nginx/html/media/
+rsl@＊$ ls -l /usr/share/nginx/html/
+rsl@＊$ source ~/venv_recsys_django/bin/activate
+(venv_recsys_django) rsl@＊$ cd ~/rsl＊＊＊/recsys_django/
+(venv_recsys_django) rsl@＊$ python manage.py collectstatic
+(venv_recsys_django) rsl@＊$ cp -r ~/rsl＊＊＊/recsys_django/media/* /usr/share/nginx/html/media/
+(venv_recsys_django) rsl@＊$ ls /usr/share/nginx/html/static/
+(venv_recsys_django) rsl@＊$ ls /usr/share/nginx/html/media/
 ```
 
 ## データベース環境の構築（前もってやっておく）
