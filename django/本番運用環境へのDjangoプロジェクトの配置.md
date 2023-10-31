@@ -395,16 +395,22 @@ rsl@＊$ sudo systemctl reload nginx
 ```
 
 ## NginxとGunicornの起動
+
+### Nginxの起動
 ```bash
-【サーバのIPアドレス】$ sudo systemctl start nginx.service
-【サーバのIPアドレス】$ systemctl status nginx.service
+rsl@＊$ sudo systemctl start nginx.service
+rsl@＊$ systemctl status nginx.service
 ```
 
+### Gunicornの起動
 ```bash
-【サーバのIPアドレス】$ source ~/venv/【Djangoプロジェクト名】/bin/activate
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ cd ~/【リポジトリ名】/【Djangoプロジェクト名】/
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ gunicorn --bind 127.0.0.1:8000 【Djangoプロジェクト名】.wsgi -D
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ ps ax | grep gunicorn
+rsl@＊$ source ~/venv_recsys_django/bin/activate
+(venv_recsys_django) rsl@＊$ cd ~/rsl＊＊＊/recsys_django/
+(venv_recsys_django) rsl@＊$ gunicorn --bind 127.0.0.1:8000 recsys_django.wsgi -D
+(venv_recsys_django) rsl@＊$ ps ax | grep gunicorn
+ 148964 ?        S      0:00 /home/rsl/venv_recsys_django/bin/python3.11 /home/rsl/venv_recsys_django/bin/gunicorn --bind 127.0.0.1:8000 recsys_django.wsgi -D
+ 148965 ?        S      0:00 /home/rsl/venv_recsys_django/bin/python3.11 /home/rsl/venv_recsys_django/bin/gunicorn --bind 127.0.0.1:8000 recsys_django.wsgi -D
+ 148976 pts/0    S+     0:00 grep --color=auto gunicorn
 ```
 
 ## CSRF対策
