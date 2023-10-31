@@ -77,23 +77,23 @@ rsl@＊:~$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) rsl@＊$ deactivate
 ```
 
-## ロガーディレクトリの作成
+## ログ配置ディレクトリの作成
 ```bash
-【サーバのIPアドレス】$ mkdir ~/【リポジトリ名】/【Djangoプロジェクト名】/logs/
+rsl@＊:~$ mkdir ~/rsl＊＊＊/recsys_django/logs/
 ```
 
 ## 環境変数の設定
 ```bash
-【サーバのIPアドレス】$ less ~/.profile
-【サーバのIPアドレス】$ echo -e '\n# Django用環境変数' >> ~/.profile
-【サーバのIPアドレス】$ echo 'export DB_USER=rsl' >> ~/.profile
-【サーバのIPアドレス】$ echo 'export DB_PASSWORD=【DBパスワード】' >> ~/.profile
-【サーバのIPアドレス】$ echo 'export DJANGO_SETTINGS_MODULE=【Djangoプロジェクト名】.settings' >> ~/.profile
-【サーバのIPアドレス】$ echo -e "export ALLOWED_HOSTS=【サーバのIPアドレス】" >> ~/.profile
-【サーバのIPアドレス】$ less ~/.profile
-【サーバのIPアドレス】$ diff ~/.profile-org ~/.profile
-【サーバのIPアドレス】$ source ~/.profile
-【サーバのIPアドレス】$ env
+rsl@＊$ less ~/.profile
+rsl@＊$ echo -e '\n# Django用環境変数' >> ~/.profile
+rsl@＊$ echo 'export DB_USER=rsl' >> ~/.profile
+rsl@＊$ echo 'export DB_PASSWORD=【DBパスワード】' >> ~/.profile
+rsl@＊$ echo 'export DJANGO_SETTINGS_MODULE=recsys_django.settings' >> ~/.profile
+rsl@＊$ echo -e "export ALLOWED_HOSTS=＊＊＊.＊＊＊.＊＊＊.＊＊＊" >> ~/.profile # ＊＊＊.＊＊＊.＊＊＊.＊＊＊はサーバのIPアドレス
+rsl@＊$ less ~/.profile
+rsl@＊$ diff ~/.profile-org ~/.profile
+rsl@＊$ source ~/.profile
+rsl@＊$ env
 ```
 
 ## 静的ファイルを配信ディレクトリに配置
