@@ -155,7 +155,7 @@ rsl@＊$ echo -e '\n# Django用環境変数' >> ~/.profile
 rsl@＊$ echo 'export DB_USER=rsl' >> ~/.profile
 rsl@＊$ echo 'export DB_PASSWORD=【DBパスワード】' >> ~/.profile
 rsl@＊$ echo 'export DJANGO_SETTINGS_MODULE=recsys_django.settings' >> ~/.profile
-rsl@＊$ echo -e "export ALLOWED_HOSTS=＊＊＊.＊＊＊.＊＊＊.＊＊＊" >> ~/.profile # ＊＊＊.＊＊＊.＊＊＊.＊＊＊はサーバのIPアドレス
+rsl@＊$ echo -e "export ALLOWED_HOSTS=rsl＊＊＊.recsyslab-ex.org" >> ~/.profile # rsl＊＊＊はRSL番号
 rsl@＊$ less ~/.profile
 rsl@＊$ diff ~/.profile-org ~/.profile
 rsl@＊$ source ~/.profile
