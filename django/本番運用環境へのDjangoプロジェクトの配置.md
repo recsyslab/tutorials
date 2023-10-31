@@ -111,12 +111,13 @@ rsl@＊$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) rsl@＊$ ls /usr/share/nginx/html/media/
 ```
 
-## データベース環境の構築（前もってやっておく）
+## データベース環境の構築とデータの登録
 
 ### データベース環境の構築
 ```pgsql
 postgres=# CREATE DATABASE recsys_django ENCODING 'UTF8';
 postgres=# CREATE ROLE rsl WITH LOGIN PASSWORD '【パスワード】';
+postgres=# \l
 ```
 
 ### ユーザ、アイテム、評価値テーブルの設計
@@ -156,6 +157,8 @@ CREATE TABLE ratings(
 recsys_django=# ALTER TABLE users OWNER TO rsl;
 recsys_django=# ALTER TABLE items OWNER TO rsl;
 recsys_django=# ALTER TABLE ratings OWNER TO rsl;
+
+recsys_django=# \dt
 ```
 
 ### 推薦リストテーブルの設計
@@ -197,26 +200,48 @@ CREATE TABLE reclist_itemcf(
 recsys_django=# ALTER TABLE reclist_popularity OWNER TO rsl;
 recsys_django=# ALTER TABLE reclist_similarity OWNER TO rsl;
 recsys_django=# ALTER TABLE reclist_itemcf OWNER TO rsl;
+
+recsys_django=# \dt
 ```
 
-https://recsyslab.github.io/recsys-django/
-06 データベース環境の構築
-11 ユーザ、アイテム、評価値テーブルの設計とデータの登録
-12 推薦リストテーブルの設計とデータの登録
-
-## マイグレーション
+### マイグレーションの実行
 ```bash
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ python manage.py migrate
+(venv_recsys_django) rsl@＊$ cd ~/rsl＊＊＊/recsys_django/
+(venv_recsys_django) rsl@＊$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: accounts, admin, auth, contenttypes, online, sessions
+Running migrations:
+  Applying online.0001_initial... OK
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying accounts.0001_initial... OK
+  Applying accounts.0002_customuser_user... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sessions.0001_initial... OK
 ```
 
-## データの登録
+### データの登録
 ```bash
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy users from '/home/rsl/data/users.csv' with DELIMITER E'\t' CSV HEADER;"
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy items from '/home/rsl/data/items.csv' with DELIMITER E'\t' CSV HEADER;"
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy ratings from '/home/rsl/data/ratings.csv' with DELIMITER E'\t' CSV HEADER;"
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_popularity from '/home/rsl/data/reclist_popularity.csv' with DELIMITER E'\t' CSV HEADER;"
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_similarity from '/home/rsl/data/reclist_similarity.csv' with DELIMITER E'\t' CSV HEADER;"
-(【Djangoプロジェクト名】) 【サーバのIPアドレス】$ psql recsys_django -U rsl -c "\copy reclist_itemcf from '/home/rsl/data/reclist_itemcf.csv' with DELIMITER E'\t' CSV HEADER;"
+(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy users from '/home/rsl/data/users.csv' with DELIMITER E'\t' CSV HEADER;"
+(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy items from '/home/rsl/data/items.csv' with DELIMITER E'\t' CSV HEADER;"
+(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy ratings from '/home/rsl/data/ratings.csv' with DELIMITER E'\t' CSV HEADER;"
+(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_popularity from '/home/rsl/data/reclist_popularity.csv' with DELIMITER E'\t' CSV HEADER;"
+(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_similarity from '/home/rsl/data/reclist_similarity.csv' with DELIMITER E'\t' CSV HEADER;"
+(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_itemcf from '/home/rsl/data/reclist_itemcf.csv' with DELIMITER E'\t' CSV HEADER;"
 ```
 
 ```pgsql
