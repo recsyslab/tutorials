@@ -58,14 +58,14 @@ rsl@＊:~$ git pull
 
 ## venv_recsys_django仮想環境の構築
 
-### インストール済みパッケージリストの出力（クライアント側）
+### インストール済みパッケージ一覧の出力（クライアント側）
 ```bash
 $ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) $ pip freeze > venv_recsys_django_requirements.txt
 $ scp ~/venv_recsys_django_requirements.txt conoha@rsl＊＊＊:/home/rsl/
 ```
 
-### パッケージリストの読み込み（サーバ側）
+### パッケージのインストール（サーバ側）
 ```bash
 rsl@＊:~$ cd
 rsl@＊:~$ python3.11 -m venv ~/venv_recsys_django
