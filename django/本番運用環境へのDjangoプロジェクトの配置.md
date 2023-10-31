@@ -106,9 +106,10 @@ rsl@＊$ ls -l /usr/share/nginx/html/
 rsl@＊$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) rsl@＊$ cd ~/rsl＊＊＊/recsys_django/
 (venv_recsys_django) rsl@＊$ python manage.py collectstatic
-(venv_recsys_django) rsl@＊$ cp -r ~/rsl＊＊＊/recsys_django/media/* /usr/share/nginx/html/media/
-(venv_recsys_django) rsl@＊$ ls /usr/share/nginx/html/static/
-(venv_recsys_django) rsl@＊$ ls /usr/share/nginx/html/media/
+rsl@＊$ deactivate
+rsl@＊$ cp -r ~/rsl＊＊＊/recsys_django/media/* /usr/share/nginx/html/media/
+rsl@＊$ ls /usr/share/nginx/html/static/
+rsl@＊$ ls /usr/share/nginx/html/media/
 ```
 
 ## データベース環境の構築とデータの登録
@@ -206,6 +207,7 @@ recsys_django=# \dt
 
 ### マイグレーションの実行
 ```bash
+rsl@＊$ source ~/venv_recsys_django/bin/activate
 (venv_recsys_django) rsl@＊$ cd ~/rsl＊＊＊/recsys_django/
 (venv_recsys_django) rsl@＊$ python manage.py migrate
 Operations to perform:
@@ -232,16 +234,25 @@ Running migrations:
   Applying admin.0002_logentry_remove_auto_add... OK
   Applying admin.0003_logentry_add_action_flag_choices... OK
   Applying sessions.0001_initial... OK
+(venv_recsys_django) rsl@＊$ deactivate
 ```
 
 ### データの登録
 ```bash
-(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy users from '/home/rsl/data/users.csv' with DELIMITER E'\t' CSV HEADER;"
-(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy items from '/home/rsl/data/items.csv' with DELIMITER E'\t' CSV HEADER;"
-(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy ratings from '/home/rsl/data/ratings.csv' with DELIMITER E'\t' CSV HEADER;"
-(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_popularity from '/home/rsl/data/reclist_popularity.csv' with DELIMITER E'\t' CSV HEADER;"
-(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_similarity from '/home/rsl/data/reclist_similarity.csv' with DELIMITER E'\t' CSV HEADER;"
-(venv_recsys_django) rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_itemcf from '/home/rsl/data/reclist_itemcf.csv' with DELIMITER E'\t' CSV HEADER;"
+rsl@＊$ mkdir ~/data/
+rsl@＊$ cd ~/data/
+rsl@＊$ wget https://raw.githubusercontent.com/recsyslab/recsys-django/main/contents/recsys_django/offline/data/users.csv
+rsl@＊$ wget https://raw.githubusercontent.com/recsyslab/recsys-django/main/contents/recsys_django/offline/data/items.csv
+rsl@＊$ wget https://raw.githubusercontent.com/recsyslab/recsys-django/main/contents/recsys_django/offline/data/ratings.csv
+rsl@＊$ wget https://raw.githubusercontent.com/recsyslab/recsys-django/main/contents/recsys_django/offline/data/reclist_popularity.csv
+rsl@＊$ wget https://raw.githubusercontent.com/recsyslab/recsys-django/main/contents/recsys_django/offline/data/reclist_similarity.csv
+rsl@＊$ wget https://raw.githubusercontent.com/recsyslab/recsys-django/main/contents/recsys_django/offline/data/reclist_itemcf.csv
+rsl@＊$ psql recsys_django -U rsl -c "\copy users from 'users.csv' with DELIMITER E'\t' CSV HEADER;"
+rsl@＊$ psql recsys_django -U rsl -c "\copy items from 'items.csv' with DELIMITER E'\t' CSV HEADER;"
+rsl@＊$ psql recsys_django -U rsl -c "\copy ratings from 'ratings.csv' with DELIMITER E'\t' CSV HEADER;"
+rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_popularity from 'reclist_popularity.csv' with DELIMITER E'\t' CSV HEADER;"
+rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_similarity from 'reclist_similarity.csv' with DELIMITER E'\t' CSV HEADER;"
+rsl@＊$ psql recsys_django -U rsl -c "\copy reclist_itemcf from 'reclist_itemcf.csv' with DELIMITER E'\t' CSV HEADER;"
 ```
 
 ```pgsql
@@ -250,7 +261,6 @@ recsys_django=# SELECT setval('reclist_popularity_id_seq', (SELECT max(id) FROM 
 recsys_django=# SELECT setval('reclist_similarity_id_seq', (SELECT max(id) FROM reclist_similarity));
 recsys_django=# SELECT setval('reclist_itemcf_id_seq', (SELECT max(id) FROM reclist_itemcf));
 ```
-
 
 ## Nginxの設定
 Nginxのインストール、自動起動などの初期設定は先に行っておく。
