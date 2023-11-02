@@ -1,4 +1,4 @@
-# 本番運用環境へのDjangoプロジェクトの配置.md
+# サーバへのDjangoプロジェクトのソースコードの配置
 
 ## サーバへの接続（クライアント側）
 ```bash
@@ -50,14 +50,14 @@ rsl@＊:~$ git clone git@github.com:recsyslab/rsl＊＊＊.git
 rsl@＊:~$ ls ~/rsl＊＊＊/
 ```
 
-## GitHubリポジトリのpull（サーバ側）
+### GitHubリポジトリのpull（サーバ側）
 2回目以降、差分を反映させる場合は、下記コマンドを実行する。
 ```bahs
 rsl@＊:~$ cd ~/rsl＊＊＊/
 rsl@＊:~$ git pull
 ```
 
-## venv_recsys_django仮想環境の構築
+## 仮想環境の構築
 
 ### インストール済みパッケージ一覧の出力（クライアント側）
 ```bash
@@ -144,7 +144,7 @@ LOGGING = {
 }
 ```
 
-## ログ配置ディレクトリの作成
+### ログ出力先ディレクトリの作成
 ```bash
 rsl@＊:~$ mkdir ~/rsl＊＊＊/recsys_django/logs/
 ```
@@ -163,7 +163,7 @@ rsl@＊$ source ~/.profile
 rsl@＊$ env
 ```
 
-## 静的ファイルを配信ディレクトリに配置
+## 配信ディレクトリへの静的ファイルの配置
 ```bash
 rsl@＊$ sudo mkdir -p /usr/share/nginx/html/static/
 rsl@＊$ sudo mkdir -p /usr/share/nginx/html/media/
@@ -179,3 +179,6 @@ rsl@＊$ ls /usr/share/nginx/html/static/
 rsl@＊$ ls /usr/share/nginx/html/media/
 ```
 
+#### 参考
+1. 動かして学ぶ！Python Django開発入門 第2版 # Chapter 12 Djangoとクラウドを連携して本番運用を行う
+1. 現場で使える Django の教科書《実践編》 # 第7章 デプロイ
