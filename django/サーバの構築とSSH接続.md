@@ -5,6 +5,8 @@
    - [ConoHaコントロールパネル](https://manage.conoha.jp/Dashboard/)
 
 ## SSH Keyの作成
+
+### ConoHaコントロールパネルから
 1. ConoHaコントロールパネルから、**セキュリティ > SSH Key**を開く。
    1. **+パブリックキー**ボタンをクリックする。
    2. 下記を設定する。
@@ -14,6 +16,25 @@
    3. **保存**ボタンをクリックする。
    4. **ダウンロード**ボタンをクリックし、プライベートキーをダウンロードする。
    5. ダウンロードしたプライベートキーのファイル名を`conoha-rsl＊＊＊.pem.key`に変更する。
+
+### ssh-keygenから（クライアント側）
+```bash
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/rsl/.ssh/id_rsa): /home/rsl/.ssh/conoha-rsl＊＊＊.pem.key（rsl＊＊＊はRSL番号）
+Enter passphrase (empty for no passphrase): 【パスフレーズ】
+Enter same passphrase again: 【パスフレーズ】
+Your identification has been saved in /home/rsl/.ssh/conoha-rsl＊＊＊.pem.key
+Your public key has been saved in /home/rsl/.ssh/conoha-rsl＊＊＊.pem.key.pub
+The key fingerprint is:
+SHA256:c/w7wWTCfOFA16WXE9Zo8GBu3usw7d+ZYk3l4RAFSJM rsl@rsl-local
+The key's randomart image is:
++---[RSA 3072]----+
+...（略）...
++----[SHA256]-----+
+$ ls ~/.ssh/
+```
+
 
 #### 参考
 1. [SSH Keyを登録する｜ConoHa VPSサポート](https://support.conoha.jp/v/registsshkey/)
