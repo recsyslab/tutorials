@@ -83,3 +83,8 @@ Gunicornを停止する場合は下記コマンドを実行する。Nginxの設�
 (venv_recsys_django) rsl@＊$ ps ax | grep gunicorn
  149114 pts/0    S+     0:00 grep --color=auto gunicorn
 ```
+
+#### 参考
+1. 現場で使える Django の教科書《実践編》 # 第7章 デプロイ
+1. [Gunicorn設定 - 株式会社日本ビューシステム](https://view-s.co.jp/product/webapp/wsgi/)
+1. [Gunicorn用のSystemdソケットとサービスファイルの作成 #Django - Qiita](https://qiita.com/mono11/items/a0a0996f80d86bd7a68c)
