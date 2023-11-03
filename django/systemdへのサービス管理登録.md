@@ -68,3 +68,18 @@ rsl@＊$ sudo systemctl status recsys_django.socket
 rsl@＊$ systemctl is-enabled recsys_django
 rsl@＊$ sudo systemctl status recsys_django
 ```
+
+## Unit定義ファイルの再読込み
+Unit定義ファイルを修正した場合は、下記コマンドを実行して、定義を再読込みしたうえで、サービスを再起動する。
+```bash
+rsl@＊$ sudo systemctl daemon-reload
+rsl@＊$ sudo systemctl restart recsys_django
+```
+
+## Gunicornの停止
+Gunicornを停止する場合は下記コマンドを実行する。Nginxの設定などを編集した場合は、Gunicornを一旦停止した後で、Gunicornを起動する。
+```bash
+(venv_recsys_django) rsl@＊$ pkill gunicorn
+(venv_recsys_django) rsl@＊$ ps ax | grep gunicorn
+ 149114 pts/0    S+     0:00 grep --color=auto gunicorn
+```
