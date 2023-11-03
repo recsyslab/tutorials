@@ -84,6 +84,45 @@ Gunicornを停止する場合は下記コマンドを実行する。Nginxの設�
  149114 pts/0    S+     0:00 grep --color=auto gunicorn
 ```
 
+## Nginxの設定の修正
+```bash
+rsl@＊$ sudo vi /etc/nginx/sites-available/recsys_django
+```
+
+リスト3: `/etc/nginx/sites-available/recsys_django`
+```bash
+server {
+...（略）...
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X_Forwarded-Proto $scheme;
+        
+#        proxy_pass http://127.0.0.1:8000;                          # コメントアウト
+        proxy_pass http://unix:/run/gunicorn/recsys_django.sock;    # 追記
+    }
+...（略）...
+}
+```
+
+```bash
+rsl@＊$ less /etc/nginx/sites-available/recsys_django
+rsl@＊$ sudo nginx -t
+rsl@＊$ sudo systemctl reload nginx
+```
+
+## サービスの再起動
+```bash
+rsl@＊$ sudo systemctl restart recsys_django
+rsl@＊$ ps ax | grep gunicorn
+```
+
+## Webサーバの動作確認
+下記にアクセスし、recsys-djangoのトップページが表示されれば、正常に稼働している。
+- ※`https://rsl＊＊＊.recsyslab-ex.org/`（`rsl＊＊＊`はRSL番号）
+- ※2023年11月3日現在、不具合あり：上記にアクセスすると「400 Bad Request」と表示される。
+
+
 #### 参考
 1. 現場で使える Django の教科書《実践編》 # 第7章 デプロイ
 1. [Gunicorn設定 - 株式会社日本ビューシステム](https://view-s.co.jp/product/webapp/wsgi/)
