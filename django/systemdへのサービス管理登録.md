@@ -17,7 +17,7 @@ After=network.target
 User=rsl
 Group=www-data
 WorkingDirectory=/home/rsl/rsl＊＊＊/recsys_django/
-ExecStart=/home/rsl/venv_recsys_django/bin/gunicorn --workers 3 --bind /run/gunicorn/recsys_django.sock recsys_django.wsgi:application
+ExecStart=/home/rsl/venv_recsys_django/bin/gunicorn --workers 3 --bind unix:/run/gunicorn/recsys_django.sock recsys_django.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
