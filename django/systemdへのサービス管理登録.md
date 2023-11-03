@@ -49,12 +49,17 @@ rsl@＊$ less /etc/systemd/system/recsys_django.socket
 ```
 
 ## systemdへのサービス管理登録
-
 ```bash
 rsl@＊$ sudo systemctl enable recsys_django.socket
 Created symlink /etc/systemd/system/sockets.target.wants/recsys_django.socket → /etc/systemd/system/recsys_django.socket.
 rsl@＊$ sudo systemctl enable recsys_django.service
 Created symlink /etc/systemd/system/multi-user.target.wants/recsys_django.service → /etc/systemd/system/recsys_django.service.
+```
+
+## サービスの起動
+```bash
+rsl@＊$ sudo systemctl start recsys_django
+rsl@＊$ sudo systemctl status recsys_django
 ```
 
 
