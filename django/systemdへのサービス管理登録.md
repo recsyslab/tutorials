@@ -17,7 +17,7 @@ After=network.target
 User=rsl
 Group=www-data
 WorkingDirectory=/home/rsl/rsl＊＊＊/recsys_django/
-ExecStart=/home/rsl/venv_recsys_django/bin/gunicorn ---workers 3 --bind /run/gunicorn/recsys_django.sock recsys_django.wsgi:application
+ExecStart=/home/rsl/venv_recsys_django/bin/gunicorn --workers 3 --bind /run/gunicorn/recsys_django.sock recsys_django.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
@@ -52,14 +52,19 @@ rsl@＊$ less /etc/systemd/system/recsys_django.socket
 ```bash
 rsl@＊$ sudo systemctl enable recsys_django.socket
 Created symlink /etc/systemd/system/sockets.target.wants/recsys_django.socket → /etc/systemd/system/recsys_django.socket.
+rsl@＊$ ls /etc/systemd/system/sockets.target.wants/
 rsl@＊$ sudo systemctl enable recsys_django.service
 Created symlink /etc/systemd/system/multi-user.target.wants/recsys_django.service → /etc/systemd/system/recsys_django.service.
+rsl@＊$ ls /etc/systemd/system/multi-user.target.wants/
 ```
 
 ## サービスの起動
 ```bash
 rsl@＊$ sudo systemctl start recsys_django
+# /run/gunicorn/recsys_django.sockが自動作成される。
+rsl@＊$ ls -l /run/gunicorn/
+rsl@＊$ systemctl is-enabled recsys_django.socket
+rsl@＊$ sudo systemctl status recsys_django.socket
+rsl@＊$ systemctl is-enabled recsys_django
 rsl@＊$ sudo systemctl status recsys_django
 ```
-
-
