@@ -33,8 +33,17 @@ The key's randomart image is:
 ...（略）...
 +----[SHA256]-----+
 $ ls ~/.ssh/
+$ cat ~/.ssh/conoha-rsl＊＊＊.pem.key.pub
 ```
 
+1. ConoHaコントロールパネルから、**セキュリティ > SSH Key**を開く。
+   1. **+パブリックキー**ボタンをクリックする。
+   2. 下記を設定する。
+      - **リージョン**: `東京`
+      - **登録方法**: `インポート`
+      - **ネームタグ**: `key-conoha-rsl＊＊＊`（`＊＊＊`はRSL番号）
+      - **パブリックキー**: `conoha-rsl＊＊＊.pem.key.pub`の内容を貼り付ける。※`conoha-rsl＊＊＊.pem.key`ではないので注意
+   3. **保存**ボタンをクリックする。
 
 #### 参考
 1. [SSH Keyを登録する｜ConoHa VPSサポート](https://support.conoha.jp/v/registsshkey/)
