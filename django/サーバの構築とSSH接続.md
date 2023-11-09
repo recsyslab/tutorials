@@ -27,7 +27,7 @@ Enter same passphrase again: 【パスフレーズ】
 Your identification has been saved in /home/rsl/.ssh/conoha-rsl＊＊＊.pem.key
 Your public key has been saved in /home/rsl/.ssh/conoha-rsl＊＊＊.pem.key.pub
 The key fingerprint is:
-SHA256:c/w7wWTCfOFA16WXE9Zo8GBu3usw7d+ZYk3l4RAFSJM rsl@rsl-local
+SHA256:＊＊＊＊＊＊＊＊ rsl@rsl-local
 The key's randomart image is:
 +---[RSA 3072]----+
 ...（略）...
