@@ -31,3 +31,6 @@ $ cat ~/.ssh/sakura-rsl＊＊＊.pem.key.pub
       - **名前**: `key-sakura-rsl＊＊＊`（`＊＊＊`はRSL番号）
       - **公開鍵**: `sakura-rsl＊＊＊.pem.key.pub`の内容を貼り付ける。※`sakura-rsl＊＊＊.pem.key`ではないので注意
    3. **SSHキーを登録**ボタンをクリックする。
+
+## サーバの追加
+1. さくらのVPSコントロールパネルから、**新規追加▼**ボタンをクリックする。
