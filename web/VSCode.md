@@ -17,13 +17,20 @@
 ## プロジェクトのホームディレクトリの作成
 ```bash
 $ cd
-$ mkdir dev/
-$ sudo chmod 777 dev/
+$ mkdir ~/dev/
+$ sudo chmod 777 ~/dev/
 $ ls -l
-$ cd ~/dev/
-$ mkdir p app/
-$ cd app/
-$ mkdir -p frontend/
-$ mkdir -p backend/
+$ mkdir p ~/dev/app/
+$ mkdir -p ~/dev/app/frontend/
+$ mkdir -p ~/dev/app/backend/
 ```
 
+## フロントエンドのコンテナの構築
+```bash
+$ cd ~/dev/app/frontend/
+$ code .
+```
+
+1. VSCodeの左下の**Manage > Command Palette**を開く。
+   1. 「containers」で検索する。
+   2. 「Dev Containers: Open Folder in Container」を選択する。
