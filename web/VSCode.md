@@ -34,3 +34,21 @@ $ code .
 1. VSCodeの左下の**Manage > Command Palette**を開く。
    1. 「containers」で検索する。
    2. 「Dev Containers: Open Folder in Container」を選択する。
+
+
+### Dockerのインストール
+1. VSCodeの左メニューから**Extensions**を開く。
+   1. 「docker」で検索する。
+   2. 「Docker」を選択する。
+   3. **Install**ボタンをクリックする。
+  
+### Docker Hubアカウントの登録
+1. 下記からDocker Hubアカウントを登録する。
+   - **[Docker Hub](https://hub.docker.com/)**
+
+### VSCode上でのDocker Hubのログイン
+1. VSCodeの左メニューから**Docker**を開く。
+   1. **Connect Registry**をクリックする。
+   2. 「Docker Hub」を選択する。
+   3. Docker Hub Usernameを入力して、**Enter**キーを押す。
+   4. Docker Hub Passwordを入力して、**Enter**キーを押す。
