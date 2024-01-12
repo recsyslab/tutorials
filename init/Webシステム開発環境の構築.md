@@ -12,6 +12,8 @@ $ mkdir -p dev/app/backend/
 ```
 
 ## DockerへのPostgreSQLのインストール
+
+### 設定
 ```bash
 $ vi /usr/local/src/dev/docker-compose.yml
 ```
@@ -51,9 +53,17 @@ USER_NAME=postgres
 USER_PASS=postgres
 ```
 
+### コンテナの起動
 ```bash
 $ cd /usr/local/src/dev/
 $ docker compose up -d
+$ docker ps -a
+```
+
+### コンテナ内からのデータベースへの接続
+```bash
+$ docker container exec --user postgres -it pgsql_db bash
+postgres@pgsql-db:/$ psql
 ```
 
 ## フロントエンド開発の準備
