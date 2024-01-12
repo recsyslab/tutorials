@@ -25,7 +25,7 @@ $ make 2>&1 | tee make.log
 $ make altinstall
 # ...（2分程度）... 
 $ cd ../
-$ rm -f Python-3.11.5.tar.xz
+$ rm -f Python-3.12.1.tar.xz
 ```
 
 ## インストール結果の確認
