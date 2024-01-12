@@ -3,6 +3,7 @@
 ## PostgreSQLとPostGISのインストール
 ```bash
 $ sudo apt install postgresql
+# ...（3分程度）...
 $ sudo apt install postgis
 # ...（3分程度）...
 ```
