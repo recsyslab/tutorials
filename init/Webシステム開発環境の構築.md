@@ -11,6 +11,51 @@ $ mkdir -p dev/app/frontend/
 $ mkdir -p dev/app/backend/
 ```
 
+## DockerへのPostgreSQLのインストール
+```bash
+$ vi /usr/local/src/dev/docker-compose.yml
+```
+
+`/usr/local/src/dev/docker-compose.yml`
+```yml
+version: '3.9'
+
+services:
+  pgsql_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${CONTAINER_NAME}
+    hostname: ${HOSTNAME}
+    ports:
+      - "55432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=${USER_NAME}
+      - POSTGRES_PASSWORD=${USER_PASS}
+    volumes:
+      - db_vol:/var/lib/postgresql/data
+
+volumes:
+  db_vol:
+```
+
+```bash
+$ vi /usr/local/src/dev/.env
+```
+
+`/usr/local/src/dev/.env`
+```env
+POSTGRES_VERSION=14.10
+CONTAINER_NAME=pgsql_db
+HOSTNAME=pgsql-db
+USER_NAME=postgres
+USER_PASS=postgres
+```
+
+```bash
+$ cd /usr/local/src/dev/
+$ docker compose up -d
+```
+
 ## フロントエンド開発の準備
 
 ### フロントエンドのコンテナの構築
