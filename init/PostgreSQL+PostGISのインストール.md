@@ -104,7 +104,8 @@ local replication all md5
 ```bash
 $ sudo less /etc/postgresql/14/main/pg_hba.conf
 $ sudo diff /etc/postgresql/14/main/pg_hba.conf-org /etc/postgresql/14/main/pg_hba.conf
-$ service postgresql restart
+$ sudo systemctl reload postgresql
+$ systemctl status postgresql
 $ sudo -u postgres psql
 # 設定したパスワードを入力してログインできることを確認する。
 ```
@@ -113,7 +114,6 @@ $ sudo -u postgres psql
 - Qiita, [peer認証の関係でpsqlログインできない時の対処法](https://qiita.com/tomlla/items/9fa2feab1b9bd8749584)
 
 ## autovacuumの設定
-
 ```bash
 $ sudo less /etc/postgresql/14/main/postgresql.conf
 $ sudo vi /etc/postgresql/14/main/postgresql.conf
@@ -131,7 +131,8 @@ autovacuum = on
 ```bash
 $ sudo less /etc/postgresql/14/main/postgresql.conf
 $ sudo diff /etc/postgresql/14/main/postgresql.conf-org /etc/postgresql/14/main/postgresql.conf
-$ service postgresql restart
+$ sudo systemctl reload postgresql
+$ systemctl status postgresql
 ```
 
 #### 参考
