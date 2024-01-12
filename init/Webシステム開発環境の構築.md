@@ -25,7 +25,7 @@ $ code .
    1. 「containers」で検索する。
    2. 「Dev Containers: Open Folder in Container」を選択する。
    3. 現在のディレクトリ`/usr/local/src/dev/app/frontend/`が表示されていることを確認し、**開く**ボタンをクリックする。
-   4. コンテナー構成テンプレととして「Node.js」を選択する。
+   4. コンテナー構成テンプレートとして「Node.js」を選択する。
    5. バージョン「18」を選択する。
    6. **OK**ボタンをクリックする。
 
@@ -94,4 +94,29 @@ $ yarn add @mui/material @emotion/react @emotion/styled # React UI tools
 $ yarn add @mui/x-data-grid # ReactGrid
 $ yarn add axios #axios
 $ yarn add swr # SWR
+```
+
+## バックエンド開発の準備
+
+### バックエンドのコンテナの構築
+```bash
+$ cd /usr/local/src/dev/app/backend/
+$ code .
+```
+
+1. VSCodeの左下の**Manage > Command Palette**を開く。
+   1. 「containers」で検索する。
+   2. 「Dev Containers: Open Folder in Container」を選択する。
+   3. 現在のディレクトリ`/usr/local/src/dev/app/backend/`が表示されていることを確認し、**開く**ボタンをクリックする。
+   4. コンテナー構成テンプレートとして「Python 3」を選択する。
+   5. バージョン「3.12-bullseye」（最新版の安定版）を選択する。
+   6. **OK**ボタンをクリックする。
+
+### 環境設定
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ echo -e 'djangorestframework\npsycopg2-binary' > requirements.txt
+$ pip install -r requirements.txt
+$ pip freeze > requirements.lock
+$ cat requirements.lock
 ```
