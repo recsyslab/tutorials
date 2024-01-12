@@ -36,4 +36,4 @@
    5. インストールが完了したら、**今すぐ再起動する**ボタンをクリックする。
    6. 「Please remove the installation medium, then press ENTER:」と表示されるので、**ENTER**キーを押す。
       - USBメモリからインストールを実行している場合は、USBメモリを取り外したうえで**ENTER**キーを押す。
-3. 左下のLinux Mintメニューから、**終了 > シャットダウン**をクリックし、Linux Mintをシャットダウンする。
+3. Linuxを終了する。
