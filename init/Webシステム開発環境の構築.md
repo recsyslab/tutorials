@@ -11,7 +11,9 @@ $ mkdir -p dev/app/frontend/
 $ mkdir -p dev/app/backend/
 ```
 
-## フロントエンドのコンテナの構築
+## フロントエンド開発の準備
+
+### フロントエンドのコンテナの構築
 ```bash
 $ systemctl status docker
 # Dockerが起動していることを確認する。
@@ -27,7 +29,7 @@ $ code .
    5. バージョン「18」を選択する。
    6. **OK**ボタンをクリックする。
 
-## Next.jsのアプリケーションのインストール
+### Next.jsのアプリケーションのインストール
 1. VSCodeの上部メニューから**ターミナル > 新しいターミナル**を開く。
 
 VSCodeのターミナルで下記コマンドを実行する。
@@ -40,7 +42,7 @@ $ mv frontend/.* .
 $ rmdir frontend/
 ```
 
-## フロントエンド環境の動作確認
+### フロントエンド環境の動作確認
 VSCodeのターミナルで下記コマンドを実行する。
 ```bash
 $ yarn dev
@@ -49,8 +51,7 @@ $ yarn dev
 ブラウザで下記URLにアクセスし、ウェルカムページが表示されれば成功。
 - http://localhost:3000
 
-## gitignoreの設定
-
+### gitignoreの設定
 `.gitignore`ファイルに下記を追加する。
 
 `/workspaces/frontend/.gitignore`
@@ -59,8 +60,7 @@ $ yarn dev
 .vscode/
 ```
 
-## next.config.jsの編集
-
+### next.config.jsの編集
 `next.config.js`を下記のように編集する。
 
 `/workspaces/frontend/next.config.js`
@@ -80,10 +80,18 @@ module.exports = {
 };
 ```
 
-## globals.cssの設定
-
+### globals.cssの設定
 `app/globals.css`の内容を削除する。
 
 `/workspaces/frontend/app/globals.css`
 ```css
+```
+
+### 機能拡張
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ yarn add @mui/material @emotion/react @emotion/styled # React UI tools
+$ yarn add @mui/x-data-grid # ReactGrid
+$ yarn add axios #axios
+$ yarn add swr # SWR
 ```
