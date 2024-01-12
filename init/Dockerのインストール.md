@@ -36,3 +36,6 @@ $ sudo apt update
 ```bash
 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
+
+#### 参考
+- 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
