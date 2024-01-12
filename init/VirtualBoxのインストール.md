@@ -29,8 +29,8 @@
       - **Guest Addtions**: `チェック`
       - **Guest Addtions ISO**: `C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso`
    4. **Hardware**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
-      - **メインメモリー**: （緑色の範囲内での最大値）
-      - **Processors**: （緑色の範囲内での最大値）
+      - **メインメモリー**: （デフォルト）
+      - **Processors**: （デフォルト）
    5. **Virtual Hard dis**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Create a Virtual Hard Disk Now**: `320 GB` # 自分の空き容量に合わせる
       - **Pre-allocate Full Size**: `非チェック`
