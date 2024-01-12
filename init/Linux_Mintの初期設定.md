@@ -119,26 +119,6 @@ $ ls
 #### 参考
 - Qiita, [「デスクトップ」等のディレクトリ名を英語にする](https://qiita.com/take5249/items/13ada73bbd01ee12a2c3)
 
-## `sysv-rc-conf`のインストール
-※将来的には`systemd`に統一する。
-```bash
-$ cd ~/src/
-$ wget http://archive.ubuntu.com/ubuntu/pool/universe/s/sysv-rc-conf/sysv-rc-conf_0.99.orig.tar.gz
-$ tar zxvf sysv-rc-conf_0.99.orig.tar.gz
-$ cd sysv-rc-conf-0.99
-$ sudo make
-$ sudo make install
-$ sudo apt install libcurses-ui-perl libterm-readkey-perl libcurses-perl
-$ sudo sysv-rc-conf
-# [h]キーでバージョンを確認できる。
-# [q]キーで終了する。
-$ cd ../
-$ rm -f sysv-rc-conf_0.99.orig.tar.gz
-```
-
-#### 参考
-- Qiita, [Ubuntu18.04 LTSにsysv-rc-confを入れる方法](https://gcga.jp/blog/2018/08/10/205/)
-
 ## ファイアウォールの設定
 ```bash
 $ sudo apt install gufw
