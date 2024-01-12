@@ -18,7 +18,6 @@
    2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **名前**: `Linux Mint 21.2 MATE 64-bit`
       - **Folder**:
-        - `C:\VirtualBox VMs` # `C`ドライブに構築する場合
         - `D:\VirtualBox VMs` # 外付けSSDのドライブを`D`とし、そこに構築する場合
       - **ISO Image**: `【ディレクトリ】/linuxmint-21.2-mate-64bit.iso` # ダウンロードしたISOファイル
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
