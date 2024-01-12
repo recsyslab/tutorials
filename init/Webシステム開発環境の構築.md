@@ -48,3 +48,13 @@ $ yarn dev
 
 ブラウザで下記URLにアクセスし、ウェルカムページが表示されれば成功。
 - http://localhost:3000
+
+## gitignoreの設定
+
+`.gitignore`ファイルに下記を追加する。
+
+`/workspaces/frontend/.gitignore`
+```txt
+#Vscode
+.vscode/
+```
