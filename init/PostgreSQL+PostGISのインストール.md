@@ -53,22 +53,17 @@ $ ls /etc/postgresql/14/main/
 `/etc/postgresql/14/main/postgresql.conf`
 ```bash
 $ ls /etc/postgresql/14/main/
-$ sudo less /etc/postgresql/14/main/postgresql.conf
+$ less /etc/postgresql/14/main/postgresql.conf
 $ sudo cp /etc/postgresql/14/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf-org
 $ ls /etc/postgresql/14/main/
 ```
 
 ## PostgreSQLサーバの起動設定
 ```bash
-$ sudo sysv-rc-conf
-$ sudo sysv-rc-conf postgresql off
-$ sudo sysv-rc-conf
-$ less ~/bin/startup.sh
-$ echo -e '\n# PostgreSQLサーバの起動' >> ~/bin/startup.sh
-$ echo -e 'sudo service postgresql start\n' >> ~/bin/startup.sh
-$ less ~/bin/startup.sh
-$ ~/bin/startup.sh
-$ service postgresql status
+$ systemctl is-enabled postgresql
+# 「enabled」と表示されれば、postgresqlの自動起動が有効になっている。
+$ systemctl status postgresql
+# 「Active: active (exited)」と表示されれば、postgresqlは稼働している。
 ```
 
 ## PostgreSQLのパスワードの設定
@@ -79,7 +74,9 @@ $ sudo -u postgres psql
 ```pgsql
 postgres=# \password
 Enter new password for user "postgres":
+# パスワードを入力しても表示されないが、そのまま入力する。
 Enter it again: 
+# パスワードを入力しても表示されないが、そのまま入力する。
 postgres=# \q
 ```
 
