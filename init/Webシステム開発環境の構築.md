@@ -11,61 +11,6 @@ $ mkdir -p dev/app/frontend/
 $ mkdir -p dev/app/backend/
 ```
 
-## DockerへのPostgreSQLのインストール
-
-### 設定
-```bash
-$ vi /usr/local/src/dev/docker-compose.yml
-```
-
-`/usr/local/src/dev/docker-compose.yml`
-```yml
-version: '3.9'
-
-services:
-  pgsql_db:
-    image: postgres:${POSTGRES_VERSION}
-    container_name: ${CONTAINER_NAME}
-    hostname: ${HOSTNAME}
-    ports:
-      - "55432:5432"
-    restart: always
-    environment:
-      - POSTGRES_USER=${USER_NAME}
-      - POSTGRES_PASSWORD=${USER_PASS}
-    volumes:
-      - db_vol:/var/lib/postgresql/data
-
-volumes:
-  db_vol:
-```
-
-```bash
-$ vi /usr/local/src/dev/.env
-```
-
-`/usr/local/src/dev/.env`
-```env
-POSTGRES_VERSION=14.10
-CONTAINER_NAME=pgsql_db
-HOSTNAME=pgsql-db
-USER_NAME=postgres
-USER_PASS=postgres
-```
-
-### コンテナの起動
-```bash
-$ cd /usr/local/src/dev/
-$ docker compose up -d
-$ docker ps -a
-```
-
-### コンテナ内からのデータベースへの接続
-```bash
-$ docker container exec --user postgres -it pgsql_db bash
-postgres@pgsql-db:/$ psql
-```
-
 ## フロントエンド開発の準備
 
 ### フロントエンドのコンテナの構築
@@ -226,12 +171,66 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'app',
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': '',
-        'PORT': '',
+        'USER': os.environ.get('USER_NAME'),
+        'PASSWORD': os.environ.get('USER_PASS'),
+        'HOST': os.environ.get('HOST_NAME'),
+        'PORT': '55432',
     }
 }
 ```
 ※USER, PASSWORD, HOST, PORTなどは要確認
 
+## DockerへのPostgreSQLのインストール
+
+### 設定
+```bash
+$ vi /usr/local/src/dev/docker-compose.yml
+```
+
+`/usr/local/src/dev/docker-compose.yml`
+```yml
+version: '3.9'
+
+services:
+  pgsql_db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${CONTAINER_NAME}
+    hostname: ${HOSTNAME}
+    ports:
+      - "55432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=${USER_NAME}
+      - POSTGRES_PASSWORD=${USER_PASS}
+    volumes:
+      - db_vol:/var/lib/postgresql/data
+
+volumes:
+  db_vol:
+```
+
+```bash
+$ vi /usr/local/src/dev/.env
+```
+
+`/usr/local/src/dev/.env`
+```env
+POSTGRES_VERSION=14.10
+CONTAINER_NAME=pgsql_db
+HOSTNAME=pgsql-db
+USER_NAME=postgres
+USER_PASS=postgres
+```
+
+### コンテナの起動
+```bash
+$ cd /usr/local/src/dev/
+$ docker compose up -d
+$ docker ps -a
+```
+
+### コンテナ内からのデータベースへの接続
+```bash
+$ docker container exec --user postgres -it pgsql_db bash
+postgres@pgsql-db:/$ psql
+```
