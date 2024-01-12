@@ -24,16 +24,13 @@ $ make 2>&1 | tee make.log
 # ...（3分程度）... 
 $ make altinstall
 # ...（2分程度）... 
-$ cd ../
-$ rm -f Python-3.12.1.tar.xz
+$ rm -f ~/src/Python-3.12.1.tar.xz
 ```
 
 ## インストール結果の確認
 ```bash
-$ cd ~/opt/python/
-$ ls
-$ cd bin/
-$ ls -alh
+$ ls ~/opt/python/
+$ ls ~/opt/python/bin/ -alh
 ```
 
 ## パスの設定
@@ -53,7 +50,7 @@ $ echo $PATH
 ```bash
 $ python3 --version
 $ python3.10 --version
-$ python3.11 --version
+$ python3.12 --version
 ```
 
 ## ベースとなる仮想環境
@@ -61,7 +58,7 @@ $ python3.11 --version
 ### 仮想環境の構築とアクティベート
 ```bash
 $ mkdir ~/venv/
-$ python3.11 -m venv ~/venv/rsl-base
+$ python3.12 -m venv ~/venv/rsl-base
 $ source ~/venv/rsl-base/bin/activate
 ```
 
@@ -82,7 +79,7 @@ $ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip install scikit-learn
 (rsl-base) $ pip install psycopg2-binary
 (rsl-base) $ pip install tqdm
-(rsl-base) $ pip install mecab-python3
+(rsl-base) $ pip install mecab-python3 # 失敗する
 (rsl-base) $ pip install requests
 (rsl-base) $ pip install importnb
 (rsl-base) $ pip install importlib
@@ -115,6 +112,8 @@ $ source ~/venv/rsl-base/bin/activate
 >>> psycopg2.__version__
 >>> import tqdm
 >>> tqdm.__version__
+>>> import requests
+>>> requests.__version__
 >>> import importnb
 >>> importnb.__version__
 >>> [Ctrl+D]
