@@ -29,9 +29,22 @@ $ code .
 
 ## Next.jsのアプリケーションのインストール
 1. VSCodeの上部メニューから**ターミナル > 新しいターミナル**を開く。
-   1. ターミナルから下記コマンドを実行する。
 
+VSCodeのターミナルで下記コマンドを実行する。
 ```bash
 $ yarn create next-app frontend --ts --esling
 # 何度か質問されるがデフォルトのまま進める。
+# ...（3分程度）...
+$ mv frontend/* .
+$ mv frontend/.* .
+$ rmdir frontend/
 ```
+
+## フロントエンド環境の動作確認
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ yarn dev
+```
+
+ブラウザで下記URLにアクセスし、ウェルカムページが表示されれば成功。
+- http://localhost:3000
