@@ -15,9 +15,9 @@ $ sudo apt install libffi-dev # scikit-learnのインポートに必要
 ```bash
 $ mkdir -p ~/opt/python/
 $ cd ~/src/
-$ wget https://www.python.org/ftp/python/3.11.5/Python-3.11.5.tar.xz
-$ xz -dc Python-3.11.5.tar.xz| tar xfv -
-$ cd Python-3.11.5/
+$ wget https://www.python.org/ftp/python/3.12.1/Python-3.12.1.tar.xz
+$ xz -dc Python-3.12.1.tar.xz| tar xfv -
+$ cd Python-3.12.1/
 $ ./configure --prefix=$HOME/opt/python --with-ensurepip=install
 # ...（3分程度）...
 $ make 2>&1 | tee make.log
