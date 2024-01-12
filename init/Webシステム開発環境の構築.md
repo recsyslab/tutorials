@@ -139,3 +139,44 @@ $ cat requirements.lock
 
 1. VSCodeの左下の**開発コンテナー**をクリックする。
    1. **コンテナーのリビルド**を選択する。
+
+### Djangoプロジェクトの設定
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ django-admin startproject config .
+```
+
+### gitignoreの設定
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ echo '__pycache__/' > .gitignore
+```
+
+### Pythonの設定
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ mkdir config/settings/
+$ mv config/settings.py config/settings/base.py
+$ echo 'from .base import *' > config/settings/development.py
+```
+
+`development.py`を下記のように編集する。
+
+`/workspaces/backend/config/settings/development.py`
+```py
+import os
+from .base import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'app',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': '',
+        'PORT': '',
+    }
+}
+```
+※USER, PASSWORD, HOST, PORTなどは要確認
+
