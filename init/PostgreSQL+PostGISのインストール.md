@@ -17,10 +17,10 @@ $ sudo -u postgres psql
 postgres=# SELECT version();
                                                                version                                                                
 --------------------------------------------------------------------------------------------------------------------------------------
- PostgreSQL 14.9 (Ubuntu 14.9-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+ PostgreSQL 14.10 (Ubuntu 14.10-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
 (1 row)
 # インストールされたバージョンを確認する。
-# 2023/09/02時点の最新版: 14.9
+# 2024/01/12時点の最新版: 14.10
 postgres=# \q
 # '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
 ```
