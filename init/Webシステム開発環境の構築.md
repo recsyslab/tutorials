@@ -23,10 +23,10 @@ $ code .
 
 1. VSCodeの左下の**Manage > Command Palette**を開く。
    1. 「containers」で検索する。
-   2. 「Dev Containers: Open Folder in Container」を選択する。
+   2. **Dev Containers: Open Folder in Container**を選択する。
    3. 現在のディレクトリ`/usr/local/src/dev/app/frontend/`が表示されていることを確認し、**開く**ボタンをクリックする。
-   4. コンテナー構成テンプレートとして「Node.js」を選択する。
-   5. バージョン「18」を選択する。
+   4. コンテナー構成テンプレートとして**Node.js**を選択する。
+   5. バージョン**18**を選択する。
    6. **OK**ボタンをクリックする。
 
 ### Next.jsのアプリケーションのインストール
@@ -108,10 +108,10 @@ $ code .
 
 1. VSCodeの左下の**Manage > Command Palette**を開く。
    1. 「containers」で検索する。
-   2. 「Dev Containers: Open Folder in Container」を選択する。
+   2. **Dev Containers: Open Folder in Container**を選択する。
    3. 現在のディレクトリ`/usr/local/src/dev/app/backend/`が表示されていることを確認し、**開く**ボタンをクリックする。
-   4. コンテナー構成テンプレートとして「Python 3」を選択する。
-   5. バージョン「3.12-bullseye」（最新版の安定版）を選択する。
+   4. コンテナー構成テンプレートとして**Python 3**を選択する。
+   5. バージョン**3.12-bullseye**（最新版の安定版）を選択する。
    6. **OK**ボタンをクリックする。
 
 ### 環境設定
@@ -136,3 +136,6 @@ $ cat requirements.lock
 	"postCreateCommand": "pip3 install --user -r requirements.lock", # <- コメントを解除し、txtをlockに変える
 ...（略）...
 ```
+
+1. VSCodeの左下の**開発コンテナー**をクリックする。
+   1. **コンテナーのリビルド**を選択する。
