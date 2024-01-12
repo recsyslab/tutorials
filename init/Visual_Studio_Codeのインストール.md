@@ -22,12 +22,12 @@ $ code -v
 ## VSCodeの日本語化
 1. VSCodeの左メニューから**Extensions**を開く。
    1. 「japanese」で検索する。
-   2. 「Japanese Language Pack for VS Code」を選択する。
+   2. **Japanese Language Pack for VS Code**を選択する。
    3. **Install**ボタンをクリックする。
 2. VSCodeの左下の**Manage > Command Palette**を開く。
    1. 「display」で検索する。
-   2. 「Configure Display Language」を選択する。
-   3. 「日本語」を選択する。
+   2. **Configure Display Language**を選択する。
+   3. **日本語**を選択する。
    4. **Restart**ボタンをクリックする。
 
 ## VSCodeとコンテナの連携
@@ -35,13 +35,13 @@ $ code -v
 ### Dev Containersのインストール
 1. VSCodeの左メニューから**Extensions**を開く。
    1. 「containers」で検索する。
-   2. 「Dev Containers」を選択する。
+   2. **Dev Containers**を選択する。
    3. **Install**ボタンをクリックする。
 
 ### yarnのインストール
 1. VSCodeの左メニューから**Extensions**を開く。
    1. 「yarn」で検索する。
-   2. 「yarn」を選択する。
+   2. **yarn**を選択する。
    3. **Install**ボタンをクリックする。
 
 #### 参考
