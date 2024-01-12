@@ -36,3 +36,6 @@
       - **Pre-allocate Full Size**: `非チェック`
    6. **完了**ボタンをクリックする。
 3. **GNU GRUB**が起動するので、`Start Linux Mint 21.2 MATE 64-bit`を選択し、**Enter**キーを押す。
+
+#### 参考
+- 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
