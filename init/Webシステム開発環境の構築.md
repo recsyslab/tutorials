@@ -56,8 +56,10 @@ $ yarn dev
 
 `/workspaces/frontend/.gitignore`
 ```txt
+...（略）...
 #Vscode
 .vscode/
+...（略）...
 ```
 
 ### next.config.jsの編集
@@ -119,4 +121,18 @@ $ echo -e 'djangorestframework\npsycopg2-binary' > requirements.txt
 $ pip install -r requirements.txt
 $ pip freeze > requirements.lock
 $ cat requirements.lock
+```
+
+### Dockerの設定
+`devcontainer.json`の下記の箇所を下記のように置き換える。
+
+`/workspaces/backend/.devcontainer/devcontainer.json`
+```json
+...（略）...
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye", # <- カンマを付ける
+...（略）...
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pip3 install --user -r requirements.lock", # <- コメントを解除し、txtをlockに変える
+...（略）...
 ```
