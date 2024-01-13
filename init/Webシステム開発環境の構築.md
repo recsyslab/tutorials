@@ -19,6 +19,9 @@ $ node --version
 # v18.x以上であることを確認する。
 ```
 
+#### 参考
+- [Windows、macOS、LinuxにNode.jsとnpmをインストールする方法](https://kinsta.com/jp/blog/how-to-install-node-js/)
+
 ### yarnのインストール
 ```bash
 $ sudo mkdir -p /usr/local/share/keyrings/
@@ -27,6 +30,9 @@ $ echo "deb [signed-by=/usr/local/share/keyrings/yarn-archive-keyring.gpg] https
 $ sudo apt update
 $ sudo apt install yarn
 ```
+
+#### 参考
+- [apt-keyを使わないサードパーティーリポジトリからのパッケージのインストール方法 #Ubuntu - Qiita](https://qiita.com/SolKul/items/5b87bcf325db63b0ea28)
 
 ### Next.jsのアプリケーションのインストール
 ```
@@ -38,11 +44,6 @@ $ mv frontend/* .
 $ mv frontend/.* .
 $ rmdir frontend/
 ```
-
-#### 参考
-- [Windows、macOS、LinuxにNode.jsとnpmをインストールする方法](https://kinsta.com/jp/blog/how-to-install-node-js/)
-- [apt-keyを使わないサードパーティーリポジトリからのパッケージのインストール方法 #Ubuntu - Qiita](https://qiita.com/SolKul/items/5b87bcf325db63b0ea28)
-- 株式会社オープントーン，佐藤大輔，伊東直喜，上野啓二，『実装で学ぶフルスタックWeb開発 エンジニアの視野と知識を広げる「一気通貫」型ハンズオン』，翔泳社，2023．
 
 ### フロントエンド環境の動作確認
 ```bash
@@ -97,13 +98,21 @@ module.exports = {
 ```
 
 ### 機能拡張
-VSCodeのターミナルで下記コマンドを実行する。
 ```bash
 $ yarn add @mui/material @emotion/react @emotion/styled # React UI tools
 $ yarn add @mui/x-data-grid # ReactGrid
 $ yarn add axios #axios
 $ yarn add swr # SWR
 ```
+
+
+
+
+
+
+
+
+
 
 ## 仮想環境の構築
 
@@ -183,5 +192,7 @@ $
 (rsl-web) $ deactivate
 ```
 
+#### 参考
+- 株式会社オープントーン，佐藤大輔，伊東直喜，上野啓二，『実装で学ぶフルスタックWeb開発 エンジニアの視野と知識を広げる「一気通貫」型ハンズオン』，翔泳社，2023．
 
 
