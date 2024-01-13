@@ -1,6 +1,6 @@
 # Webシステム開発環境の構築
 
-## 事前準備
+## フロントエンド開発の準備
 
 ### プロジェクトのホームディレクトリの作成
 ```bash
@@ -43,6 +43,67 @@ $ rmdir frontend/
 - [Windows、macOS、LinuxにNode.jsとnpmをインストールする方法](https://kinsta.com/jp/blog/how-to-install-node-js/)
 - [apt-keyを使わないサードパーティーリポジトリからのパッケージのインストール方法 #Ubuntu - Qiita](https://qiita.com/SolKul/items/5b87bcf325db63b0ea28)
 - 株式会社オープントーン，佐藤大輔，伊東直喜，上野啓二，『実装で学ぶフルスタックWeb開発 エンジニアの視野と知識を広げる「一気通貫」型ハンズオン』，翔泳社，2023．
+
+### フロントエンド環境の動作確認
+```bash
+$ yarn dev
+```
+
+ブラウザで下記URLにアクセスし、ウェルカムページが表示されれば成功。
+- http://localhost:3000
+
+### VSCodeの起動
+```bash
+$ cd ~/dev/app/frontend/
+$ code .
+```
+
+### gitignoreの設定
+`.gitignore`ファイルに下記を追加する。
+
+`~/dev/app/frontend.gitignore`
+```txt
+...（略）...
+#Vscode
+.vscode/
+...（略）...
+```
+
+### next.config.jsの編集【保留】
+`next.config.js`を下記のように編集する。
+
+`~/dev/app/frontend/next.config.js`
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
+
+module.exports = {
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination: 'http://host.docker.internal:8000/api/:path*/',
+            },
+        ]
+    },
+};
+```
+
+### globals.cssの設定
+`app/globals.css`の内容を削除する。
+
+`~/dev/app/frontend/app/globals.css`
+```css
+```
+
+### 機能拡張
+VSCodeのターミナルで下記コマンドを実行する。
+```bash
+$ yarn add @mui/material @emotion/react @emotion/styled # React UI tools
+$ yarn add @mui/x-data-grid # ReactGrid
+$ yarn add axios #axios
+$ yarn add swr # SWR
+```
 
 ## 仮想環境の構築
 
