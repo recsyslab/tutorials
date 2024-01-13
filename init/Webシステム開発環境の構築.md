@@ -148,14 +148,14 @@ $ code .
 ```
 
 1. 左メニューから**Extensions**アイコンをクリックする。
-  1. `Python`を選択し、`Install`ボタンをクリックする。
+   1. `Python`を選択し、`Install`ボタンをクリックする。
 2. 上メニューから**View > Command Palette**を開く。
-  1. `Python: select interpreter`をクリックし、`Python 3.**.** ('rsl-web')`を選択する。
-     - リストにない場合は、**Enter interpreter path**から`/home/rsl/venv/rsl-web/bin/python3.**`を選択する。
+   1. `Python: select interpreter`をクリックし、`Python 3.**.** ('rsl-web')`を選択する。
+      - リストにない場合は、**Enter interpreter path**から`/home/rsl/venv/rsl-web/bin/python3.**`を選択する。
 3. 左メニューから**Run and Debug**アイコンをクリックする。
-  1. **create a launch.json file**をクリックする。
-  2. `Python`を選択する。
-  3. `Django`を選択する。
+   1. **create a launch.json file**をクリックする。
+   2. `Python`を選択する。
+   3. `Django`を選択する。
 4. **Start Debugging**をボタン（再生ボタン）をクリックする。
 5. ブラウザで`http://localhost:8000/`にアクセスし、「The install worked successfully! Congratulations!」と表示されれば成功。
 
