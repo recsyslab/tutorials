@@ -165,13 +165,11 @@ $ code .
 
 
 ### gitignoreの設定
-VSCodeのターミナルで下記コマンドを実行する。
 ```bash
 $ echo '__pycache__/' > .gitignore
 ```
 
 ### Pythonの設定
-VSCodeのターミナルで下記コマンドを実行する。
 ```bash
 $ mkdir config/settings/
 $ mv config/settings.py config/settings/base.py
@@ -180,32 +178,21 @@ $ echo 'from .base import *' > config/settings/development.py
 
 `development.py`を下記のように編集する。
 
-`/workspaces/backend/config/settings/development.py`
+`~/dev/app/backend/config/settings/development.py`
 ```py
-import os
 from .base import *
+import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'app',
-        'USER': os.environ.get('USER_NAME'),
-        'PASSWORD': os.environ.get('USER_PASS'),
-        'HOST': os.environ.get('HOST_NAME'),
-        'PORT': '55432',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORDS'),
+        'HOST': '',
+        'PORT': '',
     }
 }
-```
-※USER, PASSWORD, HOST, PORTなどは要確認
-
-
-
-
-
-
-
-
-
 ```
 
 #### 参考
