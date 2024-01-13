@@ -188,11 +188,29 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'app',
         'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORDS'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
 }
+```
+
+### Djangoサーバの起動
+```bash
+$ sudo -u postgres psql
+```
+
+```pgsql
+postgres=# CREATE ROLE rsl WITH LOGIN PASSWORD '【パスワード】';
+postgres=# CREATE DATABASE app ENCODING 'UTF8';
+postgres=# \q
+```
+
+```bash
+$ source ~/venv/rsl-web/bin/activate
+(rsl-web) $ export DB_USER=rsl
+(rsl-web) $ export DB_PASSWORD=chicago
+(rsl-web) $ python manage.py runserver --settings config.settings.development
 ```
 
 #### 参考
