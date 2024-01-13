@@ -1,5 +1,32 @@
 # Webシステム開発環境の構築
 
+## 仮想環境の構築
+
+### rsl-base環境からのインストール済みパッケージ情報の出力
+```bash
+$ source ~/venv/rsl-base/bin/activate
+(rsl-base) $ pip freeze > ~/venv/rsl-base_requirements.txt
+(rsl-base) $ deactivate
+```
+
+### rsl-web環境でのパッケージ情報の読込み
+```bash
+$ python3.12 -m venv ~/venv/rsl-web
+$ source ~/venv/rsl-web/bin/activate
+(rsl-web) $ pip install --upgrade pip
+(rsl-web) $ pip install -r ~/venv/rsl-base_requirements.txt
+(rsl-web) $ pip freeze
+(rsl-web) $ deactivate
+```
+
+### Webシステム開発関連パッケージのインスト―ル
+```bash
+$ source ~/venv/rsl-web/bin/activate
+(rsl-web) $ pip install djangorestframework
+(rsl-web) $ pip freeze
+(rsl-web) $ deactivate
+```
+
 ## フロントエンド開発の準備
 
 ### プロジェクトのホームディレクトリの作成
@@ -105,91 +132,80 @@ $ yarn add axios #axios
 $ yarn add swr # SWR
 ```
 
+## バックエンド開発の準備
 
-
-
-
-
-
-
-
-
-## 仮想環境の構築
-
-### rsl-base環境からのインストール済みパッケージ情報の出力
-```bash
-$ source ~/venv/rsl-base/bin/activate
-(rsl-base) $ pip freeze > ~/venv/rsl-base_requirements.txt
-(rsl-base) $ deactivate
-```
-
-### rsl-web環境でのパッケージ情報の読込み
-```bash
-$ python3.12 -m venv ~/venv/rsl-web
-$ source ~/venv/rsl-web/bin/activate
-(rsl-web) $ pip install --upgrade pip
-(rsl-web) $ pip install -r ~/venv/rsl-base_requirements.txt
-(rsl-web) $ pip freeze
-(rsl-web) $ deactivate
-```
-
-## Webシステム開発関連パッケージのインスト―ル
+### Djangoプロジェクトの設定
 ```bash
 $ source ~/venv/rsl-web/bin/activate
-(rsl-web) $ pip install django
-(rsl-web) $ pip install django-leaflet
-(rsl-web) $ export CPLUS_INCLUDE_PATH=/usr/include/gdal
-(rsl-web) $ export C_INCLUDE_PATH=/usr/include/gdal
-(rsl-web) $ apt list --installed | grep libgdal-dev
-libgdal-dev/jammy,now 3.4.1+dfsg-1build4 amd64 [インストール済み]
-# libgdal-devのバージョンを確認する。
-(rsl-web) $ pip install gdal==3.4.1 # libgdal-devのバージョンに合わせる # GeoDjangoに必要
-# ...（1分程度）...
-(rsl-web) $ pip install djangorestframework-gis # RESTful APIに必要
-(rsl-web) $ pip install django-filter # RESTful APIに必要
-(rsl-web) $ pip install markdown # RESTful APIに必要
-(rsl-web) $ pip install django-bootstrap5
-(rsl-web) $ pip install django-allauth
-(rsl-web) $ pip install django-cleanup
+(rsl-web) $ cd ~/dev/app/backend/
+(rsl-web) $ django-admin startproject config .
 ```
 
-## インストール済みパッケージ一覧の確認
+### VSCodeの起動
 ```bash
-(rsl-web) $ pip freeze
+$ cd ~/dev/app/backend/
+$ code .
 ```
 
-## rsl-web仮想環境のディアクティベート
+1. 左メニューから**Extensions**アイコンをクリックする。
+  1. `Python`を選択し、`Install`ボタンをクリックする。
+2. 上メニューから**View > Command Palette**を開く。
+  1. `Python: select interpreter`をクリックし、`Python 3.**.** ('rsl-web')`を選択する。
+     - リストにない場合は、**Enter interpreter path**から`/home/rsl/venv/rsl-web/bin/python3.**`を選択する。
+3. 左メニューから**Run and Debug**アイコンをクリックする。
+  1. **create a launch.json file**をクリックする。
+  2. `Python`を選択する。
+  3. `Django`を選択する。
+4. **Start Debugging**をボタン（再生ボタン）をクリックする。
+5. ブラウザで`http://localhost:8000/`にアクセスし、「The install worked successfully! Congratulations!」と表示されれば成功。
+
+#### 参考
+1. [Python and Django tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-django)
+2. [Django を VSCode で 開発するまでの手順 - Qiita](https://qiita.com/soh506/items/12a5df2d19f1c2c792fe)
+
+
+### gitignoreの設定
+VSCodeのターミナルで下記コマンドを実行する。
 ```bash
-(rsl-web) $ deactivate
-$
-# プロンプトが元に戻ればOK
+$ echo '__pycache__/' > .gitignore
 ```
 
-## Django環境の動作テスト
-
-### Djangoプロジェクトの作成
+### Pythonの設定
+VSCodeのターミナルで下記コマンドを実行する。
 ```bash
-(rsl-web) $ cd
-(rsl-web) $ mkdir django-test/
-(rsl-web) $ cd django-test/
-(rsl-web) $ django-admin startproject test_project
-(rsl-web) $ ls
-# `test_project/`が正しく生成されればOK
+$ mkdir config/settings/
+$ mv config/settings.py config/settings/base.py
+$ echo 'from .base import *' > config/settings/development.py
 ```
 
-### Djangoアプリケーションの作成
-```bash
-(rsl-web) $ cd test_project/
-(rsl-web) $ python manage.py startapp test_app
-(rsl-web) $ ls
-# `test_app/`が正しく生成されればOK
-```
+`development.py`を下記のように編集する。
 
-### Djangoプロジェクトの削除
-```bash
-(rsl-web) $ cd
-(rsl-web) $ rm -rf django-test/
-(rsl-web) $ deactivate
+`/workspaces/backend/config/settings/development.py`
+```py
+import os
+from .base import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'app',
+        'USER': os.environ.get('USER_NAME'),
+        'PASSWORD': os.environ.get('USER_PASS'),
+        'HOST': os.environ.get('HOST_NAME'),
+        'PORT': '55432',
+    }
+}
+```
+※USER, PASSWORD, HOST, PORTなどは要確認
+
+
+
+
+
+
+
+
+
 ```
 
 #### 参考
