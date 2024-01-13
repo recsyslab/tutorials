@@ -40,7 +40,7 @@ $ yarn dev
 ブラウザで下記URLにアクセスし、ウェルカムページが表示されれば成功。
 - http://localhost:3000
 
-### gitignoreの設定
+### gitignoreの設定【移行済み】
 `.gitignore`ファイルに下記を追加する。
 
 `/workspaces/frontend/.gitignore`
@@ -51,7 +51,7 @@ $ yarn dev
 ...（略）...
 ```
 
-### next.config.jsの編集
+### next.config.jsの編集【保留】
 `next.config.js`を下記のように編集する。
 
 `/workspaces/frontend/next.config.js`
@@ -71,14 +71,14 @@ module.exports = {
 };
 ```
 
-### globals.cssの設定
+### globals.cssの設定【移行済み】
 `app/globals.css`の内容を削除する。
 
 `/workspaces/frontend/app/globals.css`
 ```css
 ```
 
-### 機能拡張
+### 機能拡張【移行済み】
 VSCodeのターミナルで下記コマンドを実行する。
 ```bash
 $ yarn add @mui/material @emotion/react @emotion/styled # React UI tools
@@ -87,7 +87,7 @@ $ yarn add axios #axios
 $ yarn add swr # SWR
 ```
 
-## バックエンド開発の準備
+## バックエンド開発の準備【移行済み】
 
 ### バックエンドのコンテナの構築
 ```bash
