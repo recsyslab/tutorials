@@ -77,8 +77,8 @@ $ rmdir frontend/
 $ yarn dev
 ```
 
-ブラウザで下記URLにアクセスし、ウェルカムページが表示されれば成功。
-- http://localhost:3000
+ブラウザで http://localhost:3000 にアクセスし、ウェルカムページが表示されれば成功。
+
 
 ### VSCodeの起動
 ```bash
@@ -157,7 +157,7 @@ $ code .
    2. `Python`を選択する。
    3. `Django`を選択する。
 4. **Start Debugging**をボタン（再生ボタン）をクリックする。
-5. ブラウザで`http://localhost:8000/`にアクセスし、「The install worked successfully! Congratulations!」と表示されれば成功。
+5. ブラウザで http://localhost:8000/ にアクセスし、「The install worked successfully! Congratulations!」と表示されれば成功。
 
 #### 参考
 1. [Python and Django tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-django)
@@ -212,6 +212,8 @@ $ source ~/venv/rsl-web/bin/activate
 (rsl-web) $ export DB_PASSWORD=chicago
 (rsl-web) $ python manage.py runserver --settings config.settings.development
 ```
+
+ブラウザで http://localhost:8000/ にアクセスし、「The install worked successfully! Congratulations!」と表示されれば成功。
 
 #### 参考
 - 株式会社オープントーン，佐藤大輔，伊東直喜，上野啓二，『実装で学ぶフルスタックWeb開発 エンジニアの視野と知識を広げる「一気通貫」型ハンズオン』，翔泳社，2023．
