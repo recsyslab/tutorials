@@ -1,16 +1,5 @@
 # Webシステム開発環境の構築
 
-## プロジェクトのホームディレクトリの作成
-```bash
-$ cd /usr/local/src/
-$ sudo mkdir dev/
-$ sudo chmod 777 dev/
-$ ls -l
-$ mkdir -p dev/app/
-$ mkdir -p dev/app/frontend/
-$ mkdir -p dev/app/backend/
-```
-
 ## フロントエンド開発の準備
 
 ### フロントエンドのコンテナの構築
