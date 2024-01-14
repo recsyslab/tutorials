@@ -147,11 +147,6 @@ $ cd ~/dev/app/backend/
 $ code .
 ```
 
-#### 参考
-1. [Python and Django tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-django)
-2. [Django を VSCode で 開発するまでの手順 - Qiita](https://qiita.com/soh506/items/12a5df2d19f1c2c792fe)
-
-
 ### gitignoreの設定
 ```bash
 $ echo '__pycache__/' > .gitignore
