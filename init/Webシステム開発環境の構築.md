@@ -215,6 +215,44 @@ $ source ~/venv/rsl-web/bin/activate
 
 ブラウザで http://localhost:8000/ にアクセスし、「The install worked successfully! Congratulations!」と表示されれば成功。
 
+### Djangoの設定
+
+`~/dev/app/backend/config/settings/base.py`
+```py
+...（略）...
+ALLOWED_HOSTS = ['*']             # 修正
+...（略）...
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'rest_framework',             # 追加
+]
+...（略）...
+LANGUAGE_CODE = 'ja-jp'           # 修正
+...（略）...
+# 以下を追加
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        }
+    }
+}
+```
+
 #### 参考
 - 株式会社オープントーン，佐藤大輔，伊東直喜，上野啓二，『実装で学ぶフルスタックWeb開発 エンジニアの視野と知識を広げる「一気通貫」型ハンズオン』，翔泳社，2023．
 
