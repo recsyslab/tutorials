@@ -74,6 +74,7 @@ $ rmdir frontend/
 
 ### フロントエンド環境の動作確認
 ```bash
+$ cd ~/dev/app/frontend/
 $ yarn dev
 ```
 
