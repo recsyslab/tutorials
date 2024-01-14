@@ -10,6 +10,5 @@
 8. [Pythonのインストール](init/Pythonのインストール.md)
 9. [Visual Studio Codeのインストール](init/Visual_Studio_Codeのインストール.md)
 10. [Linux環境設定チェック](init/Linux環境設定チェック.md)
-11. [Django環境の構築](init/Django環境の構築.md)
 
-X. [Docker Engineのインストール](init/Docker_Engineのインストール.md)
+X. [Django環境の構築](init/Django環境の構築.md)
