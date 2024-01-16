@@ -98,7 +98,7 @@ $ code .
 ...（略）...
 ```
 
-### next.config.jsの編集【保留】
+### next.config.jsの編集
 `next.config.js`を下記のように編集する。
 
 `~/dev/app/frontend/next.config.js`
@@ -111,7 +111,7 @@ module.exports = {
         return [
             {
                 source: '/api/:path*',
-                destination: 'http://host.docker.internal:8000/api/:path*/',
+                destination: 'http://localhost:8000/api/:path*/',
             },
         ]
     },
