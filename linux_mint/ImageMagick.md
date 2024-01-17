@@ -16,7 +16,7 @@ ls /etc/ImageMagick-6/
 
 ## convertのバージョン確認
 ```bash
-convert -verision
+convert -version
 ```
 
 ## convertの設定
