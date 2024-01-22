@@ -21,7 +21,7 @@ $ source `/venv/rsl-base/bin/activate
 
 ## Jupyter Notebookでのカーネルの選択
 ```bash
-jupyter-notebook
+$ jupyter-notebook
 ```
 
 1. Jupyter Notebookで任意の`.ipynb`ファイルを開く。
