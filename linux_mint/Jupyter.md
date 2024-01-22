@@ -2,25 +2,21 @@
 
 ## Jupyter Notebookのインストール
 ```bash
-sudo apt install jupyter-notebook
+$ sudo apt install jupyter-notebook
 # ...（2分程度）...
 ```
 
 ## Jupyter Notebookの起動
 ```bash
-jupyter-notebook
+$ jupyter-notebook
 ```
 
 ## Jupyterへのカーネルの追加 # rsl-base環境の場合
 ```bash
-cd `/venv/
-source rsl-base/bin/activate
-```
-
-```bash
-pip install ipykernel
-ipython kernel install --user --name=rsl-base --display-name=rsl-base
-deactivate
+$ source `/venv/rsl-base/bin/activate
+(rsl-base) $ pip install ipykernel
+(rsl-base) $ ipython kernel install --user --name=rsl-base --display-name=rsl-base
+(rsl-base) $ deactivate
 ```
 
 ## Jupyter Notebookでのカーネルの選択
@@ -36,7 +32,7 @@ jupyter-notebook
 ## Jupyter Notebookでのtqdmの利用
 プログレスバーの表示がおかしい場合は、下記の拡張機能を有効化してみる。
 ```bash
-sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
+$ sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
 ```
 
 #### 参考
