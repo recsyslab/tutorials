@@ -2,13 +2,13 @@
 
 ## インストール
 ```bash
-sudo apt install qgis
+$ sudo apt install qgis
 # ...（5分程度）...
 ```
 
 ## QGISの実行
 ```bash
-qgis
+$ qgis
 ```
 
 ## QGISのバージョン確認
