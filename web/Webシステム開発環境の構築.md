@@ -193,7 +193,7 @@ postgres=# \q
 ```bash
 $ source ~/venv/rsl-web/bin/activate
 (rsl-web) $ export DB_USER=rsl
-(rsl-web) $ export DB_PASSWORD=chicago
+(rsl-web) $ export DB_PASSWORD=【パスワード】
 (rsl-web) $ python manage.py runserver --settings config.settings.development
 ```
 
