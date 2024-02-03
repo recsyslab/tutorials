@@ -79,6 +79,7 @@ $ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip install scikit-learn
 (rsl-base) $ pip install psycopg2-binary
 (rsl-base) $ pip install tqdm
+(rsl-base) $ pip install timedelta
 (rsl-base) $ pip install mecab-python3 # 失敗する
 (rsl-base) $ pip install requests
 (rsl-base) $ pip install importnb
