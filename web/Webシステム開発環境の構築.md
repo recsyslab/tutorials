@@ -90,7 +90,7 @@ $ code .
 ### gitignoreの設定
 `.gitignore`ファイルに下記を追加する。
 
-`~/dev/app/frontend.gitignore`
+`~/dev/app/frontend/.gitignore`
 ```txt
 ...（略）...
 #Vscode
