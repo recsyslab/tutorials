@@ -99,7 +99,7 @@ $ code .
 ```
 
 ### next.config.jsの編集
-`next.config.js`を下記のように編集する。
+`next.config.js`（または`next.config.mjs`）を下記のように編集する。
 
 `~/dev/app/frontend/next.config.js`
 ```js
