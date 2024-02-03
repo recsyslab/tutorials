@@ -131,13 +131,10 @@ module.exports = {
 $ yarn add @mui/material @emotion/react @emotion/styled # React UI tools
 $ yarn add @mui/x-data-grid # ReactGrid
 $ yarn add @mui/icons-material # Material UI
+$ yarn add mui-file-input # ファイルアップロード
 $ yarn add react-hook-form # React Hook Form
 $ yarn add axios #axios
 $ yarn add swr # SWR
-```
-
-```bash
-$ yarn add mui-file-input # ファイルアップロードに必要
 $ less ~/dev/app/frontend/package.json
 $ less ~/dev/app/frontend/yarn.lock
 ```
