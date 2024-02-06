@@ -66,6 +66,7 @@ $ node index.js
 
 ## tslintモジュールの実行と設定
 `tslint.json`
+```json
 {
     "defaultSeverity": "error",
     "extends": [
@@ -73,7 +74,6 @@ $ node index.js
     ]
 }
 ```
-
 
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
