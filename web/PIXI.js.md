@@ -14,6 +14,13 @@ $ mkdir -p ~/dev/pixi/backend/
 $ node --version
 ```
 
+## 必要なパッケージのインストール
+```bash
+$ npm install path
+$ npm install url
+$ npm install dotenv
+```
+
 ## node.jsパッケージのセットアップ
 ```bash
 $ cd ~/dev/pixi/frontend/
@@ -187,13 +194,21 @@ $ npm i --save-dev webpack-dev-server
 
 `webpack.config.js`
 ```
+const webpack      = require('webpack');  # 追加
+const path         = require('path');
 ...（略）...
     devServer: {
         static: {
             directory: 'www',
         },
         port: 8080,
-      }
+      },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        }),
+    ]
 ...（略）...
 ```
 
@@ -235,10 +250,31 @@ http://localhost:8080/ にアクセスし、デベロッパーツールのコン
 ## PIXI.jsのインストール
 ```bash
 $ npm i --save pixi.js@4.8.3
-$ npm i --save-dev @types/pixi.js
+$ npm i --save-dev @types/pixi.js@4.8.4
 $ less pacakeg.json
+```
+
+`index.ts`
+```ts
+import * as PIXI from 'pixi.js';
+
+window.onload = () => {
+    const app = new PIXI.Application({ width: 400, height: 200 });
+    document.body.append(app.view);
+
+    const text = new PIXI.Text('Hello World!');
+    text.style.fill = '#ffffff';
+    app.stage.addChild(text);
+};
+```
+
+```bash
+$ npm run tsc
+$ npm run webpack
+$ npm run server
 ```
 
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
 - [webpack-dev-server起動時のエラーと解決法 #npm - Qiita](https://qiita.com/yosyosyoyoyo/items/84b921d8baa73b232755)
+- [Webpack5ではprocessはundefinedになる](https://zenn.dev/szgk/articles/2d0843136d2fa8)
