@@ -232,6 +232,13 @@ $ npm run server
 
 http://localhost:8080/ にアクセスし、デベロッパーツールのコンソールに`3`と表示されればOK。
 
+## PIXI.jsのインストール
+```bash
+$ npm i --save pixi.js@4.8.3
+$ npm i --save-dev @types/pixi.js
+$ less pacakeg.json
+```
+
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
 - [webpack-dev-server起動時のエラーと解決法 #npm - Qiita](https://qiita.com/yosyosyoyoyo/items/84b921d8baa73b232755)
