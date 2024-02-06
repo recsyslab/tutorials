@@ -189,12 +189,49 @@ $ npm i --save-dev webpack-dev-server
 ```
 ...（略）...
     devServer: {
-        contentBase: path.join(__dirname, 'www'),
-        compress: true,
-        port: 8080
+        static: {
+            directory: 'www',
+        },
+        port: 8080,
       }
 ...（略）...
 ```
 
+※`webpack-dev-server`のバージョンの違いにより、`contentBase`の代わりに`static`を使う必要がある。
+
+
+`www/index.html`
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type='text/javascript' src='/test_npm.js'></script>
+    </head>
+    <body></body>
+</html>
+```
+
+`package.json`
+```
+...（略）...
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -p .",
+    "tslint": "tslint -p .",
+    "typedoc": "typedoc -p .",
+    "webpack": "webpack",           # カンマを追加
+    "server": "webpack-dev-server"  # 追加
+  },
+...（略）...
+```
+
+```bash
+$ npm run server
+```
+
+http://localhost:8080/ にアクセスし、デベロッパーツールのコンソールに`3`と表示されればOK。
+
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
+- [webpack-dev-server起動時のエラーと解決法 #npm - Qiita](https://qiita.com/yosyosyoyoyo/items/84b921d8baa73b232755)
