@@ -172,5 +172,11 @@ module.exports = (env, argv) => {
 ...（略）...
 ```
 
+```bash
+$ npm run webpack
+$ ls www/
+$ less www/test_npm.js
+```
+
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
