@@ -159,5 +159,18 @@ module.exports = (env, argv) => {
 };
 ```
 
+`package.json`
+```
+...（略）...
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -p .",
+    "tslint": "tslint -p .",
+    "typedoc": "typedoc -p .", # カンマを追加
+    "webpack": "webpack"       # 追加
+  },
+...（略）...
+```
+
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
