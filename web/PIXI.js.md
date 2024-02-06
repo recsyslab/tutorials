@@ -37,12 +37,51 @@ $ code .
 `tsconfig.json`
 ```json
 {
-    "compilerOptions": {
-        "target": "es5"
-    },
-    "files": [
-        "index.ts"
-    ]
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "baseUrl": "./src",
+    "outDir": "./lib-ts",
+    "declaration": true,
+    "sourceMap": true,
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": false,
+    "moduleResolution": "node",
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": false
+  },
+  "compileOnSave": true,
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    ".git",
+    "node_modules",
+    "lib"
+  ],
+  "typedocOptions": {
+    "name": "tower-diffence",
+    "mode": "file",
+    "out": "./docs",
+    "gitRevision": "develop",
+    "ignoreCompilerErrors": true,
+    "includeDeclarations": true,
+    "excludeExternals": true,
+    "excludePrivate": false,
+    "excludeProtected": false,
+    "excludeNotExported": false,
+    "preserveConstEnums": true
+  }
 }
 ```
 
@@ -63,3 +102,6 @@ console.log(result);
 $ /node_modules/.bin/tsc -p .
 $ node index.js
 ```
+
+#### 参考
+- Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
