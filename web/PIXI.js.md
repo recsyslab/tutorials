@@ -178,5 +178,23 @@ $ ls www/
 $ less www/test_npm.js
 ```
 
+## 開発用Webサーバの構築
+```bash
+$ npm i --save-dev webpack-dev-server
+```
+
+`webpack.config.js`に下記を追加する。
+
+`webpack.config.js`
+```
+...（略）...
+    devServer: {
+        contentBase: path.join(__dirname, 'www'),
+        compress: true,
+        port: 8080
+      }
+...（略）...
+```
+
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
