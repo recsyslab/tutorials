@@ -122,5 +122,42 @@ $ npm run tslint
 $ npm run typedoc
 ```
 
+## ファイルのバンドル
+```bash
+$ npm i --save-dev webpack webpack-cli webpack-dev-server ts-loader
+```
+
+`webpack.config.js`
+```
+const path         = require('path');
+
+module.exports = (env, argv) => {
+  return {
+    mode: 'production',
+    entry: {
+      index: path.join(__dirname, 'index.ts'),
+    },
+
+    output: {
+      path: path.join(__dirname, 'www'),
+      filename: 'test_npm.js',
+      library: 'test_npm',
+      libraryTarget: 'umd'
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: [
+            { loader: 'ts-loader' }
+          ]
+        }
+      ]
+    },
+  }
+};
+```
+
 #### 参考
 - Smith，佐藤 英一，『HTML5 ゲーム開発の教科書　スマホゲーム制作のための基礎講座』，ボーンデジタル，2019．
