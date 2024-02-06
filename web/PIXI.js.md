@@ -27,3 +27,39 @@ $ less package.json
 $ npm i --save-dev typescript tslint tslint-config-airbnb typedoc
 $ less package.json
 ```
+
+## TypeScriptモジュールの実行
+```bash
+$ cd ~/dev/pixi/frontend/
+$ code .
+```
+
+`tsconfig.json`
+```json
+{
+    "compilerOptions": {
+        "target": "es5"
+    },
+    "files": [
+        "index.ts"
+    ]
+}
+```
+
+`index.ts`
+```ts
+function sum(v1: number, v2: number): number {
+    return v1+v2;
+}
+
+const n = 1;
+const s = 2;
+
+const result = sum(n, s);
+console.log(result);
+```
+
+```bash
+$ /node_modules/.bin/tsc -p .
+$ node index.js
+```
