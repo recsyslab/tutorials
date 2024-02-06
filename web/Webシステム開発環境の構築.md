@@ -135,6 +135,8 @@ $ yarn add mui-file-input # ファイルアップロード
 $ yarn add react-hook-form # React Hook Form
 $ yarn add axios #axios
 $ yarn add swr # SWR
+$ yarn add pixi.js@4.8.3        # PIXI.js
+$ yarn add @types/pixi.js@4.8.4 # PIXI.js
 $ less ~/dev/app/frontend/package.json
 $ less ~/dev/app/frontend/yarn.lock
 ```
