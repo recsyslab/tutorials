@@ -122,7 +122,7 @@ module.exports = {
 ### globals.cssの設定
 `app/globals.css`の内容を削除する。
 
-`~/dev/app/frontend/app/globals.css`
+`~/dev/app/frontend/src/app/globals.css`
 ```css
 ```
 
