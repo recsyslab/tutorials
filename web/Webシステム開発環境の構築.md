@@ -102,7 +102,7 @@ $ code .
 ### next.config.jsの編集
 `next.config.js`（または`next.config.mjs`）を下記のように編集する。
 
-`~/dev/app/frontend/next.config.js`
+`~/dev/app/frontend/next.config.mjs`
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
