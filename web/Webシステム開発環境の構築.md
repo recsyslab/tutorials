@@ -100,9 +100,9 @@ $ code .
 ```
 
 ### next.config.jsの編集
-`next.config.js`（または`next.config.mjs`）を下記のように編集する。
+`next.config.js`（拡張子が`.mjs`となっている場合は、`.js`に変更する）を下記のように編集する。
 
-`~/dev/app/frontend/next.config.mjs`
+`~/dev/app/frontend/next.config.js`
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
