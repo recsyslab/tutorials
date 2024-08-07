@@ -84,6 +84,7 @@ $ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip install requests
 (rsl-base) $ pip install importnb
 (rsl-base) $ pip install importlib
+(rsl-base) $ pip install scikit-surprise
 ```
 
 ### インストール済みパッケージ一覧の確認
