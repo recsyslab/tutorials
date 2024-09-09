@@ -10,6 +10,7 @@
    2. インストールが完了したら、**Finish**ボタンをクリックする。
 
 ## VirtualBox上でのLinux Mint 22 MATE 64-bitの仮想マシンの構築
+※外付けSSDのドライブを`X`とし、そこに構築することを想定する。
 1. 下記からLinux Mint 22のISOファイルをダウンロードし、`X:\Downloads\`ディレクトリに置く。
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
    - **Linux Mint 22 "Wilma" - MATE (64-bit)**: `linuxmint-22-mate-64bit`
@@ -18,7 +19,7 @@
    2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **名前**: `Linux Mint 22 MATE 64-bit`
       - **Folder**:
-        - `X:\VirtualBox VMs` # 外付けSSDのドライブを`X`とし、そこに構築する場合
+        - `X:\VirtualBox VMs`
       - **ISO Image**: `X:\Downloads\linuxmint-22-mate-64bit.iso`
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Username**: `rsl`
