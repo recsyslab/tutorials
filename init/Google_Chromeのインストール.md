@@ -9,6 +9,7 @@
 ## インストール
 ```bash
 $ cd ~/Downloads/
+$ ls
 $ sudo apt install libu2f-udev
 $ sudo dpkg -i google-chrome-stable_current_amd64.deb
 # 依存関係エラーが発生したら、関係するライブラリをインストールする。
@@ -27,4 +28,5 @@ $ google-chrome
 ## 後始末
 ```bash
 $ rm -f google-chrome-stable_current_amd64.deb
+$ ls
 ```
