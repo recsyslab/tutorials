@@ -16,11 +16,24 @@
    - **Linux Mint 22 "Wilma" - MATE (64-bit)**: `linuxmint-22-mate-64bit`
 2. **Oracle VM VirtualBox マネージャー**を起動する。
    1. **仮想マシン > 新規**を開く。
-   2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+   2. **仮想マシンの名前とOS**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **名前**: `Linux Mint 22 MATE 64-bit`
-      - **Folder**:
+      - **フォルダー**:
         - `X:\VirtualBox VMs`
-      - **ISO Image**: `X:\Downloads\linuxmint-22-mate-64bit.iso`
+      - **ISO イメージ**: `X:\Downloads\linuxmint-22-mate-64bit.iso`
+      - **自動インストールをスキップ**: `チェック`
+   3. **ハードウェア**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+      - **メインメモリー**: （デフォルト）
+      - **プロセッサー数**: （デフォルト）
+   4. **仮想ハードディスク**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+      - **仮想ハードディスクを作成する**: `320 GB` # 自分の空き容量に合わせる
+      - **全サイズの事前割当て**: `非チェック`
+   5. **完了**ボタンをクリックする。
+3. 対象の仮想マシンを選択し、**起動**ボタンをクリックする。
+
+#### 参考
+- 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
+
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Username**: `rsl`
       - **Password**: 【任意のパスワード】
@@ -29,14 +42,5 @@
       - **Domain Name**: `localhost`
       - **Guest Addtions**: `チェック`
       - **Guest Addtions ISO**: `C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso`
-   4. **Hardware**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
-      - **メインメモリー**: （デフォルト）
-      - **Processors**: （デフォルト）
-   5. **Virtual Hard disk**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
-      - **Create a Virtual Hard Disk Now**: `320 GB` # 自分の空き容量に合わせる
-      - **Pre-allocate Full Size**: `非チェック`
-   6. **完了**ボタンをクリックする。
 3. **GNU GRUB**が起動するので、`Start Linux Mint 21.2 MATE 64-bit`を選択し、**Enter**キーを押す。
-
-#### 参考
-- 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
+ 
