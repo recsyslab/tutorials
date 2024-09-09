@@ -81,6 +81,7 @@ $ diff /etc/apt/sources.list-org /etc/apt/sources.list
 時刻が正確でないと、何らかのプログラムを実行する際に不具合が生じることがある。
 ```bash
 $ date
+$ sudo apt install ntpdate
 $ sudo ntpdate ntp.nict.jp
 $ date
 ```
