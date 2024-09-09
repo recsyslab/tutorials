@@ -142,10 +142,15 @@ $ sudo ufw status
 ```bash
 $ echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
 $ ls -l ~/bin/
+合計 4
+-rw-rw-r-- 1 rsl rsl 12  9月  9 18:47 startup.sh
 $ chmod +x ~/bin/startup.sh
 $ ls -l ~/bin/
+合計 4
+-rwxrwxr-x 1 rsl rsl 12  9月  9 18:47 startup.sh
 $ less ~/bin/startup.sh
 ```
+
 Linux起動時に下記コマンドを実行することで、必要な初期設定を一括で実行することができる。
 ```bash
 $ ~/bin/startup.sh
@@ -154,30 +159,25 @@ $ ~/bin/startup.sh
 ## Windows共有フォルダのマウント
 [VirtualBoxの環境設定](VirtualBoxの環境設定.md)であらかじめ共有フォルダーを追加しておくこと。
 
-### Cドライブ
+### CドライブとXドライブ（外付けSSD）
 ```bash
 $ ls /mnt/
 $ less ~/bin/startup.sh
 $ sudo mkdir -p /mnt/c/
+$ sudo mkdir -p /mnt/x/
 $ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
 $ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
 $ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
+$ echo -e '\n# Xドライブのマウント' >> ~/bin/startup.sh
+$ echo -e 'sudo umount X_DRIVE' >> ~/bin/startup.sh
+$ echo -e 'sudo mount -t vboxsf X_DRIVE /mnt/x/' >> ~/bin/startup.sh
 $ echo -e 'df -h\n' >> ~/bin/startup.sh
 $ less ~/bin/startup.sh
 $ ~/bin/startup.sh
+Filesystem      Size  Used Avail Use% Mounted on
+...（略）...
+C_DRIVE         476G  456G   21G  96% /mnt/c
+X_DRIVE         895G  878G   18G  99% /mnt/x
 $ ls /mnt/c/
-```
-
-### Dドライブ（外付けSSD）
-```bash
-$ ls /mnt/
-$ less ~/bin/startup.sh
-$ sudo mkdir -p /mnt/d/
-$ echo -e '\n# Dドライブのマウント' >> ~/bin/startup.sh
-$ echo -e 'sudo umount D_DRIVE' >> ~/bin/startup.sh
-$ echo -e 'sudo mount -t vboxsf D_DRIVE /mnt/d/' >> ~/bin/startup.sh
-$ echo -e 'df -h\n' >> ~/bin/startup.sh
-$ less ~/bin/startup.sh
-$ ~/bin/startup.sh
-$ ls /mnt/d/
+$ ls /mnt/x/
 ```
