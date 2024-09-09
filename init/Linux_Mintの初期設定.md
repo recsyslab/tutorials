@@ -28,6 +28,8 @@ $ mkdir ~/bin/
 $ mkdir ~/src/
 $ mkdir ~/opt/
 $ ls
+bin  src           テンプレート  ドキュメント  ピクチャ      公開
+opt  ダウンロード  デスクトップ  ビデオ        ミュージック
 ```
 
 ## 設定ファイルの準備
@@ -114,6 +116,7 @@ $ ls
 $ LANG=C xdg-user-dirs-gtk-update
 # ダイアログが表示されるので、**Update Names**ボタンをクリックする。
 $ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  bin  opt  src
 # ディレクトリ名が英語になっていることを確認する．
 ```
 
