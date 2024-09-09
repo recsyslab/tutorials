@@ -34,15 +34,3 @@
 
 #### 参考
 - 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
-
-
-#### 以下削除予定
-   3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
-      - **Username**: `rsl`
-      - **Password**: 【任意のパスワード】
-      - **Repeat Password**: 【パスワードの確認】
-      - **Hostname**: `recsyslab-mint`
-      - **Domain Name**: `localhost`
-      - **Guest Addtions**: `チェック`
-      - **Guest Addtions ISO**: `C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso`
- 
