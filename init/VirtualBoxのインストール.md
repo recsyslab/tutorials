@@ -32,7 +32,7 @@
    4. **Hardware**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **メインメモリー**: （デフォルト）
       - **Processors**: （デフォルト）
-   5. **Virtual Hard dis**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
+   5. **Virtual Hard disk**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Create a Virtual Hard Disk Now**: `320 GB` # 自分の空き容量に合わせる
       - **Pre-allocate Full Size**: `非チェック`
    6. **完了**ボタンをクリックする。
