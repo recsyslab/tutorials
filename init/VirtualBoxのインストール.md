@@ -30,6 +30,7 @@
       - **全サイズの事前割当て**: `非チェック`
    5. **完了**ボタンをクリックする。
 3. 対象の仮想マシンを選択し、**起動**ボタンをクリックする。
+   1. **GNU GRUB**が起動するので、`Start Linux Mint 22 MATE 64-bit`を選択し、**Enter**キーを押す。
 
 #### 参考
 - 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
@@ -42,5 +43,4 @@
       - **Domain Name**: `localhost`
       - **Guest Addtions**: `チェック`
       - **Guest Addtions ISO**: `C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso`
-3. **GNU GRUB**が起動するので、`Start Linux Mint 21.2 MATE 64-bit`を選択し、**Enter**キーを押す。
  
