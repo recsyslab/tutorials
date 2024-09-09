@@ -6,19 +6,19 @@
    - **[Downloads – Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
    - **VirtualBox 7.＊.＊＊ platform packages > Windows hosts**: `VirtualBox-7.＊.＊＊-＊-Win.exe`
 2. `VirtualBox-7.＊.＊＊-＊-Win.exe`を実行する。
-   - ダイアログにしたがって任意に設定し、**Install**ボタンをクリックする。
-   - インストールが完了したら、**Finish**ボタンをクリックする。
+   1. ダイアログにしたがって任意に設定し、**Install**ボタンをクリックする。
+   2. インストールが完了したら、**Finish**ボタンをクリックする。
 
 ## VirtualBox上でのLinux Mint 21.2 MATE 64-bitの仮想マシンの構築
-1. 下記からLinux Mint 21.2のISOファイルをダウンロードする。
+1. 下記からLinux Mint 22のISOファイルをダウンロードする。
    - **[Linux Mint > Download > All versions](https://linuxmint.com/download_all.php)**
-   - **Linux Mint 21.2 "Victoria" - MATE (64-bit)**: `linuxmint-21.2-mate-64bit.iso`
+   - **Linux Mint 22 "Wilma" - MATE (64-bit)**: `linuxmint-22-mate-64bit`
 2. **Oracle VM VirtualBox マネージャー**を起動する。
    1. **仮想マシン > 新規**を開く。
    2. **Virtual machine Name and Operating System**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
-      - **名前**: `Linux Mint 21.2 MATE 64-bit`
+      - **名前**: `Linux Mint 22 MATE 64-bit`
       - **Folder**:
-        - `D:\VirtualBox VMs` # 外付けSSDのドライブを`D`とし、そこに構築する場合
+        - `X:\VirtualBox VMs` # 外付けSSDのドライブを`X`とし、そこに構築する場合
       - **ISO Image**: `【ディレクトリ】/linuxmint-21.2-mate-64bit.iso` # ダウンロードしたISOファイル
    3. **Unattended Guest OS Install Setup**ダイアログで下記を設定し、**次へ**ボタンをクリックする。
       - **Username**: `rsl`
