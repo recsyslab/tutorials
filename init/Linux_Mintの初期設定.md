@@ -124,9 +124,14 @@ $ ls
 ```bash
 $ sudo apt install gufw
 $ sudo ufw status
+状態: 非アクティブ
 $ sudo ufw enable
+ファイアウォールはアクティブかつシステムの起動時に有効化されます。
 $ sudo ufw default deny
+デフォルトの incoming ポリシーは 'deny' に変更しました
+(適用したい内容に基づいて必ずルールを更新してください)
 $ sudo ufw status
+状態: アクティブ
 ```
 
 ## スタートアップシェルスクリプトの作成
