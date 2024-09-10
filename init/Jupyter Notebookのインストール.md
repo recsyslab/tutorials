@@ -30,7 +30,7 @@ $ jupyter-notebook
 2. 作成された`Untitled Folder`を選択し、**リネーム**ボタンをクリックする。
    1. 下記を設定し、**Rename**ボタンをクリックする。
     　- **Enter a new directory name:**: `data`
-3. `data`フォルダに[`curry.csv`](../../data/curry.csv)を置く。
+3. `data`フォルダに[`curry.csv`](../data/curry.csv)を置く。
 1. **新規**ボタンのプルダウンメニューから**rsl-base**を選択する。
 2. `data/`ディレクトリを作成し、
 3. `skl01_plt01.py`を実行する。
