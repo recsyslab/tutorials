@@ -15,58 +15,84 @@ $ sudo apt install libffi-dev       # scikit-learnのインポートに必要
 ```bash
 $ mkdir -p ~/opt/python/
 $ cd ~/src/
-$ wget https://www.python.org/ftp/python/3.12.1/Python-3.12.1.tar.xz
-$ xz -dc Python-3.12.1.tar.xz| tar xfv -
-$ cd Python-3.12.1/
+$ wget https://www.python.org/ftp/python/3.12.6/Python-3.12.6.tar.xz
+$ xz -dc Python-3.12.6.tar.xz| tar xfv -
+$ cd Python-3.12.6/
 $ ./configure --prefix=$HOME/opt/python --with-ensurepip=install
 # ...（3分程度）...
 $ make 2>&1 | tee make.log
 # ...（3分程度）... 
 $ make altinstall
 # ...（2分程度）... 
-$ rm -f ~/src/Python-3.12.1.tar.xz
+$ rm -f ~/src/Python-3.12.6.tar.xz
 ```
 
 ## インストール結果の確認
 ```bash
 $ ls ~/opt/python/
+bin  include  lib  share
 $ ls ~/opt/python/bin/ -alh
+合計 31M
+drwxr-xr-x 2 rsl rsl 4.0K  9月 10 10:19 .
+drwxrwxr-x 6 rsl rsl 4.0K  9月 10 10:19 ..
+-rwxr-xr-x 1 rsl rsl  112  9月 10 10:19 2to3-3.12
+-rwxr-xr-x 1 rsl rsl  110  9月 10 10:19 idle3.12
+-rwxrwxr-x 1 rsl rsl  240  9月 10 10:19 pip3.12
+-rwxr-xr-x 1 rsl rsl   95  9月 10 10:19 pydoc3.12
+-rwxr-xr-x 1 rsl rsl  31M  9月 10 10:18 python3.12
+-rwxr-xr-x 1 rsl rsl 3.0K  9月 10 10:19 python3.12-config
 ```
 
 ## パスの設定
 ```bash
 $ echo $PATH
+/home/rsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $ less ~/.profile
 $ echo -e '\n# Pythonインストール時に追加' >> ~/.profile
 $ echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
 $ less ~/.profile
 $ diff ~/.profile-org ~/.profile
+27a28,33
+> 
+> 
+> #### #### Add below. #### ####
+> 
+> # Pythonインストール時に追加
+> export PATH="$HOME/opt/python/bin:$PATH"
 $ echo $PATH
+/home/rsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $ source ~/.profile
 $ echo $PATH
+/home/rsl/opt/python/bin:/home/rsl/bin:/home/rsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 ```
 
 ## バージョンの確認
 ```bash
 $ python3 --version
-$ python3.10 --version
+Python 3.12.3
 $ python3.12 --version
+Python 3.12.6
 ```
 
 ## ベースとなる仮想環境
 
 ### 仮想環境の構築とアクティベート
 ```bash
+$ cd
 $ mkdir ~/venv/
 $ python3.12 -m venv ~/venv/rsl-base
 $ source ~/venv/rsl-base/bin/activate
+(rsl-base) rsl@recsyslab-mint:~$
 ```
+
+仮想環境にアクティベートすると、プロンプトの先頭に`(rsl-base)`のように仮想環境名が表示される。以降、`(【仮想環境】) $`と記載している箇所は、`【仮想環境】`にアクティベートした状態で入力するコマンドを表す。
 
 ### pipのアップグレード
 ```bash
 (rsl-base) $ pip --version
 (rsl-base) $ pip install --upgrade pip
 (rsl-base) $ pip --version
+pip 24.2 from /home/rsl/venv/rsl-base/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
 ### 各種パッケージのインストール
@@ -80,11 +106,9 @@ $ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip install psycopg2-binary
 (rsl-base) $ pip install tqdm
 (rsl-base) $ pip install timedelta
-(rsl-base) $ pip install mecab-python3 # 失敗する
 (rsl-base) $ pip install requests
 (rsl-base) $ pip install importnb
 (rsl-base) $ pip install importlib
-(rsl-base) $ pip install scikit-surprise
 ```
 
 ### インストール済みパッケージ一覧の確認
@@ -124,7 +148,10 @@ $ source ~/venv/rsl-base/bin/activate
 ### 仮想環境のディアクティベート
 ```bash
 (rsl-base) $ deactivate
+$
 ```
+
+仮想環境をディアクティベートすると、プロンプトが元に戻る。
 
 #### 参考
 - Doitu.info, [既存のPython環境を壊すことなく、自分でビルドしてインストールする（altinstall）](https://doitu.info/blog/5c45e5ec8dbc7a001af33ce8)
