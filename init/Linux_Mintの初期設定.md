@@ -47,6 +47,10 @@ $ echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
 $ less ~/.profile
 $ less ~/.profile-org
 $ diff ~/.profile-org ~/.profile
+27a28,30
+> 
+> 
+> #### #### Add below. #### ####
 ```
 
 ### `.bashrc`の準備
@@ -59,6 +63,10 @@ $ echo -e '\n\n#### #### Add below. #### ####' >> ~/.bashrc
 $ less ~/.bashrc
 $ less ~/.bashrc-org
 $ diff ~/.bashrc-org ~/.bashrc
+117a118,120
+> 
+> 
+> #### #### Add below. #### ####
 ```
 
 #### 参考
@@ -74,6 +82,10 @@ $ sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list
 $ less /etc/apt/sources.list
 $ less /etc/apt/sources.list-org
 $ diff /etc/apt/sources.list-org /etc/apt/sources.list
+7a8,10
+> 
+> 
+> #### #### Add below. #### ####
 ```
 
 #### 参考
