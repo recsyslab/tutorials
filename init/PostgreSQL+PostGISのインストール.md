@@ -36,7 +36,8 @@ postgres=# \q
 ```
 
 ## 設定ファイルの準備
-`/etc/postgresql-common/createcluster.conf`
+
+### `/etc/postgresql-common/createcluster.conf`の準備
 ```bash
 $ ls /etc/postgresql-common/
 $ less /etc/postgresql-common/createcluster.conf
@@ -48,7 +49,7 @@ createcluster.conf-org  root.crt             user_clusters
 
 ※下記の`16`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン14.xをインストールした場合は、`16`の箇所を`14`に置換する。以下、同様。
 
-`/etc/postgresql/16/main/pg_hba.conf`
+### `/etc/postgresql/16/main/pg_hba.conf`の準備
 ```bash
 $ ls /etc/postgresql/16/main/
 $ sudo less /etc/postgresql/16/main/pg_hba.conf
@@ -58,7 +59,7 @@ conf.d       pg_ctl.conf  pg_hba.conf-org  postgresql.conf
 environment  pg_hba.conf  pg_ident.conf    start.conf
 ```
 
-`/etc/postgresql/16/main/postgresql.conf`
+### `/etc/postgresql/16/main/postgresql.conf`の準備
 ```bash
 $ ls /etc/postgresql/16/main/
 $ less /etc/postgresql/16/main/postgresql.conf
