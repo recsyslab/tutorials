@@ -17,6 +17,12 @@ Type "help" for help.
 postgres=#
 ```
 
+PostgreSQLにログインすると、プロンプトが、
+```pgsql
+postgres=# 
+```
+に変わる。`postgres`の部分は接続先データベース名を表す。以降、`【データベース】=#`と記載している箇所は、PostgreSQL上で`【データベース】`に接続した状態で入力するコマンドを表す。
+
 ```pgsql
 postgres=# SELECT version();
                                                              version                                                             
@@ -28,12 +34,6 @@ postgres=# SELECT version();
 postgres=# \q
 # '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
 ```
-
-PostgreSQLにログインすると、プロンプトが、
-```pgsql
-postgres=# 
-```
-に変わる。`postgres`の部分は接続先データベース名を表す。以降、`【データベース】=#`と記載している箇所は、PostgreSQL上で`【データベース】`に接続した状態で入力するコマンドを表す。
 
 ## 設定ファイルの準備
 `/etc/postgresql-common/createcluster.conf`
