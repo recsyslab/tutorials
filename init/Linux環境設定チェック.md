@@ -23,45 +23,40 @@ sudo mount -t vboxsf C_DRIVE /mnt/c/
 df -h
 
 
-# Dドライブのマウント <- Dドライブ（外付けSSD）をマウントした場合
-sudo umount D_DRIVE
-sudo mount -t vboxsf D_DRIVE /mnt/d/
+# Xドライブのマウント
+sudo umount X_DRIVE
+sudo mount -t vboxsf X_DRIVE /mnt/x/
 df -h
 
-
-# PostgreSQLサーバの起動
-sudo service postgresql start
 ```
 
 ```bash
 $ ~/bin/startup.sh 
+...（略）...
 Filesystem      Size  Used Avail Use% Mounted on
-tmpfs           1.1G  1.3M  1.1G   1% /run
-/dev/sda3       314G   18G  281G   6% /
-tmpfs           5.3G   28K  5.3G   1% /dev/shm
-tmpfs           5.0M  4.0K  5.0M   1% /run/lock
-/dev/sda2       512M  6.1M  506M   2% /boot/efi
-tmpfs           1.1G  120K  1.1G   1% /run/user/1000
-C_DRIVE         476G  417G   60G  88% /mnt/c
-D_DRIVE         477G   89G  389G  19% /mnt/d    # <- Dドライブ（外付けSSD）をマウントした場合
+...（略）...
+/dev/sda3       314G   18G  280G   6% /
+...（略）...
+C_DRIVE         476G  446G   31G  94% /mnt/c
+X_DRIVE         895G  878G   18G  99% /mnt/x
 ```
 
 ### ホームディレクトリの確認
 ```bash
 $ ls -l
 合計 48
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Desktop
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Documents
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:48 Downloads
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Music
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Pictures
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Public
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Templates
-drwxr-xr-x 2 rsl rsl 4096  9月  2 13:14 Videos
-drwxrwxr-x 2 rsl rsl 4096  9月  2 13:20 bin
-drwxrwxr-x 3 rsl rsl 4096  9月 25 12:09 opt
-drwxrwxr-x 5 rsl rsl 4096  9月 25 12:15 src
-drwxrwxr-x 5 rsl rsl 4096  9月 29 13:17 venv
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Desktop
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Documents
+drwxr-xr-x 2 rsl rsl 4096  9月  9 19:02 Downloads
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Music
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Pictures
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Public
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Templates
+drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Videos
+drwxrwxr-x 2 rsl rsl 4096  9月 10 13:01 bin
+drwxrwxr-x 3 rsl rsl 4096  9月 10 10:11 opt
+drwxrwxr-x 4 rsl rsl 4096  9月 10 10:42 src
+drwxrwxr-x 3 rsl rsl 4096  9月 10 10:23 venv
 ```
 
 ### 設定ファイルの確認
@@ -95,14 +90,15 @@ $ diff /etc/apt/sources.list-org /etc/apt/sources.list
 ### 時刻の確認
 ```bash
 $ date
-yyyy年 mm月 dd日 月曜日 HH:MM:SS JST
+2024年  9月 10日 火曜日 13:04:38 JST
 ```
 
-### sysv-rc-confのバージョンの確認
+### サービス一覧の確認
 ```bash
-$ sudo sysv-rc-conf
-# [h]キーでバージョンを確認できる。
-# [q]キーで終了する。
+$ systemctl list-unit-files --type service
+...（略）...
+postgresql.service                           enabled         enabled
+...（略）...
 ```
 
 ### ファイアウォールの確認
@@ -118,9 +114,9 @@ $ sudo ufw status
 $ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Linuxmint
-Description:	Linux Mint 21.2
-Release:	21.2
-Codename:	victoria
+Description:	Linux Mint 22
+Release:	22
+Codename:	wilma
 ```
 
 ### アーキテクチャの確認
@@ -148,18 +144,18 @@ enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 $ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 ...（略）...
-/dev/sda3       314G   19G  280G   7% /
+/dev/sda3       314G   18G  280G   6% /
 ...（略）...
-C_DRIVE         477G  403G   74G  85% /mnt/c
-D_DRIVE         477G   92G  386G  20% /mnt/d
+C_DRIVE         476G  449G   28G  95% /mnt/c
+X_DRIVE         895G  878G   18G  99% /mnt/x
 $ cat /proc/cpuinfo | grep 'model name'
 model name	: 12th Gen Intel(R) Core(TM) i7-12650H
 ...（略）...
 $ cat /proc/cpuinfo | grep processor
 ...（略）...
-processor	: 9
+processor	: 3
 $ cat /proc/meminfo | grep MemTotal
-MemTotal:       11098216 kB
+MemTotal:       11087264 kB
 ```
 
 #### 参考
@@ -171,7 +167,7 @@ MemTotal:       11098216 kB
 ### バージョンの確認
 ```bash
 $ google-chrome --version
-Google Chrome 118.0.5993.88
+Google Chrome 128.0.6613.119 
 ```
 
 ## Symantec Endpoint Protection (SEP)
@@ -191,48 +187,50 @@ $ sudo -u postgres psql
 
 ```pgsql
 postgres=# SELECT version();
-                                                               version                                                                
---------------------------------------------------------------------------------------------------------------------------------------
- PostgreSQL 14.9 (Ubuntu 14.9-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+                                                             version                                                             
+---------------------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.4 (Ubuntu 16.4-0ubuntu0.24.04.2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
 (1 row)
+
 postgres=# \q
 ```
 
 ### PostgreSQLサーバの起動確認
 ```bash
-$ service postgresql status
+$ systemctl status postgresql
 ● postgresql.service - PostgreSQL RDBMS
-     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor pr>
-     Active: active (exited) since Mon 2023-10-23 22:25:34 JST; 1h 4min ago
-   Main PID: 1894 (code=exited, status=0/SUCCESS)
-        CPU: 2ms
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
+     Active: active (exited) since Tue 2024-09-10 12:59:58 JST; 17min ago
+    Process: 1903 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 1903 (code=exited, status=0/SUCCESS)
+        CPU: 1ms
 ...（略）...
 ``
 
 ### 設定ファイルの確認
 ```bash
-$ sudo diff /etc/postgresql/14/main/pg_hba.conf-org /etc/postgresql/14/main/pg_hba.conf
-90c90
+$ sudo diff /etc/postgresql/16/main/pg_hba.conf-org /etc/postgresql/16/main/pg_hba.conf
+118c118
 < local   all             postgres                                peer
 ---
 > local   all             postgres                                md5
-95c95
+123c123
 < local   all             all                                     peer
 ---
 > local   all             all                                     md5
-102c102
+130c130
 < local   replication     all                                     peer
 ---
 > local   replication     all                                     md5
 ```
 
 ```bash
-$ sudo diff /etc/postgresql/14/main/postgresql.conf-org /etc/postgresql/14/main/postgresql.conf
-600c600
+$ sudo diff /etc/postgresql/16/main/postgresql.conf-org /etc/postgresql/16/main/postgresql.conf
+620c620
 < #track_counts = on
 ---
 > track_counts = on
-620c620
+640c640
 < #autovacuum = on			# Enable autovacuum subprocess?  'on'
 ---
 > autovacuum = on			# Enable autovacuum subprocess?  'on'
@@ -243,11 +241,9 @@ $ sudo diff /etc/postgresql/14/main/postgresql.conf-org /etc/postgresql/14/main/
 ### バージョンの確認
 ```bash
 $ python3 --version
-Python 3.10.12
-$ python3.10 --version
-Python 3.10.12
-$ python3.11 --version
-Python 3.11.5
+Python 3.12.3
+$ python3.12 --version
+Python 3.12.6
 ```
 
 ### 仮想環境の確認
@@ -255,33 +251,31 @@ Python 3.11.5
 $ cd
 $ source ~/venv/rsl-base/bin/activate
 (rsl-base) $ pip --version
-pip 23.3.1 from /home/rsl/venv/rsl-base/lib/python3.11/site-packages/pip (python 3.11)
+pip 24.2 from /home/rsl/venv/rsl-base/lib/python3.12/site-packages/pip (python 3.12)
 (rsl-base) $ pip freeze
 # （一部抜粋）
 importlib==1.0.4
-importnb==2023.1.7
-ipython==8.15.0
-matplotlib==3.8.0
-mecab-python3==1.0.8
-numpy==1.26.0
-pandas==2.1.1
-Pillow==10.0.1
-psycopg2-binary==2.9.7
-requests==2.31.0
-scikit-learn==1.3.1
-scipy==1.11.2
-tqdm==4.66.1
+importnb==2023.11.1
+ipython==8.27.0
+matplotlib==3.9.2
+matplotlib-inline==0.1.7
+numpy==2.1.1
+pandas==2.2.2
+pillow==10.4.0
+psycopg2-binary==2.9.9
+requests==2.32.3
+scikit-learn==1.5.1
+scipy==1.14.1
+timedelta==2020.12.3
+tqdm==4.66.5
 (rsl-base) $ deactivate
+$
 ```
 
 ## Visual Studio Code
 ```bash
 $ code -v
-1.83.1
-f1b07bd25dfad64b0167beb15359ae573aecd2cc
+1.93.0
+4849ca9bdf9666755eb463db297b69e5385090e3
 x64
 ```
-
-
-
-
