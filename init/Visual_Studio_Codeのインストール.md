@@ -10,17 +10,17 @@ $ sudo dpkg -i code_latest_amd64.deb
 $ rm -f code_latest_amd64.deb
 ```
 
-## 起動
-```bash
-$ code
-```
-
 ## バージョンの確認
 ```bash
 $ code -v
 1.93.0
 4849ca9bdf9666755eb463db297b69e5385090e3
 x64
+```
+
+## 起動
+```bash
+$ code
 ```
 
 ## VSCodeの日本語化
