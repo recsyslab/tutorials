@@ -272,6 +272,12 @@ tqdm==4.66.5
 $
 ```
 
+## Jupyter Notebook
+```bash
+$ jupyter-notebook --version
+6.4.12
+```
+
 ## Visual Studio Code
 ```bash
 $ code -v
