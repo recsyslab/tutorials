@@ -72,8 +72,13 @@ environment  pg_hba.conf  pg_ident.conf    postgresql.conf-org
 ## PostgreSQLサーバの起動設定
 ```bash
 $ systemctl is-enabled postgresql
+enabled
 # 「enabled」と表示されれば、postgresqlの自動起動が有効になっている。
 $ systemctl status postgresql
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; prese>
+     Active: active (exited) since Tue 2024-09-10 09:41:05 JST; 2min 20s ago
+...（略）...
 # 「Active: active (exited)」と表示されれば、postgresqlは稼働している。
 ```
 
@@ -92,12 +97,12 @@ postgres=# \q
 ```
 
 ```bash
-$ sudo less /etc/postgresql/14/main/pg_hba.conf
-$ sudo vi /etc/postgresql/14/main/pg_hba.conf
+$ sudo less /etc/postgresql/16/main/pg_hba.conf
+$ sudo vi /etc/postgresql/16/main/pg_hba.conf
 ```
 `pg_hba.conf`の下記3箇所について`peer`を`md5`に書き換える。`vi`の代わりに`nano`で編集しても良い。
 
-`/etc/postgresql/14/main/pg_hba.conf`
+`/etc/postgresql/16/main/pg_hba.conf`
 ```
 ...（略）...
 # Database administrative login by Unix domain socket
@@ -113,8 +118,20 @@ local replication all md5
 ```
 
 ```bash
-$ sudo less /etc/postgresql/14/main/pg_hba.conf
-$ sudo diff /etc/postgresql/14/main/pg_hba.conf-org /etc/postgresql/14/main/pg_hba.conf
+$ sudo less /etc/postgresql/16/main/pg_hba.conf
+$ sudo diff /etc/postgresql/16/main/pg_hba.conf-org /etc/postgresql/16/main/pg_hba.conf
+118c118
+< local   all             postgres                                peer
+---
+> local   all             postgres                                md5
+123c123
+< local   all             all                                     peer
+---
+> local   all             all                                     md5
+130c130
+< local   replication     all                                     peer
+---
+> local   replication     all                                     md5
 $ sudo systemctl reload postgresql
 $ systemctl status postgresql
 $ sudo -u postgres psql
@@ -126,11 +143,11 @@ $ sudo -u postgres psql
 
 ## autovacuumの設定
 ```bash
-$ sudo less /etc/postgresql/14/main/postgresql.conf
-$ sudo vi /etc/postgresql/14/main/postgresql.conf
+$ sudo less /etc/postgresql/16/main/postgresql.conf
+$ sudo vi /etc/postgresql/16/main/postgresql.conf
 ```
 
-`/etc/postgresql/14/main/postgresql.conf`
+`/etc/postgresql/16/main/postgresql.conf`
 ```
 ...（略）...
 track_counts = on
@@ -140,8 +157,16 @@ autovacuum = on
 ```
 
 ```bash
-$ sudo less /etc/postgresql/14/main/postgresql.conf
-$ sudo diff /etc/postgresql/14/main/postgresql.conf-org /etc/postgresql/14/main/postgresql.conf
+$ sudo less /etc/postgresql/16/main/postgresql.conf
+$ sudo diff /etc/postgresql/16/main/postgresql.conf-org /etc/postgresql/16/main/postgresql.conf
+620c620
+< #track_counts = on
+---
+> track_counts = on
+640c640
+< #autovacuum = on			# Enable autovacuum subprocess?  'on'
+---
+> autovacuum = on			# Enable autovacuum subprocess?  'on'
 $ sudo systemctl reload postgresql
 $ systemctl status postgresql
 ```
