@@ -4,8 +4,6 @@
 ```bash
 $ sudo apt install jupyter-notebook
 # ...（2分程度）...
-$ sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-# tqdmによるプログレスバーの表示に必要
 ```
 
 ## バージョンの確認
