@@ -42,24 +42,30 @@ $ ls /etc/postgresql-common/
 $ less /etc/postgresql-common/createcluster.conf
 $ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/createcluster.conf-org
 $ ls /etc/postgresql-common/
+createcluster.conf      pg_upgradecluster.d  supported_versions
+createcluster.conf-org  root.crt             user_clusters
 ```
 
-※下記の`14`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン12.xをインストールした場合は、`14`の箇所を`12`に置換する。以下、同様。
+※下記の`16`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン14.xをインストールした場合は、`16`の箇所を`14`に置換する。以下、同様。
 
-`/etc/postgresql/14/main/pg_hba.conf`
+`/etc/postgresql/16/main/pg_hba.conf`
 ```bash
-$ ls /etc/postgresql/14/main/
-$ sudo less /etc/postgresql/14/main/pg_hba.conf
-$ sudo cp /etc/postgresql/14/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf-org
-$ ls /etc/postgresql/14/main/
+$ ls /etc/postgresql/16/main/
+$ sudo less /etc/postgresql/16/main/pg_hba.conf
+$ sudo cp /etc/postgresql/16/main/pg_hba.conf /etc/postgresql/16/main/pg_hba.conf-org
+$ ls /etc/postgresql/16/main/
+conf.d       pg_ctl.conf  pg_hba.conf-org  postgresql.conf
+environment  pg_hba.conf  pg_ident.conf    start.conf
 ```
 
-`/etc/postgresql/14/main/postgresql.conf`
+`/etc/postgresql/16/main/postgresql.conf`
 ```bash
-$ ls /etc/postgresql/14/main/
-$ less /etc/postgresql/14/main/postgresql.conf
-$ sudo cp /etc/postgresql/14/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf-org
-$ ls /etc/postgresql/14/main/
+$ ls /etc/postgresql/16/main/
+$ less /etc/postgresql/16/main/postgresql.conf
+$ sudo cp /etc/postgresql/16/main/postgresql.conf /etc/postgresql/16/main/postgresql.conf-org
+$ ls /etc/postgresql/16/main/
+conf.d       pg_ctl.conf  pg_hba.conf-org  postgresql.conf      start.conf
+environment  pg_hba.conf  pg_ident.conf    postgresql.conf-org
 ```
 
 ## PostgreSQLサーバの起動設定
