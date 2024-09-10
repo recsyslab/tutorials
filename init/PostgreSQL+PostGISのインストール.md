@@ -11,16 +11,20 @@ $ sudo apt install postgis
 ## PostgreSQLの動作確認とバージョンの確認
 ```bash
 $ sudo -u postgres psql
+psql (16.4 (Ubuntu 16.4-0ubuntu0.24.04.2))
+Type "help" for help.
+
+postgres=#
 ```
 
 ```pgsql
 postgres=# SELECT version();
-                                                               version                                                                
---------------------------------------------------------------------------------------------------------------------------------------
- PostgreSQL 14.10 (Ubuntu 14.10-0ubuntu0.22.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit
+                                                             version                                                             
+---------------------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.4 (Ubuntu 16.4-0ubuntu0.24.04.2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
 (1 row)
 # インストールされたバージョンを確認する。
-# 2024/01/12時点の最新版: 14.10
+# 2024/09/10時点の最新版: 16.4
 postgres=# \q
 # '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
 ```
@@ -29,7 +33,7 @@ PostgreSQLにログインすると、プロンプトが、
 ```pgsql
 postgres=# 
 ```
-に変わる。`postgres`の部分は接続先データベース名を表す。
+に変わる。`postgres`の部分は接続先データベース名を表す。以降、`【データベース】=#`と記載している箇所は、PostgreSQL上で`【データベース】`に接続した状態で入力するコマンドを表す。
 
 ## 設定ファイルの準備
 `/etc/postgresql-common/createcluster.conf`
