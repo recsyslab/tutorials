@@ -159,15 +159,29 @@ $ ~/bin/startup.sh
 ## Windows共有フォルダのマウント
 [VirtualBoxの環境設定](VirtualBoxの環境設定.md)であらかじめ共有フォルダーを追加しておくこと。
 
-### CドライブとXドライブ（外付けSSD）
+### Cドライブのマウント
 ```bash
 $ ls /mnt/
 $ less ~/bin/startup.sh
 $ sudo mkdir -p /mnt/c/
-$ sudo mkdir -p /mnt/x/
 $ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
 $ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
 $ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
+$ echo -e 'df -h\n' >> ~/bin/startup.sh
+$ less ~/bin/startup.sh
+$ ~/bin/startup.sh
+Filesystem      Size  Used Avail Use% Mounted on
+...（略）...
+C_DRIVE         476G  456G   21G  96% /mnt/c
+$ ls /mnt/c/
+$ ls /mnt/x/
+```
+
+### Xドライブ（外付けSSD）のマウント
+```bash
+$ ls /mnt/
+$ less ~/bin/startup.sh
+$ sudo mkdir -p /mnt/x/
 $ echo -e '\n# Xドライブのマウント' >> ~/bin/startup.sh
 $ echo -e 'sudo umount X_DRIVE' >> ~/bin/startup.sh
 $ echo -e 'sudo mount -t vboxsf X_DRIVE /mnt/x/' >> ~/bin/startup.sh
@@ -178,6 +192,4 @@ Filesystem      Size  Used Avail Use% Mounted on
 ...（略）...
 C_DRIVE         476G  456G   21G  96% /mnt/c
 X_DRIVE         895G  878G   18G  99% /mnt/x
-$ ls /mnt/c/
-$ ls /mnt/x/
 ```
