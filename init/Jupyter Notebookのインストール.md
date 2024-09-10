@@ -83,6 +83,8 @@ plt.ylim(yy.min(), yy.max())
 plt.show()
 ```
 
+※Jupyter Notebookでプログレスバーを出す場合は、下記の参考サイトを参考にする。
+
 #### 参考
 - Qiita, [Ubuntu 18.04 LTS で Jupyter Notebook 環境構築](https://qiita.com/zono_0/items/49eb8605ef4d841b2c26)
 - Qiita, [jupyter notebookでvenvを使う](https://qiita.com/Gattaca/items/80a5d36673ba2b6ef7f0)
