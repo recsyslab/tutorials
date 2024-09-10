@@ -4,6 +4,8 @@
 ```bash
 $ sudo apt install jupyter-notebook
 # ...（2分程度）...
+$ sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
+# tqdmによるプログレスバーの表示に必要
 ```
 
 ## バージョンの確認
@@ -81,12 +83,6 @@ plt.xlim(xx.min(), xx.max())
 plt.ylim(yy.min(), yy.max())
 
 plt.show()
-```
-
-## Jupyter Notebookでのtqdmの利用
-プログレスバーの表示がおかしい場合は、下記の拡張機能を有効化してみる。
-```bash
-$ sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
 ```
 
 #### 参考
