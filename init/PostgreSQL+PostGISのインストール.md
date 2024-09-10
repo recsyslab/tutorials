@@ -29,6 +29,7 @@ postgres=# SELECT version();
 ---------------------------------------------------------------------------------------------------------------------------------
  PostgreSQL 16.4 (Ubuntu 16.4-0ubuntu0.24.04.2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
 (1 row)
+
 # インストールされたバージョンを確認する。
 # 2024/09/10時点の最新版: 16.4
 postgres=# \q
@@ -181,17 +182,66 @@ $ sudo -u postgres psql
 
 ```pgsql
 postgres=# \l
+                                                       List of databases
+   Name    |  Owner   | Encoding | Locale Provider |   Collate   |    Ctype    | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+-------------+-------------+------------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | 
+ template0 | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | =c/postgres          +
+           |          |          |                 |             |             |            |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | =c/postgres          +
+           |          |          |                 |             |             |            |           | postgres=CTc/postgres
+(3 rows)
+
 postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
+CREATE DATABASE
 postgres=# \l
+                                                       List of databases
+   Name    |  Owner   | Encoding | Locale Provider |   Collate   |    Ctype    | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+-------------+-------------+------------+-----------+-----------------------
+ gistest   | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | 
+ postgres  | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | 
+ template0 | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | =c/postgres          +
+           |          |          |                 |             |             |            |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | ja_JP.UTF-8 | ja_JP.UTF-8 |            |           | =c/postgres          +
+           |          |          |                 |             |             |            |           | postgres=CTc/postgres
+(4 rows)
+
 postgres=# \c gistest
+You are now connected to database "gistest" as user "postgres".
 gistest=# \d
+Did not find any relations.
 gistest=# CREATE EXTENSION postgis;
+CREATE EXTENSION
 gistest=# SELECT postgis_full_version();
+                                                                                                                                       postgis_full_version                                                                                                                                       
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ POSTGIS="3.4.2 c19ce56" [EXTENSION] PGSQL="160" GEOS="3.12.1-CAPI-1.18.1" PROJ="9.4.0 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/tmp/proj DATABASE_PATH=/usr/share/proj/proj.db" LIBXML="2.9.14" LIBJSON="0.17" LIBPROTOBUF="1.4.1" WAGYU="0.5.0 (Internal)"
+(1 row)
+
 gistest=# CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
+CREATE TABLE
 gistest=# CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
+CREATE TABLE
 gistest=# INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
+INSERT 0 1
 gistest=# SELECT ST_AsText(polygon) AS polygon FROM gissample;
+                 polygon                  
+------------------------------------------
+ POLYGON((25 25,75 25,75 75,25 75,25 25))
+(1 row)
+
 gistest=# \d
+                List of relations
+ Schema |       Name        |   Type   |  Owner   
+--------+-------------------+----------+----------
+ public | geography_columns | view     | postgres
+ public | geometry_columns  | view     | postgres
+ public | gissample         | table    | postgres
+ public | gissample_id_seq  | sequence | postgres
+ public | sample            | table    | postgres
+ public | spatial_ref_sys   | table    | postgres
+(6 rows)
+
 gistest=# \q
 ```
 
