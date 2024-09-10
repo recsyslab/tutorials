@@ -8,7 +8,8 @@
 6. [セキュリティソフトのインストール](init/セキュリティソフトのインストール.md)
 7. [PostgreSQL+PostGISのインストール](init/PostgreSQL+PostGISのインストール.md)
 8. [Pythonのインストール](init/Pythonのインストール.md)
-9. [Visual Studio Codeのインストール](init/Visual_Studio_Codeのインストール.md)
-10. [Linux環境設定チェック](init/Linux環境設定チェック.md)
+9. [Jupyter_Notebookのインストール](Jupyter_Notebookのインストール.md)
+10. [Visual Studio Codeのインストール](init/Visual_Studio_Codeのインストール.md)
+11. [Linux環境設定チェック](init/Linux環境設定チェック.md)
 
 X. [Django環境の構築](init/Django環境の構築.md)
