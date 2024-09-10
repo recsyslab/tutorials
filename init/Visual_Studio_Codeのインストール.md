@@ -10,7 +10,7 @@ $ sudo dpkg -i code_latest_amd64.deb
 $ rm -f code_latest_amd64.deb
 ```
 
-## 実行
+## 起動
 ```bash
 $ code
 ```
