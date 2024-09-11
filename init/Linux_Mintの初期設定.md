@@ -216,14 +216,14 @@ X_DRIVE         895G  878G   18G  99% /mnt/x
 
 ## パッケージのインストール
 
-### `git`
+### `git`のインストール
 ```bash
 $ sudo apt install git
 $ git --version
 git version 2.43.0
 ```
 
-### `tree`
+### `tree`のインストール
 ```bash
 $ sudo apt install tree
 $ tree --version
