@@ -122,6 +122,14 @@ $ sudo apt upgrade
       1. 最新でなければ、**アップデートをインストール**ボタンをクリックする。
          - ...（10分程度）...
 
+## 日本語入力の設定
+```bash
+$ sudo apt install fcitx-mozc
+$ im-config -n fcitx
+$ sudo reboot
+# 再起動後、**半角/全角**キーで日本語入力に切り替えられることを確認する。
+```
+
 ## ディレクトリ名を英語表記に変更
 ```bash
 $ ls
