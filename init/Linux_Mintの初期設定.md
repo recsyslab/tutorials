@@ -205,3 +205,19 @@ Filesystem      Size  Used Avail Use% Mounted on
 C_DRIVE         476G  456G   21G  96% /mnt/c
 X_DRIVE         895G  878G   18G  99% /mnt/x
 ```
+
+## パッケージのインストール
+
+### `git`
+```bash
+$ sudo apt install git
+$ git --version
+git version 2.43.0
+```
+
+### `tree`
+```bash
+$ sudo apt install tree
+$ tree --version
+tree v2.1.1 © 1996 - 2023 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro
+```
