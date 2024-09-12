@@ -60,7 +60,7 @@ conf.d       pg_ctl.conf  pg_hba.conf-org  postgresql.conf
 environment  pg_hba.conf  pg_ident.conf    start.conf
 ```
 
-### `/etc/postgresql/16/main/postgresql.conf`の準備
+### /etc/postgresql/16/main/postgresql.confの準備
 ```bash
 $ ls /etc/postgresql/16/main/
 $ less /etc/postgresql/16/main/postgresql.conf
