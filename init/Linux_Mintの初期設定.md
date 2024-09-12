@@ -72,7 +72,7 @@ $ diff ~/.bashrc-org ~/.bashrc
 #### 参考
 1. OXY NOTES, [ユーザーの環境変数を設定するbashの設定ファイルと、カスタムプロンプトについて](https://oxynotes.com/?p=5418)
 
-### `/etc/apt/sources.list`のバックアップ
+### /etc/apt/sources.listのバックアップ
 ```bash
 $ ls /etc/apt/
 $ less /etc/apt/sources.list
