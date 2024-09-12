@@ -38,7 +38,7 @@
    2. **OK**ボタンをクリックする。
 
 #### 参考
-- PC設定のカルマ, [VirtualBoxでOS間のクリップボードを共有する方法](https://pc-karuma.net/virtualbox-clipboard-share/)
+1. PC設定のカルマ, [VirtualBoxでOS間のクリップボードを共有する方法](https://pc-karuma.net/virtualbox-clipboard-share/)
 
 ## Guest Additionsのインストール
 1. 対象の仮想マシンを選択し、**起動**ボタンをクリックする。
@@ -76,4 +76,4 @@
       - ...（3分程度）...
 
 #### 参考
-- 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
+1. 鶴長鎮一，『作りながら学ぶ Webシステムの教科書』，日経BP，2023．
