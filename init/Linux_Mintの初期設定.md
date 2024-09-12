@@ -37,7 +37,7 @@ opt  ダウンロード  デスクトップ  ビデオ        ミュージック
 - `.profile`: ログイン時に1度だけ読み込まれる。
 - `.bashrc`: bash起動の度に読み込まれる。
 
-### `.profile`の準備
+### .profileの準備
 ```bash
 $ ls -a
 $ less ~/.profile
@@ -53,7 +53,7 @@ $ diff ~/.profile-org ~/.profile
 > #### #### Add below. #### ####
 ```
 
-### `.bashrc`の準備
+### .bashrcの準備
 ```bash
 $ ls -a
 $ less ~/.bashrc
@@ -70,7 +70,7 @@ $ diff ~/.bashrc-org ~/.bashrc
 ```
 
 #### 参考
-- OXY NOTES, [ユーザーの環境変数を設定するbashの設定ファイルと、カスタムプロンプトについて](https://oxynotes.com/?p=5418)
+1. OXY NOTES, [ユーザーの環境変数を設定するbashの設定ファイルと、カスタムプロンプトについて](https://oxynotes.com/?p=5418)
 
 ### `/etc/apt/sources.list`のバックアップ
 ```bash
@@ -89,7 +89,7 @@ $ diff /etc/apt/sources.list-org /etc/apt/sources.list
 ```
 
 #### 参考
-- Linuxゲリラ戦記, [/etc/apt/sources.list（パッケージのダウンロード元設定ファイル・Debian）](https://www.garunimo.com/program/linux/_etc_apt_sources_list.php)
+1. Linuxゲリラ戦記, [/etc/apt/sources.list（パッケージのダウンロード元設定ファイル・Debian）](https://www.garunimo.com/program/linux/_etc_apt_sources_list.php)
 
 ## 正確な時刻を設定する
 時刻が正確でないと、何らかのプログラムを実行する際に不具合が生じることがある。
@@ -101,12 +101,12 @@ $ date
 ```
 
 #### 参考
-- ＠IT, [【 ntpdate 】コマンド――時刻をNTPサーバと同期する](https://www.atmarkit.co.jp/ait/articles/1906/21/news013.html)
+1. ＠IT, [【 ntpdate 】コマンド――時刻をNTPサーバと同期する](https://www.atmarkit.co.jp/ait/articles/1906/21/news013.html)
 
 ## パッケージのアップグレード
 `apt upgrade`によるアップグレードとアップデートマネージャによるアップグレードがある。両方を定期的に実行しておく。
 
-### `apt upgrade`によるアップグレード
+### apt upgradeによるアップグレード
 ```bash
 $ sudo apt update
 $ sudo apt upgrade
@@ -141,7 +141,7 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  bin  
 ```
 
 #### 参考
-- Qiita, [「デスクトップ」等のディレクトリ名を英語にする](https://qiita.com/take5249/items/13ada73bbd01ee12a2c3)
+1. Qiita, [「デスクトップ」等のディレクトリ名を英語にする](https://qiita.com/take5249/items/13ada73bbd01ee12a2c3)
 
 ## ファイアウォールの設定
 ```bash
@@ -216,14 +216,14 @@ X_DRIVE         895G  878G   18G  99% /mnt/x
 
 ## パッケージのインストール
 
-### `git`のインストール
+### gitのインストール
 ```bash
 $ sudo apt install git
 $ git --version
 git version 2.43.0
 ```
 
-### `tree`のインストール
+### treeのインストール
 ```bash
 $ sudo apt install tree
 $ tree --version
