@@ -38,7 +38,7 @@ postgres=# \q
 
 ## 設定ファイルの準備
 
-### `/etc/postgresql-common/createcluster.conf`の準備
+### /etc/postgresql-common/createcluster.confの準備
 ```bash
 $ ls /etc/postgresql-common/
 $ less /etc/postgresql-common/createcluster.conf
@@ -50,7 +50,7 @@ createcluster.conf-org  root.crt             user_clusters
 
 ※下記の`16`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン14.xをインストールした場合は、`16`の箇所を`14`に置換する。以下、同様。
 
-### `/etc/postgresql/16/main/pg_hba.conf`の準備
+### /etc/postgresql/16/main/pg_hba.confの準備
 ```bash
 $ ls /etc/postgresql/16/main/
 $ sudo less /etc/postgresql/16/main/pg_hba.conf
@@ -140,7 +140,7 @@ $ sudo -u postgres psql
 ```
 
 #### 参考
-- Qiita, [peer認証の関係でpsqlログインできない時の対処法](https://qiita.com/tomlla/items/9fa2feab1b9bd8749584)
+1. Qiita, [peer認証の関係でpsqlログインできない時の対処法](https://qiita.com/tomlla/items/9fa2feab1b9bd8749584)
 
 ## autovacuumの設定
 ```bash
@@ -173,7 +173,7 @@ $ systemctl status postgresql
 ```
 
 #### 参考
-- RAKUS Developers Blog, [VACUUMでPostgreSQLのゴミデータをお掃除！](https://tech-blog.rakus.co.jp/entry/20221227/vacuum)
+1. RAKUS Developers Blog, [VACUUMでPostgreSQLのゴミデータをお掃除！](https://tech-blog.rakus.co.jp/entry/20221227/vacuum)
 
 ## PostGISの動作テスト
 ```bash
@@ -246,5 +246,5 @@ gistest=# \q
 ```
 
 #### 参考
-- 黒い猫の開発日記, [PostGISを利用してみる。](https://cats-mew.hatenadiary.org/entry/20090811/1249976482)
+1. 黒い猫の開発日記, [PostGISを利用してみる。](https://cats-mew.hatenadiary.org/entry/20090811/1249976482)
   - ただし、`GeomFromText`は`ST_GeomFromText`に、`AsText`は`ST_AsText`に読み替える必要がある。
