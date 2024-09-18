@@ -11,5 +11,3 @@
 9. [Jupyter_Notebookのインストール](init/Jupyter_Notebookのインストール.md)
 10. [Visual Studio Codeのインストール](init/Visual_Studio_Codeのインストール.md)
 11. [Linux環境設定チェック](init/Linux環境設定チェック.md)
-
-X. [Django環境の構築](init/Django環境の構築.md)
