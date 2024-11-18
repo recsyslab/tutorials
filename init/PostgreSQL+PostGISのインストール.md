@@ -104,7 +104,7 @@ $ sudo vi /etc/postgresql/16/main/pg_hba.conf
 `pg_hba.conf`の下記3箇所について`peer`を`md5`に書き換える。`vi`の代わりに`nano`で編集しても良い。
 
 `/etc/postgresql/16/main/pg_hba.conf`
-```
+```txt
 ...（略）...
 # Database administrative login by Unix domain socket
 local all postgres md5
