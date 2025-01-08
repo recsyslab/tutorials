@@ -205,7 +205,7 @@ $ systemctl status postgresql
    Main PID: 1903 (code=exited, status=0/SUCCESS)
         CPU: 1ms
 ...（略）...
-``
+```
 
 ### 設定ファイルの確認
 ```bash
