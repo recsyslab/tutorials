@@ -14,10 +14,10 @@ $ jupyter-notebook --version
 
 ## Jupyterへのカーネルの追加
 ```bash
-$ source ~/venv/rsl-base/bin/activate
-(rsl-base) $ pip install ipykernel
-(rsl-base) $ ipython kernel install --user --name=rsl-base --display-name=rsl-base
-(rsl-base) $ deactivate
+$ source ~/venv/rsl_base/bin/activate
+(rsl_base) $ pip install ipykernel
+(rsl_base) $ ipython kernel install --user --name=rsl_base --display-name=rsl_base
+(rsl_base) $ deactivate
 ```
 
 ## 起動
@@ -31,7 +31,7 @@ $ jupyter-notebook
    1. 下記を設定し、**Rename**ボタンをクリックする。
       - **Enter a new directory name:**: `data`
 3. `data`フォルダに[`curry.csv`](../data/curry.csv)を置く。
-4. **新規 > rsl-base**をクリックする。
+4. **新規 > rsl_base**をクリックする。
 5. 下記のソースコードを貼り付け、実行する。
    - 図が表示されればOK。
 
