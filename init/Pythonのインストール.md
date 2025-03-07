@@ -80,46 +80,46 @@ Python 3.12.6
 ```bash
 $ cd
 $ mkdir ~/venv/
-$ python3.12 -m venv ~/venv/rsl-base
-$ source ~/venv/rsl-base/bin/activate
-(rsl-base) rsl@recsyslab-mint:~$
+$ python3.12 -m venv ~/venv/rsl_base
+$ source ~/venv/rsl_base/bin/activate
+(rsl_base) rsl@recsyslab-mint:~$
 ```
 
-仮想環境にアクティベートすると、プロンプトの先頭に`(rsl-base)`のように仮想環境名が表示される。以降、`(【仮想環境】) $`と記載している箇所は、`【仮想環境】`にアクティベートした状態で入力するコマンドを表す。
+仮想環境にアクティベートすると、プロンプトの先頭に`(rsl_base)`のように仮想環境名が表示される。以降、`(【仮想環境】) $`と記載している箇所は、`【仮想環境】`にアクティベートした状態で入力するコマンドを表す。
 
 ### pipのアップグレード
 ```bash
-(rsl-base) $ pip --version
-(rsl-base) $ pip install --upgrade pip
-(rsl-base) $ pip --version
-pip 24.2 from /home/rsl/venv/rsl-base/lib/python3.12/site-packages/pip (python 3.12)
+(rsl_base) $ pip --version
+(rsl_base) $ pip install --upgrade pip
+(rsl_base) $ pip --version
+pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
 ### 各種パッケージのインストール
 ```bash
-(rsl-base) $ pip install ipython
-(rsl-base) $ pip install numpy
-(rsl-base) $ pip install scipy
-(rsl-base) $ pip install matplotlib
-(rsl-base) $ pip install pandas
-(rsl-base) $ pip install scikit-learn
-(rsl-base) $ pip install psycopg2-binary
-(rsl-base) $ pip install tqdm
-(rsl-base) $ pip install timedelta
-(rsl-base) $ pip install requests
-(rsl-base) $ pip install importnb
-(rsl-base) $ pip install importlib
+(rsl_base) $ pip install ipython
+(rsl_base) $ pip install numpy
+(rsl_base) $ pip install scipy
+(rsl_base) $ pip install matplotlib
+(rsl_base) $ pip install pandas
+(rsl_base) $ pip install scikit-learn
+(rsl_base) $ pip install psycopg2-binary
+(rsl_base) $ pip install tqdm
+(rsl_base) $ pip install timedelta
+(rsl_base) $ pip install requests
+(rsl_base) $ pip install importnb
+(rsl_base) $ pip install importlib
 ```
 
 ### インストール済みパッケージ一覧の確認
 ```bash
-(rsl-base) $ pip freeze
+(rsl_base) $ pip freeze
 ```
 
 ### 各種パッケージのバージョンの確認
 ```bash
-(rsl-base) $ ipython --version
-(rsl-base) $ python
+(rsl_base) $ ipython --version
+(rsl_base) $ python
 # プロンプトが>>>となればOK
 ```
 
@@ -147,7 +147,7 @@ pip 24.2 from /home/rsl/venv/rsl-base/lib/python3.12/site-packages/pip (python 3
 
 ### 仮想環境のディアクティベート
 ```bash
-(rsl-base) $ deactivate
+(rsl_base) $ deactivate
 $
 ```
 
