@@ -249,10 +249,10 @@ Python 3.12.6
 ### 仮想環境の確認
 ```bash
 $ cd
-$ source ~/venv/rsl-base/bin/activate
-(rsl-base) $ pip --version
-pip 24.2 from /home/rsl/venv/rsl-base/lib/python3.12/site-packages/pip (python 3.12)
-(rsl-base) $ pip freeze
+$ source ~/venv/rsl_base/bin/activate
+(rsl_base) $ pip --version
+pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3.12)
+(rsl_base) $ pip freeze
 # （一部抜粋）
 importlib==1.0.4
 importnb==2023.11.1
@@ -268,7 +268,7 @@ scikit-learn==1.5.1
 scipy==1.14.1
 timedelta==2020.12.3
 tqdm==4.66.5
-(rsl-base) $ deactivate
+(rsl_base) $ deactivate
 $
 ```
 
