@@ -4,6 +4,7 @@
 ```bash
 $ sudo apt install jupyter-notebook
 # ...（2分程度）...
+$ sudo apt install jupyter-client
 ```
 
 ## バージョンの確認
@@ -17,6 +18,7 @@ $ jupyter-notebook --version
 $ source ~/venv/rsl_base/bin/activate
 (rsl_base) $ pip install ipykernel
 (rsl_base) $ ipython kernel install --user --name=rsl_base --display-name=rsl_base
+(rsl_base) $ jupyter-kernelspec list
 (rsl_base) $ deactivate
 ```
 
