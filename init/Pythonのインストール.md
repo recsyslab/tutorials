@@ -145,6 +145,11 @@ pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3
 >>> [Ctrl+D]
 ```
 
+### インストール済みパッケージ情報の出力
+```bash
+(rsl_base) $ pip freeze > ~/venv/rsl_base_requirements.txt
+```
+
 ### 仮想環境のディアクティベート
 ```bash
 (rsl_base) $ deactivate
