@@ -13,8 +13,8 @@ $ rm -f code_latest_amd64.deb
 ## バージョンの確認
 ```bash
 $ code -v
-1.93.0
-4849ca9bdf9666755eb463db297b69e5385090e3
+1.106.0
+ac4cbdf48759c7d8c3eb91ffe6bb04316e263c57
 x64
 ```
 
@@ -33,3 +33,19 @@ $ code
    2. **Configure Display Language**を選択する。
    3. **日本語**を選択する。
    4. **Restart**ボタンをクリックする。
+
+## プラグインのインストール
+1. VSCodeの左メニューから**拡張機能**を開き、下記の各プラグインをインストールする。
+   - **GitHub Copilot - GitHub**
+
+## GitHub Copilot
+1. VSCode右下の**GitHub Copilot**アイコンをクリックする。
+2. **Sign in to use AI Features**ボタンをクリックする。
+5. **Continue with GitHub**ボタンをクリックする。
+6. **Continue**ボタンをクリックする。
+7. **Authorize Visual-Studio-Code**ボタンをクリックする。
+
+#### 参考
+1. [【VsCode】Unity＆C#を効率よく開発するための拡張機能のすゝめ](https://zenn.dev/tmb/articles/1444e0a85543e5)
+2. [VSCode ではじめる GitHub Copilot 活用術 #githubcopilot - Qiita](https://qiita.com/RyoWakabayashi/items/1207128e88669c76bf5f)
+
