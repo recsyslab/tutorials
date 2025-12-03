@@ -175,6 +175,11 @@ $ systemctl status postgresql
 #### 参考
 1. RAKUS Developers Blog, [VACUUMでPostgreSQLのゴミデータをお掃除！](https://tech-blog.rakus.co.jp/entry/20221227/vacuum)
 
+## rslユーザの作成
+```pgsql
+postgres=# CREATE ROLE rsl WITH LOGIN PASSWORD '【パスワード】';
+```
+
 ## PostGISの動作テスト
 ```bash
 $ sudo -u postgres psql
