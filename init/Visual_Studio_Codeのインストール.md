@@ -37,6 +37,7 @@ $ code
 ## プラグインのインストール
 1. VSCodeの左メニューから**拡張機能**を開き、下記の各プラグインをインストールする。
    - **GitHub Copilot - GitHub**
+   - **Codex – OpenAI’s coding agent**
 
 ## GitHub Copilot
 1. VSCode右下の**GitHub Copilot**アイコンをクリックする。
