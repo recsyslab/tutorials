@@ -1,6 +1,7 @@
 # Visual Studio Codeのインストール
 
 ## インストール
+
 ```bash
 $ cd ~/src/
 $ sudo apt install libsecret-1-0
@@ -11,6 +12,7 @@ $ rm -f code_latest_amd64.deb
 ```
 
 ## バージョンの確認
+
 ```bash
 $ code -v
 1.106.0
@@ -19,11 +21,13 @@ x64
 ```
 
 ## 起動
+
 ```bash
 $ code
 ```
 
 ## VSCodeの日本語化
+
 1. VSCodeの左メニューから**Extensions**を開く。
    1. 「japanese」で検索する。
    2. **Japanese Language Pack for Visual Studio Code**を選択する。
@@ -35,18 +39,25 @@ $ code
    4. **Restart**ボタンをクリックする。
 
 ## プラグインのインストール
+
 1. VSCodeの左メニューから**拡張機能**を開き、下記の各プラグインをインストールする。
    - **GitHub Copilot - GitHub**
    - **Codex – OpenAI’s coding agent**
+   - **Claude Code for VS Code**
 
 ## GitHub Copilot
+
 1. VSCode右下の**GitHub Copilot**アイコンをクリックする。
 2. **Sign in to use AI Features**ボタンをクリックする。
-5. **Continue with GitHub**ボタンをクリックする。
-6. **Continue**ボタンをクリックする。
-7. **Authorize Visual-Studio-Code**ボタンをクリックする。
+3. **Continue with GitHub**ボタンをクリックする。
+4. **Continue**ボタンをクリックする。
+5. **Authorize Visual-Studio-Code**ボタンをクリックする。
+
+## Claude Code
+
+1. VSCodeエディタツールバー右上の**Claude Code: Open**をクリックする。
 
 #### 参考
+
 1. [【VsCode】Unity＆C#を効率よく開発するための拡張機能のすゝめ](https://zenn.dev/tmb/articles/1444e0a85543e5)
 2. [VSCode ではじめる GitHub Copilot 活用術 #githubcopilot - Qiita](https://qiita.com/RyoWakabayashi/items/1207128e88669c76bf5f)
-
