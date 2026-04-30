@@ -113,6 +113,7 @@ pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3
  pip install matplotlib
  pip install pandas
  pip install scikit-learn
+ pip install hdbscan
 
  pip install psycopg2-binary
 
@@ -121,19 +122,27 @@ pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3
  pip install requests
  pip install importnb
  pip install importlib
+ pip install beautifulsoup4
+ pip install cryptography
+
+ pip install mecab-python3
+ pip install spacy
+ python -m spacy download en_core_web_sm
+ pip install ginza
+ pip install ja-ginza
+ pip install nltk
+
+ pip install opencv-python
 
  pip install openai
 
- pip install beautifulsoup4
+ pip install django
+ pip install django-filter
+ pip install django-cors-headers
+ pip install djangorestframework
+ pip install djangorestframework-simplejwt
 
- pip install hdbscan
- pip install mecab-python3
- pip install ginza
- pip install ja-ginza
- pip install spacy
- python -m spacy download en_core_web_sm
-
- pip install opencv-python
+ pip install gunicorn
 ```
 
 ### インストール済みパッケージ一覧の確認
@@ -144,13 +153,14 @@ pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3
 asttokens==3.0.1
 decorator==5.2.1
 executing==2.2.1
-ipython==9.12.0
+ipython==9.13.0
 ipython_pygments_lexers==1.1.1
 jedi==0.19.2
 matplotlib-inline==0.2.1
 parso==0.8.6
 pexpect==4.9.0
 prompt_toolkit==3.0.52
+psutil==7.2.2
 ptyprocess==0.7.0
 pure_eval==0.2.3
 Pygments==2.20.0
@@ -169,8 +179,8 @@ contourpy==1.3.3
 cycler==0.12.1
 fonttools==4.62.1
 kiwisolver==1.5.0
-matplotlib==3.10.8
-packaging==26.0
+matplotlib==3.10.9
+packaging==26.2
 pillow==12.2.0
 pyparsing==3.3.2
 python-dateutil==2.9.0.post0
@@ -184,8 +194,11 @@ joblib==1.5.3
 scikit-learn==1.8.0
 threadpoolctl==3.6.0
 
+# hdbscan
+hdbscan==0.8.42
+
 # psycopg2-binary
-psycopg2-binary==2.9.11
+psycopg2-binary==2.9.12
 
 # tqdm
 tqdm==4.67.3
@@ -194,9 +207,9 @@ tqdm==4.67.3
 timedelta==2020.12.3
 
 # requests
-certifi==2026.2.25
+certifi==2026.4.22
 charset-normalizer==3.4.7
-idna==3.11
+idna==3.13
 requests==2.33.1
 urllib3==2.6.3
 
@@ -206,79 +219,105 @@ importnb==2023.11.1
 # importlib
 importlib==1.0.4
 
-# openai
-annotated-types==0.7.0
-anyio==4.13.0
-distro==1.9.0
-h11==0.16.0
-httpcore==1.0.9
-httpx==0.28.1
-jiter==0.14.0
-openai==2.31.0
-pydantic==2.12.5
-pydantic_core==2.41.5
-sniffio==1.3.1
-typing-inspection==0.4.2
-typing_extensions==4.15.0
-
 # beautifulsoup4
 beautifulsoup4==4.14.3
 soupsieve==2.8.3
 
-# hdbscan
-hdbscan==0.8.42
+# cryptgraphy
+cffi==2.0.0
+cryptography==47.0.0
+pycparser==3.0
 
 # mecab-python3
 mecab-python3==1.0.12
 
-# ginza
+# spacy
 annotated-doc==0.0.4
+annotated-types==0.7.0
+anyio==4.13.0
 blis==1.3.3
 catalogue==2.0.10
-click==8.3.2
+click==8.3.3
 cloudpathlib==0.23.0
 confection==1.3.3
 cymem==2.0.13
-ginza==5.2.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
 Jinja2==3.1.6
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 murmurhash==1.0.15
-plac==1.4.5
 preshed==3.0.13
+pydantic==2.13.3
+pydantic_core==2.46.3
 rich==15.0.0
 setuptools==82.0.1
 shellingham==1.5.4
-smart_open==7.5.1
+smart_open==7.6.0
 spacy==3.8.14
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 srsly==2.5.3
-SudachiDict-core==20260116
-SudachiPy==0.6.10
 thinc==8.3.13
-typer==0.24.1
+typer==0.24.2
+typing-inspection==0.4.2
 wasabi==1.1.3
 weasel==1.0.0
 wrapt==2.1.2
 
-# ja-ginza
-ja-ginza==5.2.0
-
-# spacy
-
 # en_core_web_sm
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
 
+# ginza
+ginza==5.2.0
+plac==1.4.5
+SudachiDict-core==20260116
+SudachiPy==0.6.11
+
+# ja-ginza
+ja-ginza==5.2.0
+
+# nltk
+nltk==3.9.4
+regex==2026.4.4
+
 # opencv-python
 opencv-python==4.13.0.92
+
+# openai
+distro==1.9.0
+jiter==0.14.0
+openai==2.32.0
+sniffio==1.3.1
+
+# django
+asgiref==3.11.1
+Django==6.0.4
+sqlparse==0.5.5
+
+# django-filter
+django-filter==25.2
+
+# django-cors-headers
+django-cors-headers==4.9.0
+
+# djangorestframework
+djangorestframework==3.17.1
+
+# djangorestframework_simplejwt
+djangorestframework_simplejwt==5.5.1
+PyJWT==2.12.1
+
+# gunicorn
+gunicorn==25.3.0
 ```
 
 ### インストール済みパッケージ情報の出力
 
 ```bash
-(rsl_base) $ pip freeze > ~/venv/rsl_base_requirements.txt
+(rsl_base) $ pip freeze > ~/venv/requirements_rsl_base.txt
 ```
 
 ### 仮想環境のディアクティベート
@@ -300,7 +339,7 @@ $ python3.12 -m venv ~/venv/rsl_base_torch
 $ source ~/venv/rsl_base_torch/bin/activate
 (rsl_base_torch) $ pip install --upgrade pip
 (rsl_base_torch) $ pip --version
-(rsl_base_torch) $ pip install -r ~/venv/rsl_base_requirements.txt
+(rsl_base_torch) $ pip install -r ~/venv/requirements_rsl_base.txt
 (rsl_base_torch) $ pip freeze
 ```
 
@@ -310,6 +349,7 @@ $ source ~/venv/rsl_base_torch/bin/activate
 (rsl_base_torch) $
  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
  # ...（3分程度）...
+ pip install torchinfo
  pip install ray
  pip install pyarrow
  pip install kmeans_pytorch
@@ -346,6 +386,9 @@ torch==2.6.0+cu124
 torchaudio==2.6.0+cu124
 torchvision==0.21.0+cu124
 triton==3.2.0
+
+# torchinfo
+torchinfo==1.8.0
 
 # ray
 attrs==26.1.0
@@ -402,7 +445,7 @@ sentence-transformers==5.4.0
 ### インストール済みパッケージ情報の出力
 
 ```bash
-(rsl_base_torch) $ pip freeze > ~/venv/rsl_base_torch_requirements.txt
+(rsl_base_torch) $ pip freeze > ~/venv/requirements_rsl_base_torch.txt
 ```
 
 ### 仮想環境のディアクティベート
@@ -416,8 +459,8 @@ $
 
 ```bash
 $ du -sh ~/venv/*/
-1.2G	/home/rsl/venv/rsl_base/
-7.1G	/home/rsl/venv/rsl_base_torch/
+1.3G	/home/rsl/venv/rsl_base/
+7.2G	/home/rsl/venv/rsl_base_torch/
 ```
 
 #### 参考
