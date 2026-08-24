@@ -52,10 +52,12 @@ drwxrwxr-x 6 rsl rsl 4.0K  9月 10 10:19 ..
 $ echo $PATH
 /home/rsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $ less ~/.profile
-$ echo -e '\n# Pythonインストール時に追加' >> ~/.profile
-$ echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
-$ less ~/.profile
-$ diff ~/.profile-org ~/.profile
+$
+ echo -e '\n# Pythonインストール時に追加' >> ~/.profile
+ echo 'export PATH="$HOME/opt/python/bin:$PATH"' >> ~/.profile
+$
+ less ~/.profile
+ diff ~/.profile-org ~/.profile
 27a28,33
 >
 >
@@ -63,6 +65,7 @@ $ diff ~/.profile-org ~/.profile
 >
 > # Pythonインストール時に追加
 > export PATH="$HOME/opt/python/bin:$PATH"
+
 $ echo $PATH
 /home/rsl/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $ source ~/.profile
@@ -88,10 +91,10 @@ $ cd
 $ mkdir ~/venv/
 $ python3.12 -m venv ~/venv/rsl_base
 $ source ~/venv/rsl_base/bin/activate
-(rsl_base) rsl@recsyslab-mint:~$
+(rsl_base) $
 ```
 
-仮想環境にアクティベートすると、プロンプトの先頭に`(rsl_base)`のように仮想環境名が表示される。以降、`(【仮想環境】) $`と記載している箇所は、`【仮想環境】`にアクティベートした状態で入力するコマンドを表す。
+仮想環境にアクティベートすると、プロンプトの先頭に`(rsl_base)`のように仮想環境名が表示される。以降、`(<VENV>) $`と記載している箇所は、仮想環境`<VENV>`にアクティベートした状態で入力するコマンドを表す。
 
 ### pipのアップグレード
 
@@ -99,7 +102,7 @@ $ source ~/venv/rsl_base/bin/activate
 (rsl_base) $ pip --version
 (rsl_base) $ pip install --upgrade pip
 (rsl_base) $ pip --version
-pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3.12)
+pip 26.2.1 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
 ### 各種パッケージのインストール
@@ -118,7 +121,6 @@ pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3
  pip install psycopg2-binary
 
  pip install tqdm
- pip install timedelta
  pip install requests
  pip install importnb
  pip install importlib
@@ -202,9 +204,6 @@ psycopg2-binary==2.9.12
 
 # tqdm
 tqdm==4.67.3
-
-# timedelta
-timedelta==2020.12.3
 
 # requests
 certifi==2026.4.22
@@ -362,7 +361,7 @@ $ source ~/venv/rsl_base_torch/bin/activate
 ### インストール済みパッケージ一覧の確認
 
 ```bash
-(rsl_base) $ pip freeze
+(rsl_base_torch) $ pip freeze
 # torch, torchvision, torchaudio
 filelock==3.25.2
 fsspec==2026.2.0
@@ -459,8 +458,8 @@ $
 
 ```bash
 $ du -sh ~/venv/*/
-1.3G	/home/rsl/venv/rsl_base/
-7.2G	/home/rsl/venv/rsl_base_torch/
+1.4G	/home/rsl/venv/rsl_base/
+7.3G	/home/rsl/venv/rsl_base_torch/
 ```
 
 #### 参考
