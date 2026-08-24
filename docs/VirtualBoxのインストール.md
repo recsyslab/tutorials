@@ -4,8 +4,9 @@
 
 1. 下記からVirtualBoxをダウンロードする。
    - **[Downloads – Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads)**
-   - **VirtualBox 7.＊.＊＊ platform packages > Windows hosts**: `VirtualBox-7.＊.＊＊-＊-Win.exe`
-2. `VirtualBox-7.＊.＊＊-＊-Win.exe`を実行する。
+   - **VirtualBox 7.1.8 > Windows hosts**: `VirtualBox-7.1.8-168469-Win.exe`
+   - ※今回構築した仮想マシンを別のPCでも登録したい場合は、VirtualBoxのバージョンを合わせておく必要がある。
+2. `VirtualBox-7.1.8-168469-Win.exe`を実行する。
    1. ダイアログにしたがって任意に設定し、**Install**ボタンをクリックする。
    2. インストールが完了したら、**Finish**ボタンをクリックする。
 
