@@ -18,15 +18,25 @@ $ <COMMAND>
 ```
 のように、`$`より前の部分は省略している。`<COMMAND>`部分の内容を端末に入力し実行する。一つ一つのコマンドの意味を理解しながら打ち込んでいくと良い。
 
+また、ドキュメントからコピー＆ペーストしやすいように、コマンドが連続する場合は、
+```bash
+$
+ <COMMAND1>
+ <COMMAND2>
+ <COMMAND3>
+```
+のように、冒頭のみプロンプトを表示し、次の行からコマンドを複数行にわたって記述することもある。
+
 ## ディレクトリの準備
 - `~/bin/`: 独自のシェルスクリプトを置いておく。
 - `~/src/`: ソースからインストールする際に必要なファイルを置いておく。
 - `~/opt/`: 追加したアプリケーションを置いておく。
 ```bash
 $ ls
-$ mkdir ~/bin/
-$ mkdir ~/src/
-$ mkdir ~/opt/
+$
+ mkdir ~/bin/
+ mkdir ~/src/
+ mkdir ~/opt/
 $ ls
 bin  src           テンプレート  ドキュメント  ピクチャ      公開
 opt  ダウンロード  デスクトップ  ビデオ        ミュージック
@@ -44,9 +54,10 @@ $ less ~/.profile
 $ cp ~/.profile ~/.profile-org
 $ ls -a
 $ echo -e '\n\n#### #### Add below. #### ####' >> ~/.profile
-$ less ~/.profile
-$ less ~/.profile-org
-$ diff ~/.profile-org ~/.profile
+$
+ less ~/.profile
+ less ~/.profile-org
+ diff ~/.profile-org ~/.profile
 27a28,30
 > 
 > 
@@ -60,9 +71,10 @@ $ less ~/.bashrc
 $ cp ~/.bashrc ~/.bashrc-org
 $ ls -a
 $ echo -e '\n\n#### #### Add below. #### ####' >> ~/.bashrc
-$ less ~/.bashrc
-$ less ~/.bashrc-org
-$ diff ~/.bashrc-org ~/.bashrc
+$
+ less ~/.bashrc
+ less ~/.bashrc-org
+ diff ~/.bashrc-org ~/.bashrc
 117a118,120
 > 
 > 
@@ -79,9 +91,10 @@ $ less /etc/apt/sources.list
 $ sudo cp /etc/apt/sources.list /etc/apt/sources.list-org
 $ ls /etc/apt/
 $ sudo sh -c 'echo "\n\n#### #### Add below. #### ####" >> /etc/apt/sources.list'
-$ less /etc/apt/sources.list
-$ less /etc/apt/sources.list-org
-$ diff /etc/apt/sources.list-org /etc/apt/sources.list
+$
+ less /etc/apt/sources.list
+ less /etc/apt/sources.list-org
+ diff /etc/apt/sources.list-org /etc/apt/sources.list
 7a8,10
 > 
 > 
@@ -193,10 +206,11 @@ $ ~/bin/startup.sh
 $ ls /mnt/
 $ less ~/bin/startup.sh
 $ sudo mkdir -p /mnt/c/
-$ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
-$ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
-$ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
-$ echo -e 'df -h\n' >> ~/bin/startup.sh
+$
+ echo -e '\n# Cドライブのマウント' >> ~/bin/startup.sh
+ echo -e 'sudo umount C_DRIVE' >> ~/bin/startup.sh
+ echo -e 'sudo mount -t vboxsf C_DRIVE /mnt/c/' >> ~/bin/startup.sh
+ echo -e 'df -h\n' >> ~/bin/startup.sh
 $ less ~/bin/startup.sh
 $ ~/bin/startup.sh
 Filesystem      Size  Used Avail Use% Mounted on
@@ -211,10 +225,11 @@ $ ls /mnt/x/
 $ ls /mnt/
 $ less ~/bin/startup.sh
 $ sudo mkdir -p /mnt/x/
-$ echo -e '\n# Xドライブのマウント' >> ~/bin/startup.sh
-$ echo -e 'sudo umount X_DRIVE' >> ~/bin/startup.sh
-$ echo -e 'sudo mount -t vboxsf X_DRIVE /mnt/x/' >> ~/bin/startup.sh
-$ echo -e 'df -h\n' >> ~/bin/startup.sh
+$
+ echo -e '\n# Xドライブのマウント' >> ~/bin/startup.sh
+ echo -e 'sudo umount X_DRIVE' >> ~/bin/startup.sh
+ echo -e 'sudo mount -t vboxsf X_DRIVE /mnt/x/' >> ~/bin/startup.sh
+ echo -e 'df -h\n' >> ~/bin/startup.sh
 $ less ~/bin/startup.sh
 $ ~/bin/startup.sh
 Filesystem      Size  Used Avail Use% Mounted on
