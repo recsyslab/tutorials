@@ -11,27 +11,27 @@ $ sudo apt install postgis
 ## PostgreSQLの動作確認とバージョンの確認
 ```bash
 $ sudo -u postgres psql
-psql (16.4 (Ubuntu 16.4-0ubuntu0.24.04.2))
+psql (16.15 (Ubuntu 16.15-0ubuntu0.24.04.1))
 Type "help" for help.
 
-postgres=#
+postgres=# 
 ```
 
 PostgreSQLにログインすると、プロンプトが、
 ```pgsql
 postgres=# 
 ```
-に変わる。`postgres`の部分は接続先データベース名を表す。以降、`【データベース】=#`と記載している箇所は、PostgreSQL上で`【データベース】`に接続した状態で入力するコマンドを表す。
+に変わる。`postgres`の部分は接続先データベース名を表す。以降、`<DATABASE>=#`と記載している箇所は、PostgreSQL上で`<DATABASE>`に接続した状態で入力するコマンドを表す。
 
 ```pgsql
-postgres=# SELECT version();
-                                                             version                                                             
----------------------------------------------------------------------------------------------------------------------------------
- PostgreSQL 16.4 (Ubuntu 16.4-0ubuntu0.24.04.2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
+postgres=#  SELECT version();
+                                                                 version                                                                  
+------------------------------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
 (1 row)
 
 # インストールされたバージョンを確認する。
-# 2024/09/10時点の最新版: 16.4
+# 2026/08/24時点の最新版: 16.15
 postgres=# \q
 # '\'はキーボードの右下のバックスラッシュ「ろ」を押す（右上の'￥'ではない）
 ```
@@ -40,34 +40,37 @@ postgres=# \q
 
 ### /etc/postgresql-common/createcluster.confの準備
 ```bash
+$
+ ls /etc/postgresql-common/
+ less /etc/postgresql-common/createcluster.conf
+ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/createcluster.conf-org
+
 $ ls /etc/postgresql-common/
-$ less /etc/postgresql-common/createcluster.conf
-$ sudo cp /etc/postgresql-common/createcluster.conf /etc/postgresql-common/createcluster.conf-org
-$ ls /etc/postgresql-common/
-createcluster.conf      pg_upgradecluster.d  supported_versions
-createcluster.conf-org  root.crt             user_clusters
+createcluster.conf  createcluster.conf-org  pg_upgradecluster.d  root.crt  supported_versions  user_clusters
 ```
 
 ※下記の`16`の箇所はPostgreSQLのバージョンを表す。インストールされたバージョンに合わせて適宜置換すること。例えば、バージョン14.xをインストールした場合は、`16`の箇所を`14`に置換する。以下、同様。
 
 ### /etc/postgresql/16/main/pg_hba.confの準備
 ```bash
+$
+ ls /etc/postgresql/16/main/
+ sudo less /etc/postgresql/16/main/pg_hba.conf
+ sudo cp /etc/postgresql/16/main/pg_hba.conf /etc/postgresql/16/main/pg_hba.conf-org
+
 $ ls /etc/postgresql/16/main/
-$ sudo less /etc/postgresql/16/main/pg_hba.conf
-$ sudo cp /etc/postgresql/16/main/pg_hba.conf /etc/postgresql/16/main/pg_hba.conf-org
-$ ls /etc/postgresql/16/main/
-conf.d       pg_ctl.conf  pg_hba.conf-org  postgresql.conf
-environment  pg_hba.conf  pg_ident.conf    start.conf
+conf.d  environment  pg_ctl.conf  pg_hba.conf  pg_hba.conf-org  pg_ident.conf  postgresql.conf  start.conf
 ```
 
 ### /etc/postgresql/16/main/postgresql.confの準備
 ```bash
+$
+ ls /etc/postgresql/16/main/
+ less /etc/postgresql/16/main/postgresql.conf
+ sudo cp /etc/postgresql/16/main/postgresql.conf /etc/postgresql/16/main/postgresql.conf-org
+
 $ ls /etc/postgresql/16/main/
-$ less /etc/postgresql/16/main/postgresql.conf
-$ sudo cp /etc/postgresql/16/main/postgresql.conf /etc/postgresql/16/main/postgresql.conf-org
-$ ls /etc/postgresql/16/main/
-conf.d       pg_ctl.conf  pg_hba.conf-org  postgresql.conf      start.conf
-environment  pg_hba.conf  pg_ident.conf    postgresql.conf-org
+conf.d  environment  pg_ctl.conf  pg_hba.conf  pg_hba.conf-org  pg_ident.conf  postgresql.conf  postgresql.conf-org  start.conf
 ```
 
 ## PostgreSQLサーバの起動設定
@@ -75,10 +78,13 @@ environment  pg_hba.conf  pg_ident.conf    postgresql.conf-org
 $ systemctl is-enabled postgresql
 enabled
 # 「enabled」と表示されれば、postgresqlの自動起動が有効になっている。
+
 $ systemctl status postgresql
 ● postgresql.service - PostgreSQL RDBMS
-     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; prese>
-     Active: active (exited) since Tue 2024-09-10 09:41:05 JST; 2min 20s ago
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
+     Active: active (exited) since Mon 2026-08-24 14:36:04 JST; 5min ago
+   Main PID: 10355 (code=exited, status=0/SUCCESS)
+        CPU: 2ms
 ...（略）...
 # 「Active: active (exited)」と表示されれば、postgresqlは稼働している。
 ```
@@ -94,6 +100,7 @@ Enter new password for user "postgres":
 # パスワードを入力しても表示されないが、そのまま入力する。
 Enter it again: 
 # パスワードを入力しても表示されないが、そのまま入力する。
+
 postgres=# \q
 ```
 
@@ -107,14 +114,14 @@ $ sudo vi /etc/postgresql/16/main/pg_hba.conf
 ```txt
 ...（略）...
 # Database administrative login by Unix domain socket
-local all postgres md5
+local   all             postgres                                md5
 ...（略）...
 # "local" is for Unix domain socket connections only
-local all all md5
+local   all             all                                     md5
 ...（略）...
 # Allow replication connections from localhost, by a user with the
 # replication privilege.
-local replication all md5
+local   replication     all                                     md5
 ...（略）...
 ```
 
@@ -133,6 +140,7 @@ $ sudo diff /etc/postgresql/16/main/pg_hba.conf-org /etc/postgresql/16/main/pg_h
 < local   replication     all                                     peer
 ---
 > local   replication     all                                     md5
+
 $ sudo systemctl reload postgresql
 $ systemctl status postgresql
 $ sudo -u postgres psql
@@ -153,21 +161,22 @@ $ sudo vi /etc/postgresql/16/main/postgresql.conf
 ...（略）...
 track_counts = on
 ...（略）...
-autovacuum = on
+autovacuum = on                 # Enable autovacuum subprocess?  'on'
 ...（略）...
 ```
 
 ```bash
 $ sudo less /etc/postgresql/16/main/postgresql.conf
 $ sudo diff /etc/postgresql/16/main/postgresql.conf-org /etc/postgresql/16/main/postgresql.conf
-620c620
+625c625
 < #track_counts = on
 ---
 > track_counts = on
-640c640
+645c645
 < #autovacuum = on			# Enable autovacuum subprocess?  'on'
 ---
 > autovacuum = on			# Enable autovacuum subprocess?  'on'
+
 $ sudo systemctl reload postgresql
 $ systemctl status postgresql
 ```
@@ -176,9 +185,12 @@ $ systemctl status postgresql
 1. RAKUS Developers Blog, [VACUUMでPostgreSQLのゴミデータをお掃除！](https://tech-blog.rakus.co.jp/entry/20221227/vacuum)
 
 ## rslユーザの作成
+ここではパスワードをサンプルとして`rsl-pass`としているが、任意のパスワードを設定すること。
+
 ```pgsql
-postgres=# CREATE ROLE rsl WITH LOGIN PASSWORD '【パスワード】';
+postgres=# CREATE ROLE rsl WITH LOGIN PASSWORD 'rsl-pass';
 ```
+
 
 ## PostGISの動作テスト
 ```bash
@@ -186,7 +198,7 @@ $ sudo -u postgres psql
 ```
 
 ```pgsql
-postgres=# \l
+postgres=#  \l
                                                        List of databases
    Name    |  Owner   | Encoding | Locale Provider |   Collate   |    Ctype    | ICU Locale | ICU Rules |   Access privileges   
 -----------+----------+----------+-----------------+-------------+-------------+------------+-----------+-----------------------
@@ -199,6 +211,7 @@ postgres=# \l
 
 postgres=# CREATE DATABASE gistest ENCODING 'UTF8';
 CREATE DATABASE
+
 postgres=# \l
                                                        List of databases
    Name    |  Owner   | Encoding | Locale Provider |   Collate   |    Ctype    | ICU Locale | ICU Rules |   Access privileges   
@@ -213,22 +226,24 @@ postgres=# \l
 
 postgres=# \c gistest
 You are now connected to database "gistest" as user "postgres".
+
 gistest=# \d
 Did not find any relations.
+
 gistest=# CREATE EXTENSION postgis;
 CREATE EXTENSION
+
 gistest=# SELECT postgis_full_version();
                                                                                                                                        postgis_full_version                                                                                                                                       
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  POSTGIS="3.4.2 c19ce56" [EXTENSION] PGSQL="160" GEOS="3.12.1-CAPI-1.18.1" PROJ="9.4.0 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/tmp/proj DATABASE_PATH=/usr/share/proj/proj.db" LIBXML="2.9.14" LIBJSON="0.17" LIBPROTOBUF="1.4.1" WAGYU="0.5.0 (Internal)"
 (1 row)
 
-gistest=# CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
-CREATE TABLE
-gistest=# CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
-CREATE TABLE
-gistest=# INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
-INSERT 0 1
+gistest=#
+ CREATE TABLE sample(id INT, name TEXT, PRIMARY KEY(id));
+ CREATE TABLE gissample(id SERIAL, point GEOMETRY(POINT, 4326), line GEOMETRY(LINESTRING, 4326), polygon GEOMETRY(POLYGON, 4326));
+ INSERT INTO gissample(point, line, polygon) VALUES(ST_GeomFromText('POINT(50 50)', 4326), ST_GeomFromText('LINESTRING(1 1, 99 99)', 4326), ST_GeomFromText('POLYGON((25 25, 75 25, 75 75, 25 75, 25 25))', 4326));
+
 gistest=# SELECT ST_AsText(polygon) AS polygon FROM gissample;
                  polygon                  
 ------------------------------------------
