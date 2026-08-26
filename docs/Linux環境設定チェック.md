@@ -114,9 +114,9 @@ $ sudo ufw status
 $ lsb_release -a
 No LSB modules are available.
 Distributor ID:	Linuxmint
-Description:	Linux Mint 22
-Release:	22
-Codename:	wilma
+Description:	Linux Mint 22.3
+Release:	22.3
+Codename:	zena
 ```
 
 ### アーキテクチャの確認
