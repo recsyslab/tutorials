@@ -35,28 +35,28 @@ $ ~/bin/startup.sh
 ...（略）...
 Filesystem      Size  Used Avail Use% Mounted on
 ...（略）...
-/dev/sda3       314G   18G  280G   6% /
+/dev/sda3       503G   32G  445G   7% /
 ...（略）...
-C_DRIVE         476G  446G   31G  94% /mnt/c
-X_DRIVE         895G  878G   18G  99% /mnt/x
+C_DRIVE         476G  442G   35G  93% /mnt/c
+X_DRIVE         932G   55G  877G   6% /mnt/x
 ```
 
 ### ホームディレクトリの確認
 ```bash
 $ ls -l
 合計 48
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Desktop
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Documents
-drwxr-xr-x 2 rsl rsl 4096  9月  9 19:02 Downloads
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Music
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Pictures
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Public
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Templates
-drwxr-xr-x 2 rsl rsl 4096  9月  9 18:41 Videos
-drwxrwxr-x 2 rsl rsl 4096  9月 10 13:01 bin
-drwxrwxr-x 3 rsl rsl 4096  9月 10 10:11 opt
-drwxrwxr-x 4 rsl rsl 4096  9月 10 10:42 src
-drwxrwxr-x 3 rsl rsl 4096  9月 10 10:23 venv
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Desktop
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Documents
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Downloads
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Music
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Pictures
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Public
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Templates
+drwxr-xr-x 2 rsl rsl 4096  8月 24 15:34 Videos
+drwxrwxr-x 2 rsl rsl 4096  8月 24 14:17 bin
+drwxrwxr-x 3 rsl rsl 4096  8月 24 14:58 opt
+drwxrwxr-x 3 rsl rsl 4096  8月 26 14:32 src
+drwxrwxr-x 4 rsl rsl 4096  8月 24 15:24 venv
 ```
 
 ### 設定ファイルの確認
@@ -128,7 +128,7 @@ x86_64
 ### ホスト名の確認
 ```bash
 $ hostname
-recsyslab-mint
+recXXX-mint
 ```
 
 ### IPアドレスの確認
@@ -144,16 +144,19 @@ enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 $ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 ...（略）...
-/dev/sda3       314G   18G  280G   6% /
+/dev/sda3       503G   32G  445G   7% /
 ...（略）...
-C_DRIVE         476G  449G   28G  95% /mnt/c
-X_DRIVE         895G  878G   18G  99% /mnt/x
+C_DRIVE         476G  442G   35G  93% /mnt/c
+X_DRIVE         932G   55G  877G   6% /mnt/x
+
 $ cat /proc/cpuinfo | grep 'model name'
 model name	: 12th Gen Intel(R) Core(TM) i7-12650H
 ...（略）...
+
 $ cat /proc/cpuinfo | grep processor
-...（略）...
-processor	: 3
+processor	: 0
+processor	: 1
+
 $ cat /proc/meminfo | grep MemTotal
 MemTotal:       11087264 kB
 ```
@@ -167,15 +170,7 @@ MemTotal:       11087264 kB
 ### バージョンの確認
 ```bash
 $ google-chrome --version
-Google Chrome 128.0.6613.119 
-```
-
-## Symantec Endpoint Protection (SEP)
-
-### バージョンの確認
-```bash
-$ /opt/Symantec/symantec_antivirus/sav info --product
-14.3 (14.3 MP1) build 1148 (14.3.1148.0100)
+Google Chrome 152.0.7977.64 
 ```
 
 ## PostgreSQL+PostGIS
@@ -187,9 +182,9 @@ $ sudo -u postgres psql
 
 ```pgsql
 postgres=# SELECT version();
-                                                             version                                                             
----------------------------------------------------------------------------------------------------------------------------------
- PostgreSQL 16.4 (Ubuntu 16.4-0ubuntu0.24.04.2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
+                                                                 version                                                                  
+------------------------------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
 (1 row)
 
 postgres=# \q
@@ -199,11 +194,11 @@ postgres=# \q
 ```bash
 $ systemctl status postgresql
 ● postgresql.service - PostgreSQL RDBMS
-     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
-     Active: active (exited) since Tue 2024-09-10 12:59:58 JST; 17min ago
-    Process: 1903 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
-   Main PID: 1903 (code=exited, status=0/SUCCESS)
-        CPU: 1ms
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; prese>
+     Active: active (exited) since Wed 2026-08-26 13:44:30 JST; 1h 30min ago
+    Process: 1582 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 1582 (code=exited, status=0/SUCCESS)
+        CPU: 5ms
 ...（略）...
 ```
 
@@ -226,11 +221,11 @@ $ sudo diff /etc/postgresql/16/main/pg_hba.conf-org /etc/postgresql/16/main/pg_h
 
 ```bash
 $ sudo diff /etc/postgresql/16/main/postgresql.conf-org /etc/postgresql/16/main/postgresql.conf
-620c620
+625c625
 < #track_counts = on
 ---
 > track_counts = on
-640c640
+645c645
 < #autovacuum = on			# Enable autovacuum subprocess?  'on'
 ---
 > autovacuum = on			# Enable autovacuum subprocess?  'on'
@@ -251,23 +246,11 @@ Python 3.12.6
 $ cd
 $ source ~/venv/rsl_base/bin/activate
 (rsl_base) $ pip --version
-pip 24.2 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3.12)
+pip 26.2.1 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python 3.12)
+
 (rsl_base) $ pip freeze
-# （一部抜粋）
-importlib==1.0.4
-importnb==2023.11.1
-ipython==8.27.0
-matplotlib==3.9.2
-matplotlib-inline==0.1.7
-numpy==2.1.1
-pandas==2.2.2
-pillow==10.4.0
-psycopg2-binary==2.9.9
-requests==2.32.3
-scikit-learn==1.5.1
-scipy==1.14.1
-timedelta==2020.12.3
-tqdm==4.66.5
+...（略）...
+
 (rsl_base) $ deactivate
 $
 ```
