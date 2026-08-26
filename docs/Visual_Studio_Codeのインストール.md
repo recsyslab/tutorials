@@ -15,8 +15,8 @@ $ rm -f code_latest_amd64.deb
 
 ```bash
 $ code -v
-1.106.0
-ac4cbdf48759c7d8c3eb91ffe6bb04316e263c57
+1.134.0
+110a328ea54b42367b803ec53ee0bf52ef26b419
 x64
 ```
 
