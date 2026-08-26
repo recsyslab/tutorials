@@ -255,17 +255,11 @@ pip 26.2.1 from /home/rsl/venv/rsl_base/lib/python3.12/site-packages/pip (python
 $
 ```
 
-## Jupyter Notebook
-```bash
-$ jupyter-notebook --version
-6.4.12
-```
-
 ## Visual Studio Code
 ```bash
 $ code -v
-1.93.0
-4849ca9bdf9666755eb463db297b69e5385090e3
+1.134.0
+110a328ea54b42367b803ec53ee0bf52ef26b419
 x64
 ```
 
