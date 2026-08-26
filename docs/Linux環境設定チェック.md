@@ -90,7 +90,7 @@ $ diff /etc/apt/sources.list-org /etc/apt/sources.list
 ### 時刻の確認
 ```bash
 $ date
-2024年  9月 10日 火曜日 13:04:38 JST
+2026年  8月 26日 水曜日 15:08:03 JST
 ```
 
 ### サービス一覧の確認
