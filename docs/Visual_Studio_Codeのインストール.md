@@ -56,6 +56,8 @@ $ code
 ## Claude Code
 
 1. VSCodeエディタツールバー右上の**Claude Code: Open**をクリックする。
+2. **Claude.ai Subscription**をクリックする。
+3. **Claude.ai**にサインインする。
 
 #### 参考
 
