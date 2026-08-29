@@ -346,7 +346,7 @@ $ source ~/venv/rsl_base_torch/bin/activate
 
 ```bash
 (rsl_base_torch) $
- pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+ pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu124
  # ...（3分程度）...
  pip install torchinfo
  pip install ray
