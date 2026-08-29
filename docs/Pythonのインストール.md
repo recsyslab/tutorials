@@ -347,7 +347,10 @@ $ source ~/venv/rsl_base_torch/bin/activate
 ```bash
 (rsl_base_torch) $
  pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu124
+# PyTorch2.6以上の場合、RecBoleのコードの修正が必要になる。
  # ...（3分程度）...
+
+(rsl_base_torch) $
  pip install torchinfo
  pip install ray
  pip install pyarrow
