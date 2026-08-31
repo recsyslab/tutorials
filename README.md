@@ -8,5 +8,6 @@
 6. [セキュリティソフトのインストール](docs/セキュリティソフトのインストール.md)
 7. [PostgreSQL+PostGISのインストール](docs/PostgreSQL+PostGISのインストール.md)
 8. [Pythonのインストール](docs/Pythonのインストール.md)
-9. [Visual Studio Codeのインストール](docs/Visual_Studio_Codeのインストール.md)
-10. [Linux環境設定チェック](docs/Linux環境設定チェック.md)
+9. [GitHubの設定](docs/GitHubの設定.md)
+10. [Visual Studio Codeのインストール](docs/Visual_Studio_Codeのインストール.md)
+11. [Linux環境設定チェック](docs/Linux環境設定チェック.md)

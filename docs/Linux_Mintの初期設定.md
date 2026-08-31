@@ -272,22 +272,6 @@ X_DRIVE         895G  878G   18G  99% /mnt/x
 
 ## パッケージのインストール
 
-### sshのインストール
-
-```bash
-$ sudo apt install ssh
-$ ssh -V
-OpenSSH_9.6p1 Ubuntu-3ubuntu13.18, OpenSSL 3.0.13 30 Jan 2024
-```
-
-### gitのインストール
-
-```bash
-$ sudo apt install git
-$ git --version
-git version 2.43.0
-```
-
 ### treeのインストール
 
 ```bash

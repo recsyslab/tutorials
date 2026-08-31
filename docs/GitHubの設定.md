@@ -1,5 +1,23 @@
 # GitHubの設定
 
+## パッケージのインストール
+
+### sshのインストール
+
+```bash
+$ sudo apt install ssh
+$ ssh -V
+OpenSSH_9.6p1 Ubuntu-3ubuntu13.18, OpenSSL 3.0.13 30 Jan 2024
+```
+
+### gitのインストール
+
+```bash
+$ sudo apt install git
+$ git --version
+git version 2.43.0
+```
+
 ## SSH接続の設定
 
 ### SSH Keyの設定
@@ -31,10 +49,11 @@ ssh-ed25519 ...（略）... y＊＊＊＊＊＊@mail.ryukoku.ac.jp
 
 1. [GitHub Dashboard](https://github.com/dashboard)の右上のアカウント設定ボタンから**Settings**を開く。
    1. **SSH and GPG Keys**を開く。
-      1. **New SSH Key**ボタンをクリックし、下記を設定する。
-         - **Title**: `y＊＊＊＊＊＊@rsl-local`
-         - **Key**: `id_rsa.pub`の内容を貼り付ける。※`id_rsa`ではないので注意
-      2. **Add SSH Key**ボタンをクリックする。
+      1. **New SSH Key**ボタンをクリックする。
+      2. 下記を設定する。
+         - **Title**: `rsl@rsl＊＊＊-mint`
+         - **Key**: `id_ed25519.pub`の内容を貼り付ける。 # `id_ed25519`ではないので注意
+      3. **Add SSH Key**ボタンをクリックする。
          - 成功すると登録したメールアドレスに公開鍵登録完了メールが届く。
 
 ### SSH接続の確認
@@ -43,57 +62,28 @@ ssh-ed25519 ...（略）... y＊＊＊＊＊＊@mail.ryukoku.ac.jp
 
 ```bash
 $ ssh -T git@github.com
-Enter passphrase for key '/home/rsl/.ssh/id_rsa': 【パスフレーズ】
 Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
-## Gitのインストール
-
-```bash
-$ sudo apt install git
 ```
 
 ## リポジトリのclone
 
 1. 下記URLでリポジトリにアクセスする。
-   - `https://github.com/recsyslab/rsl＊＊＊`（`rsl＊＊＊`はRSL番号）
-2. リポジトリのトップページの**Code - SSH**タブからcloneする際に指定するパスをコピーする。
-   - `git clone git@github.com:recsyslab/rsl＊＊＊.git`
-3. 下記コマンドでリポジトリをcloneする。
+   - `https://github.com/recsyslab/rsl＊＊＊` # `rsl＊＊＊`はRSL番号
+   1. リポジトリのトップページの**Code**を開く。
+      1. **SSH**タブからSSHのURLをコピーする。
+         - **URL**: `git@github.com:recsyslab/rsl＊＊＊.git`
+2. 下記コマンドでリポジトリをcloneする。
 
 ```bash
-$ cd
-$ git clone git@github.com:recsyslab/rsl＊＊＊.git（上記でコピーしたパス）
-$ cd ~/rsl＊＊＊/
-$ ls
+$ mkdir ~/dev/
+$ cd ~/dev/
+$ git clone git@github.com:recsyslab/rsl＊＊＊.git # 上記でコピーしたURL
+Cloning into 'rsl＊＊＊'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+
+$ cd rsk＊＊＊/
+README.md
 ```
-
-## リポジトリへのDjangoプロジェクトのpush
-
-### リポジトリのpull
-
-```bahs
-$ cd ~/rsl＊＊＊/
-$ git pull
-```
-
-### Djangoプロジェクトのコピー
-
-※ここでは、ホームディレクトリに`recsys_django`プロジェクトが作成されているとする。
-
-```bash
-$ cp -r ~/recsys_django/ ~/rsl＊＊＊/
-$ ls ~/rsl＊＊＊/
-```
-
-### push
-
-```bash
-$ cd ~/rsl＊＊＊/
-$ git add recsys_django/
-$ git status
-$ git commit -m "add recsys_django/"
-$ git push
-```
-
-GitHubの`rsl＊＊＊`リポジトリにアクセスし、`recsys_django`プロジェクトが配置されていればOK。
