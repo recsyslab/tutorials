@@ -280,6 +280,14 @@ $ git --version
 git version 2.43.0
 ```
 
+## sshのインストール
+
+```bash
+$ sudo apt install ssh
+$ ssh -V
+OpenSSH_9.6p1 Ubuntu-3ubuntu13.18, OpenSSL 3.0.13 30 Jan 2024
+```
+
 ### treeのインストール
 
 ```bash
