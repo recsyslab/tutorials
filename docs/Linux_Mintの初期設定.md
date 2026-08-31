@@ -1,36 +1,46 @@
 # Linux Mintの初期設定
 
 ## Linuxへのログイン
+
 1. **Oracle VM VirtualBox マネージャー**を起動する。
    1. 対象の仮想マシンを選択し、**起動**ボタンをクリックする。
       1. Linuxにログインする。
 
 ## 端末の実行
+
 1. Linux Mintデスクトップ左下の**端末**アイコンをクリックする。
 
 端末を開くと、
+
 ```bash
-rsl@rslXXX-mint:~$ 
+rsl@rsl＊＊＊-mint:~$
 ```
+
 と表示される。`$`までの部分はプロンプトとよび、コマンド入力待ちを表す。本チュートリアルでは、
+
 ```bash
 $ <COMMAND>
 ```
+
 のように、`$`より前の部分は省略している。`<COMMAND>`部分の内容を端末に入力し実行する。一つ一つのコマンドの意味を理解しながら打ち込んでいくと良い。
 
 また、ドキュメントからコピー＆ペーストしやすいように、コマンドが連続する場合は、
+
 ```bash
 $
  <COMMAND1>
  <COMMAND2>
  <COMMAND3>
 ```
+
 のように、冒頭のみプロンプトを表示し、次の行からコマンドを複数行にわたって記述することもある。
 
 ## ディレクトリの準備
+
 - `~/bin/`: 独自のシェルスクリプトを置いておく。
 - `~/src/`: ソースからインストールする際に必要なファイルを置いておく。
 - `~/opt/`: 追加したアプリケーションを置いておく。
+
 ```bash
 $ ls
 $
@@ -42,11 +52,14 @@ bin  opt  src  venv  ダウンロード  テンプレート  デスクトップ 
 ```
 
 ## 設定ファイルの準備
+
 設定ファイルとして、`.profile`と`.bashrc`の準備をしておく。それぞれの初期状態を`.profile-org`, `.bashrc-org`としてバックアップしておく。今後、設定ファイルを更新する場合は、`.profile`, `.bashrc`の`Add below.`以下に追記していく。
+
 - `.profile`: ログイン時に1度だけ読み込まれる。
 - `.bashrc`: bash起動の度に読み込まれる。
 
 ### .profileの準備
+
 ```bash
 $ ls -a
 $ less ~/.profile
@@ -58,12 +71,13 @@ $
  less ~/.profile-org
  diff ~/.profile-org ~/.profile
 27a28,30
-> 
-> 
+>
+>
 > #### #### Add below. #### ####
 ```
 
 ### .bashrcの準備
+
 ```bash
 $ ls -a
 $ less ~/.bashrc
@@ -75,15 +89,17 @@ $
  less ~/.bashrc-org
  diff ~/.bashrc-org ~/.bashrc
 117a118,120
-> 
-> 
+>
+>
 > #### #### Add below. #### ####
 ```
 
 #### 参考
+
 1. OXY NOTES, [ユーザーの環境変数を設定するbashの設定ファイルと、カスタムプロンプトについて](https://oxynotes.com/?p=5418)
 
 ### /etc/apt/sources.listのバックアップ
+
 ```bash
 $ ls /etc/apt/
 $ less /etc/apt/sources.list
@@ -95,16 +111,19 @@ $
  less /etc/apt/sources.list-org
  diff /etc/apt/sources.list-org /etc/apt/sources.list
 7a8,10
-> 
-> 
+>
+>
 > #### #### Add below. #### ####
 ```
 
 #### 参考
+
 1. Linuxゲリラ戦記, [/etc/apt/sources.list（パッケージのダウンロード元設定ファイル・Debian）](https://www.garunimo.com/program/linux/_etc_apt_sources_list.php)
 
 ## 正確な時刻を設定する
+
 時刻が正確でないと、何らかのプログラムを実行する際に不具合が生じることがある。
+
 ```bash
 $ date
 $ sudo apt install ntpdate
@@ -113,12 +132,15 @@ $ date
 ```
 
 #### 参考
+
 1. ＠IT, [【 ntpdate 】コマンド――時刻をNTPサーバと同期する](https://www.atmarkit.co.jp/ait/articles/1906/21/news013.html)
 
 ## パッケージのアップグレード
+
 `apt upgrade`によるアップグレードとアップデートマネージャによるアップグレードがある。両方を定期的に実行しておく。
 
 ### apt upgradeによるアップグレード
+
 ```bash
 $ sudo apt update
 $ sudo apt upgrade
@@ -128,6 +150,7 @@ $ sudo apt upgrade
 ```
 
 ### アップデートマネージャーによるアップグレード
+
 1. Linux Mintデスクトップ右下のタスクトレイの**アップデートマネージャー**を起動する。
    1. **アップデートマネージャーへようこそ**画面が表示されたら、**OK**ボタンをクリックする。
    2. 「システムは最新です」と表示されればOK。
@@ -135,6 +158,7 @@ $ sudo apt upgrade
          - ...（10分程度）...
 
 ## 日本語入力の設定
+
 ```bash
 $ sudo apt install fcitx-mozc
 $ im-config -n fcitx
@@ -145,13 +169,14 @@ $ sudo reboot
 ```bash
 $ fcitx-configtool
 ```
+
 1. Fcitx設定画面で**全体の設定**タブを開く。
    1. 下記を設定する。
       - **入力メソッドのオンオフ**: `Zenkakuhankaku` `空`
         - `空`に設定する場合は、ボックスをクリックし、**Esc**キーを押す。
 
-
 ## ディレクトリ名を英語表記に変更
+
 ```bash
 $ ls
 $ LANG=C xdg-user-dirs-gtk-update
@@ -162,9 +187,11 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  bin  
 ```
 
 #### 参考
+
 1. Qiita, [「デスクトップ」等のディレクトリ名を英語にする](https://qiita.com/take5249/items/13ada73bbd01ee12a2c3)
 
 ## ファイアウォールの設定
+
 ```bash
 $ sudo apt install gufw
 $ sudo ufw status
@@ -179,7 +206,9 @@ $ sudo ufw status
 ```
 
 ## スタートアップシェルスクリプトの作成
+
 サーバの起動やドライブのマウントなど、Linux起動時に行いたいことはスタートアップシェルスクリプトに記述しておくと良い。下記では、スタートアップシェルスクリプトとして`startup.sh`を作成しておく。今後は、必要に応じて、このファイルに追記していく。
+
 ```bash
 $ echo -e '#! /bin/sh\n' >> ~/bin/startup.sh
 $ ls -l ~/bin/
@@ -193,14 +222,17 @@ $ less ~/bin/startup.sh
 ```
 
 Linux起動時に下記コマンドを実行することで、必要な初期設定を一括で実行することができる。
+
 ```bash
 $ ~/bin/startup.sh
 ```
 
 ## Windows共有フォルダのマウント
+
 [VirtualBoxの環境設定](VirtualBoxの環境設定.md)であらかじめ共有フォルダーを追加しておくこと。
 
 ### Cドライブのマウント
+
 ```bash
 $ ls /mnt/
 $ less ~/bin/startup.sh
@@ -220,6 +252,7 @@ $ ls /mnt/x/
 ```
 
 ### Xドライブ（外付けSSD）のマウント
+
 ```bash
 $ ls /mnt/
 $ less ~/bin/startup.sh
@@ -240,6 +273,7 @@ X_DRIVE         895G  878G   18G  99% /mnt/x
 ## パッケージのインストール
 
 ### gitのインストール
+
 ```bash
 $ sudo apt install git
 $ git --version
@@ -247,6 +281,7 @@ git version 2.43.0
 ```
 
 ### treeのインストール
+
 ```bash
 $ sudo apt install tree
 $ tree --version
