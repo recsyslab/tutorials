@@ -69,7 +69,7 @@ Hi y＊＊＊＊＊＊! You've successfully authenticated, but GitHub does not p
 
 1. 下記URLでリポジトリにアクセスする。
    - `https://github.com/recsyslab/rsl＊＊＊` # `rsl＊＊＊`はRSL番号
-   1. リポジトリのトップページの**Code**を開く。
+   1. リポジトリのトップページから**Code**を開く。
       1. **SSH**タブからSSHのURLをコピーする。
          - **URL**: `git@github.com:recsyslab/rsl＊＊＊.git`
 2. 下記コマンドでリポジトリをcloneする。
@@ -84,6 +84,14 @@ remote: Counting objects: 100% (3/3), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 Receiving objects: 100% (3/3), done.
 
-$ cd rsk＊＊＊/
+$ cd rsl＊＊＊/
+$ ls
 README.md
+```
+
+## Author identityの設定
+
+```bash
+$ git config --global user.email "y＊＊＊＊＊＊@mail.ryukoku.ac.jp"
+$ git config --global user.name "rsl＊＊＊"
 ```
